@@ -1,0 +1,104 @@
+\documentclass[twoside,english,1p,final,sort&compress]{elsarticle}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\pagestyle{headings}
+\usepackage{amsthm}
+\usepackage{gensymb}
+\usepackage{xspace}
+\usepackage{amsmath}
+\usepackage{accents}
+\usepackage{multirow}
+\usepackage{xcolor}
+\usepackage{amssymb}
+
+% To have Times only in text not maths
+\renewcommand{\rmdefault}{ptm}
+
+\makeatletter
+
+\theoremstyle{plain}
+\newtheorem{thm}{\protect\theoremname}
+
+% specify here the journal
+\journal{NAME OF THE JOURNAL}
+
+% use this if you need line numbers
+\usepackage{lineno}
+
+\makeatother
+
+\usepackage{babel}
+\providecommand{\theoremname}{Theorem}
+
+\newcommand{\w}{\mbox{\large\ensuremath{\mathsf{w}}}}
+\newcommand{\A}{\mbox{\large\ensuremath{\mathsf{A}}}}
+\newcommand{\B}{\mbox{\large\ensuremath{\mathsf{B}}}}
+\newcommand{\C}{\mbox{\large\ensuremath{\mathsf{C}}}}
+\newcommand{\dotp}{\boldsymbol{\cdot}}
+\newcommand{\ccirc}{\kern0.5ex\vcenter{\hbox{$\scriptstyle\circ$}}\kern0.5ex}
+\newcommand{\e}[1]{\exp\left({#1}\right)}
+\newcommand{\lay}[1]{^{(#1)}}
+\newcommand{\mdot}[1]{\accentset{\mbox{\bfseries .}}{#1}}
+\newcommand*{\ie}{\emph{i.e.}\@\xspace}
+\newcommand*{\versus}{\emph{vs.}\@\xspace}
+\newcommand*{\eal}{et \emph{al.}\@\xspace}
+\newcommand*{\eg}{e.g.,\@\xspace}
+\newcommand{\ERMS}{\text{E}_\text{RMS}}
+\newcommand{\AARE}{\text{E}_\text{AAR}}
+\newcommand{\Dev}	{\mbox{\Large\ensuremath{\mathsf{s}}}}
+\DeclareMathOperator{\sech}{sech}
+\DeclareMathOperator{\sigmoid}{sig}
+
+% Redefine the esvector shape to remove overlapping
+\usepackage{esvect}
+\def\traitfill@#1#2#3#4{%
+  $\m@th\mkern2mu\relax#4#1\mkern-1.5mu %on met \relbaredd au d\'ebut
+   \cleaders\hbox{$#4\mkern-0.3mu#2\mkern-0.3mu$}\hfill %remplit avec relbareda
+   \mkern-1.5mu#3$%
+}
+\renewcommand{\overrightarrow}{\vv}
+
+\begin{document}
+
+\begin{frontmatter}{}
+
+\title{TITLE}
+
+\author[LGP]{Olivier Pantalé \corref{cor1}}
+
+\ead{Olivier.Pantale@enit.fr}
+\ead[url]{http://www.enit.fr}
+
+\author[LGP]{AUTHOR 2}
+
+\author[LGP]{AUTHOR 3}
+
+\cortext[cor1]{Corresponding author}
+
+\address[LGP]{Laboratoire Génie de Production, INP/ENIT, Université de Toulouse, 47 Av d'Azereix, Tarbes, France 65016}
+
+\begin{abstract}
+ABSTRACT
+\end{abstract}
+\begin{keyword}
+KEY1 \sep KEY2 \sep KEY3 \sep KEY4 \sep KEY5
+\end{keyword}
+
+\end{frontmatter}{}
+
+\section{SECTION 1\label{sec:SECTION1}}
+
+BLA BLA \cite{mime}
+
+\section{SECTION 2\label{sec:SECTION2}}
+
+BLA BLA 
+
+\section{SECTION 3\label{sec:SECTION3}}
+BLA BLA
+
+\bibliographystyle{elsarticle-num}
+\addcontentsline{toc}{section}{\refname}
+\bibliography{bibtex}
+
+\end{document}
