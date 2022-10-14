@@ -131,7 +131,6 @@ The material used in this study is the modified carbon alloy AISI P20 whose chem
 \begin{table}[h!]
 \centering{}
 \caption{Chemical Composition of the AISI P20 Steel (Weight Percent)}
-\scalebox{0.9}{
 \begin{tabular}{lcccccccc}
 \hline
 C  &Mn & Mo   & Si   & Ni       &Cr& Cu & Other& Balance\\
@@ -139,7 +138,7 @@ C  &Mn & Mo   & Si   & Ni       &Cr& Cu & Other& Balance\\
  0.30        &       0.89      &0.52		   &	0.34     &	 0.68          &1.86& 0.17& Microalloying& Iron\\
 \hline
 \label{tab:Composition}
-\end{tabular}}
+\end{tabular}
 \end{table}
 %------------------------------------------------------------------------
 \subsection{Flow stress behavior}
@@ -241,7 +240,6 @@ The predicted and experimental values are compared, as shown in Figure \ref{fig:
 \begin{table}[h!]
 \centering{}
 \caption{Parameters' constants of Johnson-Cook Model}
-\scalebox{1.2}{
 \begin{tabular}{lccccc}
 \hline
 &         &             &		   &		  &\\
@@ -251,7 +249,7 @@ Parameters&$A(\text{MPa})$    &$B(\text{MPa})$        & $n$     & $C$   & $m$   
 Values&$43.0988$&$114.518$& $0.313969$&$0.0995438$&$0.898932$\\
 \hline
 \label{tab: JCparameters}
-\end{tabular}}
+\end{tabular}
 \end{table}
 %-------------------------------------------------------------------------
 \subsection{Modified Zerilli--Armstrong model\label{sec:MZA}}
@@ -285,7 +283,6 @@ with $S_2=C_5+C_6\left(T-T_0\right)$. Finally, the graph $\ln\sigma^y$ versus $ 
 \begin{table}[h!]
 \centering{}
 \caption{Parameters' constants of Modified--Zerilli-Armstrong Model}
-\scalebox{0.83}{
 \begin{tabular}{lllllllc}
 \hline
 &         &             &		   &		 &			   &&\\
@@ -295,7 +292,7 @@ Parameters&$C_1(\text{MPa})$    &$C_2(\text{MPa})$        & $C_3(\times10^{-5})$
 Values&$43.0988$&$112.975$& $330.976$&$4.27581$&$14106.3$&$17.4178$&$0.305028$\\
 \hline
 \label{tab: MZAparameters}
-\end{tabular}}
+\end{tabular}
 \end{table}
 \begin{figure}[!ht]
 \centering
@@ -324,7 +321,6 @@ Where $\sigma^y$ is the flow stess, $\varepsilon^p$ strain, $\mdot{\varepsilon}^
 \begin{table}[h!]
 \centering{}
 \caption{Parameters' constants of Hansel and Spittel Model}
-\scalebox{0.9}{
 \begin{tabular}{llccccc}
 \hline
 &         &             &		   &		 &			   &\\
@@ -334,7 +330,7 @@ Parameters&$A_0(\text{MPa})$    &$m_1$        & $m_2$     & $m_3$   & $m_4$     
 Values&$9254.77$&$-0.00375057$& $0.208975$&$0.184238$&$-0.00287837$&$-0.000583287$\\
 \hline
 \label{tab: HSparameters}
-\end{tabular}}
+\end{tabular}
 \end{table}
 %----------------------------------------------------------------------------------
 \subsection{Arrhenius model (AR model), \label{sec:ARmodel}}
@@ -440,7 +436,6 @@ n_2(\varepsilon^p) = n_{20} + n_{21}\varepsilon^{{p^1}} + n_{22}\varepsilon^{p^2
 \begin{table}[h!]
 \centering{}
 \caption{Parameters' constants of Arrhenius Model}
-\scalebox{0.95}{
 \begin{tabular}{lllll}
 \hline
 &					  &				      &				        &\\
@@ -456,7 +451,7 @@ Values&$\alpha_3=-8.30819$&$Q_3 =-31.6016$& $n_{23} =651.241$   & $\ln A_3 =-261
 &$\alpha_6 =7.04342$  & $Q_6 = 53.3699$   & $n_{26} =-423.066$  & $\ln A_6 =4422.49$\\
 \hline
 \label{tab: ARparameters}
-\end{tabular}}
+\end{tabular}
 \end{table}
 \begin{figure}[!ht]
 \centering
@@ -481,7 +476,6 @@ Comparison of predicted values of the PTM model and experimental values is shown
 \begin{table}[!h]
 \centering{}
 \caption{Parameters of PTM model\label{tab:PTM-parameters}}
-\scalebox{0.83}{
 \begin{tabular}{cc}
 \hline
 &   \\
@@ -511,7 +505,7 @@ $C_1^2 $ & $-0.00270485$ \\
 $C_1^3 $ & $-0.000483867$\\
 $C_1^4 $ & $0.00174818$ \\
 \hline
-\end{tabular}}
+\end{tabular}
 \end{table}
 \begin{figure}[!ht]
 \centering
@@ -580,7 +574,6 @@ From this table, it can be seen that the ANN model has a good prediction than th
 \begin{table}[h!]
 \centering{}
 \caption{Accurary coefficients of the developped models}
-\scalebox{0.92}{
 \begin{tabular}{lcccccc}
 \hline
 &		&		&         &             &		   &		  		\\
@@ -592,7 +585,7 @@ $\AARE(\%)$&$11.1667$&$11.13020$&$8.15103$&$3.30677$&$4.19549$&$0.81094$   \\
 $\RMSE(\text{MPa})$&$6.30298$&$5.35079$&$6.45287$&$2.03275$&$3.59027$&$0.55158$\\
 \hline
 \label{tab:Coefsparams}
-\end{tabular}}
+\end{tabular}
 \end{table}
 
 %-------------------------------------------------------------------------
@@ -611,7 +604,6 @@ For the validation of the interpolation, the chosen strain rate is $\mdot{\varep
 \begin{table}[h!]
 \centering{}
 \caption{Accuracy coefficients of interpolation}
-\scalebox{0.92}{
 \begin{tabular}{lcccccc}
 \hline
 &		&		&         &             &		   &	\\
@@ -623,14 +615,13 @@ $\AARE(\%)$&$4.2686$&$3.7440$&$6.1391$&$2.3321$&$2.7590$&$1.4018$   \\
 $\RMSE(\text{MPa})$&$4.1923$&$3.1856$&$82.6956$&$2.29891$&$2.4632$&$1.0228$ \\
 \hline
 \label{tab:inValid}
-\end{tabular}}
+\end{tabular}
 \end{table}
 \subsection{Extrapolation validation}
 For the validation of the extrapolation, the chosen strain rate is $\mdot{\varepsilon}^p = 5.0\ \text{s}^{-1}$ and those used for identification (training for ANN) are $\mdot{\varepsilon}^p = 0.001\ \text{s}^{-1}$ , $\mdot{\varepsilon}^p = 0.01\ \text{s}^{-1}$ , $\mdot{\varepsilon}^p = 0.1\ \text{s}^{-1}$, $\mdot{\varepsilon}^p = 1.0\ \text{s}^{-1}$  and $\mdot{\varepsilon}^p = 2.0\ \text{s}^{-1}$. Figure \ref{fig:exCombinaison} shows the comparison between the predictions  and the experimental. Unlike interpolation, the predictions of the analytical models are not very good because the errors are between $3.2\%$ and $12.99\%$ while that of the ANN model is $1.74\%$. Again, the ANN model shows its ability to extrapolate data. This makes it possible to say that the ANN model remains the best tool to characterize the behavior of a material subjected to certain deformation conditions. It can also be noted that the Arhenius and the PTM models still have some ability to extrapolate because their $\AARE$ are respectively $ 3.2 \% $ and $ 3.8 \%$; which are acceptable.
 \begin{table}[h!]
 \centering{}
 \caption{Accuracy coefficients of extrapolation}
-\scalebox{0.92}{
 \begin{tabular}{lcccccc}
 \hline
 &		&		&         &             &		   &	\\
@@ -642,7 +633,7 @@ $\AARE(\%)$&$4.8988$&$3.4506$&$12.9939$&$3.2008$&$3.8845$&$1.7433$\\
 $RMSE(\text{MPa})$&$5.0943$&$4.3048$&$116.517$&$3.7035$&$4.3915$&$1.2513$ \\
 \hline
 \label{tab:exValid}
-\end{tabular}}
+\end{tabular}
 \end{table}
 \begin{figure}[!ht]
 \centering
