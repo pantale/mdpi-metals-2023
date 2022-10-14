@@ -36,10 +36,7 @@
 \usepackage{babel}
 \providecommand{\theoremname}{Theorem}
 
-%\newcommand{\w}{\mbox{\large\ensuremath{\mathsf{w}}}}
-%\newcommand{\A}{\mbox{\large\ensuremath{\mathsf{A}}}}
-%\newcommand{\B}{\mbox{\large\ensuremath{\mathsf{B}}}}
-%\newcommand{\C}{\mbox{\large\ensuremath{\mathsf{C}}}}
+
 \newcommand{\dotp}{\boldsymbol{\cdot}}
 %\newcommand{\ccirc}{\kern0.5ex\vcenter{\hbox{$\scriptstyle\circ$}}\kern0.5ex}
 \newcommand{\e}[1]{\exp\left({#1}\right)}
@@ -49,7 +46,7 @@
 \newcommand*{\versus}{\emph{vs.}\@\xspace}
 \newcommand*{\eal}{et \emph{al.}\@\xspace}
 \newcommand*{\eg}{e.g.,\@\xspace}
-%\newcommand{\ERMS}{\text{E}_\text{RMS}}
+\newcommand{\RMSE}{\text{E}_\text{RMS}}
 \newcommand{\AARE}{\text{E}_\text{AAR}}
 \newcommand{\R}{\text{R}}
 %\newcommand{\Dev}	{\mbox{\Large\ensuremath{\mathsf{s}}}}
@@ -84,7 +81,7 @@
 \address[ETS]{Écolde de Technologie Supérieure, 1100 Rue Notre Dame O, Montréal, QC H3C 1K3}
 
 \begin{abstract}
-The high-temperature deformation behavior of the AISI P20 alloy was investigated by performing hot compression tests over a wide range of strains ($0.025 - 0.7$),  strain rates ($0.001\ \text{s}^{-1} - 5\ \text{s}^{-1}$ ) and temperatures ($1050^\circ\text{C} -1250^\circ$C ). Based on the experimental data (stress-strain curves), empirical models as the Johnson-Cook (JC), Modified-Zerilli-Armstrong (MZA), Hansel-Spittel (HS), Arhenius (AR) and PTM on the one hand and an ANN model on the other hand were developed to predict the flow behavior of this alloy. Then, a comparative study between the analytical models and the ANN model was carried out on the basis of the calculation of some coefficients allowing to test the efficiency of each model. These coefficients are the correlation coefficient $R$, the Average Absolute  Relative Error $AARE$ and the Root Mean Square Error ($RMSE$). From these parameters it was found that the JC, MZA and HS models are not suitable for predicting the behavior of AISI P20 alloy whereas the AR and PTM models can be used for most strain rates to predict the flow behavior of this alloy. For the strain rate ($\mdot{\varepsilon}^p = 0.01\ \text{s}^{-1}$)  the AR model fails to describe the flow for temperatures $1050^\circ$C and $1100^\circ$C  while in the case of the PTM model, the strain rate  ($\mdot{\varepsilon}^p = 0.1\ \text{s}^{-1}$) is not well described. This is due to the fact that this model is a sequence of polynomials which can create oscillations if the degree is high. Regarding the ANN model, the architecture retained is composed of two hidden layers of which the first hidden layer contains $15$ neurons and the second contains $7$ neurons and the input layer contains $3$ neurons corresponding to the strain ($\varepsilon^p$), strain rate ($\mdot{\varepsilon}^p$) and temperature ($T$) and the output layer contains a single neuron corresponding to the flow stress ($\sigma^y$). The results of the ANN model show a very good agreement between the predictions and the experiment. This demonstrates that this  formulation of constitutive law exceeds highly the analytical models in terms of prediction. To validate the performance of these models their capacities to interpolate and extrapolate the data were also tested where all the models relatively prove a good interpolation capacity whereas this is not the case for extrapolation where only the AR, PTM and ANN models are acceptable but still mentioning that the ANN model remains the best in both interpolation and extrapolation.  
+The high-temperature deformation behavior of the AISI P20 alloy was investigated by performing hot compression tests over a wide range of strains ($0.025 - 0.7$),  strain rates ($0.001\ \text{s}^{-1} - 5\ \text{s}^{-1}$) and temperatures ($1050^\circ\text{C} -1250^\circ$C). Based on the experimental data (stress-strain curves), empirical models as the Johnson-Cook (JC), Modified-Zerilli-Armstrong (MZA), Hansel-Spittel (HS), Arhenius (AR) and PTM on the one hand and an ANN model on the other hand were developed to predict the flow behavior of this alloy. Then, a comparative study between the analytical models and the ANN model was carried out on the basis of the calculation of some coefficients allowing to test the efficiency of each model. These coefficients are the correlation coefficient $R$, the Average Absolute  Relative Error $\AARE$ and the Root Mean Square Error ($\RMSE$). From these parameters it was found that the JC, MZA and HS models are not suitable for predicting the behavior of AISI P20 alloy whereas the AR and PTM models can be used for most strain rates to predict the flow behavior of this alloy. For the strain rate ($\mdot{\varepsilon}^p = 0.01\ \text{s}^{-1}$)  the AR model fails to describe the flow for temperatures $1050^\circ$C and $1100^\circ$C  while in the case of the PTM model, the strain rate  ($\mdot{\varepsilon}^p = 0.1\ \text{s}^{-1}$) is not well described. This is due to the fact that this model is a sequence of polynomials which can create oscillations if the degree is high. Regarding the ANN model, the architecture retained is composed of two hidden layers of which the first hidden layer contains $15$ neurons and the second contains $7$ neurons and the input layer contains $3$ neurons corresponding to the strain ($\varepsilon^p$), strain rate ($\mdot{\varepsilon}^p$) and temperature ($T$) and the output layer contains a single neuron corresponding to the flow stress ($\sigma^y$). The results of the ANN model show a very good agreement between the predictions and the experiment. This demonstrates that this  formulation of constitutive law exceeds highly the analytical models in terms of prediction. To validate the performance of these models their capacities to interpolate and extrapolate the data were also tested where all the models relatively prove a good interpolation capacity whereas this is not the case for extrapolation where only the AR, PTM and ANN models are acceptable but still mentioning that the ANN model remains the best in both interpolation and extrapolation.
 \end{abstract}
 
 \begin{keyword}
@@ -97,7 +94,7 @@ Zerilli--Armstrong flow law \sep Constitutive behavior \sep Arhenius--flow law \
 %--------------------------------------------------------------------------
 \section{Introduction\label{sec:Introduction}}
 %--------------------------------------------------------------------------
-Continuous casting and rolling mechanisms are an integral part of the technological methods of medium deformation through a continuous water-cooled crystalliser before entering a rolling mill. Some of the advantages of this method are increased metal yield, energy saving, improved quality of continuous casting and easier mechanisation and automation . Deformation being a very complex process involving both elastic and plastic deformation, is accompanied by high temperatures, high strain rates and complex and variable friction conditions \cite{he2013comparative}. However, a quantitative study and analysis of the deformation mechanism does not provide accurate analytical solutions . Moreover, conducting an experiment is not only time-consuming but also requires a high level of funding \cite{changizian2012high}. To mitigate these two factors (to name but a few), the Finite Element Method (FEM) is widely used in the analysis and optimisation of process parameters of various materials . FEM effectively compensates for the shortcomings of the analytical and experimental methods and plays an important role in the correct formulation of technological parameters, the improvement of product quality and the in-depth knowledge of the deformation mechanism. For example FEM has been widely used to simulate and analyse steel hot forming processes, such as forging, rolling, extrusion and casting but the accuracy of the numerical solution provided by FEM for this type of analysis strongly depends  on the accuracy of the constitutive equation of the concerned material \cite{qin2010modeling, mandal2009constitutive, ji2018constitutive}. 
+Continuous casting and rolling mechanisms are an integral part of the technological methods of medium deformation through a continuous water-cooled crystalliser before entering a rolling mill. Some of the advantages of this method are increased metal yield, energy saving, improved quality of continuous casting and easier mechanisation and automation . Deformation being a very complex process involving both elastic and plastic deformation, is accompanied by high temperatures, high strain rates and complex and variable friction conditions \cite{he2013comparative}. However, a quantitative study and analysis of the deformation mechanism does not provide accurate analytical solutions . Moreover, conducting an experiment is not only time-consuming but also requires a high level of funding \cite{changizian2012high}. To mitigate these two factors (to name but a few), the Finite Element Method (FEM) is widely used in the analysis and optimisation of process parameters of various materials . FEM effectively compensates for the shortcomings of the analytical and experimental methods and plays an important role in the correct formulation of technological parameters, the improvement of product quality and the in-depth knowledge of the deformation mechanism. For example FEM has been widely used to simulate and analyse steel hot forming processes, such as forging, rolling, extrusion and casting but the accuracy of the numerical solution provided by FEM for this type of analysis strongly depends  on the accuracy of the constitutive equation of the concerned material \cite{qin2010modeling, mandal2009constitutive, ji2018constitutive}.
 
 Indeed, hot forming processes are an essential step in the manufacturing of mechanical components and directly affect the ﬁnal quality of the products such as microstructure and mechanical properties \cite{ashtiani2012constitutive}. Several metallurgical phenomena such as work hardening and dynamic softening (dynamic recovery and recrystallisation), which very often occur during hot working, influence the quality of the deformation of materials. The complexity of the deformation behavior, however, leads to the fact that the deformation can only be calculated accurately by using a computer code to model the response of the material under the specified loading conditions. To this end, a mathematical formulation is often used to represent the flow behavior of materials in a form that can be used in finite element software \cite{lin2008prediction,wu2012flow}.
 
@@ -120,14 +117,14 @@ The material used in this study is the modified carbon alloy AISI P20 whose chem
 \begin{figure}[!ht]
 \centering
 \includegraphics[width=0.9\columnwidth]
-{newFigures/Gleeble-3}
+{Figures/Gleeble-3800}
 \caption{Gleeble 3800 simulator system}
 \label{fig:Gleeble3800}
 \end{figure}
 \begin{figure}[!ht]
 \centering
 \includegraphics[width=0.9\columnwidth]
-{newFigures/GleebleDesign}
+{Figures/GleebleDesign}
 \caption{Schematic diagram of the experimental process.}
 \label{fig:Heating}
 \end{figure}
@@ -153,29 +150,29 @@ To explain the overall behavior of the flow stresses observed during this test, 
 \begin{figure}[!ht]
 \centering
 \includegraphics[width=1.02\columnwidth]
-{newFigures/rawData}
+{Figures/rawData}
 \caption{Flow stress-strain curves of AISI P20 alloy at various temperatures and strain rates.}
 \label{fig:rawData}
 \end{figure}
 \begin{figure}[!ht]
 \centering
 \includegraphics[width=0.9\columnwidth]
-{newFigures/BeforeCompM}
+{Figures/BeforeCompM}
 \caption{Optical micrograph of the AISI P20 steel before hot compression held during $5$ minutes at $1260^\circ$C}
 \label{fig:BeforeCompM}
 \end{figure}
 \begin{figure}[!ht]
 \centering
 \includegraphics[width=0.9\columnwidth]
-{newFigures/AfterCompM}
-\caption{Optical micrograph of AISI P20 alloy after howt compression with a strain rate $0.001\ \text{s}^{-1}$ under $1150^\circ$C.}
+{Figures/AfterCompM}
+\caption{Optical micrograph of AISI P20 alloy after hot compression with a strain rate $0.001\ \text{s}^{-1}$ under $1150^\circ$C.}
 \label{fig:AfterCompM}
 \end{figure}
 
 %-------------------------------------------------------------------------
 \section{Phenomenological constitutive flow laws\label{sec:ConstLaws}}
 %-------------------------------------------------------------------------
-The complete characterization of the thermomechanical behavior of a material is very important before its use in numerical simulations. This characterization usually involves experimental tests that serve as a basis for the development of constitutive laws. As mentioned in the introduction, many constitutive laws exist today, and selecting one of them based on explicit criteria hinders the development of computational models for new materials. Since the purpose of this work is to compare ANN model to analytical models it is important to justify the choice of the analytical models presented here among the many that exist in the literature. Among the most widely used analytical models nowadays, the Johnson-Cook (JC) model is the most used due to its simplicity of use linked to the number of its reduced and easy to obtain parameters. It should be noted that it is not the best model but the most integrated in finite element software. Hence the existence of several modified forms of this model. The Zerilli-Armstrong model, and particularly its modified form (MZA), is also widely known since it tries to provide solutions to the shortcomings of the JC model, particularly with regard to the coupling of physical parameters. Hence its use also in this study. In this perspective, the Hansel Spittel model (HS)is also one of the most widely used models in numerical simulation of casting and forging operations as it is integrated in the FORGE software. Also, the method of identifying its parameters is very simple to do as it is done in one step. Of course, it has its limitations as will be shown in the following sections. Furthermore, the Arrhenius model will be used in this study because it is one of the models that not only provides a good prediction of the flow stress but also takes into account the physical parameter Q (the deformation activation energy coefficient) which is of great importance in the study related to the microstructural analysis of materials. The PTM model is also used in this study as it is a model whose formulation does not impose a number of parameters a priori and has proven its ability in our previous work and therefore we want to test it on this type of material as it is formulated to fit any material. 
+The complete characterization of the thermomechanical behavior of a material is very important before its use in numerical simulations. This characterization usually involves experimental tests that serve as a basis for the development of constitutive laws. As mentioned in the introduction, many constitutive laws exist today, and selecting one of them based on explicit criteria hinders the development of computational models for new materials. Since the purpose of this work is to compare ANN model to analytical models it is important to justify the choice of the analytical models presented here among the many that exist in the literature. Among the most widely used analytical models nowadays, the Johnson-Cook (JC) model is the most used due to its simplicity of use linked to the number of its reduced and easy to obtain parameters. It should be noted that it is not the best model but the most integrated in finite element software. Hence the existence of several modified forms of this model. The Zerilli-Armstrong model, and particularly its modified form (MZA), is also widely known since it tries to provide solutions to the shortcomings of the JC model, particularly with regard to the coupling of physical parameters. Hence its use also in this study. In this perspective, the Hansel Spittel model (HS)is also one of the most widely used models in numerical simulation of casting and forging operations as it is integrated in the FORGE software. Also, the method of identifying its parameters is very simple to do as it is done in one step. Of course, it has its limitations as will be shown in the following sections. Furthermore, the Arrhenius model will be used in this study because it is one of the models that not only provides a good prediction of the flow stress but also takes into account the physical parameter Q (the deformation activation energy coefficient) which is of great importance in the study related to the microstructural analysis of materials. The PTM model is also used in this study as it is a model whose formulation does not impose a number of parameters a priori and has proven its ability in our previous work and therefore we want to test it on this type of material as it is formulated to fit any material.
 %-------------------------------------------------------------------------
 \subsection{Johnson--Cook model\label{sec:JC}}
 %-------------------------------------------------------------------------
@@ -199,7 +196,7 @@ By plotting $\ln(\sigma^y-A)$ \versus $\ln\varepsilon^p$ (Figure \ref{fig:JCSigm
 \begin{figure}[!ht]
 \centering
 \includegraphics[width=0.9\columnwidth]
-{newFigures/JCSigmaAB}
+{Figures/JCSigmaAB}
 \caption{Relationship between $ln(\sigma^y -A)$ and $\ln(\varepsilon^p)$ at $1050^\circ$C and $0.1$}
 \label{fig:JCSigmaAB}
 \end{figure}
@@ -208,11 +205,11 @@ Once the parameters $A$, $B$ and $n$ are known and at the reference temperature,
 \begin{equation}
 \frac{\sigma^y}{A + B\varepsilon^{p^n}} = 1 + C\ln\mdot{\varepsilon}^*
 \end{equation}
-From this equation one can easily obtain the parameter $C$ using the linear fitting method for each strain value and averaging all these values as shown in Figure \ref{fig:JCSigmaAB1} the value is $0.0995438$. 
+From this equation one can easily obtain the parameter $C$ using the linear fitting method for each strain value and averaging all these values as shown in Figure \ref{fig:JCSigmaAB1} the value is $0.0995438$.
 \begin{figure}[!ht]
 \centering
 \includegraphics[width=0.9\columnwidth]
-{newFigures/JCSigmaAB1}
+{Figures/JCSigmaAB1}
 \caption{Relationship between $\sigma^y/(A+ B\varepsilon^{p^n})$ and $\ln(\dot{\varepsilon}^*)$}
 \label{fig:JCSigmaAB1}
 \end{figure}
@@ -228,7 +225,7 @@ Plotting $\ln\left(1 - \frac{\sigma^y}{A + B\varepsilon^{p^n}}\right)$ as a func
 \begin{figure}[!ht]
 \centering
 \includegraphics[width=0.85\columnwidth]
-{newFigures/JCSigmaT}
+{Figures/JCSigmaT}
 \caption{Relationship between $\ln\left(1 - \sigma^y/\left(A + B\varepsilon^{p^n}\right)\right)$ and $\ln T^*$}
 \label{fig:JCSigmaT}
 \end{figure}
@@ -237,8 +234,8 @@ The predicted and experimental values are compared, as shown in Figure \ref{fig:
 \begin{figure}[!ht]
 \centering
 \includegraphics[width=1.02\columnwidth]
-{newFigures/CompExpJC}
-\caption{Comparison between the experimental and predicted flow stresses by JC model} 
+{Figures/CompExpJC}
+\caption{Comparison between the experimental and predicted flow stresses by JC model}
 \label{fig:iCorrelationJC}
 \end{figure}
 \begin{table}[h!]
@@ -260,12 +257,12 @@ Values&$43.0988$&$114.518$& $0.313969$&$0.0995438$&$0.898932$\\
 \subsection{Modified Zerilli--Armstrong model\label{sec:MZA}}
 %-------------------------------------------------------------------------
 
-As mentioned earlier, Johnson--Cook's law, widely used in the scientific community and implemented as a base in the Abaqus FEM code, is an empirical model for which the effects of strain, strain rate, and temperature on material behavior are considered separately. Since a coupling exists in reality between these three variables, it is preferable to opt for a Zerilli--Armstrong (ZA) model \cite{Hull-2011-ITD}. But the original for of ZA model has some limitations due to the fact that it is considered as two terms and to ameliorate that formulation Samantaray \eal \cite{Samantaray-2009-Thermo-viscoplastic} proposed a modified form given by the following equation:  
+As mentioned earlier, Johnson--Cook's law, widely used in the scientific community and implemented as a base in the Abaqus FEM code, is an empirical model for which the effects of strain, strain rate, and temperature on material behavior are considered separately. Since a coupling exists in reality between these three variables, it is preferable to opt for a Zerilli--Armstrong (ZA) model \cite{Hull-2011-ITD}. But the original for of ZA model has some limitations due to the fact that it is considered as two terms and to ameliorate that formulation Samantaray \eal \cite{Samantaray-2009-Thermo-viscoplastic} proposed a modified form given by the following equation:
 \begin{equation}
 \label{eq:MZA-model}
 \sigma^y = \left(C_{1}+C_{2}\varepsilon^{p^n}\right) \exp\left[-\left(C_{3}+C_{4}\varepsilon^p\right)\left(T-T_0\right) + \left(C_{5}+C_{6}\left(T-T_0\right)\right)\ln\left( \frac{\mdot{\varepsilon}^p}{\mdot{\varepsilon}_0}\right)\right]
 \end{equation}
-where the $7$ coefficients $C_i$ and $n$ are the parameters of the model to be identified for a given material. The formulation of the model can be found in \cite{Samantaray-2009-Thermo-viscoplastic} and determination of its parameters is sumarized as following. 
+where the $7$ coefficients $C_i$ and $n$ are the parameters of the model to be identified for a given material. The formulation of the model can be found in \cite{Samantaray-2009-Thermo-viscoplastic} and determination of its parameters is sumarized as following.
 
 Considering the expression of the model given by Equation (\ref{eq:MZA-model}), parameter $C_1$ is deduced direcly from $\sigma^y(\varepsilon^p=0,T=T_0,\mdot{\varepsilon}^p=\mdot{\varepsilon}_0)$. When the current strain rate $\mdot{\varepsilon}^p$ is identical to the reference strain rate $\mdot{\varepsilon}_0$, the Equation (\ref{eq:MZA-model}) becomes :
 \begin{equation}
@@ -303,7 +300,7 @@ Values&$43.0988$&$112.975$& $330.976$&$4.27581$&$14106.3$&$17.4178$&$0.305028$\\
 \begin{figure}[!ht]
 \centering
 \includegraphics[width=1.02\columnwidth]
-{newFigures/CompExpMZA}
+{Figures/CompExpMZA}
 \caption{Comparison between the experimental and predicted flow stresses by MZA model}
 \label{fig:iCorrelationMZA}
 \end{figure}
@@ -312,11 +309,11 @@ Values&$43.0988$&$112.975$& $330.976$&$4.27581$&$14106.3$&$17.4178$&$0.305028$\\
 %-------------------------------------------------------------------------
 \subsection{Hansel and Spittel\label{sec:HSmodel}}
 %-------------------------------------------------------------------------
-The Hansel-Spittel model is one of the least known models in terms of its  integration in software for finite element simulation although the determination of its parameters is easier than the JC model. A single programming command is sufficient for its identification. However, this model has some difficulties as it loses its accuracy when all parameters are taken into account. For this reason, several authors limit its use to $5$ or $6$ parameters \cite{chadha2018approach, rudnytskyj2020constitutive, el2015comparison}. In this paper the good predictions are with $5$ parameters summarized in Table \ref{tab: HSparameters}. The equation of the model is given by the following relation: 
+The Hansel-Spittel model is one of the least known models in terms of its  integration in software for finite element simulation although the determination of its parameters is easier than the JC model. A single programming command is sufficient for its identification. However, this model has some difficulties as it loses its accuracy when all parameters are taken into account. For this reason, several authors limit its use to $5$ or $6$ parameters \cite{chadha2018approach, rudnytskyj2020constitutive, el2015comparison}. In this paper the good predictions are with $5$ parameters summarized in Table \ref{tab: HSparameters}. The equation of the model is given by the following relation:
 \begin{figure}[!ht]
 \centering
 \includegraphics[width=1.02\columnwidth]
-{newFigures/CompExpHS}
+{Figures/CompExpHS}
 \caption{Comparison between the experimental and predicted flow stresses by HS model}
 \label{fig:iCorrelationHS}
 \end{figure}
@@ -369,31 +366,31 @@ Furthermore, it is known that:
 \begin{equation}
 arc\sinh(x) = \ln\left(x + \sqrt{1+x^2}\right)
 \end{equation}
-Therefore Equation (\ref{eq:Zparam1}) becomes and which is actually the Arhenius model: 
+Therefore Equation (\ref{eq:Zparam1}) becomes and which is actually the Arhenius model:
 \begin{equation}
 \sigma^y = \frac{1}{\alpha}\ln\left\{\left(\frac{Z}{A_3}\right)^{1/n_2} + \left[1 + \left(\frac{Z}{A_3}\right)^{2/n_2}\right]^{1/2}\right\}
 \end{equation}
-To obtain the constitutive equation, all parameters $\alpha$, $Q$, $n_2$, and $A_3$ needed to be determined. The following part shows the calculation procedures of these material constants at $\varepsilon^p = 0.1$ as example. Taking the natural logarithm of Equations (\ref{eq:ARmodel1}) and (\ref{eq:ARmodel2}), the following relationships can be obtained: 
+To obtain the constitutive equation, all parameters $\alpha$, $Q$, $n_2$, and $A_3$ needed to be determined. The following part shows the calculation procedures of these material constants at $\varepsilon^p = 0.1$ as example. Taking the natural logarithm of Equations (\ref{eq:ARmodel1}) and (\ref{eq:ARmodel2}), the following relationships can be obtained:
 \begin{equation}
 \ln \sigma^y = \frac{1}{n_1}\ln \mdot{\varepsilon}^p -\frac{1}{n_1}\ln A_1 +  \frac{1}{n_1}\frac{Q}{RT}
 \end{equation}
 \begin{equation}
-\sigma^y = \frac{1}{\beta}\ln \mdot{\varepsilon}^p - \frac{1}{\beta}\ln A_2 + \frac{1}{\beta}\frac{Q}{RT} 
+\sigma^y = \frac{1}{\beta}\ln \mdot{\varepsilon}^p - \frac{1}{\beta}\ln A_2 + \frac{1}{\beta}\frac{Q}{RT}
 \end{equation}
 From these two equations, we can easily deduce the parameters $n_1$ and $\beta$ as the slopes of the functions $\ln\sigma^y = f(\ln\mdot{\varepsilon}^p)$  and $\sigma^y = f(\ln\mdot{\varepsilon}^p)$ as shown in Figure \ref{fig:LnAlp} and Figure \ref{fig:LnSinhE0} for $\varepsilon^p = 0.1$. It should be noted that later in this document all values of strain will be taken into account.
 \begin{figure}[!ht]
 \centering
-\includegraphics[width=0.9\columnwidth]{newFigures/LnAlp}
+\includegraphics[width=0.9\columnwidth]{Figures/LnAlp}
 \caption{Relationship between $\ln \sigma^y$ and $\ln \dot{\varepsilon}^p$}
 \label{fig:LnAlp}
 \end{figure}
 \begin{figure}[!ht]
 \centering
-\includegraphics[width=0.9\columnwidth]{newFigures/LnSinhE0}
+\includegraphics[width=0.9\columnwidth]{Figures/LnSinhE0}
 \caption{Relationship between $\sigma^y$ and $\ln \dot{\varepsilon}^p$}
 \label{fig:LnSinhE0}
 \end{figure}
-The values of those parameters are therefore equal to $n_1=6.78177$ and $\beta=0.150563$ ($\alpha=\beta/n_1 = 0.0222011$). 
+The values of those parameters are therefore equal to $n_1=6.78177$ and $\beta=0.150563$ ($\alpha=\beta/n_1 = 0.0222011$).
 From Equation (\ref{eq:ARmodel}), the following relationship can be obtained:
 \begin{equation}
 \label{eq:lnSinh}
@@ -407,13 +404,13 @@ Q = R\left[\frac{\partial \ln \mdot{\varepsilon}^p}{\partial \ln [\sinh(\alpha\s
 From Equation (\ref{eq:lnSinh}) and Equation (\ref{eq:parQ}) we can deduce the parameters $n_2 $ and $Q $ from the slopes of the functions $\ln \sinh(\alpha\sigma^y) = f(\ln \dot{\varepsilon}^p)$ and $\ln \sinh(\alpha\sigma^y) = g(1/T)$ as shown in Figure \ref{fig:LnSinhE} and Figure \ref{fig:LnSinhT}. Thus those values are $4.94273$ and $437.385\ KJ.mol^{-1}$ respectively.
 \begin{figure}[!ht]
 \centering
-\includegraphics[width=0.9\columnwidth]{newFigures/LnSinhE}
+\includegraphics[width=0.9\columnwidth]{Figures/LnSinhE}
 \caption{Relationship between $\ln \sinh(\alpha\sigma^y) $ and $\ln \dot{\varepsilon}^p$}
 \label{fig:LnSinhE}
 \end{figure}
 \begin{figure}[!ht]
 \centering
-\includegraphics[width=0.9\columnwidth]{newFigures/LnSinhT}
+\includegraphics[width=0.9\columnwidth]{Figures/LnSinhT}
 \caption{Relationship between $\ln \sinh(\alpha\sigma^y) $ and $1/T$}
 \label{fig:LnSinhT}
 \end{figure}
@@ -436,7 +433,7 @@ n_2(\varepsilon^p) = n_{20} + n_{21}\varepsilon^{{p^1}} + n_{22}\varepsilon^{p^2
 \end{equation}
 \begin{figure}[!ht]
 \centering
-\includegraphics[width=1.02\columnwidth]{newFigures/ARparameters}
+\includegraphics[width=1.02\columnwidth]{Figures/ARparameters}
 \caption{Relationships between $\alpha$ (a)  , $Q$ (b) , $n_2$ (c)  and $lnA$ (d)  with the plastic strain $\varepsilon^p$ by polynomial functions}
 \label{fig:ARparameters}
 \end{figure}
@@ -464,7 +461,7 @@ Values&$\alpha_3=-8.30819$&$Q_3 =-31.6016$& $n_{23} =651.241$   & $\ln A_3 =-261
 \begin{figure}[!ht]
 \centering
 \includegraphics[width=1.02\columnwidth]
-{newFigures/CompExpAR}
+{Figures/CompExpAR}
 \caption{Comparison between the experimental and predicted flow stresses by AR model}
 \label{fig:iCorrelationAR}
 \end{figure}
@@ -478,7 +475,7 @@ The PTM model is a generalized formulation of the MZA model. Indeed, the shortco
 \sigma^y(\varepsilon^p,\mdot{\varepsilon}^p,T) = \left(\sum_{i=0}^{q}{A_i\varepsilon^{p^i}}\right) \exp\left[\left(\sum_{j=0}^{r}{B_j\varepsilon^{p^j}}\right)\left(T-T_0\right) + \left(\sum_{k=0}^{s}\left(\sum_{l=0}^{t}{C_k^l\varepsilon^{p^l}} \right)\left(T-T_0\right)^k \right)\ln\left( \frac{\mdot{\varepsilon}^p}{\mdot{\varepsilon}_0}\right)\right]
 \end{equation}
 where $A_i, B_j, C_k^l$ are the parameters (Table \ref{tab:PTM-parameters}) of the model to be identified using the procedure proposed in  \cite{tize2022generalized}. Quantities $q$, $r$, $s$ and $t$ define the degree of the polynomials used to describe the behavior of the material. The larger these quantities are, the more parameters need to be identified for the PTM model.
-The determination of the parameters of this model are calculated thanks to the LMFIT Python library \cite{Newville-2016-LNL} and for more details about this model  we invite the reader to read our previous work \cite{tize2022generalized}. Thus all the parametrers of this model are calcuted with $q=5$, $r=5$, $s=1$ and $t=5$. 
+The determination of the parameters of this model are calculated thanks to the LMFIT Python library \cite{Newville-2016-LNL} and for more details about this model  we invite the reader to read our previous work \cite{tize2022generalized}. Thus all the parametrers of this model are calcuted with $q=5$, $r=5$, $s=1$ and $t=5$.
 
 Comparison of predicted values of the PTM model and experimental values is shown in Figure \ref{fig:iCorrelationPTM}. The PTM model is suitable to describe the ﬂow behavior of AISI P20 steel, but for the strain rate $\mdot{\varepsilon}^p = 0.1\ \text{s}^{-1}$ the prediction in not quite good. The deviation between the predicted values and the experimental values is relatively good.
 \begin{table}[!h]
@@ -519,7 +516,7 @@ $C_1^4 $ & $0.00174818$ \\
 \begin{figure}[!ht]
 \centering
 \includegraphics[width=1.02\columnwidth]
-{newFigures/CompExpPTM}
+{Figures/CompExpPTM}
 \caption{Comparison between the experimental and predicted flow stresses by PTM model }
 \label{fig:iCorrelationPTM}
 \end{figure}
@@ -528,12 +525,12 @@ $C_1^4 $ & $0.00174818$ \\
 %-------------------------------------------------------------------------
 \subsection{Artificial neural network model\label{sec:ANNmodel}}
 %--------------------------------------------------------------------------
-The Artificial Neural Network model (ANN) is a mathematical formulation widely used in many fields today for better prediction. It is a model based on the principle of minimisation where it improves from the progressive decrease of the error during the learning process. Typically an ANN model contains an input layer, an output layer and hidden layers. Each hidden layer is connected to the one before it and the one after it via neurons. Indeed, all neurons in the $k$ layer are connected to each neuron in the ($k+1$ ) layer. To each layer is added another parameter called bias. As said the principle of the ANN model is therefore based on the minimisation of the difference between the value obtained from the output of the network and the expected value.  Indeed, once the error is calculated, it is propagated back to the input layer in order to update the model parameters via the minimisation algorithms. In our case, the ADAM algorithm is used. The architecture of the network used in this study is shown in Figure \ref{fig:ANN-scheme-2HL}. After several tests of different types of network architecture, it was found that two hidden layers including $15$ neurons for the first hidden layer and $7$ for the second one gives the best prediction where the input layer is composed of three neurons ($\varepsilon^p$, $\mdot{\varepsilon}^p$, $T$) and the output layer is composed of a single neuron corresponding to the flow stress. The good performance of the model is found to be stable between $800$ and $1000$ epochs.
+The Artificial Neural Network model (ANN) is a mathematical formulation widely used in many fields today for better prediction. It is a model based on the principle of minimisation where it improves from the progressive decrease of the error during the learning process. Typically an ANN model contains an input layer, an output layer and hidden layers. Each hidden layer is connected to the one before it and the one after it via neurons. Indeed, all neurons in the $k$ layer are connected to each neuron in the ($k+1$) layer. To each layer is added another parameter called bias. As said the principle of the ANN model is therefore based on the minimisation of the difference between the value obtained from the output of the network and the expected value.  Indeed, once the error is calculated, it is propagated back to the input layer in order to update the model parameters via the minimisation algorithms. In our case, the ADAM algorithm is used. The architecture of the network used in this study is shown in Figure \ref{fig:ANN-scheme-2HL}. After several tests of different types of network architecture, it was found that two hidden layers including $15$ neurons for the first hidden layer and $7$ for the second one gives the best prediction where the input layer is composed of three neurons ($\varepsilon^p$, $\mdot{\varepsilon}^p$, $T$) and the output layer is composed of a single neuron corresponding to the flow stress. The good performance of the model is found to be stable between $800$ and $1000$ epochs.
 
 \begin{figure}[!ht]
 \centering
-\includegraphics[width=0.9\columnwidth]
-{newFigures/ANN-scheme-2HL}
+\includegraphics[width=0.7\columnwidth]
+{Figures/ANN-scheme-2HL}
 \caption{Multi-layer Artificial Neural Network architecture \cite{OPantale-2021-LGP}.}
 \label{fig:ANN-scheme-2HL}
 \end{figure}
@@ -546,7 +543,7 @@ Where $X$ is the orginal data ($\varepsilon^p$, $\log(\mdot{\varepsilon}^p/\vare
 \begin{figure}[!ht]
 \centering
 \includegraphics[width=1\columnwidth]
-{newFigures/CompExpANN}
+{Figures/CompExpANN}
 \caption{Comparison between the experimental and predicted flow stresses by ANN model }
 \label{fig:iCorrelationANN}
 \end{figure}
@@ -557,11 +554,11 @@ Where $X$ is the orginal data ($\varepsilon^p$, $\log(\mdot{\varepsilon}^p/\vare
 \begin{figure}[!ht]
 \centering
 \includegraphics[width=1.02\columnwidth]
-{newFigures/Correlation}
-\caption{Correlation coefficient ($R$) of models developped}
+{Figures/Correlation}
+\caption{Correlation coefficient ($R$) of models developed}
 \label{fig:Correlation}
 \end{figure}
-The accuracy and predictive ability of both analytical and ANN models are generally assessed by some coefficients such as the correlation coefﬁcient ($R$) (Equation (\ref{eq:R-expression})), Average Absolute Relative Error ($AARE$ generally known as $\AARE$ ) (Equation (\ref{eq:AARE-expression})) and Root Mean Square Error ($RMSE$) (Equation (\ref{eq:RMSE-expression})).
+The accuracy and predictive ability of both analytical and ANN models are generally assessed by some coefficients such as the correlation coefﬁcient ($R$) (Equation (\ref{eq:R-expression})), Average Absolute Relative Error ($\AARE$ generally known as $\AARE$) (Equation (\ref{eq:AARE-expression})) and Root Mean Square Error ($\RMSE$) (Equation (\ref{eq:RMSE-expression})).
 \begin{equation}
 \label{eq:R-expression}
 \R(\%) = \frac{\displaystyle\sum_{i=1}^{N}{\left(E_i - \overline{E}\right)\left(P_i - \overline{P}\right)}}{\sqrt{\displaystyle\sum_{i=1}^{N}\left(E_i - \overline{E}\right)^2 .\displaystyle\sum_{i=1}^{N}\left(P_i - \overline{P}\right)^2}}\times 100
@@ -572,13 +569,13 @@ The accuracy and predictive ability of both analytical and ANN models are genera
 \end{equation}
 \begin{equation}
 \label{eq:RMSE-expression}
-RMSE (\text{MPa}) = \sqrt{\frac{1}{N} \displaystyle\sum_{i=1}^{N} \left(E_i - P_i\right)^2}
+\RMSE (\text{MPa}) = \sqrt{\frac{1}{N} \displaystyle\sum_{i=1}^{N} \left(E_i - P_i\right)^2}
 \end{equation}
 Where $E_i$ is the experimental value and $P_i$ is the predicted value of the constitutive law (phenomenological and ANN models), $\overline{E}$ and $\overline{P}$ are the mean values of the experimental and predicted values, respectively.
 
-The correlation coefficient $R$ is generally used to show the degree of linearity between the experimental and predicted values. The model sometimes tends to be biased towards low and high values. Therefore, a good (high) value of $R$ does not necessarily mean a good prediction of the model but simply establishes a good linearity correlation between the experiment and the prediction \cite{phaniraj2003applicability}. On the other hand, other coefficients ($\AARE$ and $RMSE$) are used to estimate the predictive capacity of the model because they are considered unbiased as well as for low and high values. Indeed, they verify the predictability of a model term by term comparison of the relative error in relation to the real value of the variable \cite{srinivasulu2006comparative}. Thus the correlation coefficients $R$ for JC, MZA, HS, Arhenius, proposed and ANN models are $0.98475$,  $0.99014$,  $0.98364$, $0.99839$, $0.99514$, and $0.99994$ respectively as shown on Figure \ref{fig:Correlation}. These results show that all models have a relatively good coefficient; this does not guarantee the validation of the prediction of these models. Hence the need to calculate the other two coefficients. All coefficients for evaluating the high-temperature flow stress prediction capability of the AISI P20 alloy for all models presented in this work are summarized in the Table \ref{tab:Coefsparams}.
+The correlation coefficient $R$ is generally used to show the degree of linearity between the experimental and predicted values. The model sometimes tends to be biased towards low and high values. Therefore, a good (high) value of $R$ does not necessarily mean a good prediction of the model but simply establishes a good linearity correlation between the experiment and the prediction \cite{phaniraj2003applicability}. On the other hand, other coefficients ($\AARE$ and $\RMSE$) are used to estimate the predictive capacity of the model because they are considered unbiased as well as for low and high values. Indeed, they verify the predictability of a model term by term comparison of the relative error in relation to the real value of the variable \cite{srinivasulu2006comparative}. Thus the correlation coefficients $R$ for JC, MZA, HS, Arhenius, proposed and ANN models are $0.98475$,  $0.99014$,  $0.98364$, $0.99839$, $0.99514$, and $0.99994$ respectively as shown on Figure \ref{fig:Correlation}. These results show that all models have a relatively good coefficient; this does not guarantee the validation of the prediction of these models. Hence the need to calculate the other two coefficients. All coefficients for evaluating the high-temperature flow stress prediction capability of the AISI P20 alloy for all models presented in this work are summarized in the Table \ref{tab:Coefsparams}.
 
-From this table, it can be seen that the ANN model has a good prediction than the analytical models. All this shows sufficiently that the ANN model is more effective in describing the behavior of the AISI P20 alloy for high temperature deformation. This efficiency will therefore be validated on tests at two different selected strain rates. One between the minimum and the maximum strain rates used during identification or training for ANN model and another one outside higher than the maximum strain rate. This will validate the interpolation and extrapolation capability of phenomenological and ANN models. The prediction results should lead to a better interpolation and extrapolation capability of the ANN model than phenomenological models as shown by identification. Another thing to be analysed from this table is the link between the values of the correlation coefficient $R$ and the values of $\AARE$ and $RMSE$. Indeed, as mentioned above, the $R$ coefficient does not necessarily mean a good prediction of the model but a good relationship of linearity between the experiment and the prediction. To ensure a good prediction of the model, it is necessary to add to $R$, the values of $\AARE$. From that table it can be seen the values of the coefficients $R$ are $99.014\%$, $98.364\%$, for $\AARE$ are $11.13020\%$ and $8.15103\%$ and those of $RMSE$ are $5.35079\ \text{MPa}$, and $6.45287\ \text{MPa}$ respectively for the MZA model and the HS model. This seems contradictory when the $R$ of HS is smaller than that of MZA, whereas for the $\AARE$ and $RMSE$ values it is the opposite case. This simply means that the HS model has a good prediction compared to the MZA model whereas in the framework of the linear correlation between the experiment and the prediction the MZA model makes it better. All this can be seen from the identification curves where we can observe the HS curves (Figure \ref{fig:iCorrelationHS}) are indeed closer to the experimental than those of MZA (Figure \ref{fig:iCorrelationMZA}) while the points are scattered for HS model on the correlation curve (Figure \ref{fig:Correlation}). This validates the analysis made by \cite{phaniraj2003applicability, srinivasulu2006comparative}.
+From this table, it can be seen that the ANN model has a good prediction than the analytical models. All this shows sufficiently that the ANN model is more effective in describing the behavior of the AISI P20 alloy for high temperature deformation. This efficiency will therefore be validated on tests at two different selected strain rates. One between the minimum and the maximum strain rates used during identification or training for ANN model and another one outside higher than the maximum strain rate. This will validate the interpolation and extrapolation capability of phenomenological and ANN models. The prediction results should lead to a better interpolation and extrapolation capability of the ANN model than phenomenological models as shown by identification. Another thing to be analysed from this table is the link between the values of the correlation coefficient $R$ and the values of $\AARE$ and $\RMSE$. Indeed, as mentioned above, the $R$ coefficient does not necessarily mean a good prediction of the model but a good relationship of linearity between the experiment and the prediction. To ensure a good prediction of the model, it is necessary to add to $R$, the values of $\AARE$. From that table it can be seen the values of the coefficients $R$ are $99.014\%$, $98.364\%$, for $\AARE$ are $11.13020\%$ and $8.15103\%$ and those of $\RMSE$ are $5.35079\ \text{MPa}$, and $6.45287\ \text{MPa}$ respectively for the MZA model and the HS model. This seems contradictory when the $R$ of HS is smaller than that of MZA, whereas for the $\AARE$ and $\RMSE$ values it is the opposite case. This simply means that the HS model has a good prediction compared to the MZA model whereas in the framework of the linear correlation between the experiment and the prediction the MZA model makes it better. All this can be seen from the identification curves where we can observe the HS curves (Figure \ref{fig:iCorrelationHS}) are indeed closer to the experimental than those of MZA (Figure \ref{fig:iCorrelationMZA}) while the points are scattered for HS model on the correlation curve (Figure \ref{fig:Correlation}). This validates the analysis made by \cite{phaniraj2003applicability, srinivasulu2006comparative}.
 
 \begin{table}[h!]
 \centering{}
@@ -592,7 +589,7 @@ Coefficients&JC  & MZA  &HS  & Arhenius      & PTM  &ANN  		    \\
 \hline
 $R(\%)$&$98.4745$&$99.0141$&$98.5682$&$99.839$& $99.5137$&$99.9994$ \\
 $\AARE(\%)$&$11.1667$&$11.13020$&$8.15103$&$3.30677$&$4.19549$&$0.81094$   \\
-$RMSE(\text{MPa})$&$6.30298$&$5.35079$&$6.45287$&$2.03275$&$3.59027$&$0.55158$\\
+$\RMSE(\text{MPa})$&$6.30298$&$5.35079$&$6.45287$&$2.03275$&$3.59027$&$0.55158$\\
 \hline
 \label{tab:Coefsparams}
 \end{tabular}}
@@ -607,7 +604,7 @@ For the validation of the interpolation, the chosen strain rate is $\mdot{\varep
 \begin{figure}[!ht]
 \centering
 \includegraphics[width=1.02\columnwidth]
-{newFigures/inCombinaison}
+{Figures/inCombinaison}
 \caption{Comparison between the experimental and predicted flow stresses by ANN model for interpolation estimation}
 \label{fig:inCombinaison}
 \end{figure}
@@ -623,7 +620,7 @@ Coefficients&JC  & MZA  &HS  & Arhenius      & PTM  &ANN \\
 \hline
 $R(\%)$&$99.0590$&$99.0821$&$97.6008$&$99.8417$& $99.8760$&$99.9439$  \\
 $\AARE(\%)$&$4.2686$&$3.7440$&$6.1391$&$2.3321$&$2.7590$&$1.4018$   \\
-$RMSE(\text{MPa})$&$4.1923$&$3.1856$&$82.6956$&$2.29891$&$2.4632$&$1.0228$ \\
+$\RMSE(\text{MPa})$&$4.1923$&$3.1856$&$82.6956$&$2.29891$&$2.4632$&$1.0228$ \\
 \hline
 \label{tab:inValid}
 \end{tabular}}
@@ -650,7 +647,7 @@ $RMSE(\text{MPa})$&$5.0943$&$4.3048$&$116.517$&$3.7035$&$4.3915$&$1.2513$ \\
 \begin{figure}[!ht]
 \centering
 \includegraphics[width=0.91\columnwidth]
-{newFigures/exCombinaison}
+{Figures/exCombinaison}
 \caption{Comparison between the experimental and predicted flow stresses by ANN model for extrapolation estimation}
 \label{fig:exCombinaison}
 \end{figure}
