@@ -65,7 +65,7 @@
 \usepackage{soul} %Can also be used to highlight text with \hl{highlighted text}
 \usepackage{color}
 \definecolor{VWyellow}{RGB}{255,251,150} % VaporWave color palette
-\DeclareRobustCommand{\OP}[1]{ {\begingroup\sethlcolor{VWyellow}\textcolor{red}{\hl{\textbf{Olivier Pantal\'e:}#1}}\endgroup} }
+\DeclareRobustCommand{\OP}[1]{ {\begingroup\sethlcolor{VWyellow}\textcolor{red}{\hl{\textbf{Olivier Pantal\'e:} #1}}\endgroup} }
 
 \begin{document}
 \begin{frontmatter}
@@ -161,8 +161,7 @@ The set of flow stress $\sigma^y$ versus plastic strain $\varepsilon^p$ curves o
 
 \begin{figure}[!ht]
 \centering
-\includegraphics[width=1.02\columnwidth]
-{Figures/rawData}
+\includegraphics[width=1.02\columnwidth]{Figures/rawData}
 \caption{Flow stress-strain curves of AISI P20 alloy at various temperatures and strain rates.}
 \label{fig:rawData}
 \end{figure}
@@ -187,88 +186,47 @@ To explain the overall flow stress behavior observed in this test, we will rely 
 \end{figure}
 
 %-------------------------------------------------------------------------
-\section{Phenomenological constitutive flow laws\label{sec:ConstLaws}}
+\section{Identification of constitutive flow laws parameters\label{sec:ConstLaws}}
 %-------------------------------------------------------------------------
-The complete characterization of the thermomechanical behavior of a material is very important before its use in numerical simulations. This characterization usually involves experimental tests that serve as a basis for the development of constitutive laws. As mentioned in the introduction, many constitutive laws exist today, and selecting one of them based on explicit criteria hinders the development of computational models for new materials. Since the purpose of this work is to compare ANN model to analytical models it is important to justify the choice of the analytical models presented here among the many that exist in the literature. Among the most widely used analytical models nowadays, the Johnson-Cook (JC) model is the most used due to its simplicity of use linked to the number of its reduced and easy to obtain parameters. It should be noted that it is not the best model but the most integrated in finite element software. Hence the existence of several modified forms of this model. The Zerilli-Armstrong model, and particularly its modified form (MZA), is also widely known since it tries to provide solutions to the shortcomings of the JC model, particularly with regard to the coupling of physical parameters. Hence its use also in this study. In this perspective, the Hansel Spittel model (HS)is also one of the most widely used models in numerical simulation of casting and forging operations as it is integrated in the FORGE software. Also, the method of identifying its parameters is very simple to do as it is done in one step. Of course, it has its limitations as will be shown in the following sections. Furthermore, the Arrhenius model will be used in this study because it is one of the models that not only provides a good prediction of the flow stress but also takes into account the physical parameter Q (the deformation activation energy coefficient) which is of great importance in the study related to the microstructural analysis of materials. The PTM model is also used in this study as it is a model whose formulation does not impose a number of parameters a priori and has proven its ability in our previous work and therefore we want to test it on this type of material as it is formulated to fit any material.
-%-------------------------------------------------------------------------
-\subsection{Johnson--Cook model\label{sec:JC}}
-%-------------------------------------------------------------------------
-The JC model as mentioned above, is one of the most widely used analytical models as it can be applied to several materials under different conditions of strain, strain rate and temperature. However, the formulation of this model does not take into account the simultaneous effect of strain, strain rate and temperature. Indeed, it is formulated by describing the effect of each physical parameter (strain, strain rate and temperature) separately as a factor in the mathematical expression of the model. Hence its inability to describe the phenomenon of temperature-induced softening. The equation that describes this model is given as follows \cite{Johnson-1983}:
-\begin{equation}
-\label{eq: JCmodel}
-\sigma^y = \left(A + B\varepsilon^{p^n}\right)\left(1+C\ln\mdot\varepsilon^*\right)\left(1-T^{*^m}\right)
-\end{equation}
-Where $\sigma^y$ is the equivalent stress flow stress, $\varepsilon^p$ is the plastic strain, ($A=\sigma^y_0$) is the elastic limit of the material, $B$ is the strain hardening's coefficient, $n$ is the strain hardening's exponent. $C$ and $m$ are the material constants that describe the strain rate hardening and thermal softening exponent respectively. $\mdot\varepsilon^*$ is the dimensionless strain rate which is given by $\mdot\varepsilon^* = \mdot\varepsilon^p/\mdot\varepsilon_0$. $\mdot\varepsilon^p$ and $\mdot\varepsilon_0$ are strain rate and reference strain rate respectively. $T^{*^m} = (T-T_0)/(T_m - T_0)$ is homologous temperature where $T, T_m$ and $T_0$ are the déformation temperature, meltinng temperature ($1460$°C in our case) and reference temperature respectively. For the determination of the parameters of the analytical models, the reference values for strain rate and temperature are $2.0$ and $1050$°C respectively and the value of $A$ is $43.0988$ MPa. Here after datailed the steps for determination of the JC model parameters.
-At the reference strain rate, Equation \ref{eq: JCmodel} becomes:
-\begin{equation}
-\label{eq: JCbn}
-\sigma^y = A + B\varepsilon^{p^n}
-\end{equation}
-Taking the natural logarithm on both sides of Equation \ref{eq: JCbn} we have:
-\begin{equation}
-\label{eq:JClog1}
-\ln\left(\sigma^y-A\right)= \ln(B) + n\ln\varepsilon^p
-\end{equation}
-By plotting $\ln(\sigma^y-A)$ \versus $\ln\varepsilon^p$ (Figure \ref{fig:JCSigmaAB}) from Equation \ref{eq:JClog1}, $n$ and $B$ can be obtained as slope and intercept respectively. Thus, for a strain value equal to $0.1$ the values of these two parameters are $n=0.313969$ and $B=114.518$.
-\begin{figure}[!ht]
-\centering
-\includegraphics[width=0.9\columnwidth]
-{Figures/JCSigmaAB}
-\caption{Relationship between $ln(\sigma^y -A)$ and $\ln(\varepsilon^p)$ at $1050$°C and $0.1$}
-\label{fig:JCSigmaAB}
-\end{figure}
-\FloatBarrier
-Once the parameters $A$, $B$ and $n$ are known and at the reference temperature, the Equation \ref{eq: JCmodel} becomes:
-\begin{equation}
-\frac{\sigma^y}{A + B\varepsilon^{p^n}} = 1 + C\ln\mdot\varepsilon^*
-\end{equation}
-From this equation one can easily obtain the parameter $C$ using the linear fitting method for each strain value and averaging all these values as shown in Figure \ref{fig:JCSigmaAB1} the value is $0.0995438$.
-\begin{figure}[!ht]
-\centering
-\includegraphics[width=0.9\columnwidth]
-{Figures/JCSigmaAB1}
-\caption{Relationship between $\sigma^y/(A+ B\varepsilon^{p^n})$ and $\ln(\dot{\varepsilon}^*)$}
-\label{fig:JCSigmaAB1}
-\end{figure}
-The $m$ parameter is determined at the reference strain rate. Under this condition, the Equation \ref{eq: JCmodel} can be written as following:
-\begin{equation}
-\frac{\sigma^y}{A + B\varepsilon^{p^n}} = 1 - T^{*^m}
-\end{equation}
-Taking the natural logarithm of both sides of that equation, we have:
-\begin{equation}
-\ln\left(1 - \frac{\sigma^y}{A + B\varepsilon^{p^n}}\right)  = m\ln T^*
-\end{equation}
-Plotting $\ln\left(1 - \frac{\sigma^y}{A + B\varepsilon^{p^n}}\right)$ as a function of $\ln T^*$ allows us to get the parameter $m$ as a slope for all values of the deformation by averaging them and the value is $0.898932$. Figure \ref{fig:JCSigmaT} illustrates this determination for some deformations.
-\begin{figure}[!ht]
-\centering
-\includegraphics[width=0.85\columnwidth]
-{Figures/JCSigmaT}
-\caption{Relationship between $\ln\left(1 - \sigma^y/\left(A + B\varepsilon^{p^n}\right)\right)$ and $\ln T^*$}
-\label{fig:JCSigmaT}
-\end{figure}
 
-The predicted and experimental values are compared, as shown in Figure \ref{fig:iCorrelationJC}. The JC model is not much suitable to describe the ﬂow behavior of AISI P20 within entire deformation condition, and predicted values show a monotonous downward trend at various strain rates. The deviation between predicted values and experimental values is large for the low strain rates and almost acceptable at high strain rates. All parameters of JC model are in Table \ref{tab: JCparameters}.
-\begin{figure}[!ht]
-\centering
-\includegraphics[width=1.02\columnwidth]
-{Figures/CompExpJC}
-\caption{Comparison between the experimental and predicted flow stresses by JC model}
-\label{fig:iCorrelationJC}
-\end{figure}
+The complete characterization of the thermomechanical behavior of a material through the identification of its flow law is very important before its modeling in numerical simulations. This characterization usually involves experimental tests that serve as a basis for the development of constitutive laws. As mentioned in the introduction, many constitutive laws exist today, and the selection of one of them on the basis of explicit criteria makes the development of computational models for new materials with new types of behavior challenging. Since the purpose of this work is to compare the ANN model to analytical models, it is important to justify the choice of analytical models selected for this study among the many that exist in the literature. Among the analytical models, the Johnson-Cook (JC) model \cite{Johnson-1983} is the most used because of its simplicity of implementation linked to the reduced number of its parameters and the ease to identify them. It should be noted that it is not the best model but the most integrated in the Finite Elements softwares. This also explains the existence of several modified forms of this model. The Zerilli-Armstrong model, and in particular its modified forms (MZA) \cite{NematNasser-2004, Lennon-2004, Muralli-2017, Cheng-2021, Muralli-2021}, is also widely used because it attempts to provide solutions to the shortcomings of the JC model, particularly with regard to the coupling of physical parameters. It is therefore also part of this study. The Hansel Spittel (HS) model \cite{Hensel-1978} is also one of the most widely used models in numerical simulation of casting and forging operations because it is natively integrated in the Forge software. Moreover, the method of identifying its parameters is very simple to perform since it is done in one step. It also has limitations as we will show in the following sections. The Arrhenius model was also chosen in this study because it is one of the models that not only provides a good prediction of the flow stress but also takes into account the physical parameter $Q$ (the deformation activation energy coefficient) which is of great importance in the microstructural analyses of materials. The PTM model \cite{TizeMha-2022} is also used in this study because it is a model whose formulation does not impose a priori a number of parameters and which proved its ability in our previous works. We selected it to test it on this type of material because it is normally formulated to fit any type of material.
+
+%-------------------------------------------------------------------------
+\subsection{Johnson-Cook model\label{sec:JC}}
+%-------------------------------------------------------------------------
+
+The JC model, as mentioned above, is one of the most widely used analytical models because it can be applied to many materials under different conditions of strain $\varepsilon^p$, strain rate $\mdot\varepsilon^p$, and temperature $T$. However, the formulation of this model does not take into account the simultaneous effect of strain, strain rate and temperature. Indeed, it is formulated by describing the effect of each physical parameter ($\varepsilon^p$, $\mdot\varepsilon^p$ and $T$) separately as a factor in the mathematical expression of the model. Hence its inability to describe the phenomenon of softening induced by temperature. The equation that describes this model is given as follows \cite{Johnson-1983}:
+
+\begin{equation}
+\sigma^y=\left(A+B\varepsilon^{p^{n}}\right) \left[1+C\ln\left(\frac{\mdot\varepsilon^p}{\mdot\varepsilon_0}\right)\right] \left[1-\left(\frac{T-T_0}{T_m-T_0}\right)^{m}\right],\label{eq:Johnson-Cook}
+\end{equation}
+where $\sigma^y$ is the flow stress, $A$ is the initial elastic limit of the material, $B$ is the strain hardening coefficient, $n$ is the strain hardening exponent, $C$ and $m$ are the material constants that describe the strain rate hardening coefficient and the thermal softening coefficient, respectively. The other values are reference ones, so that $\mdot\varepsilon_0$ is the reference strain rate, $T_m$ and $T_0$ are the melting temperature ($1460$°C in our case) and the reference temperature, respectively.
+
+For the determination of the parameters of the analytical models, the reference values for strain rate and temperature are $\mdot\varepsilon_0=0.001~\text{s}^{-1}$ and $T_0=1050$°C respectively.
+
+The procedure used for the determination of the parameters of the Johnson-Cook law is in accordance with the one proposed by He \eal \cite{He-2013}. This method allows obtaining one after the other the $5$ parameters in the order $A$, $B$, $n$, $C$ and $m$. Thus, according to the experimental data, the initial elastic limit of the material at the reference strain rate and reference temperature is $A=11.76$~MPa. For the determination of the constants $B$ and $n$, from the results of the compression test at $T_0$ and $\mdot\varepsilon_0$, it is then possible to determine these two constants by considering only the first term $\left(A+B\varepsilon^{p^{n}}\right)$ in Equation (\ref{eq:Johnson-Cook}). Thus, here, $B=23.51$~MPa and $n=0.066$. Once the parameters $A$, $B$ and $n$ are known, the determination of $C$, considering all the curves at $T=T_0$ then gives $C=0.352$. Finally, the last parameter $m$ is identified from the curves at $\mdot\varepsilon=\mdot\varepsilon_0$ and from the knowledge of the previous and gives $m=0.696$.
+All parameters of the Johnson-Cook model are reported in Table \ref{tab:JCparams}.
+
 \begin{table}[h!]
 \centering{}
-\caption{Parameters' constants of Johnson-Cook Model}
+\caption{Parameters' values of the Johnson-Cook flow law for the P20 steel.}
 \begin{tabular}{lccccc}
 \hline
-&         &             &		   &		  &\\
-Parameters&$A(\text{MPa})$    &$B(\text{MPa})$        & $n$     & $C$   & $m$       \\
-&         &             &		   &	     &	    \\
-\hline
-Values&$43.0988$&$114.518$& $0.313969$&$0.0995438$&$0.898932$\\
-\hline
-\label{tab: JCparameters}
+Parameters & $A~(\text{MPa})$ & $B~(\text{MPa})$ & $n$ & $C$ & $m$\\ \hline
+Values & $43.0988$ & $114.518$ &  $0.313969$ & $0.0995438$ & $0.898932$\\ \hline
+\label{tab:JCparams}
 \end{tabular}
 \end{table}
+
+The values predicted by the Johnson-Cook flow law (solid line) and the experimental values (dots) are compared in Figure \ref{fig:iCorrelationJC}. The JC model is not able to describe the evolution of the flow stress of AISI P20 for all strain values, and the predicted stresses $\sigma^y$ show a monotonically decreasing trend for several values of the strain rates. The discrepancy between the predicted and experimental values is large for low strains and sometimes acceptable for high strains. As expected, the mathematical formulation of the Johnson-Cook flow law is unable to represent the stress drop at low strain rates, the JC model being only monotonically increasing with strain. Since most of the parameters are identified at low strain rates ($A$, $B$ and $n$), this results in a very poor fit of the model to the experimental data.
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=1.02\columnwidth]{Figures/CompExpJC}
+\caption{Comparison between the experimental and predicted flow stresses by JC model.}
+\label{fig:iCorrelationJC}
+\end{figure}
+
 %-------------------------------------------------------------------------
 \subsection{Modified Zerilli-Armstrong model\label{sec:MZA}}
 %-------------------------------------------------------------------------
