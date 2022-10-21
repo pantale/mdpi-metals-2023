@@ -302,12 +302,12 @@ Finally, the last parameter $m$ is identified from the curves at $\mdot\varepsil
 All parameters of the Johnson-Cook model are reported in Table \ref{tab:JCparams}.
 
 \begin{table}[h!]
-\centering{}
+\centering
 \caption{Parameters' values of the Johnson-Cook flow law for the P20 steel.}
-\begin{tabular}{lccccc}
+\begin{tabular}{ccccc}
 \hline
-Parameters & $A~(\text{MPa})$ & $B~(\text{MPa})$ & $n$ & $C$ & $m$\\ \hline
-Values & $11.758$ & $25.563$ &  $0.139$ & $0.338$ & $0.730$\\ \hline
+$A~(\text{MPa})$ & $B~(\text{MPa})$ & $n$ & $C$ & $m$\\
+$11.758$ & $25.563$ &  $0.139$ & $0.338$ & $0.730$\\ \hline
 \label{tab:JCparams}
 \end{tabular}
 \end{table}
@@ -382,7 +382,39 @@ Values&$43.0988$&$112.975$& $330.976$&$4.27581$&$14106.3$&$17.4178$&$0.305028$\\
 %-------------------------------------------------------------------------
 \subsection{Hansel and Spittel\label{sec:HSmodel}}
 %-------------------------------------------------------------------------
-The Hansel-Spittel model is one of the least known models in terms of its  integration in software for finite element simulation although the determination of its parameters is easier than the JC model. A single programming command is sufficient for its identification. However, this model has some difficulties as it loses its accuracy when all parameters are taken into account. For this reason, several authors limit its use to $5$ or $6$ parameters \cite{Chadha-2018, Rudnytskyj-2020, Mehtedi-2015}. In this paper the good predictions are with $5$ parameters summarized in Table \ref{tab: HSparameters}. The equation of the model is given by the following relation:
+
+\OP{Are you absolutely sure that the HS model takes into account the plastic strain $\varepsilon^p$ and not the strain $\varepsilon$ ? I don't think that it is the plastic strain, so I changed the mathematical expression of $\sigma^y$}
+The Hansel-Spittel model \cite{Hensel-1978} is one of the least known models in terms of integration in finite element simulation software, although the determination of its parameters is easier than that of the JC or MZA model. 
+The programming of a simple identification script is sufficient to identify its parameters for a given material. 
+The equation of the HS model is given by the following relation:
+\begin{equation}
+\sigma^y = A~e^{m_1T}~\varepsilon^{m_2}~\mdot\varepsilon^{m_3}~e^{({m_4}/{\varepsilon})}~(1+\varepsilon)^{m_5T}~e^{m_6\varepsilon}~\mdot\varepsilon^{m_7T}~T^{m_8}\label{eq:HS}
+\end{equation}
+where $\sigma^y$ is the flow stress, $\varepsilon$ is the strain, $\mdot\varepsilon$ is the strain rate and $T$ is the temperature as proposed earlier. 
+The coefficients $A$ and $m_i$ are the parameters of the model to be identified. 
+However, this model has some shortcomings, notably related to the fact that its accuracy varies according to the number of parameters taken into account during the identification. 
+For its identification, several authors restrict its expression to a reduced number of $5$ or $6$ $m_i$ parameters only by truncating its expression according to the number of parameters \cite{Chadha-2018, Rudnytskyj-2020, Mehtedi-2015}. 
+
+In the present study, the best results were obtained by taking the model defined by only the first $7$ $m_i$ terms of the equation (\ref{eq:HS}), so that $m_8=0$.\OP{See identification script for changes}
+From the experimental data obtained during the compression tests, an identification procedure based on the use of the LMFIT optimizer \cite{Newville-2016} has allowed to compute the parameters reported in Table \ref{tab: HSparameters}. 
+\begin{table}[h!]
+\centering
+\caption{Parameters' values of the Hansel and Spittel flow law for the P20 steel.}
+\begin{tabular}{ccccc}
+\hline
+$A~(\text{MPa})$ & $m_1$ & $m_2$ & $m_3$ & $m_4$\\
+$5954.043$ & $-3.358\times10^{-3}$ & $2.641\times10^{-1}$ & $-8.678\times10^{-2}$ & $2.269\times10^{-4}$\\\hline
+& $m_5$ & $m_6$ & $m_7$ & $m_8$\\
+& $-4.216\times10^{-4}$ & $-5.613\times10^{-2}$ & $2.264\times10^{-4}$ & $0$\\\hline
+\label{tab: HSparameters}
+\end{tabular}
+\end{table}
+
+The comparison of the values predicted by the HS model and the experimental values is presented in Figure \ref{fig:iCorrelationHS}. 
+It appears that this model as well as the previous ones do not predict well the experimental one and the difference is relatively important. 
+This shows that this model is not appropriate for the characterization of this alloy, in particular because of the strong non-linearity of the behavior for low values of the strain rate. 
+The DRX phenomena cannot be reproduced by this type of model.
+
 \begin{figure}[!ht]
 \centering
 \includegraphics[width=1.02\columnwidth]
@@ -390,24 +422,7 @@ The Hansel-Spittel model is one of the least known models in terms of its  integ
 \caption{Comparison between the experimental and predicted flow stresses by HS model}
 \label{fig:iCorrelationHS}
 \end{figure}
-\begin{equation}
-\sigma^y = Ae^{m_1T}\varepsilon^{p^{m_2}}\mdot\varepsilon^{p^{m_3}}e^{\frac{m_4}\varepsilon^p}(1+\varepsilon^p)^{m_5T}e^{m_6\varepsilon^p}\mdot\varepsilon^{p^{m_7T}}T^{m_8}
-\end{equation}
-Where $\sigma^y$ is the flow stess, $\varepsilon^p$ strain, $\mdot\varepsilon^p$ strain rate and $T$ temperature. The other coefficients $A$ and $m_j$ are model constants up to $m_5$ for our case. Comparison of predicted values of the HS model and experimental values is shown in Figure \ref{fig:iCorrelationHS}. It appears that this model as well as the previous ones do not predict the experimental well and the gap is relatively large. This shows that this model is not appropriate for the characterisation of this alloy.
-\begin{table}[h!]
-\centering{}
-\caption{Parameters' constants of Hansel and Spittel Model}
-\begin{tabular}{llccccc}
-\hline
-&         &             &		   &		 &			   &\\
-Parameters&$A_0(\text{MPa})$    &$m_1$        & $m_2$     & $m_3$   & $m_4$       &$m_5$\\
-&         &             &		   &	     &	           &\\
-\hline
-Values&$9254.77$&$-0.00375057$& $0.208975$&$0.184238$&$-0.00287837$&$-0.000583287$\\
-\hline
-\label{tab: HSparameters}
-\end{tabular}
-\end{table}
+
 %----------------------------------------------------------------------------------
 \subsection{Arrhenius model (AR model), \label{sec:ARmodel}}
 %----------------------------------------------------------------------------------
