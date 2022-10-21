@@ -329,7 +329,7 @@ Since most of the parameters are identified at low strain rates ($A$, $B$ and $n
 %-------------------------------------------------------------------------
 \subsection{Modified Zerilli-Armstrong model\label{sec:MZA}}
 %-------------------------------------------------------------------------
-\OP{This introduction paragraph is entirely copied from the WJET publication}
+\OP{This introduction paragraph is entirely copied from the WJET publication, P.T.M. must rewrite this part of the text !}
 As mentioned earlier, Johnson-Cook's law, widely used in the scientific community and implemented as a base in the Abaqus FEM code, is an empirical model for which the effects of strain, strain rate, and temperature on material behavior are considered separately.
 Since a coupling exists in reality between these three variables, it is preferable to opt for a Zerilli-Armstrong (ZA) model \cite{Hull-2011}.
 But the original for of ZA model has some limitations due to the fact that it is considered as two terms and to ameliorate that formulation Samantaray \eal \cite{Samantaray-2009} proposed a modified form given by the following equation:
@@ -384,7 +384,6 @@ Values&$43.0988$&$112.975$& $330.976$&$4.27581$&$14106.3$&$17.4178$&$0.305028$\\
 \subsection{Hansel and Spittel\label{sec:HSmodel}}
 %-------------------------------------------------------------------------
 
-\OP{Are you absolutely sure that the HS model takes into account the plastic strain $\varepsilon^p$ and not the strain $\varepsilon$ ? I don't think that it is the plastic strain, so I changed the mathematical expression of $\sigma^y$}
 The Hansel-Spittel model \cite{Hensel-1978} is one of the least known models in terms of integration in finite element simulation software, although the determination of its parameters is easier than that of the JC or MZA model. 
 The programming of a simple identification script is sufficient to identify its parameters for a given material. 
 The equation of the HS model is given by the following relation:
