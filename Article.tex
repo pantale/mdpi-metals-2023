@@ -205,13 +205,13 @@ Figure \ref{fig:GleebleProcess} also shows the aspects of the specimens before a
 \label{fig:GleebleProcess}
 \end{figure}
 
-\OP{Here, a part concerning the treatment of the Gleeble data is missing. You introduce the notions of $h_0$, $R_0$, $h$, $R_M$ and $R_T$ and we have no idea what they are for. How are the Gleeble data transformed into curves, what is the use of the previous values, what are the corrections to be made to the data,...}
+\OP{Here, a part concerning the treatment of the Gleeble data is missing. You introduce the notions of $h_0$, $R_0$, $h$, $R_M$ and $R_T$ and we have no idea what they are for. How are the Gleeble data transformed into curves, what is the use of the previous values, what are the corrections to be made to the data,...}\textcolor{red}{The curves are automaticaly gotten from Gleeble system as True-stress and strain according to L-gauge where the formula to get curves are given by $\sigma =F/A\ \text{and}\ \varepsilon = \ln\left(h_0 +\Delta h / h_0\right) $or C-gauge whose formula are $\sigma = 4F/\pi(d+\Delta d)^2$ and $\varepsilon = 2\ln(d/(d+\Delta d))$ with $d = 2R_0$ and $F$ is the force as measured by Gleeble load cell. As there are noises from raw data, filter method is applied to remove noise and have more smooth data. For further usage of  data in numerical simulation elastic parts have been removed}.
 %------------------------------------------------------------------------
 \subsection{Compression tests results}
 %------------------------------------------------------------------------
 
 The set of flow stress $\sigma^y$ versus strain $\varepsilon$ curves obtained from compression tests performed on the Gleeble-3800 simulator for each test condition ($6$ strain rates and $5$ temperatures) is presented in Figure \ref{fig:rawData}.
-\OP{It is necessary to give indications concerning the structure of the data: how many points, what amplitude of deformation,...} The overall behavior of these curves shows that the flow stress $\sigma^y$ increases with increasing strain rate $\mdot\varepsilon$ but decreases with increasing temperature $T$.
+\OP{It is necessary to give indications concerning the structure of the data: how many points, what amplitude of deformation,...}\textcolor{red}{almost all data are around 21030 or less than and the ammplitude of deformation is between $0.7$ and $0.85$. We have decided to limit the identification up to $0.7$ because for strain rates $2$ and $5$, stresses are note good}. The overall behavior of these curves shows that the flow stress $\sigma^y$ increases with increasing strain rate $\mdot\varepsilon$ but decreases with increasing temperature $T$.
 It should be noted that the strain also influences the flow stress.
 Indeed, for the lowest strain rates $\mdot\varepsilon$, the flow stress $\sigma^y$ increases with the strain $\varepsilon$ until a value of about $\varepsilon=0.2$ to $0.3$, then decreases to maintain a more or less constant value until the end of the test.
 For the highest strain rates ($1.0~\ps$, $2.0~\ps$, and $5.0~\ps$), the flow stress increases throughout the test.
@@ -235,7 +235,7 @@ The combination of these dislocations moderates the increase in the number of di
 The dynamic recrystallization concerns the germination of new grains, at the borders or inside the initial grains.
 These two phenomena explain the different shapes of the flow stress curves observed for this alloy.
 As an example, Figure \ref{fig:Micrography} show the microstructures of AISI P20 held during $5$~min at $1260\celsius$ before and after the compression phase.
-As observed on the flow curves, it can be seen by comparing these two micrographs that recrystallization is almost complete for this temperature and strain rate within the sample.
+As observed on the flow curves, it can be seen by comparing these two micrographs that recrystallization is almost complete for this temperature and strain rate within the sample \textcolor{red}{held for $5$ minutes at $1260^\circ$C and rapidely cooled to get autenized grain in one hand and in other hand held for $1$ minute at $1150^\circ$C before compression with strain rate $0.001\ \text{s}^{-1}$}.
 \OP{What are the temperature and strain rate related with this micrography}
 From the results reported in Figure \ref{fig:rawData}, the identification of the parameters of the six flow laws proposed in this work will be presented in the next section in order to predict the behavior of the material in any test condition.
 
@@ -331,9 +331,8 @@ Since most of the parameters are identified at low strain rates ($A$, $B$ and $n
 \subsection{Modified Zerilli-Armstrong model\label{sec:MZA}}
 %-------------------------------------------------------------------------
 \OP{This introduction paragraph is entirely copied from the WJET publication, P.T.M. must rewrite this part of the text !}
-As mentioned earlier, Johnson-Cook's law, widely used in the scientific community and implemented as a base in the Abaqus FEM code, is an empirical model for which the effects of strain, strain rate, and temperature on material behavior are considered separately.
-Since a coupling exists in reality between these three variables, it is preferable to opt for a Zerilli-Armstrong (ZA) model \cite{Hull-2011}.
-But the original for of ZA model has some limitations due to the fact that it is considered as two terms and to ameliorate that formulation Samantaray \eal \cite{Samantaray-2009} proposed a modified form given by the following equation:
+\textcolor{red}{The MZA which is the modified form of ZA model, as the JC model is one of widely used models and implemented in many sofwares like Abaqus. The difference between the MZA model and JC model is related to the consideration of the three physical parameters to describe the reality observed from experimental. Indeed, in the JC model, those parameters are considered separately where they are simultaneaously considered in MZA and for that formulation MZA is prefered to JC model} \cite{Hull-2011}.
+But the original form of ZA model has some limitations due to the fact that it is considered as two terms and to ameliorate that formulation Samantaray \eal \cite{Samantaray-2009} proposed a modified form given by the following equation:
 \begin{equation}
 \label{eq:MZA-model}
 \sigma^y = \left(C_{1}+C_{2}\varepsilon^{p^n}\right) \exp\left[-\left(C_{3}+C_{4}\varepsilon^p\right)\left(T-T_0\right) + \left(C_{5}+C_{6}\left(T-T_0\right)\right)\ln\left( \frac{\mdot\varepsilon}{\mdot{\varepsilon}_0}\right)\right]
@@ -398,6 +397,7 @@ For its identification, several authors restrict its expression to a reduced num
 
 In the present study, the best results were obtained by taking the model defined by only the first $7$ $m_i$ terms of the equation (\ref{eq:HS}), so that $m_8=0$.\OP{See identification script for changes}
 From the experimental data obtained during the compression tests, an identification procedure based on the use of the LMFIT optimizer \cite{Newville-2016} has allowed to compute the parameters reported in Table \ref{tab: HSparameters}.
+
 \begin{table}[h!]
 \centering
 \caption{Parameters' values of the Hansel-Spittel flow law for the P20 steel.}
