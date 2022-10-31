@@ -38,7 +38,8 @@
 
 \newcommand{\dotp}{\boldsymbol{\cdot}}
 %\newcommand{\ccirc}{\kern0.5ex\vcenter{\hbox{$\scriptstyle\circ$}}\kern0.5ex}
-\newcommand{\e}[1]{\exp\left({#1}\right)}
+%\newcommand{\e}[1]{\exp\left({#1}\right)}
+\newcommand{\e}[1]{{\rm e}^{#1}}
 \newcommand{\lay}[1]{^{(#1)}}
 \newcommand{\mdot}[1]{\accentset{\mbox{\bfseries .}}{#1}}
 \newcommand*{\ie}{\emph{i.e.}\@\xspace}
@@ -381,25 +382,25 @@ Values&$43.0988$&$112.975$& $330.976$&$4.27581$&$14106.3$&$17.4178$&$0.305028$\\
 \FloatBarrier
 
 %-------------------------------------------------------------------------
-\subsection{Hansel and Spittel\label{sec:HSmodel}}
+\subsection{Hansel and Spittel model\label{sec:HSmodel}}
 %-------------------------------------------------------------------------
 
-The Hansel-Spittel model \cite{Hensel-1978} is one of the least known models in terms of integration in finite element simulation software, although the determination of its parameters is easier than that of the JC or MZA model. 
-The programming of a simple identification script is sufficient to identify its parameters for a given material. 
+The Hansel-Spittel model \cite{Hensel-1978} is one of the least known models in terms of integration in finite element simulation software, although the determination of its parameters is easier than that of the JC or MZA model.
+The programming of a simple identification script is sufficient to identify its parameters for a given material.
 The equation of the HS model is given by the following relation:
 \begin{equation}
-\sigma^y = A~e^{m_1T}~\varepsilon^{m_2}~\mdot\varepsilon^{m_3}~e^{({m_4}/{\varepsilon})}~(1+\varepsilon)^{m_5T}~e^{m_6\varepsilon}~\mdot\varepsilon^{m_7T}~T^{m_8}\label{eq:HS}
+\sigma^y = A~\e{m_1T}~\varepsilon^{m_2}~\mdot\varepsilon^{m_3}~\e{({m_4}/{\varepsilon})}~(1+\varepsilon)^{m_5T}~\e{m_6\varepsilon}~\mdot\varepsilon^{m_7T}~T^{m_8} \label{eq:HS}
 \end{equation}
-where $\sigma^y$ is the flow stress, $\varepsilon$ is the strain, $\mdot\varepsilon$ is the strain rate and $T$ is the temperature as proposed earlier. 
-The coefficients $A$ and $m_i$ are the parameters of the model to be identified. 
-However, this model has some shortcomings, notably related to the fact that its accuracy varies according to the number of parameters taken into account during the identification. 
-For its identification, several authors restrict its expression to a reduced number of $5$ or $6$ $m_i$ parameters only, by forcing a zero value for the other parameters \cite{Chadha-2018, Rudnytskyj-2020, Mehtedi-2015}. 
+where $\sigma^y$ is the flow stress, $\varepsilon$ is the strain, $\mdot\varepsilon$ is the strain rate and $T$ is the temperature as proposed earlier.
+The coefficients $A$ and $m_i$ are the parameters of the model to be identified.
+However, this model has some shortcomings, notably related to the fact that its accuracy varies according to the number of parameters taken into account during the identification.
+For its identification, several authors restrict its expression to a reduced number of $5$ or $6$ $m_i$ parameters only, by forcing a zero value for the other parameters \cite{Chadha-2018, Rudnytskyj-2020, Mehtedi-2015}.
 
 In the present study, the best results were obtained by taking the model defined by only the first $7$ $m_i$ terms of the equation (\ref{eq:HS}), so that $m_8=0$.\OP{See identification script for changes}
-From the experimental data obtained during the compression tests, an identification procedure based on the use of the LMFIT optimizer \cite{Newville-2016} has allowed to compute the parameters reported in Table \ref{tab: HSparameters}. 
+From the experimental data obtained during the compression tests, an identification procedure based on the use of the LMFIT optimizer \cite{Newville-2016} has allowed to compute the parameters reported in Table \ref{tab: HSparameters}.
 \begin{table}[h!]
 \centering
-\caption{Parameters' values of the Hansel and Spittel flow law for the P20 steel.}
+\caption{Parameters' values of the Hansel-Spittel flow law for the P20 steel.}
 \begin{tabular}{ccccc}
 \hline
 $A~(\text{MPa})$ & $m_1$ & $m_2$ & $m_3$ & $m_4$\\
@@ -410,9 +411,9 @@ $5954.043$ & $-3.358\times10^{-3}$ & $2.641\times10^{-1}$ & $-8.678\times10^{-2}
 \end{tabular}
 \end{table}
 
-The comparison of the values predicted by the HS model and the experimental values is presented in Figure \ref{fig:iCorrelationHS} where the dots represent the experimental values and the solid lines are the values predicted by the HS flow law. 
-It appears that this model as well as the previous ones do not predict well the experimental one and the difference is relatively important for all strain rates below $1.0~\ps$. 
-This shows that this model is not appropriate for the characterization of this alloy, in particular because of the strong non-linearity of the behavior for low values of the strain rate. 
+The comparison of the values predicted by the HS model and the experimental values is presented in Figure \ref{fig:iCorrelationHS} where the dots represent the experimental values and the solid lines are the values predicted by the Hansel-Spittel flow law.
+It appears that this model as well as the previous ones do not predict well the experimental one and the difference is relatively important for all strain rates below $1.0~\ps$.
+This shows that this model is not appropriate for the characterization of this alloy, in particular because of the strong non-linearity of the behavior for low values of the strain rate.
 The DRX phenomena cannot be reproduced by this type of model.
 
 \begin{figure}[!ht]
@@ -424,47 +425,68 @@ The DRX phenomena cannot be reproduced by this type of model.
 \end{figure}
 
 %----------------------------------------------------------------------------------
-\subsection{Arrhenius model (AR model), \label{sec:ARmodel}}
+\subsection{Arrhenius model\label{sec:ARmodel}}
 %----------------------------------------------------------------------------------
-The Arrhenius tye model is one of the most widely used models, especially when it comes to studying the microstructure of the material. Indeed, this model takes into account the physical phenomena that describe the behavior of the material and also the relations between stress ($\sigma^y$), strain ($\varepsilon^p$), the strain rate ($\mdot\varepsilon$) and the temperature ($T$) could be expressed in form of the power law, the exponential law and the hyperbolic sine type equation. This facilitates an easier description of the phenomenon of softening observed in material due to the increase in temperature. The following equations describe the Arrhenius model.
+
+The Arrhenius type model \cite{Sellars-1966} is one of the most used models in the framework of material forming, especially when it comes to studying the microstructure of the material. Indeed, this model takes into account the physical phenomena that describe the behavior of the material in the formulation of the relationships between the stress $\sigma^y$, the strain $\varepsilon$, the strain rate $\mdot\varepsilon$ and the temperature $T$ expressed as power law, exponential law and hyperbolic sine. 
+This makes it easier to describe the softening phenomenon observed in the material due to increasing temperature. 
+The following equations describe the Arrhenius model:
 \begin{equation}
-\label{eq:ARmodel1}
-\mdot\varepsilon = A_1\sigma^{y^{n_1}}\exp\left(-\frac{Q}{RT}\right) \qquad (for ~~\alpha\sigma^y < 0.8)
+\mdot\varepsilon =
+\begin{cases}
+A_1 \sigma^{y^{n_1}} \exp{\left(-\frac{Q}{RT}\right)} & \alpha\sigma^y < 0.8\\
+A_2 \exp(\beta\sigma^y) \exp{\left(-\frac{Q}{RT}\right)} & \alpha\sigma^y > 1.2\\
+A_3 \left[\sinh{\left(\alpha\sigma^y\right)}\right]^{n_2} \exp{\left(-\frac{Q}{RT}\right)} & \text{for all }\sigma^y
+\end{cases}
+\label{eq:ArDef}
+\end{equation}
+with:
+\begin{equation}
+Z = \mdot\varepsilon \exp{\left(\frac{Q}{RT}\right)} \label{eq:ArZ}
+\end{equation}
+where $Z$ is the Zenner-Hollomon parameter \cite{Zener-1944}, $\mdot\varepsilon$ is the strain rate ($\ps$), $Q$ is the apparent activation energy ($\text{J~mol}^{-1}$), $R$ is the universal gas constant ($8.314~\text{J~mol}^{-1} \text{K}^{-1}$), $T$ is the absolute temperature (K), $\sigma^y$ is the flow stress (MPa) for a given strain, strain rate and temperature and $A_1$, $A_2$, $A_3$, $n_1$, $n_2$, $\alpha$ and $\beta=\alpha n_1$ are dependent of the material. 
+The corresponding values are independent of the temperature and are obtained from the stress-strain curves at different strain rates and temperature by regression method.
+Combination of Equations (\ref{eq:ArDef}) and (\ref{eq:ArZ}) allow expressing the flow stress $\sigma^y$ as a function of the $Z$ parameter:
+\begin{equation}
+\sigma^y = \frac{1}{\alpha} \ln\left\{\left(\frac{Z}{A}\right)^{1/n} + \left[1 + \left(\frac{Z}{A}\right)^{2/n}\right]^{1/2}\right\}
+\end{equation}
+
+To obtain the constitutive equation, it is necessary to determine all the parameters $A$, $Q$ $\alpha$ and $n$ for a given material. 
+The strain has a significant non-linear influence on the behavior of the material by the mechanism of strain hardening and softening at high values of deformation. 
+A compensation in strain must therefore be taken into account in the Arrhenius model, which leads to the definition of the modified Arrhenius model for which the $A$, $Q$ $\alpha$ and $n$ parameters are expressed as a function of the strain $\varepsilon$ by means of polynomial functions of degree $m$ (varying from $1$ to $9$) of the form:
+\begin{equation}
+A(\varepsilon) = \exp{\left[\ln A_0 + \ln A_1\varepsilon + \ln A_2\varepsilon^2 + \ln A_3\varepsilon^3 + \cdots + \ln A_m\varepsilon^m\right]}
+\label{eq:ArA}
 \end{equation}
 \begin{equation}
-\label{eq:ARmodel2}
-\mdot\varepsilon = A_2\exp(\beta\sigma^y)\exp\left(-\frac{Q}{RT}\right) \qquad (for ~~\alpha\sigma^y > 1.2)
+Q(\varepsilon) = Q_0 + Q_1\varepsilon + Q_2\varepsilon^2 + Q_3\varepsilon^3 + \cdots + Q_m\varepsilon^m
+\label{eq:ArQ}
 \end{equation}
 \begin{equation}
-\label{eq:ARmodel}
-\mdot\varepsilon = A_3\left[\sinh(\alpha\sigma^y)\right]^{n_2}\exp\left(-\frac{Q}{RT}\right) \qquad (for ~~all\ \sigma^y)
+\alpha(\varepsilon) = \alpha_0 + \alpha_1\varepsilon + \alpha_2\varepsilon^2 + \alpha_3\varepsilon^3 + \cdots + \alpha_m\varepsilon^m
+\label{eq:Aralpha}
 \end{equation}
-Where $\mdot\varepsilon$ is the strain rate ($s^{-1}$), $Q$ is the deformation activation energy ($KJmol^{-1}$), $R$ is the universal gas constant ($8.314\ J mol^{-1} K^{-1}$), $T$ is the absolute temperature ($K$) and $A_1, A_2, A_3, n_1$, $n_2, \beta$ and $\alpha(\beta/n_1)$ are the material constants. To take into account the effects of temperature and strain rate on the deformation, a parameter ($Z$) called Zener-Hollomon parameter is introduced whose expression is given as follows:
 \begin{equation}
-\label{eq:Zparam}
-Z = \mdot\varepsilon\exp\left(\frac{Q}{RT}\right)
+n(\varepsilon) = n_0 + n_1\varepsilon + n_2\varepsilon^2 + n_3\varepsilon^3 + \cdots + n_m\varepsilon^m
+\label{eq:Arn}
 \end{equation}
-By replacing the Equation (\ref{eq:ARmodel}) inton Equation (\ref{eq:Zparam}) it comes:
+
+The determination of the order $m$ of the polynomials defined by Equations (\ref{eq:ArA}-\ref{eq:Arn}) is defined according to the ability of the model to represent the non-linear dependence of the stress versus the strain and its generalization. The values $\ln A_i$, $\alpha_i$, $n_i$, and $Q_i$ ($i=1,2,3,\cdots,m$) are the coefficients of the polynomials to determine using a regression method. This modified form of the Arrhenius behavior law allows for accurate and reliable prediction over a wide range of temperatures and strain rates. Equation (\ref{eq:ArStress}) is finally used: 
 \begin{equation}
-\label{eq:Zparam1}
-Z = A_3\left[\sinh(\alpha\sigma^y)\right]^{n_2} \qquad \Rightarrow \qquad \sinh(\alpha\sigma^y) = \left(\frac{Z}{A_3}\right)^{1/n_2}
+\sigma^y = \frac{1}{\alpha(\varepsilon)} \ln\left\{\left(\frac{\mdot\varepsilon \exp{\left(\frac{Q(\varepsilon)}{RT}\right)}}{A(\varepsilon)}\right)^{\frac{1}{n(\varepsilon)}} + \left[1 + \left(\frac{\mdot\varepsilon \exp{\left(\frac{Q(\varepsilon)}{RT}\right)}}{A(\varepsilon)}\right)^{\frac{2}{n(\varepsilon)}}\right]^{\frac{1}{2}}\right\}
+\label{eq:ArStress}
 \end{equation}
-Furthermore, it is known that:
-\begin{equation}
-arc\sinh(x) = \ln\left(x + \sqrt{1+x^2}\right)
-\end{equation}
-Therefore Equation (\ref{eq:Zparam1}) becomes and which is actually the Arhenius model:
-\begin{equation}
-\sigma^y = \frac{1}{\alpha}\ln\left\{\left(\frac{Z}{A_3}\right)^{1/n_2} + \left[1 + \left(\frac{Z}{A_3}\right)^{2/n_2}\right]^{1/2}\right\}
-\end{equation}
-To obtain the constitutive equation, all parameters $\alpha$, $Q$, $n_2$, and $A_3$ needed to be determined. The following part shows the calculation procedures of these material constants at $\varepsilon^p = 0.1$ as example. Taking the natural logarithm of Equations (\ref{eq:ARmodel1}) and (\ref{eq:ARmodel2}), the following relationships can be obtained:
+
+The following part shows the calculation procedures of these material constants at $\varepsilon = 0.1$ as example. 
+Taking the natural logarithm of Equations (\ref{eq:ARmodel1}) and (\ref{eq:ARmodel2}), the following relationships can be obtained:
 \begin{equation}
 \ln \sigma^y = \frac{1}{n_1}\ln \mdot\varepsilon -\frac{1}{n_1}\ln A_1 +  \frac{1}{n_1}\frac{Q}{RT}
 \end{equation}
 \begin{equation}
 \sigma^y = \frac{1}{\beta}\ln \mdot\varepsilon - \frac{1}{\beta}\ln A_2 + \frac{1}{\beta}\frac{Q}{RT}
 \end{equation}
-From these two equations, we can easily deduce the parameters $n_1$ and $\beta$ as the slopes of the functions $\ln\sigma^y = f(\ln\mdot\varepsilon)$  and $\sigma^y = f(\ln\mdot\varepsilon)$ as shown in Figure \ref{fig:LnAlp} and Figure \ref{fig:LnSinhE0} for $\varepsilon^p = 0.1$. It should be noted that later in this document all values of strain will be taken into account.
+From these two equations, we can easily deduce the parameters $n_1$ and $\beta$ as the slopes of the functions $\ln\sigma^y = f(\ln\mdot\varepsilon)$  and $\sigma^y = f(\ln\mdot\varepsilon)$ as shown in Figure \ref{fig:LnAlp} and Figure \ref{fig:LnSinhE0} for $\varepsilon^p = 0.1$. 
+It should be noted that later in this document all values of strain will be taken into account.
 \begin{figure}[!ht]
 \centering
 \includegraphics[width=0.9\columnwidth]{Figures/LnAlp}
@@ -488,7 +510,8 @@ By applying the chain derivative rule, we get the following relationship to calc
 \label{eq:parQ}
 Q = R\left[\frac{\partial \ln \mdot\varepsilon}{\partial \ln [\sinh(\alpha\sigma^y)]}\right]_{T}\left[\frac{\partial \ln [\sinh(\alpha\sigma^y)]}{\partial (1/T)}\right]_{\mdot\varepsilon}= Rn_2\frac{d\left\{\ln\left[\sinh(\alpha\sigma^y)\right]\right\}}{d(1/T)}
 \end{equation}
-From Equation (\ref{eq:lnSinh}) and Equation (\ref{eq:parQ}) we can deduce the parameters $n_2 $ and $Q $ from the slopes of the functions $\ln \sinh(\alpha\sigma^y) = f(\ln \dot{\varepsilon}^p)$ and $\ln \sinh(\alpha\sigma^y) = g(1/T)$ as shown in Figure \ref{fig:LnSinhE} and Figure \ref{fig:LnSinhT}. Thus those values are $4.94273$ and $437.385\ KJ.mol^{-1}$ respectively.
+From Equation (\ref{eq:lnSinh}) and Equation (\ref{eq:parQ}) we can deduce the parameters $n_2 $ and $Q $ from the slopes of the functions $\ln \sinh(\alpha\sigma^y) = f(\ln \dot{\varepsilon}^p)$ and $\ln \sinh(\alpha\sigma^y) = g(1/T)$ as shown in Figure \ref{fig:LnSinhE} and Figure \ref{fig:LnSinhT}. 
+Thus those values are $4.94273$ and $437.385\ KJ.mol^{-1}$ respectively.
 \begin{figure}[!ht]
 \centering
 \includegraphics[width=0.9\columnwidth]{Figures/LnSinhE}
@@ -501,7 +524,13 @@ From Equation (\ref{eq:lnSinh}) and Equation (\ref{eq:parQ}) we can deduce the p
 \caption{Relationship between $\ln \sinh(\alpha\sigma^y) $ and $1/T$}
 \label{fig:LnSinhT}
 \end{figure}
-As these coefficients are calculated for a single strain value as example, it is possible to take into account their dependence on all strain values. Hence the need to find a function for each coefficient for all temperatures and strains. Figure  \ref{fig:ARparameters} shows the relationships between $\alpha$, $Q$, $n_2$, $\ln A$ and true strain $\varepsilon^p$ for AISI P20 alloy using leasquare method. For each parameter (whose strain dependant expressions are given by Equations \ref{eq:alpha}, \ref{eq:Q}, \ref{eq:n} and \ref{eq:lnA}), the values of constants are summarized in Table \ref{tab: ARparameters}. Figure \ref{fig:iCorrelationAR} is the comparison of predicted values of AR model and experimental values where the correlaton is good. The gap between experimental and prediction is small. But for the strain rate $\mdot\varepsilon = 0.01\ \ps$ and for the two low temperatures values, the AR model is not able to predict the softening.
+As these coefficients are calculated for a single strain value as example, it is possible to take into account their dependence on all strain values. 
+Hence the need to find a function for each coefficient for all temperatures and strains. 
+Figure  \ref{fig:ARparameters} shows the relationships between $\alpha$, $Q$, $n_2$, $\ln A$ and true strain $\varepsilon^p$ for AISI P20 alloy using leasquare method. 
+For each parameter (whose strain dependant expressions are given by Equations \ref{eq:alpha}, \ref{eq:Q}, \ref{eq:n} and \ref{eq:lnA}), the values of constants are summarized in Table \ref{tab: ARparameters}. 
+Figure \ref{fig:iCorrelationAR} is the comparison of predicted values of AR model and experimental values where the correlaton is good. 
+The gap between experimental and prediction is small. 
+But for the strain rate $\mdot\varepsilon = 0.01\ \ps$ and for the two low temperatures values, the AR model is not able to predict the softening.
 \begin{equation}
 \label{eq:alpha}
 \alpha(\varepsilon^p) = \alpha_0 + \alpha_1\varepsilon^{{p^1}} + \alpha_2\varepsilon^{p^2} + \alpha_3\varepsilon^{p^3} + \alpha_4\varepsilon^{p^4} + \alpha_5\varepsilon^{p^5} + \alpha_6\varepsilon^{p^6}
@@ -555,7 +584,8 @@ Values&$\alpha_3=-8.30819$&$Q_3 =-31.6016$& $n_{23} =651.241$   & $\ln A_3 =-261
 %-------------------------------------------------------------------------
 \subsection{PTM model\label{sec:ProposedModel}}
 %--------------------------------------------------------------------------
-The PTM model is a generalized formulation of the MZA model. Indeed, the shortcomings of the MZA model are taken into account in this formulation, which makes the model flexible for any type of studied material as it does not require a limited number of parameters. The intrinsic functions of the model, which are the polynomial type functions, will determine the parameters of the model according to the degree of the polynomial, which provides a good fit for each function. The equation describing the PTM model is therefore given by.
+The PTM model is a generalized formulation of the MZA model. 
+Indeed, the shortcomings of the MZA model are taken into account in this formulation, which makes the model flexible for any type of studied material as it does not require a limited number of parameters. The intrinsic functions of the model, which are the polynomial type functions, will determine the parameters of the model according to the degree of the polynomial, which provides a good fit for each function. The equation describing the PTM model is therefore given by.
 \begin{equation}
 \label{eq:PTM-model}
 \sigma^y(\varepsilon^p,\mdot\varepsilon,T) = \left(\sum_{i=0}^{q}{A_i\varepsilon^{p^i}}\right) \exp\left[\left(\sum_{j=0}^{r}{B_j\varepsilon^{p^j}}\right)\left(T-T_0\right) + \left(\sum_{k=0}^{s}\left(\sum_{l=0}^{t}{C_k^l\varepsilon^{p^l}} \right)\left(T-T_0\right)^k \right)\ln\left( \frac{\mdot\varepsilon}{\mdot{\varepsilon}_0}\right)\right]
@@ -608,7 +638,7 @@ $C_1^4 $ & $0.00174818$ \\
 \FloatBarrier
 
 %-------------------------------------------------------------------------
-\subsection{Artificial neural network model\label{sec:ANNmodel}}
+\subsection{Artificial Neural Network model\label{sec:ANNmodel}}
 %--------------------------------------------------------------------------
 The Artificial Neural Network model (ANN) is a mathematical formulation widely used in many fields today for better prediction. It is a model based on the principle of minimisation where it improves from the progressive decrease of the error during the learning process. Typically an ANN model contains an input layer, an output layer and hidden layers. Each hidden layer is connected to the one before it and the one after it via neurons. Indeed, all neurons in the $k$ layer are connected to each neuron in the ($k+1$) layer. To each layer is added another parameter called bias. As said the principle of the ANN model is therefore based on the minimisation of the difference between the value obtained from the output of the network and the expected value.  Indeed, once the error is calculated, it is propagated back to the input layer in order to update the model parameters via the minimisation algorithms. In our case, the ADAM algorithm is used. The architecture of the network used in this study is shown in Figure \ref{fig:ANN-scheme-2HL}. After several tests of different types of network architecture, it was found that two hidden layers including $15$ neurons for the first hidden layer and $7$ for the second one gives the best prediction where the input layer is composed of three neurons ($\varepsilon^p$, $\mdot\varepsilon$, $T$) and the output layer is composed of a single neuron corresponding to the flow stress. The good performance of the model is found to be stable between $800$ and $1000$ epochs.
 
