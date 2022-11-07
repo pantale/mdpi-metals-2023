@@ -425,8 +425,8 @@ The DRX phenomena cannot be reproduced by this type of model.
 \subsection{Arrhenius model\label{sec:ARmodel}}
 %----------------------------------------------------------------------------------
 
-The Arrhenius type model \cite{Sellars-1966} is one of the most used models in the framework of material forming, especially when it comes to studying the microstructure of the material. Indeed, this model takes into account the physical phenomena that describe the behavior of the material in the formulation of the relationships between the stress $\sigma^y$, the strain $\varepsilon$, the strain rate $\mdot\varepsilon$ and the temperature $T$ expressed as power law, exponential law and hyperbolic sine. 
-This makes it easier to describe the softening phenomenon observed in the material due to increasing temperature. 
+The Arrhenius type model \cite{Sellars-1966} is one of the most used models in the framework of material forming, especially when it comes to studying the microstructure of the material. Indeed, this model takes into account the physical phenomena that describe the behavior of the material in the formulation of the relationships between the stress $\sigma^y$, the strain $\varepsilon$, the strain rate $\mdot\varepsilon$ and the temperature $T$ expressed as power law, exponential law and hyperbolic sine.
+This makes it easier to describe the softening phenomenon observed in the material due to increasing temperature.
 The following equations describe the Arrhenius model:
 \begin{equation}
 \mdot\varepsilon =
@@ -441,15 +441,15 @@ with:
 \begin{equation}
 Z = \mdot\varepsilon \exp{\left(\frac{Q}{RT}\right)} \label{eq:ArZ}
 \end{equation}
-where $Z$ is the Zenner-Hollomon parameter \cite{Zener-1944}, $\mdot\varepsilon$ is the strain rate ($\ps$), $Q$ is the apparent activation energy ($\text{J~mol}^{-1}$), $R$ is the universal gas constant ($8.314~\text{J~mol}^{-1} \text{K}^{-1}$), $T$ is the absolute temperature (K), $\sigma^y$ is the flow stress (MPa) for a given strain, strain rate and temperature and $A_1$, $A_2$, $A_3$, $n_1$, $n_2$, $\alpha$ and $\beta=\alpha n_1$ are dependent of the material. 
+where $Z$ is the Zenner-Hollomon parameter \cite{Zener-1944}, $\mdot\varepsilon$ is the strain rate ($\ps$), $Q$ is the apparent activation energy ($\text{J~mol}^{-1}$), $R$ is the universal gas constant ($8.314~\text{J~mol}^{-1} \text{K}^{-1}$), $T$ is the absolute temperature (K), $\sigma^y$ is the flow stress (MPa) for a given strain, strain rate and temperature and $A_1$, $A_2$, $A_3$, $n_1$, $n_2$, $\alpha$ and $\beta=\alpha n_1$ are dependent of the material.
 The corresponding values are independent of the temperature and are obtained from the stress-strain curves at different strain rates and temperature by regression method.
 Combination of Equations (\ref{eq:ArDef}) and (\ref{eq:ArZ}) allow expressing the flow stress $\sigma^y$ as a function of the $Z$ parameter:
 \begin{equation}
 \sigma^y = \frac{1}{\alpha} \ln\left\{\left(\frac{Z}{A}\right)^{1/n} + \left[1 + \left(\frac{Z}{A}\right)^{2/n}\right]^{1/2}\right\}
 \end{equation}
 
-To obtain the constitutive equation, it is necessary to determine all the parameters $A$, $Q$ $\alpha$ and $n$ for a given material. 
-The strain has a significant non-linear influence on the behavior of the material by the mechanism of strain hardening and softening at high values of deformation. 
+To obtain the constitutive equation, it is necessary to determine all the parameters $A$, $Q$ $\alpha$ and $n$ for a given material.
+The strain has a significant non-linear influence on the behavior of the material by the mechanism of strain hardening and softening at high values of deformation.
 A compensation in strain must therefore be taken into account in the Arrhenius model, which leads to the definition of the modified Arrhenius model for which the $A$, $Q$ $\alpha$ and $n$ parameters are expressed as a function of the strain $\varepsilon$ by means of polynomial functions of degree $m$ (varying from $1$ to $9$) of the form:
 \begin{equation}
 A(\varepsilon) = \exp{\left[\ln\!A_0 + \ln\!A_1\varepsilon + \ln\!A_2\varepsilon^2 + \ln\!A_3\varepsilon^3 + \cdots + \ln\!A_m\varepsilon^m\right]}
@@ -468,15 +468,15 @@ n(\varepsilon) = n_0 + n_1\varepsilon + n_2\varepsilon^2 + n_3\varepsilon^3 + \c
 \label{eq:Arn}
 \end{equation}
 
-The determination of the order $m$ of the polynomials defined by Equations (\ref{eq:ArA}-\ref{eq:Arn}) is defined according to the ability of the model to represent the non-linear dependence of the stress versus the strain and its generalization. 
-The values $\ln\!A_i$, $\alpha_i$, $n_i$, and $Q_i$ ($i=1,2,3,\cdots,m$) are the coefficients of the polynomials to determine using a regression method. 
-Setting $m=9$ gives the best results and the corresponding parameters are reported in Table \ref{tab:ARparameters}. 
+The determination of the order $m$ of the polynomials defined by Equations (\ref{eq:ArA}-\ref{eq:Arn}) is defined according to the ability of the model to represent the non-linear dependence of the stress versus the strain and its generalization.
+The values $\ln\!A_i$, $\alpha_i$, $n_i$, and $Q_i$ ($i=1,2,3,\cdots,m$) are the coefficients of the polynomials to determine using a regression method.
+Setting $m=9$ gives the best results and the corresponding parameters are reported in Table \ref{tab:ARparameters}.
 \begin{table}[h!]
 \centering
 \caption{Parameters' values of the Arrhenius flow law for the P20 steel}
 \begin{tabular}{llll}
 \hline
-$\alpha_i~(\text{MPa}^{-1})$ & $Q_i~(\text{MJ.mol}^{-1})$ & $\ln\!A_i~(\ps)$ & $n_i$\\
+\multicolumn{1}{c}{$\alpha_i~(\text{MPa}^{-1})$} & \multicolumn{1}{c}{$Q_i~(\text{MJ.mol}^{-1})$} & \multicolumn{1}{c}{$\ln\!A_i~(\ps)$} & \multicolumn{1}{c}{$n_i$}\\
 \hline
 $\alpha_0=0.0392$ & $Q_0=0.467$ & $\ln\!A_0=35.8092$ & $n_0=4.8216$ \\
 $\alpha_1=-0.4092$ & $Q_1=-0.6516$ & $\ln\!A_1=-58.8219$ & $n_1=3.2813$ \\
@@ -492,15 +492,15 @@ $\alpha_9=42.5233$ & $Q_9=1397.0283$ & $\ln\!A_9=107585.17$ & $n_9=-29621.1293$ 
 \label{tab:ARparameters}
 \end{tabular}
 \end{table}
-This modified form of the Arrhenius behavior law allows for accurate and reliable prediction over a wide range of temperatures and strain rates. 
-Equation (\ref{eq:ArStress}) is finally used to compute the flow stress $\sigma^y$ from the strain $\varepsilon$, the strain rate $\mdot\varepsilon$ and the temperature $T$: 
+This modified form of the Arrhenius behavior law allows for accurate and reliable prediction over a wide range of temperatures and strain rates.
+Equation (\ref{eq:ArStress}) is finally used to compute the flow stress $\sigma^y$ from the strain $\varepsilon$, the strain rate $\mdot\varepsilon$ and the temperature $T$:
 \begin{equation}
 \sigma^y = \frac{1}{\alpha(\varepsilon)} \ln\left\{\left(\frac{\mdot\varepsilon \exp{\left(\frac{Q(\varepsilon)}{RT}\right)}}{A(\varepsilon)}\right)^{\frac{1}{n(\varepsilon)}} + \left[1 + \left(\frac{\mdot\varepsilon \exp{\left(\frac{Q(\varepsilon)}{RT}\right)}}{A(\varepsilon)}\right)^{\frac{2}{n(\varepsilon)}}\right]^{\frac{1}{2}}\right\}
 \label{eq:ArStress}
 \end{equation}
 
-Figure \ref{fig:iCorrelationAR} shows the comparison of the values predicted by the Arrhenius model and the experimental values. 
-The difference between the experimental and predicted values is small. 
+Figure \ref{fig:iCorrelationAR} shows the comparison of the values predicted by the Arrhenius model and the experimental values.
+The difference between the experimental and predicted values is small.
 But for the strain rate $\mdot\varepsilon = 0.01~\ps$ and for the two low temperature values, the AR model is not able to predict the softening.
 
 \begin{figure}[!ht]
@@ -510,54 +510,48 @@ But for the strain rate $\mdot\varepsilon = 0.01~\ps$ and for the two low temper
 \caption{Comparison between the experimental and predicted flow stresses by AR model}
 \label{fig:iCorrelationAR}
 \end{figure}
-\FloatBarrier
+
+
 %-------------------------------------------------------------------------
-\subsection{PTM model\label{sec:ProposedModel}}
+\subsection{PTM model\label{sec:PTM}}
 %--------------------------------------------------------------------------
-The PTM model is a generalized formulation of the MZA model. 
-Indeed, the shortcomings of the MZA model are taken into account in this formulation, which makes the model flexible for any type of studied material as it does not require a limited number of parameters. The intrinsic functions of the model, which are the polynomial type functions, will determine the parameters of the model according to the degree of the polynomial, which provides a good fit for each function. The equation describing the PTM model is therefore given by.
+
+The PTM model \cite{TizeMha-2022} is a generalized formulation of the MZA model presented in Section \ref{sec:MZA}.
+When establishing its formulation, the main shortcomings of the MZA model were taken into account, in order to make the PTM model flexible for any type of material studied because there is no need for a limited number of parameters as in the MZA model. Its construction is based on the use of polynomial functions as in the AR model.
+Thus, the intrinsic functions of the model, of polynomial type, allow to adjust the model according to the degree selected for each of the 4 constituent polynomials, which provides a good fit for each function.
+The equation describing the PTM model is therefore given by :
 \begin{equation}
 \label{eq:PTM-model}
-\sigma^y(\varepsilon^p,\mdot\varepsilon,T) = \left(\sum_{i=0}^{q}{A_i\varepsilon^{p^i}}\right) \exp\left[\left(\sum_{j=0}^{r}{B_j\varepsilon^{p^j}}\right)\left(T-T_0\right) + \left(\sum_{k=0}^{s}\left(\sum_{l=0}^{t}{C_k^l\varepsilon^{p^l}} \right)\left(T-T_0\right)^k \right)\ln\left( \frac{\mdot\varepsilon}{\mdot{\varepsilon}_0}\right)\right]
+\sigma^y = \left(\sum_{i=0}^{q}{A_i\varepsilon^{p^i}}\right) \exp\left[\left(\sum_{j=0}^{r}{B_j\varepsilon^{p^j}}\right)\left(T-T_0\right) + \left(\sum_{k=0}^{s}\left(\sum_{l=0}^{t}{C_k^l\varepsilon^{p^l}} \right)\left(T-T_0\right)^k \right)\ln\left( \frac{\mdot\varepsilon}{\mdot{\varepsilon}_0}\right)\right]
 \end{equation}
-where $A_i, B_j, C_k^l$ are the parameters (Table \ref{tab:PTM-parameters}) of the model to be identified using the procedure proposed in  \cite{TizeMha-2022}. Quantities $q$, $r$, $s$ and $t$ define the degree of the polynomials used to describe the behavior of the material. The larger these quantities are, the more parameters need to be identified for the PTM model.
-The determination of the parameters of this model are calculated thanks to the LMFIT Python library \cite{Newville-2016} and for more details about this model  we invite the reader to read our previous work \cite{TizeMha-2022}. Thus all the parametrers of this model are calcuted with $q=5$, $r=5$, $s=1$ and $t=5$.
+where $A_i, B_j, C_k^l$ are the parameters (Table \ref{tab:PTM-parameters}) of the model to be identified using the procedure proposed in  \cite{TizeMha-2022}.
+Quantities $q$, $r$, $s$ and $t$ define the degree of the polynomials used to describe the behavior of the material.
+The larger these quantities are, the more parameters need to be identified for the PTM model.
+The determination of the parameters of this model are calculated thanks to the LMFIT Python library \cite{Newville-2016} and for more details about this model  we invite the reader to read our previous work \cite{TizeMha-2022}.
+Thus all the parametrers of this model are calcuted with $q=5$, $r=5$, $s=1$ and $t=5$.
 
-Comparison of predicted values of the PTM model and experimental values is shown in Figure \ref{fig:iCorrelationPTM}. The PTM model is suitable to describe the ﬂow behavior of AISI P20 steel, but for the strain rate $\mdot\varepsilon = 0.1\ \ps$ the prediction in not quite good. The deviation between the predicted values and the experimental values is relatively good.
-\begin{table}[!h]
-\centering{}
-\caption{Parameters of PTM model\label{tab:PTM-parameters}}
-\begin{tabular}{cc}
+Comparison of predicted values of the PTM model and experimental values is shown in Figure \ref{fig:iCorrelationPTM}.
+The PTM model is suitable to describe the ﬂow behavior of AISI P20 steel, but for the strain rate $\mdot\varepsilon = 0.1\ \ps$ the prediction in not quite good.
+The deviation between the predicted values and the experimental values is relatively good.
+
+\begin{table}[h!]
+\centering
+\caption{Parameters' values of the PTM flow law for the P20 steel}
+\begin{tabular}{llll}
 \hline
-&   \\
-Parameters &Values\\
-&   \\
+\multicolumn{1}{c}{$A_i$} & \multicolumn{1}{c}{$B_i$} & \multicolumn{1}{c}{$C_0^i$} & \multicolumn{1}{c}{$C_1^i$}\\
 \hline
-$A_0 (\text{MPa})$ & $62.314$ \\
-$A_1 (\text{MPa})$ & $559.827$ \\
-$A_2 (\text{MPa})$ & $-2160.03$ \\
-$A_3 (\text{MPa})$ & $4641.94,$ \\
-$A_4 (\text{MPa})$ & $-5193.06$ \\
-$A_5 (\text{MPa})$ & $2379.1$ \\
-$B_0 $   & $-0.0035805$\\
-$B_1 $   & $0.00282334$ \\
-$B_2 $   & $-0.00775301$\\
-$B_3 $   & $0.0085135$ \\
-$B_4 $   & $-0.00412815$\\
-$C_0^0 $ & $0.148304$ \\
-$C_0^1 $ & $-0.301958$ \\
-$C_0^2 $ & $2.2706$ \\
-$C_0^3 $ & $-5.33003$ \\
-$C_0^4 $ & $5.48971$ \\
-$C_0^5 $ & $-2.11566$\\
-$C_1^0 $ & $-3.74842\ \times10^{-7}$\\
-$C_1^1 $ & $0.00165233$\\
-$C_1^2 $ & $-0.00270485$ \\
-$C_1^3 $ & $-0.000483867$\\
-$C_1^4 $ & $0.00174818$ \\
+$A_0=16.8528$ & $B_0=-0.0035$ & $C_0^0=0.1607$ & $C_1^0=0.0$\\
+$A_1=340.6451$ & $B_1=-0.0131$ & $C_0^1=-0.6201$ & $C_1^1=0.0026$\\
+$A_2=-1959.4041$ & $B_2=-0.0044$ & $C_0^2=4.9515$ & $C_1^2=-0.0035$\\
+$A_3=4835.9698$ & $B_3=0.2217$ & $C_0^3=-13.1693$ & $C_1^3=-0.0222$\\
+$A_4=-5517.6094$ & $B_4=-0.4988$ & $C_0^4=15.2499$ & $C_1^4=0.0608$\\
+$A_5=2405.8399$ & $B_5=0.3211$ & $C_0^5=-6.5869$ & $C_1^5=-0.0412$\\
 \hline
+\label{tab:PTM-parameters}
 \end{tabular}
 \end{table}
+
 \begin{figure}[!ht]
 \centering
 \includegraphics[width=1.02\columnwidth]
