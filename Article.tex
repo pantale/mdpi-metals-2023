@@ -360,13 +360,10 @@ with $S_2=C_5+C_6\left(T-T_0\right)$. Finally, the graph $\ln\sigma^y$ versus $ 
 \begin{table}[h!]
 \centering{}
 \caption{Parameters' constants of Modified-Zerilli-Armstrong Model}
-\begin{tabular}{lllllllc}
+\begin{tabular}{llllllc}
 \hline
-&         &             &		   &		 &			   &&\\
-Parameters&$C_1(\text{MPa})$    &$C_2(\text{MPa})$        & $C_3(\times10^{-5})$     & $C_4(\times10^{-5})$   & $C_5(\times10^{-5})$       &$C_6(\times10^{-5})$&$n$\\
-&         &             &		   &	     &	           &&\\
-\hline
-Values&$43.0988$&$112.975$& $330.976$&$4.27581$&$14106.3$&$17.4178$&$0.305028$\\
+$C_1(\text{MPa})$    &$C_2(\text{MPa})$        & $C_3(\times10^{-5})$     & $C_4(\times10^{-5})$   & $C_5(\times10^{-5})$       &$C_6(\times10^{-5})$&$n$\\
+$43.0988$&$112.975$& $330.976$&$4.27581$&$14106.3$&$17.4178$&$0.305028$\\
 \hline
 \label{tab: MZAparameters}
 \end{tabular}
@@ -396,7 +393,7 @@ However, this model has some shortcomings, notably related to the fact that its 
 For its identification, several authors restrict its expression to a reduced number of $5$ or $6$ $m_i$ parameters only, by forcing a zero value for the other parameters \cite{Chadha-2018, Rudnytskyj-2020, Mehtedi-2015}.
 
 In the present study, the best results were obtained by taking the model defined by only the first $7$ $m_i$ terms of the equation (\ref{eq:HS}), so that $m_8=0$.\OP{See identification script for changes}
-From the experimental data obtained during the compression tests, an identification procedure based on the use of the LMFIT optimizer \cite{Newville-2016} has allowed to compute the parameters reported in Table \ref{tab: HSparameters}.
+From the experimental data obtained during the compression tests, an identification procedure based on the use of the LMFIT optimizer \cite{Newville-2016} has allowed to compute the parameters reported in Table \ref{tab:HSparameters}.
 
 \begin{table}[h!]
 \centering
@@ -407,7 +404,7 @@ $A~(\text{MPa})$ & $m_1$ & $m_2$ & $m_3$ & $m_4$\\
 $5954.043$ & $-3.358\times10^{-3}$ & $2.641\times10^{-1}$ & $-8.678\times10^{-2}$ & $2.269\times10^{-4}$\\\hline
 & $m_5$ & $m_6$ & $m_7$ & $m_8$\\
 & $-4.216\times10^{-4}$ & $-5.613\times10^{-2}$ & $2.264\times10^{-4}$ & $0$\\\hline
-\label{tab: HSparameters}
+\label{tab:HSparameters}
 \end{tabular}
 \end{table}
 
@@ -455,7 +452,7 @@ To obtain the constitutive equation, it is necessary to determine all the parame
 The strain has a significant non-linear influence on the behavior of the material by the mechanism of strain hardening and softening at high values of deformation. 
 A compensation in strain must therefore be taken into account in the Arrhenius model, which leads to the definition of the modified Arrhenius model for which the $A$, $Q$ $\alpha$ and $n$ parameters are expressed as a function of the strain $\varepsilon$ by means of polynomial functions of degree $m$ (varying from $1$ to $9$) of the form:
 \begin{equation}
-A(\varepsilon) = \exp{\left[\ln A_0 + \ln A_1\varepsilon + \ln A_2\varepsilon^2 + \ln A_3\varepsilon^3 + \cdots + \ln A_m\varepsilon^m\right]}
+A(\varepsilon) = \exp{\left[\ln\!A_0 + \ln\!A_1\varepsilon + \ln\!A_2\varepsilon^2 + \ln\!A_3\varepsilon^3 + \cdots + \ln\!A_m\varepsilon^m\right]}
 \label{eq:ArA}
 \end{equation}
 \begin{equation}
@@ -471,108 +468,41 @@ n(\varepsilon) = n_0 + n_1\varepsilon + n_2\varepsilon^2 + n_3\varepsilon^3 + \c
 \label{eq:Arn}
 \end{equation}
 
-The determination of the order $m$ of the polynomials defined by Equations (\ref{eq:ArA}-\ref{eq:Arn}) is defined according to the ability of the model to represent the non-linear dependence of the stress versus the strain and its generalization. The values $\ln A_i$, $\alpha_i$, $n_i$, and $Q_i$ ($i=1,2,3,\cdots,m$) are the coefficients of the polynomials to determine using a regression method. This modified form of the Arrhenius behavior law allows for accurate and reliable prediction over a wide range of temperatures and strain rates. Equation (\ref{eq:ArStress}) is finally used: 
+The determination of the order $m$ of the polynomials defined by Equations (\ref{eq:ArA}-\ref{eq:Arn}) is defined according to the ability of the model to represent the non-linear dependence of the stress versus the strain and its generalization. 
+The values $\ln\!A_i$, $\alpha_i$, $n_i$, and $Q_i$ ($i=1,2,3,\cdots,m$) are the coefficients of the polynomials to determine using a regression method. 
+Setting $m=9$ gives the best results and the corresponding parameters are reported in Table \ref{tab:ARparameters}. 
+\begin{table}[h!]
+\centering
+\caption{Parameters' values of the Arrhenius flow law for the P20 steel}
+\begin{tabular}{llll}
+\hline
+$\alpha_i~(\text{MPa}^{-1})$ & $Q_i~(\text{MJ.mol}^{-1})$ & $\ln\!A_i~(\ps)$ & $n_i$\\
+\hline
+$\alpha_0=0.0392$ & $Q_0=0.467$ & $\ln\!A_0=35.8092$ & $n_0=4.8216$ \\
+$\alpha_1=-0.4092$ & $Q_1=-0.6516$ & $\ln\!A_1=-58.8219$ & $n_1=3.2813$ \\
+$\alpha_2=3.9229$ & $Q_2=7.6084$ & $\ln\!A_2=740.3302$ & $n_2=71.5963$ \\
+$\alpha_3=-20.713$ & $Q_3=-48.016$ & $\ln\!A_3=-5049.2979$ & $n_3=-1956.1871$ \\
+$\alpha_4=62.1376$ & $Q_4=66.795$ & $\ln\!A_4=11305.3573$ & $n_4=14460.9217$ \\
+$\alpha_5=-99.9999$ & $Q_5=468.8898$ & $\ln\!A_5=20220.008$ & $n_5=-54309.8814$ \\
+$\alpha_6=58.7108$ & $Q_6=-2303.1535$ & $\ln\!A_6=-153871.1135$ & $n_6=117612.0374$ \\
+$\alpha_7=54.3688$ & $Q_7=4370.6566$ & $\ln\!A_7=317981.5396$ & $n_7=-148819.8996$ \\
+$\alpha_8=-99.9999$ & $Q_8=-3939.3826$ & $\ln\!A_8=-297254.899$ & $n_8=102387.2537$ \\
+$\alpha_9=42.5233$ & $Q_9=1397.0283$ & $\ln\!A_9=107585.17$ & $n_9=-29621.1293$ \\
+\hline
+\label{tab:ARparameters}
+\end{tabular}
+\end{table}
+This modified form of the Arrhenius behavior law allows for accurate and reliable prediction over a wide range of temperatures and strain rates. 
+Equation (\ref{eq:ArStress}) is finally used to compute the flow stress $\sigma^y$ from the strain $\varepsilon$, the strain rate $\mdot\varepsilon$ and the temperature $T$: 
 \begin{equation}
 \sigma^y = \frac{1}{\alpha(\varepsilon)} \ln\left\{\left(\frac{\mdot\varepsilon \exp{\left(\frac{Q(\varepsilon)}{RT}\right)}}{A(\varepsilon)}\right)^{\frac{1}{n(\varepsilon)}} + \left[1 + \left(\frac{\mdot\varepsilon \exp{\left(\frac{Q(\varepsilon)}{RT}\right)}}{A(\varepsilon)}\right)^{\frac{2}{n(\varepsilon)}}\right]^{\frac{1}{2}}\right\}
 \label{eq:ArStress}
 \end{equation}
 
-The following part shows the calculation procedures of these material constants at $\varepsilon = 0.1$ as example. 
-Taking the natural logarithm of Equations (\ref{eq:ARmodel1}) and (\ref{eq:ARmodel2}), the following relationships can be obtained:
-\begin{equation}
-\ln \sigma^y = \frac{1}{n_1}\ln \mdot\varepsilon -\frac{1}{n_1}\ln A_1 +  \frac{1}{n_1}\frac{Q}{RT}
-\end{equation}
-\begin{equation}
-\sigma^y = \frac{1}{\beta}\ln \mdot\varepsilon - \frac{1}{\beta}\ln A_2 + \frac{1}{\beta}\frac{Q}{RT}
-\end{equation}
-From these two equations, we can easily deduce the parameters $n_1$ and $\beta$ as the slopes of the functions $\ln\sigma^y = f(\ln\mdot\varepsilon)$  and $\sigma^y = f(\ln\mdot\varepsilon)$ as shown in Figure \ref{fig:LnAlp} and Figure \ref{fig:LnSinhE0} for $\varepsilon^p = 0.1$. 
-It should be noted that later in this document all values of strain will be taken into account.
-\begin{figure}[!ht]
-\centering
-\includegraphics[width=0.9\columnwidth]{Figures/LnAlp}
-\caption{Relationship between $\ln \sigma^y$ and $\ln \dot{\varepsilon}^p$}
-\label{fig:LnAlp}
-\end{figure}
-\begin{figure}[!ht]
-\centering
-\includegraphics[width=0.9\columnwidth]{Figures/LnSinhE0}
-\caption{Relationship between $\sigma^y$ and $\ln \dot{\varepsilon}^p$}
-\label{fig:LnSinhE0}
-\end{figure}
-The values of those parameters are therefore equal to $n_1=6.78177$ and $\beta=0.150563$ ($\alpha=\beta/n_1 = 0.0222011$).
-From Equation (\ref{eq:ARmodel}), the following relationship can be obtained:
-\begin{equation}
-\label{eq:lnSinh}
-\ln\sinh(\alpha\sigma^y) = \frac{1}{n_2}\ln \mdot\varepsilon  -  \frac{1}{n_2}\ln A_3 + \frac{1}{n_2} \frac{Q}{RT}
-\end{equation}
-By applying the chain derivative rule, we get the following relationship to calculate the energy activation coefficient $Q$.
-\begin{equation}
-\label{eq:parQ}
-Q = R\left[\frac{\partial \ln \mdot\varepsilon}{\partial \ln [\sinh(\alpha\sigma^y)]}\right]_{T}\left[\frac{\partial \ln [\sinh(\alpha\sigma^y)]}{\partial (1/T)}\right]_{\mdot\varepsilon}= Rn_2\frac{d\left\{\ln\left[\sinh(\alpha\sigma^y)\right]\right\}}{d(1/T)}
-\end{equation}
-From Equation (\ref{eq:lnSinh}) and Equation (\ref{eq:parQ}) we can deduce the parameters $n_2 $ and $Q $ from the slopes of the functions $\ln \sinh(\alpha\sigma^y) = f(\ln \dot{\varepsilon}^p)$ and $\ln \sinh(\alpha\sigma^y) = g(1/T)$ as shown in Figure \ref{fig:LnSinhE} and Figure \ref{fig:LnSinhT}. 
-Thus those values are $4.94273$ and $437.385\ KJ.mol^{-1}$ respectively.
-\begin{figure}[!ht]
-\centering
-\includegraphics[width=0.9\columnwidth]{Figures/LnSinhE}
-\caption{Relationship between $\ln \sinh(\alpha\sigma^y) $ and $\ln \dot{\varepsilon}^p$}
-\label{fig:LnSinhE}
-\end{figure}
-\begin{figure}[!ht]
-\centering
-\includegraphics[width=0.9\columnwidth]{Figures/LnSinhT}
-\caption{Relationship between $\ln \sinh(\alpha\sigma^y) $ and $1/T$}
-\label{fig:LnSinhT}
-\end{figure}
-As these coefficients are calculated for a single strain value as example, it is possible to take into account their dependence on all strain values. 
-Hence the need to find a function for each coefficient for all temperatures and strains. 
-Figure  \ref{fig:ARparameters} shows the relationships between $\alpha$, $Q$, $n_2$, $\ln A$ and true strain $\varepsilon^p$ for AISI P20 alloy using leasquare method. 
-For each parameter (whose strain dependant expressions are given by Equations \ref{eq:alpha}, \ref{eq:Q}, \ref{eq:n} and \ref{eq:lnA}), the values of constants are summarized in Table \ref{tab: ARparameters}. 
-Figure \ref{fig:iCorrelationAR} is the comparison of predicted values of AR model and experimental values where the correlaton is good. 
-The gap between experimental and prediction is small. 
-But for the strain rate $\mdot\varepsilon = 0.01\ \ps$ and for the two low temperatures values, the AR model is not able to predict the softening.
-\begin{equation}
-\label{eq:alpha}
-\alpha(\varepsilon^p) = \alpha_0 + \alpha_1\varepsilon^{{p^1}} + \alpha_2\varepsilon^{p^2} + \alpha_3\varepsilon^{p^3} + \alpha_4\varepsilon^{p^4} + \alpha_5\varepsilon^{p^5} + \alpha_6\varepsilon^{p^6}
-\end{equation}
-\begin{equation}
-\label{eq:Q}
-Q(\varepsilon^p) = Q_0 + Q_1\varepsilon^{{p^1}} + Q_2\varepsilon^{p^2} + Q_3\varepsilon^{p^3} + Q_4\varepsilon^{p^4} + Q_5\varepsilon^{p^5} + Q_6\varepsilon^{p^6}
-\end{equation}
-\begin{equation}
-\label{eq:n}
-n_2(\varepsilon^p) = n_{20} + n_{21}\varepsilon^{{p^1}} + n_{22}\varepsilon^{p^2} + n_{23}\varepsilon^{p^3} + n_{24}\varepsilon^{p^4} + n_{25}\varepsilon^{p^5} + n_{26}\varepsilon^{p^6}
-\end{equation}
-\begin{equation}
-\label{eq:lnA}
-\ln A(\varepsilon^p) = \ln A_0 + \ln A_1\varepsilon^{{p^1}} + \ln A_2\varepsilon^{p^2} + \ln A_3\varepsilon^{p^3} + \ln A_4\varepsilon^{p^4} + \ln A_5\varepsilon^{p^5} + \ln A_6\varepsilon^{p^6}
-\end{equation}
-\begin{figure}[!ht]
-\centering
-\includegraphics[width=1.02\columnwidth]{Figures/ARparameters}
-\caption{Relationships between $\alpha$ (a)  , $Q$ (b) , $n_2$ (c)  and $lnA$ (d)  with the plastic strain $\varepsilon^p$ by polynomial functions}
-\label{fig:ARparameters}
-\end{figure}
-\begin{table}[h!]
-\centering{}
-\caption{Parameters' constants of Arrhenius Model}
-\begin{tabular}{lllll}
-\hline
-&					  &				      &				        &\\
-Parameters&$\alpha$   &$Q (MJ.mol^{-1})$ &$n_2$                &$\ln A$\\
-&					  &				      &				        &\\
-\hline
-&$\alpha_0 = 0.03702$ & $Q_0 = 0.454825$  & $n_{20} = 4.49273$  & $\ln A_0 = 34.7431$\\
-&$\alpha_1 =-0.301107$& $Q_1 = -0.450492$ & $n_{21}=15.2803$    & $\ln A_1 =-36.826$\\
-&$\alpha_2 = 2.19877$ & $Q_2=4.76922 $    & $n_{22} =-170.126$  & $\ln A_2 =393.423$\\
-Values&$\alpha_3=-8.30819$&$Q_3 =-31.6016$& $n_{23} =651.241$   & $\ln A_3 =-2611.42$\\
-&$\alpha_4 = 16.823$  & $Q_4 = 89.8821$   & $n_{24} =-1225.15$  & $\ln A_4 =7436.98$\\
-&$\alpha_5 =-17.2732$ & $Q_5 =-113.829$   & $n_{25} =1143.54$   & $\ln A_5 =-9426.54$\\
-&$\alpha_6 =7.04342$  & $Q_6 = 53.3699$   & $n_{26} =-423.066$  & $\ln A_6 =4422.49$\\
-\hline
-\label{tab: ARparameters}
-\end{tabular}
-\end{table}
+Figure \ref{fig:iCorrelationAR} shows the comparison of the values predicted by the Arrhenius model and the experimental values. 
+The difference between the experimental and predicted values is small. 
+But for the strain rate $\mdot\varepsilon = 0.01~\ps$ and for the two low temperature values, the AR model is not able to predict the softening.
+
 \begin{figure}[!ht]
 \centering
 \includegraphics[width=1.02\columnwidth]
