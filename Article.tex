@@ -661,7 +661,7 @@ As we can see on this figure, after $5000$ epoch, we can consider that we have r
 
 Once the learning phase is over, the trained model can be used to predict the behavior of the AISI P20 alloy as a function of the input data in the same way as is done with the analytical models.
 One can either use the model directly by providing it with new input data, or retrieve the $180$ parameters identified during the training and inject them into a mathematical model based on Equations (\ref{eq:ANN1}) and (\ref{eq:ANN2}) which can be implemented in any language (\eg in FORTRAN for use on the Abaqus Explicit FEM code) as proposed in Pantalé \eal \cite{Pantale-2021}.
-For reasons of compactness, the parameters of the ANN model are not reported in this paper.
+For reasons of compactness, the parameters of the ANN model and the complete procedure to compute the flow stress $\sigma^y$ from the input data are provided in the Appendix \ref{sec:Appendix} at the end of this paper.
 
 As for the analytical models presented previously, Figure \ref{fig:CompExp-3-15-7-1-sigmoid} shows a comparison between the flow stresses predicted by the ANN model and the data measured during the hot compression test.
 \begin{figure}[!ht]
@@ -787,6 +787,126 @@ This further confirms what was demonstrated during his identification.
 This ANN model can therefore be compared to the most commonly used classical models such as the JMAK model.
 Therfore, this ANN model  will be implemented in FEM softwares such as Abaqus, Forge in order to validate it by doing a simulation.
 \end{enumerate}
+
+\section{Appendix\label{sec:Appendix}}
+In order to complete this paper, we report here after the computing process and the $180$ coefficients of the Artificial Neural Network ANN-3-15-7-1-sigmoid model used in Section \ref{sec:ANNmodel}. In order to use this model we describe here after the procedure to compute the flow stress $\sigma^y$ from the input variables $\varepsilon^p$, $\mdot\varepsilon$ and $T$. This process can be decomposed in $3$ phases:
+\begin{itemize}
+\item We first have to normalize the input values of the ANN $x_i$ within the range $[0,1]$ to avoid ill-conditioned system as presented by many other authors in the literature \cite{Lin-2008-ANN, Lu-2011-ANN}.
+Therefore, the three components of the input are obtained from the plastic strain $\varepsilon^p$, the plastic strain rate $\mdot{\varepsilon}^p$ and the temperature $T$ using the following expressions:
+\begin{equation}
+\begin{cases}
+x_1 = \frac{\varepsilon^p - [\varepsilon^p]_{min}}{[\varepsilon^p]_{max} - [\varepsilon^p]_{min}}\\
+x_2 = \frac{\ln(\mdot{\varepsilon}/\mdot{\varepsilon_0})-[\ln(\mdot{\varepsilon}/\mdot{\varepsilon_0})]_{min}}{[\ln(\mdot{\varepsilon}/\mdot{\varepsilon_0})]_{max}-[\ln(\mdot{\varepsilon}/\mdot{\varepsilon_0})]_{min}}\label{eq:CR1}\\
+x_3 = \frac{T-[T]_{min}}{[T]_{max}-[T]_{min}}
+\end{cases}
+\end{equation}
+where $[~]_{min}$ and $[~]_{max}$  are the boundaries of the range of the corresponding field: $\varepsilon^p\!\in\!\left[0.0,0.7\right]$, $\mdot{\varepsilon}\!\in\!\left[0.001,5.0\right]$, $T\!\in\!\left[1050,1250\right]$ and $\sigma\!\in\!\left[1.311,153.739\right]$. The reference strain rate is $\mdot{\varepsilon_0} = 0.001$.
+\item Then we compute the output $s$ of the ANN from the input vector $\overrightarrow{x}$ using the three following equations.
+\begin{equation}
+\overrightarrow{y}_1 = \left[1 + \exp{\left(- \w_1 \dotp \overrightarrow{x}- \overrightarrow{b}_1\right)}\right]^{-1}
+\end{equation}
+\begin{equation}
+\overrightarrow{y}_2 = \left[1 + \exp{\left(- \w_2 \dotp \overrightarrow{y}_1- \overrightarrow{b}_2\right)}\right]^{-1}
+\end{equation}
+\begin{equation}
+s = \overrightarrow{w}^T \dotp \overrightarrow{y}_2 + b
+\end{equation}
+\item Finally, the flow stress $\sigma^y$ can be obtained from the output $s$ of the ANN using the following equation:
+\begin{equation}
+\sigma^y =  \left([\sigma]_{max}-[\sigma]_{min}\right)s + [\sigma]_{min} \label{eq:CR2}
+\end{equation}
+\end{itemize}
+
+Conforming to the computing process proposed by Equations (\ref{eq:CR1}-\ref{eq:CR2}), we report hereafter the $180$ coefficients of the ANN-3-15-7-1-sigmoid model used in Section \ref{sec:ANNmodel}.
+
+\begin{equation*}
+\w_1^T = \left[
+\begin{array}{rrr}
+2.2206 & -3.7555 & -6.7246\\ 
+-4.8598 & 5.7431 & -5.8538\\ 
+2.3099 & 3.3325 & -5.1795\\ 
+2.0475 & 0.8006 & -1.4259\\ 
+8.8358 & -6.0362 & 0.8226\\ 
+-1.2613 & -0.9274 & -2.3725\\ 
+-0.3561 & 6.5032 & -10.7573\\ 
+-11.7226 & -2.0455 & 1.2248\\ 
+3.1066 & 26.5580 & 18.6540\\ 
+-0.5150 & -5.6922 & 1.0104\\ 
+-6.4755 & 8.4888 & -2.4459\\ 
+-1.8791 & -0.5380 & 2.2295\\ 
+-6.0206 & 1.2776 & 0.2169\\ 
+0.2619 & -4.7974 & -1.1282\\ 
+-27.1456 & -0.5327 & -0.5303\\ 
+\end{array}\right]
+\end{equation*}
+\begin{equation*}
+\overrightarrow{b}_1 = \left[
+\begin{array}{r}
+5.9164\\ 
+-1.9074\\ 
+-2.6837\\ 
+-1.0954\\ 
+-0.9509\\ 
+3.1682\\ 
+-4.3964\\ 
+0.6343\\ 
+-5.0676\\ 
+2.0228\\ 
+1.1267\\ 
+-0.9671\\ 
+-0.6263\\ 
+2.3110\\ 
+-0.3037\\ 
+\end{array}\right]
+\end{equation*}
+\begin{equation*}
+\w_2 = \left[
+\begin{array}{rrrrrrr}
+-0.5783 & 1.2724 & 0.5747 & 0.6449 & -4.2203 & -0.2380 & 0.2591\\ 
+-0.4852 & 5.2807 & 0.8888 & -8.2324 & -2.0075 & -0.6474 & -1.0787\\ 
+4.4499 & -0.0137 & 0.1657 & 0.3198 & 4.9765 & -1.2503 & 0.8219\\ 
+1.7571 & 0.7730 & 0.0208 & -1.3316 & -0.8945 & -0.7284 & -0.1831\\ 
+-1.0866 & 0.1330 & -0.8615 & -0.1283 & 0.2218 & -0.1772 & -2.7458\\ 
+-0.3925 & 1.3994 & 0.0630 & -1.8397 & -1.1047 & -1.9839 & 0.5767\\ 
+-0.2121 & 0.9977 & 1.2028 & -9.6525 & 0.5520 & 0.1062 & -0.0409\\ 
+-1.1518 & -1.6402 & -4.1501 & -1.0759 & 0.4749 & -2.8350 & 0.9225\\ 
+-1.1453 & -0.2173 & -0.1382 & 0.8264 & -0.5125 & 0.1882 & -0.8654\\ 
+-4.3301 & -0.3711 & -7.4305 & 3.5926 & -9.6217 & -1.2375 & 1.6171\\ 
+2.3907 & -1.0085 & -0.8828 & -1.1891 & 0.9947 & 1.1178 & -1.0953\\ 
+-1.5955 & 1.6313 & 0.4916 & 0.1906 & -1.9216 & -1.4140 & 1.3827\\ 
+-1.6985 & 1.4277 & -3.4462 & -8.3777 & -1.2132 & -1.2158 & 2.8512\\ 
+-1.9954 & -2.0159 & -8.3455 & -0.5205 & 0.2942 & -1.3337 & 0.2026\\ 
+4.3040 & -0.7164 & -1.0859 & 3.4294 & -23.8003 & 12.5859 & 7.3721\\ 
+\end{array}\right]
+\end{equation*}
+\begin{equation*}
+\overrightarrow{b}_2 = \left[
+\begin{array}{r}
+0.7534\\ 
+0.9473\\ 
+0.6055\\ 
+-0.7793\\ 
+-1.0305\\ 
+-1.5779\\ 
+-0.1471\\ 
+\end{array}\right]
+\end{equation*}
+\begin{equation*}
+\overrightarrow{w}_3 = \left[
+\begin{array}{r}
+0.1920\\ 
+0.3406\\ 
+0.3839\\ 
+-0.2880\\ 
+1.2047\\ 
+-1.4126\\ 
+-0.2215\\ 
+\end{array}\right]
+\end{equation*}
+\begin{equation*}
+b_3 = 0.1178 
+\end{equation*}
+
 % \bibitem{}
 \bibliographystyle{elsarticle-num}
 \bibliography{Bibliography}
