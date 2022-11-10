@@ -36,6 +36,7 @@
 \usepackage{babel}
 \providecommand{\theoremname}{Theorem}
 
+\newcommand{\w}{\mbox{\large\ensuremath{\mathsf{w}}}}
 \newcommand{\dotp}{\boldsymbol{\cdot}}
 %\newcommand{\ccirc}{\kern0.5ex\vcenter{\hbox{$\scriptstyle\circ$}}\kern0.5ex}
 %\newcommand{\e}[1]{\exp\left({#1}\right)}
@@ -50,9 +51,10 @@
 \newcommand{\AARE}{\text{E}_\text{AAR}}
 \newcommand{\R}{\text{R}}
 \newcommand{\ps}{\text{s}^{-1}}
+\DeclareMathOperator{\ANN2}{sig}
 %\newcommand{\Dev}	{\mbox{\Large\ensuremath{\mathsf{s}}}}
 %\DeclareMathOperator{\sech}{sech}
-%\DeclareMathOperator{\sigmoid}{sig}
+%\DeclareMathOperator{\ANN2}{sig}
 
 \usepackage{esvect}
 % Redefine the esvector shape to remove overlapping
@@ -220,8 +222,9 @@ You introduce the notions of $h_0$, $R_0$, $h$, $R_M$ and $R_T$ and we have no i
 How are the Gleeble data transformed into curves, what is the use of the previous values, what are the corrections to be made to the data,...}\textcolor{red}{The curves are automaticaly gotten from Gleeble system as True-stress and strain according to L-gauge where the formula to get curves are given by $\sigma =F/A\ \text{and}\ \varepsilon = \ln\left(h_0 +\Delta h / h_0\right) $or C-gauge whose formula are $\sigma = 4F/\pi(d+\Delta d)^2$ and $\varepsilon = 2\ln(d/(d+\Delta d))$ with $d = 2R_0$ and $F$ is the force as measured by Gleeble load cell.
 As there are noises from raw data, filter method is applied to remove noise and have more smooth data.
 For further usage of  data in numerical simulation elastic parts have been removed}.
+
 %------------------------------------------------------------------------
-\subsection{Compression tests results}
+\subsection{Compression tests results\label{sec:ComTestResults}}
 %------------------------------------------------------------------------
 
 The set of flow stress $\sigma^y$ versus strain $\varepsilon$ curves obtained from compression tests performed on the Gleeble-3800 simulator for each test condition ($6$ strain rates and $5$ temperatures) is presented in Figure \ref{fig:rawData}.
@@ -343,6 +346,18 @@ Since most of the parameters are identified at low strain rates ($A$, $B$ and $n
 \label{fig:iCorrelationJC}
 \end{figure}
 
+The accuracy and predictive ability of the models are usually assessed by certain coefficients such as the Mean Absolute Relative Error ($\AARE$) defined by Equation (\ref{eq:AARE}) and the Root Mean Square Error ($\RMSE$) defined by Equation (\ref{eq:RMSE}).
+\begin{equation}
+\AARE(\%) = \frac{1}{N} \sum_{i=1}^{N}{\left|\frac{\sigma_i^p -\sigma_i^e}{\sigma_i^e}\right|} \times 100 \label{eq:AARE}
+\end{equation}
+\begin{equation}
+\RMSE (\text{MPa}) = \sqrt{\frac{1}{N} \sum_{i=1}^{N} \left(\sigma_i^p - \sigma_i^e\right)^2} \label{eq:RMSE}
+\end{equation}
+where $\sigma_i^e$ is the experimental value and $\sigma_i^p$ is the predicted value using the given model of the flow stress $\sigma^y$ and $N$ is the total number of data points used to compute those coefficients (in our case $N=21000$).
+For the JC model, $\AARE=14.05~\%$ and $\RMSE=12.00~\text{MPa}$.
+The correlation coefficient ($R$) is generally not a good measure in our case of study because it only shows the correlation of the model with respect to the data and not its accuracy, which is a determining factor in the qualification of a model.
+Therefore, a good (high) value of $R$ (close to $1$) does not necessarily mean a good prediction of the model but simply establishes a good linearity correlation between the experiment and the prediction \cite{Phaniraj-2003}.
+
 %-------------------------------------------------------------------------
 \subsection{Modified Zerilli-Armstrong model\label{sec:MZA}}
 %-------------------------------------------------------------------------
@@ -384,6 +399,7 @@ Finally, the graph $\ln\sigma^y$ versus $ \ln(\mdot\varepsilon/\mdot{\varepsilon
 The parameters of MZA model are given in the Table \ref{tab: MZAparameters} while its prediction are shown in Figure \ref{fig:iCorrelationMZA}.
 It can be seen from those figures that the MZA model as JC model is not suitable to describe experimental at low strain rates but much better for high strain rates.
 The deviation between the predicted values and the experimental values is large because this model has problem to correctly describe the softening in its formulation.
+For the MZA model, $\AARE=21.20~\%$ and $\RMSE=19.57~\text{MPa}$, this shows an overall worse performance than the JC model.
 That is aspect of the limitations of that model as presented in \cite{TizeMha-2022}.
 \begin{table}[h!]
 \centering{}
@@ -403,7 +419,6 @@ $13.5143$ & $21.2591$ & $4.7902\times 10^{-3}$ & $1.4895\times 10^{-4}$ & $0.138
 \caption{Comparison between the experimental and predicted flow stresses by MZA model}
 \label{fig:iCorrelationMZA}
 \end{figure}
-\FloatBarrier
 
 %-------------------------------------------------------------------------
 \subsection{Hansel and Spittel model\label{sec:HSmodel}}
@@ -437,6 +452,7 @@ $5.954\times 10^{3}$ & $-3.3576\times10^{-3}$ & $0.2641$ & $-0.0868$ & $2.2688\t
 \end{table}
 
 The comparison of the values predicted by the HS model and the experimental values is presented in Figure \ref{fig:iCorrelationHS} where the dots represent the experimental values and the solid lines are the values predicted by the Hansel-Spittel flow law.
+For the HS model, $\AARE=7.75~\%$ and $\RMSE=3.80~\text{MPa}$.
 It appears that this model as well as the previous ones do not predict well the experimental one and the difference is relatively important for all strain rates below $1.0~\ps$.
 This shows that this model is not appropriate for the characterization of this alloy, in particular because of the strong non-linearity of the behavior for low values of the strain rate.
 The DRX phenomena cannot be reproduced by this type of model.
@@ -531,6 +547,7 @@ Equation (\ref{eq:ArStress}) is finally used to compute the flow stress $\sigma^
 Figure \ref{fig:iCorrelationAR} shows the comparison of the values predicted by the Arrhenius model and the experimental values.
 The difference between the experimental and predicted values is small.
 But for the strain rate $\mdot\varepsilon = 0.01~\ps$ and for the two low temperature values, the AR model is not able to predict the softening.
+For the AR model, $\AARE=3.56~\%$ and $\RMSE=2.18~\text{MPa}$.
 
 \begin{figure}[!ht]
 \centering
@@ -560,8 +577,9 @@ The determination of the parameters of this model are calculated thanks to the L
 Thus all the parametrers of this model are calcuted with $q=5$, $r=5$, $s=1$ and $t=5$.
 
 Comparison of predicted values of the PTM model and experimental values is shown in Figure \ref{fig:iCorrelationPTM}.
-The PTM model is suitable to describe the ﬂow behavior of AISI P20 steel, but for the strain rate $\mdot\varepsilon = 0.1\ \ps$ the prediction in not quite good.
-The deviation between the predicted values and the experimental values is relatively good.
+The PTM model is suitable to describe the ﬂow behavior of AISI P20 steel, but for the two strain rates $\mdot\varepsilon=0.01~\ps$ and $\mdot\varepsilon=0.1~\ps$ the prediction in not quite good.
+The deviation between the predicted values and the experimental values for other strain rates is relatively good.
+For the PTM model, $\AARE=4.79~\%$ and $\RMSE=4.59~\text{MPa}$ this shows an overall worse performance than the AR model.
 
 \begin{table}[h!]
 \centering
@@ -588,24 +606,20 @@ $A_5=2.4058\times 10^{3}$ & $B_5=0.3211$ & $C_0^5=-6.587$ & $C_1^5=-0.0413$\\
 \caption{Comparison between the experimental and predicted flow stresses by PTM model}
 \label{fig:iCorrelationPTM}
 \end{figure}
-\FloatBarrier
 
 %-------------------------------------------------------------------------
 \subsection{Artificial Neural Network model\label{sec:ANNmodel}}
 %--------------------------------------------------------------------------
-The Artificial Neural Network model (ANN) is a mathematical formulation widely used in many fields today for better prediction.
-It is a model based on the principle of minimisation where it improves from the progressive decrease of the error during the learning process.
-Typically an ANN model contains an input layer, an output layer and hidden layers.
-Each hidden layer is connected to the one before it and the one after it via neurons.
-Indeed, all neurons in the $k$ layer are connected to each neuron in the ($k+1$) layer.
-To each layer is added another parameter called bias.
-As said the principle of the ANN model is therefore based on the minimisation of the difference between the value obtained from the output of the network and the expected value.
-Indeed, once the error is calculated, it is propagated back to the input layer in order to update the model parameters via the minimisation algorithms.
-In our case, the ADAM algorithm is used.
-The architecture of the network used in this study is shown in Figure \ref{fig:ANN-scheme-2HL}.
-After several tests of different types of network architecture, it was found that two hidden layers including $15$ neurons for the first hidden layer and $7$ for the second one gives the best prediction where the input layer is composed of three neurons ($\varepsilon^p$, $\mdot\varepsilon$, $T$) and the output layer is composed of a single neuron corresponding to the flow stress.
-The good performance of the model is found to be stable between $800$ and $1000$ epochs.
+Because of their predictive capacity and their adaptability, Artificial Neural Networks (ANNs) are more and more widely used today in many scientific fields.
+Their operation is based on a learning process during which the principle of minimizing the error between the model's output and the training data allows the adjustment of the model's parameters, as in any machine learning process.
 
+There are generally two uses of neural networks: classification and regression.
+The first is the ability to classify data into different groups and for example to distinguish between images of cats and dogs.
+The second one corresponds to the capacity of universal approximator of these neural networks, which interests us in this application, and thus to the ability after learning to predict the values of the flow stress $\sigma^y$ according to the input data, as do the analytical models previously identified.
+The main difference is that this approximation is not linked to a fixed mathematical formulation (JC, MZA, AR, HS, PTM model), but is only dependent on the data used for training, the number of layers, the number of neurons per layer and the activation functions associated with the neurons of the network.
+A feed-forward ANN, as used in our application, contains an input layer, an output layer and a number of hidden layers ($2$ in our case).
+Each layer of neurons is connected to the one before it and the one after it by weighted connections.
+Thus, all the neurons of the $k$ layer are connected to all the neurons of the ($k-1$) layer as shown in Figure \ref{fig:ANN-scheme-2HL}.
 \begin{figure}[!ht]
 \centering
 \includegraphics[width=0.7\columnwidth]
@@ -614,21 +628,42 @@ The good performance of the model is found to be stable between $800$ and $1000$
 \label{fig:ANN-scheme-2HL}
 \end{figure}
 
-In this study $700$ of data were used; $80\%$ (560) are randomly selected for training and $20\%$ (140) for testing.
-Before learning, a normalisation of the data is required in order to have all data between $0$ and $1$.
-The Equation is widely used for normalization.
+Any hidden layer $k$, containing $n$ neurons, takes a weighted sum of the outputs $\overrightarrow{\hat{y}}$ of the immediately previous layer $(k-1)$, containing $m$ neurons, given by the following equation:
 \begin{equation}
-X_n = \frac{X - X_{min}}{X_{max} - X_{min}}
+y_i\lay{k} = \sum_{j=1}^m w_{ij}\lay{k} \hat{y}_j^{(k-1)}+ b_i\lay{k}\label{eq:ANN1}
 \end{equation}
-Where $X$ is the orginal data ($\varepsilon^p$, $\log(\mdot\varepsilon/\varepsilon_0$,  $T$, $\sigma^y$), $X_{min}$ and $X_{max}$ are the minimum and maximum values of $X$ respectively.
-$X_n$ is the normalized data of the corresponding $X$.
-The trained model once tested can be used to predict the behavior of the AISI P20 alloy.
-Figure \ref{fig:iCorrelationANN} show a comparison between the predicted ﬂow stresses from ANN model and measured data from hot compression test.
-As shown from this figures, the correlation between the experimental and the ANN prediction based is very good over the full range of data and the predicted data can well track the hardening and softening regions of the hot deforming material.
-Therefore, the ANN model can be used to simulate the hot deformation of this type of alloy.
-This was not necessarily the case with the analytical models.
-The performance of this prediction will be much more appreciated when it comes to testing its ability to predict data that has not been used in either the training or the test data, but rather a full-fledged trial that we wish to validate the ANN prediction by experimental.
-This validation will be done both with a strain rate between and outside of those used for the training step.
+where $y_i\lay{k}$ is the entry of the $i^{th}$ neuron of layer $k$, $\hat{y}_j\lay{k-1}$ is the output of the $j^{th}$ neuron of layer $(k-1)$, $w_{ij}\lay{k}$ is the associated weight parameter between the $i^{th}$ neuron of layer $k$ and the $j^{th}$ neuron of layer $(k-1)$ and $b_i\lay{k}$ is the associated bias of the $i^{th}$ neuron of layer $k$.
+Those weights $w_{ij}$ and bias $b_i$, for each layer, are the training parameters of the ANN that we have to adjust during the training procedure described in Pantalé \eal \cite{Pantale-2021}.
+For the proposed model, we have selected the ANN2 activation function, so that, each neuron in the hidden layer $k$ provides an output value ${\hat{y}}$ from the input value $y$ of the same neuron defined by Equation (\ref{eq:ANN1}) according to the following equation:
+\begin{equation}
+\hat{y}=\frac{1}{1 + \e{-y}}\label{eq:ANN2}
+\end{equation}
+No activation function is used for the output neuron of the ANN.
+
+After some tests of different types of network architecture and in accordance with previous works, a network structure with two hidden layers including $15$ neurons for the first hidden layer and $7$ neurons for the second layer give the best compromise between prediction, learning time and model compactness.
+From the global architecture point of view, the input layer is composed of three neurons ($\varepsilon^p$, $\mdot\varepsilon$, $T$) and the output layer is composed of a single neuron corresponding to the $\sigma^y$ flow stress.
+This architecture leads to a global model with $180$ parameters to be identified ($60$ for the first layer, $112$ for the second and $8$ for the output).
+
+The Python program used for training the neural network was developed using the specialized Python library Tensorflow \cite{Abadi-2016}.
+The Adaptive Moment Estimation (ADAM) optimizer \cite{Kingma-2015} was used for the training phase.
+The training data are those from the tests presented in section \ref{sec:ComTestResults} and composed of $21000$ quadruplets of ($\varepsilon^p$, $\mdot\varepsilon$, $T$, $\sigma^y$) values.
+The learning is performed on the basis of $5000$ epochs of the experimental data set.
+Fourty minutes of training on a Dell XPS-13 7390 laptop running Ubuntu 22.04 LTS 64 bits with 16 GiB of Ram and an Intel 4-core i7-10510U processor allow obtaining the converged parameters of the ANN model.
+Figure \ref{fig:ANN-6-conv} show the evolution of the training error defined by the $\log_{10}$ of the Root Mean Square Error during the training phase.
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=0.7\columnwidth]
+{Figures/Conv-ANN-6}
+\caption{Convergence of the ANN model during the training phase.}
+\label{fig:ANN-6-conv}
+\end{figure}
+As we can see on this figure, after $5000$ epoch, we can consider that we have reached a stationary state of the model learning and that it is useless to continue the learning phase.
+
+Once the learning phase is over, the trained model can be used to predict the behavior of the AISI P20 alloy as a function of the input data in the same way as is done with the analytical models.
+One can either use the model directly by providing it with new input data, or retrieve the $180$ parameters identified during the training and inject them into a mathematical model based on Equations (\ref{eq:ANN1}) and (\ref{eq:ANN2}) which can be implemented in any language (e.g. in FORTRAN for use on the Abaqus Explicit FEM code) as proposed in Pantalé \eal \cite{Pantale-2021}.
+For reasons of compactness, the parameters of the ANN model are not reported in this paper.
+
+As for the analytical models presented previously, Figure \ref{fig:iCorrelationANN} shows a comparison between the flow stresses predicted by the ANN model and the data measured during the hot compression test.
 \begin{figure}[!ht]
 \centering
 \includegraphics[width=1\columnwidth]
@@ -636,31 +671,18 @@ This validation will be done both with a strain rate between and outside of thos
 \caption{Comparison between the experimental and predicted flow stresses by the 3-15-7-1-sigmoid ANN model}
 \label{fig:iCorrelationANN}
 \end{figure}
-\FloatBarrier
+The correlation between the experimental data and the ANN prediction is very good over the entire range of data and the predicted data can track the hardening and softening regions of the hot deformed material well.
+For the ANN model, $\AARE=0.62~\%$ and $\RMSE=0.38~\text{MPa}$ which is excellent.
+This model can be used to simulate the hot deformation of this type of alloy with much greater fidelity to the actual material behavior than the analytical models presented previously.
+
 %-------------------------------------------------------------------------
 \subsection{Comparison of analytical and ANN models\label{sec:Comparison}}
 %--------------------------------------------------------------------------
 
-The accuracy and predictive ability of both analytical and ANN models are generally assessed by some coefficients such as the correlation coefﬁcient ($R$) (Equation (\ref{eq:R-expression})), Average Absolute Relative Error ($\AARE$ generally known as $\AARE$) (Equation (\ref{eq:AARE-expression})) and Root Mean Square Error ($\RMSE$) (Equation (\ref{eq:RMSE-expression})).
-\begin{equation}
-\label{eq:R-expression}
-\R(\%) = \frac{\displaystyle\sum_{i=1}^{N}{\left(E_i - \overline{E}\right)\left(P_i - \overline{P}\right)}}{\sqrt{\displaystyle\sum_{i=1}^{N}\left(E_i - \overline{E}\right)^2 .\displaystyle\sum_{i=1}^{N}\left(P_i - \overline{P}\right)^2}}\times 100
-\end{equation}
-\begin{equation}
-\label{eq:AARE-expression}
-\AARE(\%) = \frac{1}{N}\displaystyle\sum_{i=1}^{N} \displaystyle\left\lvert\frac{E_i- P_i}{E_i} \right\rvert\times 100
-\end{equation}
-\begin{equation}
-\label{eq:RMSE-expression}
-\RMSE (\text{MPa}) = \sqrt{\frac{1}{N} \displaystyle\sum_{i=1}^{N} \left(E_i - P_i\right)^2}
-\end{equation}
-Where $E_i$ is the experimental value and $P_i$ is the predicted value of the constitutive law (phenomenological and ANN models), $\overline{E}$ and $\overline{P}$ are the mean values of the experimental and predicted values, respectively.
-
-The correlation coefficient $R$ is generally used to show the degree of linearity between the experimental and predicted values.
-The model sometimes tends to be biased towards low and high values.
-Therefore, a good (high) value of $R$ does not necessarily mean a good prediction of the model but simply establishes a good linearity correlation between the experiment and the prediction \cite{Phaniraj-2003}.
 On the other hand, other coefficients ($\AARE$ and $\RMSE$) are used to estimate the predictive capacity of the model because they are considered unbiased as well as for low and high values.
+
 Indeed, they verify the predictability of a model term by term comparison of the relative error in relation to the real value of the variable \cite{Srinivasulu-2006}.
+
 Thus the correlation coefficients $R$ for JC, MZA, HS, Arhenius, proposed and ANN models are $0.98475$,  $0.99014$,  $0.98364$, $0.99839$, $0.99514$, and $0.99994$ respectively as shown on Figure \ref{fig:Correlation}.
 These results show that all models have a relatively good coefficient; this does not guarantee the validation of the prediction of these models.
 Hence the need to calculate the other two coefficients.
@@ -766,7 +788,7 @@ $RMSE(\text{MPa})$&$5.0943$&$4.3048$&$116.517$&$3.7035$&$4.3915$&$1.2513$ \\
 \caption{Comparison between the experimental and predicted flow stresses by ANN model for extrapolation estimation}
 \label{fig:exCombinaison}
 \end{figure}
-\FloatBarrier
+
 %---------------------------------------------------------------------
 \section{Conclusion \label{sec:Conclusion}}
 Experiments were conducted on modified AISI P20 carbon alloy to study the applicability and predictive accuracy of five analytical models and one neural network model over a range of temperatures ($1050\celsius$ - $1250\celsius$, strains ($0.025$ - $0.7$), strain rates ($0.001\ \ps$ - $5\ \ps$) and the following conclusions were drawn.
