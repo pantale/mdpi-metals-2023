@@ -227,7 +227,7 @@ For further usage of  data in numerical simulation elastic parts have been remov
 \subsection{Compression tests results\label{sec:ComTestResults}}
 %------------------------------------------------------------------------
 
-The set of flow stress $\sigma^y$ versus strain $\varepsilon$ curves obtained from compression tests performed on the Gleeble-3800 simulator for each test condition ($6$ strain rates and $5$ temperatures) is presented in Figure \ref{fig:rawData}.
+The set of flow stress $\sigma^y$ versus strain $\varepsilon$ curves obtained from compression tests performed on the Gleeble-3800 simulator for each test condition ($6$ strain rates and $5$ temperatures) is presented in Figure \ref{fig:RawData}.
 \OP{It is necessary to give indications concerning the structure of the data: how many points, what amplitude of deformation,...}\textcolor{red}{almost all data are around 21030 or less than and the ammplitude of deformation is between $0.7$ and $0.85$.
 We have decided to limit the identification up to $0.7$ because for strain rates $2$ and $5$, stresses are note good}.
 The overall behavior of these curves shows that the flow stress $\sigma^y$ increases with increasing strain rate $\mdot\varepsilon$ but decreases with increasing temperature $T$.
@@ -242,7 +242,7 @@ This results in a progressive increase of the flow stress.
 \centering
 \includegraphics[width=1.02\columnwidth]{Figures/rawData}
 \caption{Flow stress-strain curves of AISI P20 alloy at various temperatures and strain rates.}
-\label{fig:rawData}
+\label{fig:RawData}
 \end{figure}
 
 To explain the overall flow stress behavior observed in this test, we will rely on two fundamental phenomena that can be observed during a compression test: Dynamic Recovery (DRC) and Dynamic Recrystallization (DRX).
@@ -256,7 +256,7 @@ These two phenomena explain the different shapes of the flow stress curves obser
 As an example, Figure \ref{fig:Micrography} show the microstructures of AISI P20 held during $5$~min at $1260\celsius$ before and after the compression phase.
 As observed on the flow curves, it can be seen by comparing these two micrographs that recrystallization is almost complete for this temperature and strain rate within the sample \textcolor{red}{held for $5$ minutes at $1260^\circ$C and rapidely cooled to get autenized grain in one hand and in other hand held for $1$ minute at $1150^\circ$C before compression with strain rate $0.001\ \text{s}^{-1}$}.
 \OP{What are the temperature and strain rate related with this micrography}
-From the results reported in Figure \ref{fig:rawData}, the identification of the parameters of the six flow laws proposed in this work will be presented in the next section in order to predict the behavior of the material in any test condition.
+From the results reported in Figure \ref{fig:RawData}, the identification of the parameters of the six flow laws proposed in this work will be presented in the next section in order to predict the behavior of the material in any test condition.
 
 \begin{figure}[!ht]
 \centering
@@ -320,7 +320,7 @@ For the determination of the constants $B$ and $n$, from the results of the comp
 Thus, here, $B=21.816$~MPa and $n=0.0746$.
 Once the parameters $A$, $B$ and $n$ are known, the determination of $C$, considering all the curves at $T=T_0$ then gives $C=0.3404$.
 Finally, the last parameter $m$ is identified from the curves at $\mdot\varepsilon=\mdot\varepsilon_0$ and from the knowledge of the previous and gives $m=0.7057$.
-All parameters of the Johnson-Cook model are reported in Table \ref{tab:JCparams}.
+All parameters of the Johnson-Cook model are reported in Table \ref{tab:JC}.
 
 \begin{table}[h!]
 \centering
@@ -329,11 +329,11 @@ All parameters of the Johnson-Cook model are reported in Table \ref{tab:JCparams
 \hline
 $A~(\text{MPa})$ & $B~(\text{MPa})$ & $n$ & $C$ & $m$\\
 $13.5143$&$21.816$&$0.0746$&$0.3404$&$0.7057$\\ \hline
-\label{tab:JCparams}
+\label{tab:JC}
 \end{tabular}
 \end{table}
 
-The values predicted by the Johnson-Cook flow law (solid line) and the experimental values (dots) are compared in Figure \ref{fig:iCorrelationJC}.
+The values predicted by the Johnson-Cook flow law (solid line) and the experimental values (dots) are compared in Figure \ref{fig:CompExp-JC-6}.
 The JC model is not able to describe the evolution of the flow stress of AISI P20 for all strain values, and the predicted stresses $\sigma^y$ show a monotonically decreasing trend for several values of the strain rates.
 The discrepancy between the predicted and experimental values is large for low strains and sometimes acceptable for high strains.
 As expected, the mathematical formulation of the Johnson-Cook flow law is unable to represent the stress drop at low strain rates, the JC model being only monotonically increasing with strain.
@@ -343,7 +343,7 @@ Since most of the parameters are identified at low strain rates ($A$, $B$ and $n
 \centering
 \includegraphics[width=1.02\columnwidth]{Figures/CompExp-JC-6}
 \caption{Comparison between the experimental and predicted flow stresses by JC model.}
-\label{fig:iCorrelationJC}
+\label{fig:CompExp-JC-6}
 \end{figure}
 
 The accuracy and predictive ability of the models are usually assessed by certain coefficients such as the Mean Absolute Relative Error ($\AARE$) defined by Equation (\ref{eq:AARE}) and the Root Mean Square Error ($\RMSE$) defined by Equation (\ref{eq:RMSE}).
@@ -396,7 +396,7 @@ Once the first four terms of the model are calculated, we can now take the logar
 \end{equation}
 with $S_2=C_5+C_6\left(T-T_0\right)$.
 Finally, the graph $\ln\sigma^y$ versus $ \ln(\mdot\varepsilon/\mdot{\varepsilon}_0)$ allows deducing $C_5$ and $C_6$ from the slope $S_2$.
-The parameters of MZA model are given in the Table \ref{tab: MZAparameters} while its prediction are shown in Figure \ref{fig:iCorrelationMZA}.
+The parameters of MZA model are given in the Table \ref{tab:MZA} while its prediction are shown in Figure \ref{fig:CompExp-MZA-6}.
 It can be seen from those figures that the MZA model as JC model is not suitable to describe experimental at low strain rates but much better for high strain rates.
 The deviation between the predicted values and the experimental values is large because this model has problem to correctly describe the softening in its formulation.
 For the MZA model, $\AARE=21.20~\%$ and $\RMSE=19.57~\text{MPa}$, this shows an overall worse performance than the JC model.
@@ -409,7 +409,7 @@ That is aspect of the limitations of that model as presented in \cite{TizeMha-20
 $C_1$ & $C_2$ & $C_3$ & $C_4$ & $C_5$ & $C_6$ & $n$\\
 $13.5143$ & $21.2591$ & $4.7902\times 10^{-3}$ & $1.4895\times 10^{-4}$ & $0.1389$ & $1.495\times 10^{-4}$ & $0.0621$\\
 \hline
-\label{tab: MZAparameters}
+\label{tab:MZA}
 \end{tabular}
 \end{table}
 \begin{figure}[!ht]
@@ -417,7 +417,7 @@ $13.5143$ & $21.2591$ & $4.7902\times 10^{-3}$ & $1.4895\times 10^{-4}$ & $0.138
 \includegraphics[width=1.02\columnwidth]
 {Figures/CompExp-MZA-6}
 \caption{Comparison between the experimental and predicted flow stresses by MZA model}
-\label{fig:iCorrelationMZA}
+\label{fig:CompExp-MZA-6}
 \end{figure}
 
 %-------------------------------------------------------------------------
@@ -436,7 +436,7 @@ However, this model has some shortcomings, notably related to the fact that its 
 For its identification, several authors restrict its expression to a reduced number of $5$ or $6$ $m_i$ parameters only, by forcing a zero value for the other parameters \cite{Chadha-2018, Rudnytskyj-2020, Mehtedi-2015}.
 
 In the present study, the best results were obtained by taking the model defined by only the first $7$ $m_i$ terms of the equation (\ref{eq:HS}), so that $m_8=0$.\OP{See identification script for changes}
-From the experimental data obtained during the compression tests, an identification procedure based on the use of the LMFIT optimizer \cite{Newville-2016} has allowed to compute the parameters reported in Table \ref{tab:HSparameters}.
+From the experimental data obtained during the compression tests, an identification procedure based on the use of the LMFIT optimizer \cite{Newville-2016} has allowed to compute the parameters reported in Table \ref{tab:HS}.
 
 \begin{table}[h!]
 \centering
@@ -447,11 +447,11 @@ $A$ & $m_1$ & $m_2$ & $m_3$ & $m_4$\\
 $5.954\times 10^{3}$ & $-3.3576\times10^{-3}$ & $0.2641$ & $-0.0868$ & $2.2688\times10^{-4}$\\\hline
 & $m_5$ & $m_6$ & $m_7$ & $m_8$\\
 & $-4.2163\times10^{-4}$ & $-0.0561$ & $2.264\times10^{-4}$ & $0$\\\hline
-\label{tab:HSparameters}
+\label{tab:HS}
 \end{tabular}
 \end{table}
 
-The comparison of the values predicted by the HS model and the experimental values is presented in Figure \ref{fig:iCorrelationHS} where the dots represent the experimental values and the solid lines are the values predicted by the Hansel-Spittel flow law.
+The comparison of the values predicted by the HS model and the experimental values is presented in Figure \ref{fig:CompExp-HS-6} where the dots represent the experimental values and the solid lines are the values predicted by the Hansel-Spittel flow law.
 For the HS model, $\AARE=7.75~\%$ and $\RMSE=3.80~\text{MPa}$.
 It appears that this model as well as the previous ones do not predict well the experimental one and the difference is relatively important for all strain rates below $1.0~\ps$.
 This shows that this model is not appropriate for the characterization of this alloy, in particular because of the strong non-linearity of the behavior for low values of the strain rate.
@@ -462,7 +462,7 @@ The DRX phenomena cannot be reproduced by this type of model.
 \includegraphics[width=1.02\columnwidth]
 {Figures/CompExp-HS-6}
 \caption{Comparison between the experimental and predicted flow stresses by HS model}
-\label{fig:iCorrelationHS}
+\label{fig:CompExp-HS-6}
 \end{figure}
 
 %----------------------------------------------------------------------------------
@@ -515,7 +515,7 @@ n(\varepsilon) = n_0 + n_1\varepsilon + n_2\varepsilon^2 + n_3\varepsilon^3 + \c
 
 The determination of the order $m$ of the polynomials defined by Equations (\ref{eq:ArA}-\ref{eq:Arn}) is defined according to the ability of the model to represent the non-linear dependence of the stress versus the strain and its generalization.
 The values $\ln\!A_i$, $\alpha_i$, $n_i$, and $Q_i$ ($i=1,2,3,\cdots,m$) are the coefficients of the polynomials to determine using a regression method.
-Setting $m=9$ gives the best results and the corresponding parameters are reported in Table \ref{tab:ARparameters}.
+Setting $m=9$ gives the best results and the corresponding parameters are reported in Table \ref{tab:AR}.
 \begin{table}[h!]
 \centering
 \caption{Parameters' values of the Arrhenius flow law for the P20 steel}
@@ -534,7 +534,7 @@ $\alpha_7=-1.4523\times 10^{3}$ & $Q_7=4.3707\times 10^{3}$ & $A_7=3.1798\times 
 $\alpha_8=952.0619$ & $Q_8=-3.9394\times 10^{3}$ & $A_8=-2.9725\times 10^{5}$ & $n_8=1.0239\times 10^{5}$\\
 $\alpha_9=-267.4994$ & $Q_9=1.397\times 10^{3}$ & $A_9=1.0759\times 10^{5}$ & $n_9=-2.9621\times 10^{4}$\\
 \hline
-\label{tab:ARparameters}
+\label{tab:AR}
 \end{tabular}
 \end{table}
 This modified form of the Arrhenius behavior law allows for accurate and reliable prediction over a wide range of temperatures and strain rates.
@@ -544,7 +544,7 @@ Equation (\ref{eq:ArStress}) is finally used to compute the flow stress $\sigma^
 \label{eq:ArStress}
 \end{equation}
 
-Figure \ref{fig:iCorrelationAR} shows the comparison of the values predicted by the Arrhenius model and the experimental values.
+Figure \ref{fig:CompExp-AR-6} shows the comparison of the values predicted by the Arrhenius model and the experimental values.
 The difference between the experimental and predicted values is small.
 But for the strain rate $\mdot\varepsilon = 0.01~\ps$ and for the two low temperature values, the AR model is not able to predict the softening.
 For the AR model, $\AARE=3.56~\%$ and $\RMSE=2.18~\text{MPa}$.
@@ -554,7 +554,7 @@ For the AR model, $\AARE=3.56~\%$ and $\RMSE=2.18~\text{MPa}$.
 \includegraphics[width=1.02\columnwidth]
 {Figures/CompExp-AR-6}
 \caption{Comparison between the experimental and predicted flow stresses by AR model}
-\label{fig:iCorrelationAR}
+\label{fig:CompExp-AR-6}
 \end{figure}
 
 %-------------------------------------------------------------------------
@@ -570,13 +570,13 @@ The equation describing the PTM model is therefore given by :
 \label{eq:PTM-model}
 \sigma^y = \left(\sum_{i=0}^{q}{A_i\varepsilon^{p^i}}\right) \exp\left[\left(\sum_{j=0}^{r}{B_j\varepsilon^{p^j}}\right)\left(T-T_0\right) + \left(\sum_{k=0}^{s}\left(\sum_{l=0}^{t}{C_k^l\varepsilon^{p^l}} \right)\left(T-T_0\right)^k \right)\ln\left( \frac{\mdot\varepsilon}{\mdot{\varepsilon}_0}\right)\right]
 \end{equation}
-where $A_i, B_j, C_k^l$ are the parameters (Table \ref{tab:PTM-parameters}) of the model to be identified using the procedure proposed in  \cite{TizeMha-2022}.
+where $A_i, B_j, C_k^l$ are the parameters (Table \ref{tab:PTM}) of the model to be identified using the procedure proposed in  \cite{TizeMha-2022}.
 Quantities $q$, $r$, $s$ and $t$ define the degree of the polynomials used to describe the behavior of the material.
 The larger these quantities are, the more parameters need to be identified for the PTM model.
 The determination of the parameters of this model are calculated thanks to the LMFIT Python library \cite{Newville-2016} and for more details about this model  we invite the reader to read our previous work \cite{TizeMha-2022}.
-Thus all the parametrers of this model are calcuted with $q=5$, $r=5$, $s=1$ and $t=5$.
+Thus, all the parameters of this model are calculated with $q=5$, $r=5$, $s=1$ and $t=5$.
 
-Comparison of predicted values of the PTM model and experimental values is shown in Figure \ref{fig:iCorrelationPTM}.
+Comparison of predicted values of the PTM model and experimental values is shown in Figure \ref{fig:CompExp-PTM-6}.
 The PTM model is suitable to describe the ﬂow behavior of AISI P20 steel, but for the two strain rates $\mdot\varepsilon=0.01~\ps$ and $\mdot\varepsilon=0.1~\ps$ the prediction in not quite good.
 The deviation between the predicted values and the experimental values for other strain rates is relatively good.
 For the PTM model, $\AARE=4.79~\%$ and $\RMSE=4.59~\text{MPa}$ this shows an overall worse performance than the AR model.
@@ -595,7 +595,7 @@ $A_3=4.836\times 10^{3}$ & $B_3=0.2218$ & $C_0^3=-13.1694$ & $C_1^3=-0.0222$\\
 $A_4=-5.5176\times 10^{3}$ & $B_4=-0.4988$ & $C_0^4=15.25$ & $C_1^4=0.0609$\\
 $A_5=2.4058\times 10^{3}$ & $B_5=0.3211$ & $C_0^5=-6.587$ & $C_1^5=-0.0413$\\
 \hline
-\label{tab:PTM-parameters}
+\label{tab:PTM}
 \end{tabular}
 \end{table}
 
@@ -604,7 +604,7 @@ $A_5=2.4058\times 10^{3}$ & $B_5=0.3211$ & $C_0^5=-6.587$ & $C_1^5=-0.0413$\\
 \includegraphics[width=1.02\columnwidth]
 {Figures/CompExp-PTM-6}
 \caption{Comparison between the experimental and predicted flow stresses by PTM model}
-\label{fig:iCorrelationPTM}
+\label{fig:CompExp-PTM-6}
 \end{figure}
 
 %-------------------------------------------------------------------------
@@ -619,13 +619,13 @@ The second one corresponds to the capacity of universal approximator of these ne
 The main difference is that this approximation is not linked to a fixed mathematical formulation (JC, MZA, AR, HS, PTM model), but is only dependent on the data used for training, the number of layers, the number of neurons per layer and the activation functions associated with the neurons of the network.
 A feed-forward ANN, as used in our application, contains an input layer, an output layer and a number of hidden layers ($2$ in our case).
 Each layer of neurons is connected to the one before it and the one after it by weighted connections.
-Thus, all the neurons of the $k$ layer are connected to all the neurons of the ($k-1$) layer as shown in Figure \ref{fig:ANN-scheme-2HL}.
+Thus, all the neurons of the $k$ layer are connected to all the neurons of the ($k-1$) layer as shown in Figure \ref{fig:ANN-2HL}.
 \begin{figure}[!ht]
 \centering
 \includegraphics[width=0.7\columnwidth]
 {Figures/ANN-scheme-2HL}
 \caption{Multi-layer Artificial Neural Network architecture}
-\label{fig:ANN-scheme-2HL}
+\label{fig:ANN-2HL}
 \end{figure}
 
 Any hidden layer $k$, containing $n$ neurons, takes a weighted sum of the outputs $\overrightarrow{\hat{y}}$ of the immediately previous layer $(k-1)$, containing $m$ neurons, given by the following equation:
@@ -660,16 +660,16 @@ Figure \ref{fig:ANN-6-conv} show the evolution of the training error defined by 
 As we can see on this figure, after $5000$ epoch, we can consider that we have reached a stationary state of the model learning and that it is useless to continue the learning phase.
 
 Once the learning phase is over, the trained model can be used to predict the behavior of the AISI P20 alloy as a function of the input data in the same way as is done with the analytical models.
-One can either use the model directly by providing it with new input data, or retrieve the $180$ parameters identified during the training and inject them into a mathematical model based on Equations (\ref{eq:ANN1}) and (\ref{eq:ANN2}) which can be implemented in any language (e.g. in FORTRAN for use on the Abaqus Explicit FEM code) as proposed in Pantalé \eal \cite{Pantale-2021}.
+One can either use the model directly by providing it with new input data, or retrieve the $180$ parameters identified during the training and inject them into a mathematical model based on Equations (\ref{eq:ANN1}) and (\ref{eq:ANN2}) which can be implemented in any language (\eg in FORTRAN for use on the Abaqus Explicit FEM code) as proposed in Pantalé \eal \cite{Pantale-2021}.
 For reasons of compactness, the parameters of the ANN model are not reported in this paper.
 
-As for the analytical models presented previously, Figure \ref{fig:iCorrelationANN} shows a comparison between the flow stresses predicted by the ANN model and the data measured during the hot compression test.
+As for the analytical models presented previously, Figure \ref{fig:CompExp-3-15-7-1-sigmoid} shows a comparison between the flow stresses predicted by the ANN model and the data measured during the hot compression test.
 \begin{figure}[!ht]
 \centering
 \includegraphics[width=1\columnwidth]
 {Figures/CompExp-3-15-7-1-sigmoid}
 \caption{Comparison between the experimental and predicted flow stresses by the 3-15-7-1-sigmoid ANN model}
-\label{fig:iCorrelationANN}
+\label{fig:CompExp-3-15-7-1-sigmoid}
 \end{figure}
 The correlation between the experimental data and the ANN prediction is very good over the entire range of data and the predicted data can track the hardening and softening regions of the hot deformed material well.
 For the ANN model, $\AARE=0.62~\%$ and $\RMSE=0.38~\text{MPa}$ which is excellent.
@@ -679,46 +679,24 @@ This model can be used to simulate the hot deformation of this type of alloy wit
 \subsection{Comparison of analytical and ANN models\label{sec:Comparison}}
 %--------------------------------------------------------------------------
 
-On the other hand, other coefficients ($\AARE$ and $\RMSE$) are used to estimate the predictive capacity of the model because they are considered unbiased as well as for low and high values.
-
-Indeed, they verify the predictability of a model term by term comparison of the relative error in relation to the real value of the variable \cite{Srinivasulu-2006}.
-
-Thus the correlation coefficients $R$ for JC, MZA, HS, Arhenius, proposed and ANN models are $0.98475$,  $0.99014$,  $0.98364$, $0.99839$, $0.99514$, and $0.99994$ respectively as shown on Figure \ref{fig:Correlation}.
-These results show that all models have a relatively good coefficient; this does not guarantee the validation of the prediction of these models.
-Hence the need to calculate the other two coefficients.
-All coefficients for evaluating the high-temperature flow stress prediction capability of the AISI P20 alloy for all models presented in this work are summarized in the Table \ref{tab:Coefsparams}.
-
-From this table, it can be seen that the ANN model has a good prediction than the analytical models.
-All this shows sufficiently that the ANN model is more effective in describing the behavior of the AISI P20 alloy for high temperature deformation.
-This efficiency will therefore be validated on tests at two different selected strain rates.
-One between the minimum and the maximum strain rates used during identification or training for ANN model and another one outside higher than the maximum strain rate.
-This will validate the interpolation and extrapolation capability of phenomenological and ANN models.
-The prediction results should lead to a better interpolation and extrapolation capability of the ANN model than phenomenological models as shown by identification.
-Another thing to be analysed from this table is the link between the values of the correlation coefficient $R$ and the values of $\AARE$ and $\RMSE$.
-Indeed, as mentioned above, the $R$ coefficient does not necessarily mean a good prediction of the model but a good relationship of linearity between the experiment and the prediction.
-To ensure a good prediction of the model, it is necessary to add to $R$, the values of $\AARE$.
-From that table it can be seen the values of the coefficients $R$ are $99.014\%$, $98.364\%$, for $\AARE$ are $11.13020\%$ and $8.15103\%$ and those of $\RMSE$ are $5.35079\ \text{MPa}$, and $6.45287\ \text{MPa}$ respectively for the MZA model and the HS model.
-This seems contradictory when the $R$ of HS is smaller than that of MZA, whereas for the $\AARE$ and $\RMSE$ values it is the opposite case.
-This simply means that the HS model has a good prediction compared to the MZA model whereas in the framework of the linear correlation between the experiment and the prediction the MZA model makes it better.
-All this can be seen from the identification curves where we can observe the HS curves (Figure \ref{fig:iCorrelationHS}) are indeed closer to the experimental than those of MZA (Figure \ref{fig:iCorrelationMZA}) while the points are scattered for HS model on the correlation curve (Figure \ref{fig:Correlation}).
-This validates the analysis made by \cite{Phaniraj-2003, Srinivasulu-2006}.
-
+A summary of the coefficients for evaluating the high-temperature flow stress prediction capability of the AISI P20 alloy for all models presented in this work is reported in Table \ref{tab:Errors}.
 \begin{table}[h!]
-\centering{}
-\caption{Accurary coefficients of the developped models}
+\centering
+\caption{Accuracy coefficients for all the analyzed models.}
 \begin{tabular}{lcccccc}
 \hline
-&		&		&         &             &		   &		  		\\
-Coefficients&JC  & MZA  &HS  & Arhenius      & PTM  &ANN  		    \\
-&				&				&         &             &		   &\\
+Coefficients & JC & MZA & HS & Arhenius & PTM & ANN\\
 \hline
-$R(\%)$&$98.4745$&$99.0141$&$98.5682$&$99.839$& $99.5137$&$99.9994$ \\
-$\AARE(\%)$&$11.1667$&$11.13020$&$8.15103$&$3.30677$&$4.19549$&$0.81094$   \\
-$\RMSE(\text{MPa})$&$6.30298$&$5.35079$&$6.45287$&$2.03275$&$3.59027$&$0.55158$\\
+$\AARE(\%)$ & $14.05$ & $21.20$ & $7.75$ & $3.56$ & $4.79$ & $0.62$\\
+$\RMSE(\text{MPa})$ & $12.00$ & $19.57$ & $3.80$ & $2.18$ & $4.59$ & $0.38$\\
 \hline
-\label{tab:Coefsparams}
+\label{tab:Errors}
 \end{tabular}
 \end{table}
+From this table, we can see that the ANN model has a much better predictive capacity than all the analytical models presented previously.The values of $\AARE$ and $\RMSE$ are globally $6$ times lower than the best of the analytical models, \ie the Arrhenius model, quoted as reference in the context of hot forming of alloys \cite{Liang-2022}.
+
+The ANN, Arrhenius and PTM models are the only models that take into account the softening with the deformation of AISI P20 at low strain rate, unlike the other three models that only present an increase of the flow stress with the strain, whatever the strain rate and temperature, hence their poor performance in predicting the behavior of this material and more particularly at low strain rates.
+The parameters reported in Table \ref{tab:Errors}, the correlations visible in Figures \ref{fig:CompExp-JC-6} to \ref{fig:CompExp-3-15-7-1-sigmoid} allow us to conclude here that the ANN model is the most efficient of all the models presented to describe the behavior of the AISI P20 alloy for high temperature deformation applications.
 
 %-------------------------------------------------------------------------
 \section{Interpolation and extrapolation capability of phenomenological and ANN models \label{sec:inExtrapolation}}
@@ -731,16 +709,16 @@ Validation is done with real data.
 The following subsections will highlight this procedure.
 \subsection{Interpolation validation}
 For the validation of the interpolation, the chosen strain rate is $\mdot\varepsilon = 1.0\ \ps$ and those used for identification (training for ANN) are $\mdot\varepsilon = 0.001\ \ps$ , $\mdot\varepsilon = 0.01\ \ps$ , $\mdot\varepsilon = 0.1\ \ps$, $\mdot\varepsilon = 2.0\ \ps$  and $\mdot\varepsilon = 5.0\ \ps$.
-The Figure \ref{fig:inCombinaison} shows the comparison between the predictions of the analytical and ANN models and the experiment.
+The Figure \ref{fig:IntComp} shows the comparison between the predictions of the analytical and ANN models and the experiment.
 It appears from these Figures that all models have relatively good predictions but the ANN model remains the best because the value of its $\AARE$ is $1.4\%$ while it is between $2.33\%$ and $6.13\%$ for the analytical models.
 This further shows the performance of the ANN model compared to the analytical models.
-All these results are summarized in Table \ref{tab:inValid}.
+All these results are summarized in Table \ref{tab:IntVal}.
 \begin{figure}[!ht]
 \centering
 \includegraphics[width=1.02\columnwidth]
 {Figures/inCombinaison}
 \caption{Comparison between the experimental and predicted flow stresses by ANN model for interpolation estimation}
-\label{fig:inCombinaison}
+\label{fig:IntComp}
 \end{figure}
 \begin{table}[h!]
 \centering{}
@@ -755,12 +733,12 @@ $R(\%)$&$99.0590$&$99.0821$&$97.6008$&$99.8417$& $99.8760$&$99.9439$  \\
 $\AARE(\%)$&$4.2686$&$3.7440$&$6.1391$&$2.3321$&$2.7590$&$1.4018$   \\
 $\RMSE(\text{MPa})$&$4.1923$&$3.1856$&$82.6956$&$2.29891$&$2.4632$&$1.0228$ \\
 \hline
-\label{tab:inValid}
+\label{tab:IntVal}
 \end{tabular}
 \end{table}
 \subsection{Extrapolation validation}
 For the validation of the extrapolation, the chosen strain rate is $\mdot\varepsilon = 5.0\ \ps$ and those used for identification (training for ANN) are $\mdot\varepsilon = 0.001\ \ps$ , $\mdot\varepsilon = 0.01\ \ps$ , $\mdot\varepsilon = 0.1\ \ps$, $\mdot\varepsilon = 1.0\ \ps$  and $\mdot\varepsilon = 2.0\ \ps$.
-Figure \ref{fig:exCombinaison} shows the comparison between the predictions  and the experimental.
+Figure \ref{fig:ExtComp} shows the comparison between the predictions  and the experimental.
 Unlike interpolation, the predictions of the analytical models are not very good because the errors are between $3.2\%$ and $12.99\%$ while that of the ANN model is $1.74\%$.
 Again, the ANN model shows its ability to extrapolate data.
 This makes it possible to say that the ANN model remains the best tool to characterize the behavior of a material subjected to certain deformation conditions.
@@ -778,7 +756,7 @@ $R(\%)$&$99.2920$&$99.4879$&$93.9429$&$99.6870$& $99.7582$&$99.8047$\\
 $\AARE(\%)$&$4.8988$&$3.4506$&$12.9939$&$3.2008$&$3.8845$&$1.7433$\\
 $RMSE(\text{MPa})$&$5.0943$&$4.3048$&$116.517$&$3.7035$&$4.3915$&$1.2513$ \\
 \hline
-\label{tab:exValid}
+\label{tab:ExtVal}
 \end{tabular}
 \end{table}
 \begin{figure}[!ht]
@@ -786,7 +764,7 @@ $RMSE(\text{MPa})$&$5.0943$&$4.3048$&$116.517$&$3.7035$&$4.3915$&$1.2513$ \\
 \includegraphics[width=0.91\columnwidth]
 {Figures/exCombinaison}
 \caption{Comparison between the experimental and predicted flow stresses by ANN model for extrapolation estimation}
-\label{fig:exCombinaison}
+\label{fig:ExtComp}
 \end{figure}
 
 %---------------------------------------------------------------------
