@@ -661,7 +661,7 @@ As we can see on this figure, after $5000$ epoch, we can consider that we have r
 
 Once the learning phase is over, the trained model can be used to predict the behavior of the AISI P20 alloy as a function of the input data in the same way as is done with the analytical models.
 One can either use the model directly by providing it with new input data, or retrieve the $180$ parameters identified during the training and inject them into a mathematical model based on Equations (\ref{eq:ANN1}) and (\ref{eq:ANN2}) which can be implemented in any language (\eg in FORTRAN for use on the Abaqus Explicit FEM code) as proposed in Pantalé \eal \cite{Pantale-2021}.
-For reasons of compactness, the parameters of the ANN model and the complete procedure to compute the flow stress $\sigma^y$ from the input data are provided in the Appendix \ref{sec:Appendix} at the end of this paper.
+For reasons of compactness, the parameters of the ANN model and the complete procedure to compute the flow stress $\sigma^y$ from the input data are provided in the Appendix.
 
 As for the analytical models presented previously, Figure \ref{fig:CompExp-3-15-7-1-sigmoid} shows a comparison between the flow stresses predicted by the ANN model and the data measured during the hot compression test.
 \begin{figure}[!ht]
@@ -788,7 +788,10 @@ This ANN model can therefore be compared to the most commonly used classical mod
 Therfore, this ANN model  will be implemented in FEM softwares such as Abaqus, Forge in order to validate it by doing a simulation.
 \end{enumerate}
 
-\section{Appendix\label{sec:Appendix}}
+\bibliographystyle{elsarticle-num}
+\bibliography{Bibliography}
+
+\section*{Appendix\label{sec:Appendix}}
 In order to complete this paper, we report here after the computing process and the $180$ coefficients of the Artificial Neural Network ANN-3-15-7-1-sigmoid model used in Section \ref{sec:ANNmodel}. In order to use this model we describe here after the procedure to compute the flow stress $\sigma^y$ from the input variables $\varepsilon^p$, $\mdot\varepsilon$ and $T$. This process can be decomposed in $3$ phases:
 \begin{itemize}
 \item We first have to normalize the input values of the ANN $x_i$ within the range $[0,1]$ to avoid ill-conditioned system as presented by many other authors in the literature \cite{Lin-2008-ANN, Lu-2011-ANN}.
@@ -907,10 +910,6 @@ Conforming to the computing process proposed by Equations (\ref{eq:CR1}-\ref{eq:
 b_3 = 0.1178 
 \end{equation*}
 
-% \bibitem{}
-\bibliographystyle{elsarticle-num}
-\bibliography{Bibliography}
-%\end{thebibliography}
 \end{document}
-\endinput
+
 
