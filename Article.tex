@@ -821,9 +821,9 @@ s = \overrightarrow{w}^T \dotp \overrightarrow{y}_2 + b
 \end{itemize}
 
 Conforming to the computing process proposed by Equations (\ref{eq:CR1}-\ref{eq:CR2}), we report hereafter the $180$ coefficients of the ANN-3-15-7-1-sigmoid model used in Section \ref{sec:ANNmodel}.
-
+The weight matrix for the first hidden layer $\w_1$ is a $15\times3$ matrix:
 \begin{equation*}
-\w_1^T = \left[
+\w_1 = \left[
 \begin{array}{rrr}
 2.2206 & -3.7555 & -6.7246\\ 
 -4.8598 & 5.7431 & -5.8538\\ 
@@ -842,6 +842,7 @@ Conforming to the computing process proposed by Equations (\ref{eq:CR1}-\ref{eq:
 -27.1456 & -0.5327 & -0.5303\\ 
 \end{array}\right]
 \end{equation*}
+The biases of the first hidden layer $\overrightarrow{b_1}$ is a $15$ components vector:
 \begin{equation*}
 \overrightarrow{b}_1 = \left[
 \begin{array}{r}
@@ -862,8 +863,9 @@ Conforming to the computing process proposed by Equations (\ref{eq:CR1}-\ref{eq:
 -0.3037\\ 
 \end{array}\right]
 \end{equation*}
+The weight matrix for the second hidden layer $\w_2$ is a $7\times15$ matrix:
 \begin{equation*}
-\w_2 = \left[
+\w_2^T = \left[
 \begin{array}{rrrrrrr}
 -0.5783 & 1.2724 & 0.5747 & 0.6449 & -4.2203 & -0.2380 & 0.2591\\ 
 -0.4852 & 5.2807 & 0.8888 & -8.2324 & -2.0075 & -0.6474 & -1.0787\\ 
@@ -882,6 +884,7 @@ Conforming to the computing process proposed by Equations (\ref{eq:CR1}-\ref{eq:
 4.3040 & -0.7164 & -1.0859 & 3.4294 & -23.8003 & 12.5859 & 7.3721\\ 
 \end{array}\right]
 \end{equation*}
+The biases of the second hidden layer $\overrightarrow{b_2}$ is a $7$ components vector:
 \begin{equation*}
 \overrightarrow{b}_2 = \left[
 \begin{array}{r}
@@ -894,6 +897,7 @@ Conforming to the computing process proposed by Equations (\ref{eq:CR1}-\ref{eq:
 -0.1471\\ 
 \end{array}\right]
 \end{equation*}
+The weight vector for the output layer $\overrightarrow{w}_3$ is a $7$ components vector:
 \begin{equation*}
 \overrightarrow{w}_3 = \left[
 \begin{array}{r}
@@ -906,6 +910,7 @@ Conforming to the computing process proposed by Equations (\ref{eq:CR1}-\ref{eq:
 -0.2215\\ 
 \end{array}\right]
 \end{equation*}
+The bias of the output layer $b_3$ is a scalar:
 \begin{equation*}
 b_3 = 0.1178 
 \end{equation*}
