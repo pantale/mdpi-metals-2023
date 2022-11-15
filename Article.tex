@@ -90,7 +90,8 @@
 \address[ETS]{École de Technologie Supérieure, 1100 Rue Notre Dame O, Montréal, QC H3C 1K3}
 
 \begin{abstract}
-A concept for analysing and using of both analytical and neural network based models is proposed in this study to investigate the high-temperature deformation behavior of the AISI P20 alloy by performing hot compression tests over a wide range of strains ($0.025 - 0.7$),  strain rates ($0.001\ \ps - 5\ \ps$) and temperatures ($1050\celsius-1250\celsius$). Based on the experimental data (stress-strain curves), empirical models as the Johnson-Cook (JC), Modified-Zerilli-Armstrong (MZA), Hansel-Spittel (HS), Arhenius (AR) and PTM on the one hand and an ANN model on the other hand were developed to predict the flow behavior of this alloy.
+A concept for analysing and using of both analytical and neural network based models is proposed in this study to investigate the high-temperature deformation behavior of the AISI P20 alloy by performing hot compression tests over a wide range of strains ($0.025 - 0.7$),  strain rates ($0.001\ \ps - 5\ \ps$) and temperatures ($1050\celsius-1250\celsius$).
+Based on the experimental data (stress-strain curves), empirical models as the Johnson-Cook (JC), Modified-Zerilli-Armstrong (MZA), Hansel-Spittel (HS), Arhenius (AR) and PTM on the one hand and an ANN model on the other hand were developed to predict the flow behavior of this alloy.
 Then, a comparative study between the analytical models and the ANN model was carried out on the basis of the calculation of some coefficients allowing to test the efficiency of each model.
 These coefficients are the correlation coefficient $R$, the Average Absolute  Relative Error $\AARE$ and the Root Mean Square Error ($\RMSE$).
 From these parameters it was found that the JC, MZA and HS models are not suitable for predicting the behavior of AISI P20 alloy whereas the AR and PTM models can be used for most strain rates to predict the flow behavior of this alloy.
@@ -148,11 +149,14 @@ Users of the Forge software make extensive use of the model developed by Hansel 
 Unlike the JC model, this formulation is based on parameters that are determined simultaneously.
 This model is simple to use and has $8$ parameters that are easy to determine.
 The limitation of this model is its loss of accuracy in some cases when the $8$ parameters are defined.
-This is why many works often limit its identification to only $5$, $6$ or $7$ parameters. This has been verified in our study where the smallest error of the model is obtained with only $7$ parameters identified.
+This is why many works often limit its identification to only $5$, $6$ or $7$ parameters.
+This has been verified in our study where the smallest error of the model is obtained with only $7$ parameters identified.
 
 The fixed and limited number of parameters imposed by each analytical model as presented above has both advantages and disadvantages.
 These models have few parameters and are therefore easy to identify, but when these models have to be applied to a material different from the one for which they were initially developed they lose their performance as in the case of the HS model.
-To try to solve this problem, Tize Mha \eal \cite{TizeMha-2022} has proposed a formulation where the number of parameters is not known in advance. The idea is to make the formulation of an analytical model flexible so that it can be adapted to many materials. This formulation is based on the MZA model and polynomial functions of undefined order are used during the identification.
+To try to solve this problem, Tize Mha \eal \cite{TizeMha-2022} has proposed a formulation where the number of parameters is not known in advance.
+The idea is to make the formulation of an analytical model flexible so that it can be adapted to many materials.
+This formulation is based on the MZA model and polynomial functions of undefined order are used during the identification.
 
 Behavior modeling based on an artificial neural network is an approach to predict the flow of materials without requiring a mathematical formulation of the flow law.
 It is therefore not necessary to postulate a mathematical expression to identify the parameters of the model.
@@ -213,15 +217,22 @@ Figure \ref{fig:GleebleProcess} also shows the aspects of the specimens before a
 \label{fig:GleebleProcess}
 \end{figure}
 
+\OP{Here, a part concerning the treatment of the Gleeble data is missing.
+You introduce the notions of $h_0$, $R_0$, $h$, $R_M$ and $R_T$ and we have no idea what they are for.
+How are the Gleeble data transformed into curves, what is the use of the previous values, what are the corrections to be made to the data,...}
 The curves are automaticaly gotten from Gleeble system as True-stress and strain according to L-gauge where the formula to get curves are given by $\sigma =F/A\ \text{and}\ \varepsilon = \ln\left(h_0 +\Delta h / h_0\right) $or C-gauge whose formula are $\sigma = 4F/\pi(d+\Delta d)^2$ and $\varepsilon = 2\ln(d/(d+\Delta d))$ with $d = 2R_0$ and $F$ is the force as measured by Gleeble load cell.
-As there are noises from raw data, filter method is applied to remove noise and have more smooth data. For further usage of  data in numerical simulation elastic parts have been removed.
+As there are noises from raw data, filter method is applied to remove noise and have more smooth data.
+For further usage of  data in numerical simulation elastic parts have been removed.
 
 %------------------------------------------------------------------------
 \subsection{Compression tests results\label{sec:ComTestResults}}
 %------------------------------------------------------------------------
 
 The set of flow stress $\sigma^y$ versus strain $\varepsilon$ curves obtained from compression tests performed on the Gleeble-3800 simulator for each test condition ($6$ strain rates and $5$ temperatures) is presented in Figure \ref{fig:RawData}.
-Almost all data are around 21030 or less than and the ammplitude of deformation is between $0.7$ and $0.85$. We have decided to limit the identification up to $0.7$ because for strain rates $2$ and $5$, stresses are note good. The overall behavior of these curves shows that the flow stress $\sigma^y$ increases with increasing strain rate $\mdot\varepsilon$ but decreases with increasing temperature $T$.
+\OP{It is necessary to give indications concerning the structure of the data: how many points, what amplitude of deformation,...}
+Almost all data are around 21030 or less than and the ammplitude of deformation is between $0.7$ and $0.85$.
+We have decided to limit the identification up to $0.7$ because for strain rates $2$ and $5$, stresses are note good.
+The overall behavior of these curves shows that the flow stress $\sigma^y$ increases with increasing strain rate $\mdot\varepsilon$ but decreases with increasing temperature $T$.
 It should be noted that the strain also influences the flow stress.
 Indeed, for the lowest strain rates $\mdot\varepsilon$, the flow stress $\sigma^y$ increases with the strain $\varepsilon$ until a value of about $\varepsilon=0.2$ to $0.3$, then decreases to maintain a more or less constant value until the end of the test.
 For the highest strain rates ($1.0~\ps$, $2.0~\ps$, and $5.0~\ps$), the flow stress increases throughout the test.
@@ -238,8 +249,15 @@ This results in a progressive increase of the flow stress.
 
 To explain the overall flow stress behavior observed in this test, we will rely on two fundamental phenomena that can be observed during a compression test: Dynamic Recovery (DRV) and Dynamic Recrystallization (DRX).
 At the beginning of the deformation of the sample in compression, the amount of dislocations increases and they begin to move within the material, which leads to a rapid increase in stress (strain hardening phenomenon).
-As the strain continues to increase, many dislocations are in motion, leading to a stress relaxation phenomenon, generally known as DRV. This DRV mechanism contributes to the decrease in the number of dislocations due to their combination with another dislocation or due to their integration into a grain boundary. Some of these dislocations reorganize and then form sub-grains within the initial grains of the material. The combination of these dislocations moderates the increase in the number of dislocations related to work hardening and thus controls the amount of strain energy stored in the material, which influences the increase in flow stress.
-The dynamic recrystallization concerns the germination of new grains, at the borders or inside the initial grains. These two phenomena explain the different shapes of the flow stress curves observed for this alloy. As an example, Figure \ref{fig:Micrography} show the microstructures of AISI P20 held during $5$~min at $1260\celsius$ before and after the compression phase. As observed on the flow curves, it can be seen by comparing these two micrographs that recrystallization is almost complete for this temperature and strain rate within the sample held for $5$ minutes at $1260^\circ$C and rapidely cooled to get autenized grain in one hand and in other hand held for $1$ minute at $1150^\circ$C before compression with strain rate $0.001\ \text{s}^{-1}$.
+As the strain continues to increase, many dislocations are in motion, leading to a stress relaxation phenomenon, generally known as DRV.
+This DRV mechanism contributes to the decrease in the number of dislocations due to their combination with another dislocation or due to their integration into a grain boundary.
+Some of these dislocations reorganize and then form sub-grains within the initial grains of the material.
+The combination of these dislocations moderates the increase in the number of dislocations related to work hardening and thus controls the amount of strain energy stored in the material, which influences the increase in flow stress.
+The dynamic recrystallization concerns the germination of new grains, at the borders or inside the initial grains.
+These two phenomena explain the different shapes of the flow stress curves observed for this alloy.
+As an example, Figure \ref{fig:Micrography} show the microstructures of AISI P20 held during $5$~min at $1260\celsius$ before and after the compression phase.
+As observed on the flow curves, it can be seen by comparing these two micrographs that recrystallization is almost complete for this temperature and strain rate within the sample held for $5$ minutes at $1260^\circ$C and rapidely cooled to get autenized grain in one hand and in other hand held for $1$ minute at $1150^\circ$C before compression with strain rate $0.001\ \text{s}^{-1}$.
+\OP{What are the temperature and strain rate related with this micrography}
 From the results reported in Figure \ref{fig:RawData}, the identification of the parameters of the six flow laws proposed in this work will be presented in the next section in order to predict the behavior of the material in any test condition.
 
 \begin{figure}[!ht]
@@ -263,12 +281,21 @@ From the results reported in Figure \ref{fig:RawData}, the identification of the
 \section{Identification of constitutive flow laws parameters\label{sec:ConstLaws}}
 %-------------------------------------------------------------------------
 
-The complete characterization of the thermomechanical behavior of a material through the identification of its flow law is very important before its modeling in numerical simulations. This characterization usually involves experimental tests that serve as a basis for the development of constitutive laws. As mentioned in the introduction, many constitutive laws exist today, and the selection of one of them on the basis of explicit criteria makes the development of computational models for new materials with new types of behavior challenging. Since the purpose of this work is to compare the ANN model to analytical models, it is important to justify the choice of analytical models selected for this study among the many that exist in the literature.
-Among the analytical models, the Johnson-Cook (JC) model \cite{Johnson-1983} is the most used because of its simplicity of implementation linked to the reduced number of its parameters and the ease to identify them. It should be noted that it is not the best model but the most integrated in the Finite Elements softwares.
+The complete characterization of the thermomechanical behavior of a material through the identification of its flow law is very important before its modeling in numerical simulations.
+This characterization usually involves experimental tests that serve as a basis for the development of constitutive laws.
+As mentioned in the introduction, many constitutive laws exist today, and the selection of one of them on the basis of explicit criteria makes the development of computational models for new materials with new types of behavior challenging.
+Since the purpose of this work is to compare the ANN model to analytical models, it is important to justify the choice of analytical models selected for this study among the many that exist in the literature.
+Among the analytical models, the Johnson-Cook (JC) model \cite{Johnson-1983} is the most used because of its simplicity of implementation linked to the reduced number of its parameters and the ease to identify them.
+It should be noted that it is not the best model but the most integrated in the Finite Elements softwares.
 This also explains the existence of several modified forms of this model.
 The Zerilli-Armstrong model, and in particular its modified forms (MZA) \cite{NematNasser-2004, Lennon-2004, Muralli-2017, Cheng-2021, Muralli-2021}, is also widely used because it attempts to provide solutions to the shortcomings of the JC model, particularly with regard to the coupling of physical parameters.
-It is therefore also part of this study. The Hansel Spittel (HS) model \cite{Hensel-1978} is also one of the most widely used models in numerical simulation of casting and forging operations because it is natively integrated in the Forge software. Moreover, the method of identifying its parameters is very simple to perform since it is done in one step. It also has limitations as we will show in the following sections. The Arrhenius model was also chosen in this study because it is one of the models that not only provides a good prediction of the flow stress but also takes into account the physical parameter $Q$ (the deformation activation energy coefficient) which is of great importance in the microstructural analyses of materials.
-The PTM model \cite{TizeMha-2022} is also used in this study because it is a model whose formulation does not impose a priori a number of parameters and which proved its ability in our previous works \cite{TizeMha-2022}. We selected it to test it on this type of material because it is normally formulated to fit any type of material.
+It is therefore also part of this study.
+The Hansel Spittel (HS) model \cite{Hensel-1978} is also one of the most widely used models in numerical simulation of casting and forging operations because it is natively integrated in the Forge software.
+Moreover, the method of identifying its parameters is very simple to perform since it is done in one step.
+It also has limitations as we will show in the following sections.
+The Arrhenius model was also chosen in this study because it is one of the models that not only provides a good prediction of the flow stress but also takes into account the physical parameter $Q$ (the deformation activation energy coefficient) which is of great importance in the microstructural analyses of materials.
+The PTM model \cite{TizeMha-2022} is also used in this study because it is a model whose formulation does not impose a priori a number of parameters and which proved its ability in our previous works \cite{TizeMha-2022}.
+We selected it to test it on this type of material because it is normally formulated to fit any type of material.
 
 %-------------------------------------------------------------------------
 \subsection{Johnson-Cook model\label{sec:JC}}
@@ -336,7 +363,10 @@ Therefore, a good (high) value of $R$ (close to $1$) does not necessarily mean a
 %-------------------------------------------------------------------------
 \subsection{Modified Zerilli-Armstrong model\label{sec:MZA}}
 %-------------------------------------------------------------------------
-The MZA which is the modified form of ZA model, as the JC model is one of widely used models and implemented in many sofwares like Abaqus. The difference between the MZA model and JC model is related to the consideration of the three physical parameters to describe the reality observed from experimental. Indeed, in the JC model, those parameters are considered separately where they are simultaneaously considered in MZA and for that formulation MZA is prefered to JC model \cite{Hull-2011}. But the original form of ZA model has some limitations due to the fact that it is considered as two terms and to ameliorate that formulation Samantaray \eal \cite{Samantaray-2009} proposed a modified form given by the following equation:
+The MZA which is the modified form of ZA model, as the JC model is one of widely used models and implemented in many sofwares like Abaqus.
+The difference between the MZA model and JC model is related to the consideration of the three physical parameters to describe the reality observed from experimental.
+Indeed, in the JC model, those parameters are considered separately where they are simultaneaously considered in MZA and for that formulation MZA is prefered to JC model \cite{Hull-2011}.
+But the original form of ZA model has some limitations due to the fact that it is considered as two terms and to ameliorate that formulation Samantaray \eal \cite{Samantaray-2009} proposed a modified form given by the following equation:
 \begin{equation}
 \label{eq:MZA-model}
 \sigma^y = \left(C_{1}+C_{2}\varepsilon^{p^n}\right) \exp\left[-\left(C_{3}+C_{4}\varepsilon^p\right)\left(T-T_0\right) + \left(C_{5}+C_{6}\left(T-T_0\right)\right)\ln\left( \frac{\mdot\varepsilon}{\mdot{\varepsilon}_0}\right)\right]
@@ -405,7 +435,8 @@ The coefficients $A$ and $m_i$ are the parameters of the model to be identified.
 However, this model has some shortcomings, notably related to the fact that its accuracy varies according to the number of parameters taken into account during the identification.
 For its identification, several authors restrict its expression to a reduced number of $5$ or $6$ $m_i$ parameters only, by forcing a zero value for the other parameters \cite{Chadha-2018, Rudnytskyj-2020, Mehtedi-2015}.
 
-In the present study, the best results were obtained by taking the model defined by only the first $7$ $m_i$ terms of the equation (\ref{eq:HS}), so that $m_8=0$. From the experimental data obtained during the compression tests, an identification procedure based on the use of the LMFIT optimizer \cite{Newville-2016} has allowed to compute the parameters reported in Table \ref{tab:HS}.
+In the present study, the best results were obtained by taking the model defined by only the first $7$ $m_i$ terms of the equation (\ref{eq:HS}), so that $m_8=0$.
+From the experimental data obtained during the compression tests, an identification procedure based on the use of the LMFIT optimizer \cite{Newville-2016} has allowed to compute the parameters reported in Table \ref{tab:HS}.
 
 \begin{table}[h!]
 \centering
@@ -455,7 +486,7 @@ with:
 \begin{equation}
 Z = \mdot\varepsilon \exp{\left(\frac{Q}{RT}\right)} \label{eq:ArZ}
 \end{equation}
-where $Z$ is the Zenner-Hollomon parameter \cite{Zener-1944}, $\mdot\varepsilon$ is the strain rate ($\ps$), $Q$ is the apparent activation energy ($\text{J~mol}^{-1}$), $R$ is the universal gas constant ($8.314~\text{J~mol}^{-1} \text{K}^{-1}$), $T$ is the absolute temperature (K), $\sigma^y$ is the flow stress (MPa) for a given strain, strain rate and temperature and $A_1$, $A_2$, $A_3$, $n_1$, $n_2$, $\alpha$ and $\beta=\alpha/ n_1$ are dependent of the material.
+where $Z$ is the Zenner-Hollomon parameter \cite{Zener-1944}, $\mdot\varepsilon$ is the strain rate ($\ps$), $Q$ is the apparent activation energy ($\text{J~mol}^{-1}$), $R$ is the universal gas constant ($8.314~\text{J~mol}^{-1} \text{K}^{-1}$), $T$ is the absolute temperature (K), $\sigma^y$ is the flow stress (MPa) for a given strain, strain rate and temperature and $A_1$, $A_2$, $A_3$, $n_1$, $n_2$, $\alpha$ and $\beta=\alpha~n_1$ are dependent of the material.
 The corresponding values are independent of the temperature and are obtained from the stress-strain curves at different strain rates and temperature by regression method.
 Combination of Equations (\ref{eq:ArDef}) and (\ref{eq:ArZ}) allow expressing the flow stress $\sigma^y$ as a function of the $Z$ parameter:
 \begin{equation}
@@ -540,9 +571,14 @@ The equation describing the PTM model is therefore given by :
 \sigma^y = \left(\sum_{i=0}^{q}{A_i\varepsilon^{p^i}}\right) \exp\left[\left(\sum_{j=0}^{r}{B_j\varepsilon^{p^j}}\right)\left(T-T_0\right) + \left(\sum_{k=0}^{s}\left(\sum_{l=0}^{t}{C_k^l\varepsilon^{p^l}} \right)\left(T-T_0\right)^k \right)\ln\left( \frac{\mdot\varepsilon}{\mdot{\varepsilon}_0}\right)\right]
 \end{equation}
 where $A_i, B_j, C_k^l$ are the parameters (Table \ref{tab:PTM}) of the model to be identified using the procedure proposed in  \cite{TizeMha-2022}.
-Quantities $q$, $r$, $s$ and $t$ define the degree of the polynomials used to describe the behavior of the material. The larger these quantities are, the more parameters need to be identified for the PTM model. The determination of the parameters of this model are calculated thanks to the LMFIT Python library \cite{Newville-2016} and for more details about this model  we invite the reader to read our previous work \cite{TizeMha-2022}. Thus, all the parameters of this model are calculated with $q=5$, $r=5$, $s=1$ and $t=5$.
+Quantities $q$, $r$, $s$ and $t$ define the degree of the polynomials used to describe the behavior of the material.
+The larger these quantities are, the more parameters need to be identified for the PTM model.
+The determination of the parameters of this model are calculated thanks to the LMFIT Python library \cite{Newville-2016} and for more details about this model  we invite the reader to read our previous work \cite{TizeMha-2022}.
+Thus, all the parameters of this model are calculated with $q=5$, $r=5$, $s=1$ and $t=5$.
 
-Comparison of predicted values of the PTM model and experimental values is shown in Figure \ref{fig:CompExp-PTM-6}. The PTM model is suitable to describe the ﬂow behavior of AISI P20 steel, but for the two strain rates $\mdot\varepsilon=0.01~\ps$ and $\mdot\varepsilon=0.1~\ps$ the prediction is not quite good. The deviation between the predicted values and the experimental values for other strain rates is relatively good.
+Comparison of predicted values of the PTM model and experimental values is shown in Figure \ref{fig:CompExp-PTM-6}.
+The PTM model is suitable to describe the ﬂow behavior of AISI P20 steel, but for the two strain rates $\mdot\varepsilon=0.01~\ps$ and $\mdot\varepsilon=0.1~\ps$ the prediction is not quite good.
+The deviation between the predicted values and the experimental values for other strain rates is relatively good.
 For the PTM model, $\AARE=4.79~\%$ and $\RMSE=4.59~\text{MPa}$ and this shows an overall worse performance than the AR model.
 
 \begin{table}[h!]
@@ -756,7 +792,9 @@ Therfore, this ANN model  will be implemented in FEM softwares such as Abaqus, F
 \bibliography{Bibliography}
 
 \section*{Appendix\label{sec:Appendix}}
-In order to complete this paper, we report here after the computing process and the $180$ coefficients of the Artificial Neural Network ANN-3-15-7-1-sigmoid model used in Section \ref{sec:ANNmodel}. In order to use this model we describe here after the procedure to compute the flow stress $\sigma^y$ from the input variables $\varepsilon^p$, $\mdot\varepsilon$ and $T$. This process can be decomposed in $3$ phases:
+In order to complete this paper, we report here after the computing process and the $180$ coefficients of the Artificial Neural Network ANN-3-15-7-1-sigmoid model used in Section \ref{sec:ANNmodel}.
+In order to use this model we describe here after the procedure to compute the flow stress $\sigma^y$ from the input variables $\varepsilon^p$, $\mdot\varepsilon$ and $T$.
+This process can be decomposed in $3$ phases:
 \begin{itemize}
 \item We first have to normalize the input values of the ANN $x_i$ within the range $[0,1]$ to avoid ill-conditioned system as presented by many other authors in the literature \cite{Lin-2008-ANN, Lu-2011-ANN}.
 Therefore, the three components of the input are obtained from the plastic strain $\varepsilon^p$, the plastic strain rate $\mdot{\varepsilon}^p$ and the temperature $T$ using the following expressions:
@@ -767,7 +805,8 @@ x_2 = \frac{\ln(\mdot{\varepsilon}/\mdot{\varepsilon_0})-[\ln(\mdot{\varepsilon}
 x_3 = \frac{T-[T]_{min}}{[T]_{max}-[T]_{min}}
 \end{cases}
 \end{equation}
-where $[~]_{min}$ and $[~]_{max}$  are the boundaries of the range of the corresponding field: $\varepsilon^p\!\in\!\left[0.0,0.7\right]$, $\mdot{\varepsilon}\!\in\!\left[0.001,5.0\right]$, $T\!\in\!\left[1050,1250\right]$ and $\sigma\!\in\!\left[1.311,153.739\right]$. The reference strain rate is $\mdot{\varepsilon_0} = 0.001$.
+where $[~]_{min}$ and $[~]_{max}$  are the boundaries of the range of the corresponding field: $\varepsilon^p\!\in\!\left[0.0,0.7\right]$, $\mdot{\varepsilon}\!\in\!\left[0.001,5.0\right]$, $T\!\in\!\left[1050,1250\right]$ and $\sigma\!\in\!\left[1.311,153.739\right]$.
+The reference strain rate is $\mdot{\varepsilon_0} = 0.001$.
 \item Then we compute the output $s$ of the ANN from the input vector $\overrightarrow{x}$ using the three following equations.
 \begin{equation}
 \overrightarrow{y}_1 = \left[1 + \exp{\left(- \w_1 \dotp \overrightarrow{x}- \overrightarrow{b}_1\right)}\right]^{-1}
