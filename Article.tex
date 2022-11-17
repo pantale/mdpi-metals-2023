@@ -51,7 +51,8 @@
 \newcommand{\AARE}{\text{E}_\text{AAR}}
 \newcommand{\R}{\text{R}}
 \newcommand{\ps}{\text{s}^{-1}}
-\DeclareMathOperator{\ANN2}{sig}
+%\DeclareMathOperator{\ANN2}{sig}
+\newcommand{\mr}[2]{\multirow{#1}{*}{#2}}
 %\newcommand{\Dev}	{\mbox{\Large\ensuremath{\mathsf{s}}}}
 %\DeclareMathOperator{\sech}{sech}
 %\DeclareMathOperator{\ANN2}{sig}
@@ -685,7 +686,7 @@ A summary of the coefficients for evaluating the high-temperature flow stress pr
 \caption{Accuracy coefficients for all the analyzed models.}
 \begin{tabular}{lcccccc}
 \hline
-Coefficients & JC & MZA & HS & Arhenius & PTM & ANN\\
+Coefficients & JC & MZA & HS & AR & PTM & ANN\\
 \hline
 $\AARE(\%)$ & $14.05$ & $21.20$ & $7.75$ & $3.56$ & $4.79$ & $0.62$\\
 $\RMSE(\text{MPa})$ & $12.00$ & $19.57$ & $3.80$ & $2.18$ & $4.59$ & $0.38$\\
@@ -716,22 +717,21 @@ All these results are summarized in Table \ref{tab:IntVal}.
 \begin{figure}[!ht]
 \centering
 \includegraphics[width=1.02\columnwidth]
-{Figures/inCombinaison}
+{Figures/CompInt}
 \caption{Comparison between the experimental and predicted flow stresses by ANN model for interpolation estimation}
 \label{fig:IntComp}
 \end{figure}
 \begin{table}[h!]
 \centering{}
 \caption{Accuracy coefficients of interpolation}
-\begin{tabular}{lcccccc}
+\begin{tabular}{llcccccc}
 \hline
-&		&		&         &             &		   &	\\
-Coefficients&JC  & MZA  &HS  & Arhenius      & PTM  &ANN \\
-&				&				&         &             &	&\\
+$\mdot\varepsilon$           & Coefficients        & JC      & MZA     & HS     & AR     & PTM    & ANN\\
 \hline
-$R(\%)$&$99.0590$&$99.0821$&$97.6008$&$99.8417$& $99.8760$&$99.9439$  \\
-$\AARE(\%)$&$4.2686$&$3.7440$&$6.1391$&$2.3321$&$2.7590$&$1.4018$   \\
-$\RMSE(\text{MPa})$&$4.1923$&$3.1856$&$82.6956$&$2.29891$&$2.4632$&$1.0228$ \\
+\mr{2}{all}                  & $\AARE(\%)$         & $13.97$ & $21.49$ & $7.76$ & $3.54$ & $4.78$ & $0.78$\\
+                             & $\RMSE(\text{MPa})$ & $11.86$ & $19.86$ & $3.84$ & $2.17$ & $4.45$ & $0.71$\\\hline
+\mr{2}{$\mdot\varepsilon=1$} & $\AARE(\%)$         & $14.87$ & $27.79$ & $3.74$ & $1.46$ & $3.16$ & $1.40$\\
+                             & $\RMSE(\text{MPa})$ & $12.02$ & $23.67$ & $3.10$ & $1.46$ & $2.65$ & $1.52$\\
 \hline
 \label{tab:IntVal}
 \end{tabular}
@@ -746,15 +746,14 @@ It can also be noted that the Arhenius and the PTM models still have some abilit
 \begin{table}[h!]
 \centering{}
 \caption{Accuracy coefficients of extrapolation}
-\begin{tabular}{lcccccc}
+\begin{tabular}{llcccccc}
 \hline
-&		&		&         &             &		   &	\\
-Coefficients&JC  & MZA  &HS  & Arhenius      & PTM  &ANN \\
-&				&				&         &             &	&\\
+$\mdot\varepsilon$           & Coefficients        & JC      & MZA     & HS     & AR     & PTM     & ANN\\
 \hline
-$R(\%)$&$99.2920$&$99.4879$&$93.9429$&$99.6870$& $99.7582$&$99.8047$\\
-$\AARE(\%)$&$4.8988$&$3.4506$&$12.9939$&$3.2008$&$3.8845$&$1.7433$\\
-$RMSE(\text{MPa})$&$5.0943$&$4.3048$&$116.517$&$3.7035$&$4.3915$&$1.2513$ \\
+\mr{2}{all}                  & $\AARE(\%)$         & $14.27$ & $19.96$ & $7.37$ & $3.95$ & $5.53$  & $1.15$\\
+                             & $\RMSE(\text{MPa})$ & $12.36$ & $18.24$ & $4.43$ & $2.68$ & $6.23$  & $2.40$\\\hline
+\mr{2}{$\mdot\varepsilon=5$} & $\AARE(\%)$         & $20.16$ & $24.27$ & $7.37$ & $3.53$ & $11.46$ & $3.87$\\
+                             & $\RMSE(\text{MPa})$ & $20.73$ & $25.95$ & $7.83$ & $4.02$ & $12.91$ & $5.84$\\
 \hline
 \label{tab:ExtVal}
 \end{tabular}
@@ -762,7 +761,7 @@ $RMSE(\text{MPa})$&$5.0943$&$4.3048$&$116.517$&$3.7035$&$4.3915$&$1.2513$ \\
 \begin{figure}[!ht]
 \centering
 \includegraphics[width=0.91\columnwidth]
-{Figures/exCombinaison}
+{Figures/CompExt}
 \caption{Comparison between the experimental and predicted flow stresses by ANN model for extrapolation estimation}
 \label{fig:ExtComp}
 \end{figure}
@@ -797,8 +796,9 @@ In order to use this model we describe here after the procedure to compute the f
 This process can be decomposed in $3$ phases:
 \begin{itemize}
 \item We first have to normalize the input values of the ANN $x_i$ within the range $[0,1]$ to avoid ill-conditioned system as presented by many other authors in the literature \cite{Lin-2008-ANN, Lu-2011-ANN}.
-Therefore, the three components of the input are obtained from the plastic strain $\varepsilon^p$, the plastic strain rate $\mdot{\varepsilon}^p$ and the temperature $T$ using the following expressions:
+Therefore, the three components of the input vector $\overrightarrow{x}$ are obtained from the plastic strain $\varepsilon^p$, the plastic strain rate $\mdot{\varepsilon}^p$ and the temperature $T$ using the following expressions:
 \begin{equation}
+\overrightarrow{x}=
 \begin{cases}
 x_1 = \frac{\varepsilon^p - [\varepsilon^p]_{min}}{[\varepsilon^p]_{max} - [\varepsilon^p]_{min}}\\
 x_2 = \frac{\ln(\mdot{\varepsilon}/\mdot{\varepsilon_0})-[\ln(\mdot{\varepsilon}/\mdot{\varepsilon_0})]_{min}}{[\ln(\mdot{\varepsilon}/\mdot{\varepsilon_0})]_{max}-[\ln(\mdot{\varepsilon}/\mdot{\varepsilon_0})]_{min}}\label{eq:CR1}\\
@@ -900,9 +900,9 @@ The biases of the second hidden layer $\overrightarrow{b_2}$ is a $7$ components
 -0.1471\\ 
 \end{array}\right]
 \end{equation*}
-The weight vector for the output layer $\overrightarrow{w}_3$ is a $7$ components vector:
+The weight vector for the output layer $\overrightarrow{w}$ is a $7$ components vector:
 \begin{equation*}
-\overrightarrow{w}_3 = \left[
+\overrightarrow{w} = \left[
 \begin{array}{r}
 0.1920\\ 
 0.3406\\ 
@@ -913,9 +913,9 @@ The weight vector for the output layer $\overrightarrow{w}_3$ is a $7$ component
 -0.2215\\ 
 \end{array}\right]
 \end{equation*}
-The bias of the output layer $b_3$ is a scalar:
+The bias of the output layer $b$ is a scalar:
 \begin{equation*}
-b_3 = 0.1178 
+b = 0.1178 
 \end{equation*}
 
 \end{document}
