@@ -91,21 +91,18 @@
 \address[ETS]{École de Technologie Supérieure, 1100 Rue Notre Dame O, Montréal, QC H3C 1K3}
 
 \begin{abstract}
-A concept for analysing and using of both analytical and neural network based models is proposed in this study to investigate the high-temperature deformation behavior of the AISI P20 alloy by performing hot compression tests over a wide range of strains ($0.0 - 0.7$),  strain rates ($0.001~\ps - 5~\ps$) and temperatures ($1050\celsius-1250\celsius$).
-Based on the experimental data (stress-strain curves), empirical models as the Johnson-Cook (JC), Modified-Zerilli-Armstrong (MZA), Hansel-Spittel (HS), Arhenius (AR) and PTM on the one hand and an ANN model on the other hand were developed to predict the flow behavior of this alloy.
-Then, a comparative study between the analytical models and the ANN model was carried out on the basis of the calculation of some coefficients allowing to test the efficiency of each model.
-These coefficients are the correlation coefficient $R$, the Average Absolute  Relative Error $\AARE$ and the Root Mean Square Error ($\RMSE$).
-From these parameters it was found that the JC, MZA and HS models are not suitable for predicting the behavior of AISI P20 alloy whereas the AR and PTM models can be used for most strain rates to predict the flow behavior of this alloy.
-For the strain rate ($\mdot\varepsilon = 0.01~\ps$)  the AR model fails to describe the flow for temperatures $1050\celsius$ and $1100\celsius$  while in the case of the PTM model, the strain rate  ($\mdot\varepsilon = 0.1~\ps$) is not well described.
-This is due to the fact that this model is a sequence of polynomials which can create oscillations if the degree is high.
-Regarding the ANN model, the architecture retained is composed of two hidden layers of which the first hidden layer contains $15$ neurons and the second contains 7 neurons and the input layer contains 3 neurons corresponding to the strain ($\varepsilon^p$), strain rate ($\mdot\varepsilon$) and temperature ($T$) and the output layer contains a single neuron corresponding to the flow stress ($\sigma^y$).
-The results of the ANN model show a very good agreement between the predictions and the experiment.
-This demonstrates that this  formulation of constitutive law exceeds highly the analytical models in terms of prediction.
-To validate the performance of these models their capacities to interpolate and extrapolate the data were also tested where all the models relatively prove a good interpolation capacity whereas this is not the case for extrapolation where only the AR, PTM and ANN models are acceptable but still mentioning that the ANN model remains the best in both interpolation and extrapolation.
+An analysis of the use of analytical models and Artificial Neural Networks (ANN) is proposed in this paper to study the high-temperature deformation behavior of AISI P20 alloy during hot compression tests, on a Gleeble thermomechanical simulator, over a wide range of strains ($0.0-0.7$), strain rates ($0.001~\ps-5~\ps$) and temperatures ($1050\celsius-1250\celsius$). 
+From the experimental data (stress-strain curves), 5 analytical models such as Johnson-Cook (JC), Modified Zerilli-Armstrong (MZA), Hansel-Spittel (HS), Arrhenius (AR) and PTM on the one hand, and an ANN model with 3 inputs, 2 hidden layers of 15 and 7 neurons respectively and 1 output, on the other hand, have been identified to predict the flow of this alloy. 
+The comparison between the analytical models, the ANN model and the experimental results, carried out on the basis of the Mean Absolute Relative Error $\AARE$ and the Root Mean Square Error ($\RMSE$), allowed us to qualify the fidelity of these models.
+We were able to show that the JC and MZA models are not suitable to predict the high temperature behavior of the AISI P20 alloy, while the HS, PTM and AR models can be used to predict the behavior of this alloy with an acceptable error. 
+On the other hand, the ANN model results show excellent agreement between the predicted flow stresses $\sigma^y$ and experiment with very low error.
+To validate the performance of these models, their ability to interpolate and extrapolate the experimental data was also tested. 
+The HS, PTM and AR analytical models have shown a good interpolation and extrapolation capacity with a notable superiority for the AR model compared to the other two. 
+The ANN model is still superior to the AR model from the point of view of its global behavior and its performance.
 \end{abstract}
 
 \begin{keyword}
-Zerilli-Armstrong flow law \sep Constitutive behavior \sep Arhenius flow law \sep Hansel-Spittel flow law \sep Johnson-Cook flow law \sep interpolation \sep extrapolation \sep Artificial neural network
+Johnson-Cook \sep Zerilli-Armstrong \sep Arrhenius \sep Hansel-Spittel \sep Artificial Neural Network
 \end{keyword}
 
 \end{frontmatter}
