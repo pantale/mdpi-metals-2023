@@ -91,12 +91,12 @@
 \address[ETS]{École de Technologie Supérieure, 1100 Rue Notre Dame O, Montréal, QC H3C 1K3}
 
 \begin{abstract}
-A concept for analysing and using of both analytical and neural network based models is proposed in this study to investigate the high-temperature deformation behavior of the AISI P20 alloy by performing hot compression tests over a wide range of strains ($0.025 - 0.7$),  strain rates ($0.001\ \ps - 5\ \ps$) and temperatures ($1050\celsius-1250\celsius$).
+A concept for analysing and using of both analytical and neural network based models is proposed in this study to investigate the high-temperature deformation behavior of the AISI P20 alloy by performing hot compression tests over a wide range of strains ($0.0 - 0.7$),  strain rates ($0.001~\ps - 5~\ps$) and temperatures ($1050\celsius-1250\celsius$).
 Based on the experimental data (stress-strain curves), empirical models as the Johnson-Cook (JC), Modified-Zerilli-Armstrong (MZA), Hansel-Spittel (HS), Arhenius (AR) and PTM on the one hand and an ANN model on the other hand were developed to predict the flow behavior of this alloy.
 Then, a comparative study between the analytical models and the ANN model was carried out on the basis of the calculation of some coefficients allowing to test the efficiency of each model.
 These coefficients are the correlation coefficient $R$, the Average Absolute  Relative Error $\AARE$ and the Root Mean Square Error ($\RMSE$).
 From these parameters it was found that the JC, MZA and HS models are not suitable for predicting the behavior of AISI P20 alloy whereas the AR and PTM models can be used for most strain rates to predict the flow behavior of this alloy.
-For the strain rate ($\mdot\varepsilon = 0.01\ \ps$)  the AR model fails to describe the flow for temperatures $1050\celsius$ and $1100\celsius$  while in the case of the PTM model, the strain rate  ($\mdot\varepsilon = 0.1\ \ps$) is not well described.
+For the strain rate ($\mdot\varepsilon = 0.01~\ps$)  the AR model fails to describe the flow for temperatures $1050\celsius$ and $1100\celsius$  while in the case of the PTM model, the strain rate  ($\mdot\varepsilon = 0.1~\ps$) is not well described.
 This is due to the fact that this model is a sequence of polynomials which can create oscillations if the degree is high.
 Regarding the ANN model, the architecture retained is composed of two hidden layers of which the first hidden layer contains $15$ neurons and the second contains 7 neurons and the input layer contains 3 neurons corresponding to the strain ($\varepsilon^p$), strain rate ($\mdot\varepsilon$) and temperature ($T$) and the output layer contains a single neuron corresponding to the flow stress ($\sigma^y$).
 The results of the ANN model show a very good agreement between the predictions and the experiment.
@@ -193,8 +193,8 @@ A batch of 30 hot compression tests were performed on a Gleeble-3800 thermomecha
 \caption{Chemical composition of AISI P20 steel, Fe = balance.}
 \begin{tabular}{lccccccc}
 \hline
-Element & C & Mn & Mo & Si & Ni & Cr & Cu\\ \hline
-Wt~\% & 0.30 & 0.89 & 0.52 & 0.34 & 0.68 & 1.86 & 0.17\\ \hline
+Element & C & Mn & Mo & Si & Ni & Cr & Cu\\\hline
+Wt~\% & 0.30 & 0.89 & 0.52 & 0.34 & 0.68 & 1.86 & 0.17\\\hline
 \label{tab:Composition}
 \end{tabular}
 \end{table}
@@ -221,7 +221,7 @@ Figure \ref{fig:GleebleProcess} also shows the aspects of the specimens before a
 \OP{Here, a part concerning the treatment of the Gleeble data is missing.
 You introduce the notions of $h_0$, $R_0$, $h$, $R_M$ and $R_T$ and we have no idea what they are for.
 How are the Gleeble data transformed into curves, what is the use of the previous values, what are the corrections to be made to the data,...}
-The curves are automaticaly gotten from Gleeble system as True-stress and strain according to L-gauge where the formula to get curves are given by $\sigma =F/A\ \text{and}\ \varepsilon = \ln\left(h_0 +\Delta h / h_0\right) $or C-gauge whose formula are $\sigma = 4F/\pi(d+\Delta d)^2$ and $\varepsilon = 2\ln(d/(d+\Delta d))$ with $d = 2R_0$ and $F$ is the force as measured by Gleeble load cell.
+The curves are automaticaly gotten from Gleeble system as True-stress and strain according to L-gauge where the formula to get curves are given by $\sigma =F/A~\text{and}~\varepsilon = \ln\left(h_0 +\Delta h / h_0\right) $or C-gauge whose formula are $\sigma = 4F/\pi(d+\Delta d)^2$ and $\varepsilon = 2\ln(d/(d+\Delta d))$ with $d = 2R_0$ and $F$ is the force as measured by Gleeble load cell.
 As there are noises from raw data, filter method is applied to remove noise and have more smooth data.
 For further usage of  data in numerical simulation elastic parts have been removed.
 
@@ -257,7 +257,7 @@ The combination of these dislocations moderates the increase in the number of di
 The dynamic recrystallization concerns the germination of new grains, at the borders or inside the initial grains.
 These two phenomena explain the different shapes of the flow stress curves observed for this alloy.
 As an example, Figure \ref{fig:Micrography} show the microstructures of AISI P20 held during $5$~min at $1260\celsius$ before and after the compression phase.
-As observed on the flow curves, it can be seen by comparing these two micrographs that recrystallization is almost complete for this temperature and strain rate within the sample held for 5 minutes at $1260^\circ$C and rapidely cooled to get autenized grain in one hand and in other hand held for $1$ minute at $1150^\circ$C before compression with strain rate $0.001\ \text{s}^{-1}$.
+As observed on the flow curves, it can be seen by comparing these two micrographs that recrystallization is almost complete for this temperature and strain rate within the sample held for 5 minutes at $1260^\circ$C and rapidely cooled to get autenized grain in one hand and in other hand held for $1$ minute at $1150^\circ$C before compression with strain rate $0.001~\text{s}^{-1}$.
 \OP{What are the temperature and strain rate related with this micrography}
 From the results reported in Figure \ref{fig:RawData}, the identification of the parameters of the six flow laws proposed in this work will be presented in the next section in order to predict the behavior of the material in any test condition.
 
@@ -331,7 +331,7 @@ All parameters of the Johnson-Cook model are reported in Table \ref{tab:JC}.
 \begin{tabular}{ccccc}
 \hline
 $A~(\text{MPa})$ & $B~(\text{MPa})$ & $n$ & $C$ & $m$\\
-$13.5143$&$21.816$&$0.0746$&$0.3404$&$0.7057$\\ \hline
+$13.5143$&$21.816$&$0.0746$&$0.3404$&$0.7057$\\\hline
 \label{tab:JC}
 \end{tabular}
 \end{table}
@@ -741,11 +741,11 @@ $\mdot\varepsilon$               & Coefficients        & JC      & MZA     & HS 
 \end{table}
 
 In Figure \ref{fig:CompInt} it can be seen that the first two models (JC and MZA), presented in this study do not have the ability to reproduce the behavior of the material for the strain rate $\mdot\varepsilon=1~\ps$. Overall, the JC model gives better results than the MZA model for $\mdot\varepsilon=1~\ps$, which is reflected in Table \ref{tab:IntVal} by a lower value of $\AARE$ and $\RMSE$ for JC than for MZA.
-Nevertheless, these values are higher than $10\%$ for the JC model and $20\%$ for the MZA model, which reflects the poor ability of these models to correctly model the behavior of this material. 
+Nevertheless, these values are higher than $10\%$ for the JC model and $20\%$ for the MZA model, which reflects the poor ability of these models to correctly model the behavior of this material.
 This finding is in agreement with the previous findings of Sections \ref{sec:JC} and \ref{sec:MZA} which showed the inability of these models to take into account the softening of the behavior visible at low strain rates and low temperatures.
 
-From a general appearance point of view, the other 4 models, HS, AR, PTM and ANN, give globally similar results with a higher fidelity for the AR and ANN models compared to the other two models. 
-Table \ref{tab:IntVal} shows the quantitative comparison on all the deformation speeds and on $\mdot\varepsilon=1~\ps$ for these 4 models. 
+From a general appearance point of view, the other 4 models, HS, AR, PTM and ANN, give globally similar results with a higher fidelity for the AR and ANN models compared to the other two models.
+Table \ref{tab:IntVal} shows the quantitative comparison on all the deformation speeds and on $\mdot\varepsilon=1~\ps$ for these 4 models.
 It appears from this Table that if the two models AR and ANN give equivalent (and excellent) results concerning the values of $\AARE$ and $\RMSE$ for the strain rate $\mdot\varepsilon=1~\ps$, the ANN model gives globally a better result on the whole of the strain rates with values of $\AARE=0.78\%$ and $\RMSE=0.71~\text{MPa}$ respectively, that is to say values approximately 3 times lower for the ANN model compared to the AR model.
 
 This shows the superior fidelity of the ANN model compared to the 5 analytical models presented in this study both in the interpolation capability of the model and in the overall behavior.
@@ -763,7 +763,7 @@ In this new identification configuration, Figure \ref{fig:CompExt} shows a compa
 \label{fig:CompExt}
 \end{figure}
 Table \ref{tab:ExtVal} shows the $\AARE$ and $\RMSE$ deviations between the different models and the experimental data calculated either for the 6 strain rates (lines referred as: all) or only on the strain rate $\mdot\varepsilon=5~\ps$.
-%For the validation of the extrapolation, the chosen strain rate is $\mdot\varepsilon = 5.0\ \ps$ and those used for identification (training for ANN) are $\mdot\varepsilon = 0.001\ \ps$ , $\mdot\varepsilon = 0.01\ \ps$ , $\mdot\varepsilon = 0.1\ \ps$, $\mdot\varepsilon = 1.0\ \ps$  and $\mdot\varepsilon = 2.0\ \ps$.
+%For the validation of the extrapolation, the chosen strain rate is $\mdot\varepsilon = 5.0~\ps$ and those used for identification (training for ANN) are $\mdot\varepsilon = 0.001~\ps$ , $\mdot\varepsilon = 0.01~\ps$ , $\mdot\varepsilon = 0.1~\ps$, $\mdot\varepsilon = 1.0~\ps$  and $\mdot\varepsilon = 2.0~\ps$.
 %Figure \ref{fig:CompExt} shows the comparison between the predictions  and the experimental.
 %Unlike interpolation, the predictions of the analytical models are not very good because the errors are between $3.2\%$ and $12.99\%$ while that of the ANN model is $1.74\%$.
 %Again, the ANN model shows its ability to extrapolate data.
@@ -787,34 +787,42 @@ $\mdot\varepsilon$               & Coefficients        & JC      & MZA     & HS 
 
 As presented in the previous section regarding the interpolation capability of the models, in Figure \ref{fig:CompExt} it can be seen that the first two models, JC and MZA, in this study again do not have the ability to correctly reproduce the material behavior for the strain rate $\mdot\varepsilon=5~\ps$. The JC model performs better than the MZA model for $\mdot\varepsilon=5~\ps$, which is reflected in Table \ref{tab:ExtVal} by a lower value of $\AARE$ and $\RMSE$ for JC than for MZA. Nevertheless, these values are too large for proper use. It is again the inability of these models to take into account the softening of the behavior at low strain rates and low temperatures that is at the origin of these values.
 
-The other 4 models, HS, AR, PTM and ANN, give better results with higher fidelity for the AR and ANN models compared to the other two models. 
-Table \ref{tab:ExtVal} shows the comparison over all strain rates and over $\mdot\varepsilon=5~\ps$ for these 4 models. 
+The other 4 models, HS, AR, PTM and ANN, give better results with higher fidelity for the AR and ANN models compared to the other two models.
+Table \ref{tab:ExtVal} shows the comparison over all strain rates and over $\mdot\varepsilon=5~\ps$ for these 4 models.
 The HS model performs worse on extrapolation than the AR and ANN models, while the PTM model is relegated to the last position in this ranking with values of $\AARE$ and $\RMSE$ superior to $10\%$ for the strain rate $\mdot\varepsilon=5~\ps$.
-The two models AR and ANN give the best results concerning the values of $\AARE$ and $\RMSE$ for the strain rate $\mdot\varepsilon=5~\ps$. 
+The two models AR and ANN give the best results concerning the values of $\AARE$ and $\RMSE$ for the strain rate $\mdot\varepsilon=5~\ps$.
 The AR model is this time a little bit better on the $\mdot\varepsilon=5~\ps$ strain rate compared to the ANN model, but the latter gives globally a better result on the whole strain rates with values of  $\AARE=1.15\%$ and $\RMSE=2.40~\text{MPa}$ respectively.
 
 We can therefore conclude from this part of the study that the AR model is the best performing of the 5 analytical models presented, which is in agreement with the fact that it is widely used for thermomechanical processing, but the ANN model approach has advantages over the AR model approach in that, overall, the ANN model is more faithful to the experimental data than the AR model for all strain rates.
 
-%---------------------------------------------------------------------
-\section{Conclusion \label{sec:Conclusion}}
-Experiments were conducted on modified AISI P20 carbon alloy to study the applicability and predictive accuracy of five analytical models and one neural network model over a range of temperatures ($1050\celsius$ - $1250\celsius$, strains ($0.025$ - $0.7$), strain rates ($0.001\ \ps$ - $5\ \ps$) and the following conclusions were drawn.
-\begin{enumerate}
-\item The flow stress increases with decreasing temperature and increasing strain rate due to the competitive occurrence of dynamic softening and strain hardening mechanisms.
-The degree of DRX was discussed through the difference between the maximum and permanent stress, as well as the evolution of the microstructure which shows a partially complete DRX.
-At high strain rates it is difficult to visualise the DRX phenomenon on the flow curves due to the strain rate sensitivity of this phenomenon.
-A further study will focus on deep analysis of the microstructure of this steel alloy and its impact on mechanical properties.
-\item Five analytical models have been identified on this alloy and a model based on neural networks.
-Among the analytical models, the JC, HS and MZA models proved inappropriate for analysing the behavior of this material whereas the PTM and AR models showed their capacity since they have a relatively acceptable error ($ 3.2 \% $ and $ 3.8 \%$).
-As for the ANN model, it is largely reliable that the analytical models to predict the competitiveness of AISI P20.
-Therefore it may be advisable to use the ANN model when conducting a study involving this alloy under these experimental conditions.
-\item To test the performance of each model, a study is carried out to evaluate the interpolation and extrapolation capacity of the developed models.
-For the interpolation framework, all models have a good correlation with the experiment except the HS model but the ANN model shows a better correlation.
-For extrapolation of the data, the analytical models do not show good predictive capacity compared to the ANN model which still shows good extrapolation capacity.
-This further confirms what was demonstrated during his identification.
-\item As perspectives of this work, we will develop also an ANN model to characterize the microstructure in terms of DRX and phase formation such as fearrite, bainite and martensite as an example.
-This ANN model can therefore be compared to the most commonly used classical models such as the JMAK model.
-Therfore, this ANN model  will be implemented in FEM softwares such as Abaqus, Forge in order to validate it by doing a simulation.
-\end{enumerate}
+%--------------------------------------------------------------------------
+\section{Conclusions and future work\label{sec:Conclusion}}
+%--------------------------------------------------------------------------
+
+Experimental tests were performed on a Gleeble thermomechanical simulator for a modified AISI P20 carbon alloy to investigate the applicability and predictive accuracy of 5 analytical models and an Artificial Neural Network model over a range of strains ($0.0-0.7$), strain rates ($0.001~\ps-5~\ps$) and temperatures ($1050\celsius-1250\celsius$). 
+The analytical models selected for this study are the Johnson-Cook (JC) model \cite{Johnson-1983}, the Modified Zerilli-Armstrong (MZA) model \cite{Samantaray-2009}, the Hansel-Spittle (HS) model \cite{Hensel-1978}, the Arrhenius (AR) model \cite{Sellars-1966} and the PTM model  \cite{TizeMha-2022}.
+Analysis of the data from the Gleeble trials, and comparison of the 6 models proposed in this study against the experiments, led to the following conclusions.
+
+From an experimental point of view, it appears from the tests carried out that the flow stress $\sigma^y$ increases with the decrease of the temperature $T$ and the increase of the strain rate $\mdot\varepsilon$ due to the competitive appearance of the dynamic softening and work hardening mechanisms.
+The dynamic recrystallization (DRX) phenomenon, introduced through the difference between the maximum and permanent strain, shows a partially complete microstructure evolution. 
+Thus, at high strain rates, it is difficult to visualize the DRX phenomenon on the flow curves due to the sensitivity of this phenomenon to the strain rate. 
+A study focused on an in-depth analysis of the microstructure of this steel alloy and its impact on mechanical properties is currently underway.
+
+Five analytical models have been identified for this alloy, as well as an Artificial Neural Network based model. 
+Among the analytical models, the JC and MZA models proved to be inappropriate to reproduce the behavior of this material, while the HS, PTM and AR models showed their capabilities since they present an acceptable $\AARE$ error (from $3.5\%$ to $7.7\%$), with a superiority of the AR model ($3.56\%$) over the other two which confirms its use in thermomechanical processes. 
+The ANN model, is largely more accurate than the analytical models in predicting the flow stress $\sigma^y$ of the AISI P20 with a value of $\AARE=0.62\%$.
+
+To test the performance of each proposed model, a study was conducted to evaluate the interpolation and extrapolation capability of the developed models. 
+In the case of interpolation, the HS, PTM and AR models have a good correlation with the experiment, but the ANN model shows superiority with an error factor 5 times lower than the AR model. 
+For the extrapolation of the data, the HS, PTM and AR models have again a good correlation with the experiment, but the ANN model is again globally better performing.
+These two parts of the study confirm what was demonstrated in the model identifications.
+
+Identifying the parameters of an ANN model from experimental data requires more time than identifying the parameters of analytical models (about 40 minutes on a working laptop), but as shown by Pantalé \eal \cite{Pantale-2021}, implementing an ANN model in a computational code is straightforward. 
+Therefore, we recommend using the ANN model when conducting a study involving this alloy under these experimental conditions.
+
+As part of the perspectives of this work, we will develop another ANN model to characterize this time the microstructure in terms of DRX and formation of phases such as ferrite, bainite and martensite for example. 
+This ANN model can then be compared to the most commonly used classical models such as the JMAK model. 
+Then, these ANN models will be implemented in FEM software such as Abaqus or Forge in order to validate them.
 
 \bibliographystyle{elsarticle-num}
 \bibliography{Bibliography}
@@ -857,94 +865,94 @@ The weight matrix for the first hidden layer $\w_1$ is a $15\times3$ matrix:
 \begin{equation*}
 \w_1 = \left[
 \begin{array}{rrr}
-2.2206 & -3.7555 & -6.7246\\ 
--4.8598 & 5.7431 & -5.8538\\ 
-2.3099 & 3.3325 & -5.1795\\ 
-2.0475 & 0.8006 & -1.4259\\ 
-8.8358 & -6.0362 & 0.8226\\ 
--1.2613 & -0.9274 & -2.3725\\ 
--0.3561 & 6.5032 & -10.7573\\ 
--11.7226 & -2.0455 & 1.2248\\ 
-3.1066 & 26.5580 & 18.6540\\ 
--0.5150 & -5.6922 & 1.0104\\ 
--6.4755 & 8.4888 & -2.4459\\ 
--1.8791 & -0.5380 & 2.2295\\ 
--6.0206 & 1.2776 & 0.2169\\ 
-0.2619 & -4.7974 & -1.1282\\ 
--27.1456 & -0.5327 & -0.5303\\ 
+2.2206 & -3.7555 & -6.7246\\
+-4.8598 & 5.7431 & -5.8538\\
+2.3099 & 3.3325 & -5.1795\\
+2.0475 & 0.8006 & -1.4259\\
+8.8358 & -6.0362 & 0.8226\\
+-1.2613 & -0.9274 & -2.3725\\
+-0.3561 & 6.5032 & -10.7573\\
+-11.7226 & -2.0455 & 1.2248\\
+3.1066 & 26.5580 & 18.6540\\
+-0.5150 & -5.6922 & 1.0104\\
+-6.4755 & 8.4888 & -2.4459\\
+-1.8791 & -0.5380 & 2.2295\\
+-6.0206 & 1.2776 & 0.2169\\
+0.2619 & -4.7974 & -1.1282\\
+-27.1456 & -0.5327 & -0.5303\\
 \end{array}\right]
 \end{equation*}
 The biases of the first hidden layer $\overrightarrow{b_1}$ is a $15$ components vector:
 \begin{equation*}
 \overrightarrow{b}_1 = \left[
 \begin{array}{r}
-5.9164\\ 
--1.9074\\ 
--2.6837\\ 
--1.0954\\ 
--0.9509\\ 
-3.1682\\ 
--4.3964\\ 
-0.6343\\ 
--5.0676\\ 
-2.0228\\ 
-1.1267\\ 
--0.9671\\ 
--0.6263\\ 
-2.3110\\ 
--0.3037\\ 
+5.9164\\
+-1.9074\\
+-2.6837\\
+-1.0954\\
+-0.9509\\
+3.1682\\
+-4.3964\\
+0.6343\\
+-5.0676\\
+2.0228\\
+1.1267\\
+-0.9671\\
+-0.6263\\
+2.3110\\
+-0.3037\\
 \end{array}\right]
 \end{equation*}
 The weight matrix for the second hidden layer $\w_2$ is a $7\times15$ matrix:
 \begin{equation*}
 \w_2^T = \left[
 \begin{array}{rrrrrrr}
--0.5783 & 1.2724 & 0.5747 & 0.6449 & -4.2203 & -0.2380 & 0.2591\\ 
--0.4852 & 5.2807 & 0.8888 & -8.2324 & -2.0075 & -0.6474 & -1.0787\\ 
-4.4499 & -0.0137 & 0.1657 & 0.3198 & 4.9765 & -1.2503 & 0.8219\\ 
-1.7571 & 0.7730 & 0.0208 & -1.3316 & -0.8945 & -0.7284 & -0.1831\\ 
--1.0866 & 0.1330 & -0.8615 & -0.1283 & 0.2218 & -0.1772 & -2.7458\\ 
--0.3925 & 1.3994 & 0.0630 & -1.8397 & -1.1047 & -1.9839 & 0.5767\\ 
--0.2121 & 0.9977 & 1.2028 & -9.6525 & 0.5520 & 0.1062 & -0.0409\\ 
--1.1518 & -1.6402 & -4.1501 & -1.0759 & 0.4749 & -2.8350 & 0.9225\\ 
--1.1453 & -0.2173 & -0.1382 & 0.8264 & -0.5125 & 0.1882 & -0.8654\\ 
--4.3301 & -0.3711 & -7.4305 & 3.5926 & -9.6217 & -1.2375 & 1.6171\\ 
-2.3907 & -1.0085 & -0.8828 & -1.1891 & 0.9947 & 1.1178 & -1.0953\\ 
--1.5955 & 1.6313 & 0.4916 & 0.1906 & -1.9216 & -1.4140 & 1.3827\\ 
--1.6985 & 1.4277 & -3.4462 & -8.3777 & -1.2132 & -1.2158 & 2.8512\\ 
--1.9954 & -2.0159 & -8.3455 & -0.5205 & 0.2942 & -1.3337 & 0.2026\\ 
-4.3040 & -0.7164 & -1.0859 & 3.4294 & -23.8003 & 12.5859 & 7.3721\\ 
+-0.5783 & 1.2724 & 0.5747 & 0.6449 & -4.2203 & -0.2380 & 0.2591\\
+-0.4852 & 5.2807 & 0.8888 & -8.2324 & -2.0075 & -0.6474 & -1.0787\\
+4.4499 & -0.0137 & 0.1657 & 0.3198 & 4.9765 & -1.2503 & 0.8219\\
+1.7571 & 0.7730 & 0.0208 & -1.3316 & -0.8945 & -0.7284 & -0.1831\\
+-1.0866 & 0.1330 & -0.8615 & -0.1283 & 0.2218 & -0.1772 & -2.7458\\
+-0.3925 & 1.3994 & 0.0630 & -1.8397 & -1.1047 & -1.9839 & 0.5767\\
+-0.2121 & 0.9977 & 1.2028 & -9.6525 & 0.5520 & 0.1062 & -0.0409\\
+-1.1518 & -1.6402 & -4.1501 & -1.0759 & 0.4749 & -2.8350 & 0.9225\\
+-1.1453 & -0.2173 & -0.1382 & 0.8264 & -0.5125 & 0.1882 & -0.8654\\
+-4.3301 & -0.3711 & -7.4305 & 3.5926 & -9.6217 & -1.2375 & 1.6171\\
+2.3907 & -1.0085 & -0.8828 & -1.1891 & 0.9947 & 1.1178 & -1.0953\\
+-1.5955 & 1.6313 & 0.4916 & 0.1906 & -1.9216 & -1.4140 & 1.3827\\
+-1.6985 & 1.4277 & -3.4462 & -8.3777 & -1.2132 & -1.2158 & 2.8512\\
+-1.9954 & -2.0159 & -8.3455 & -0.5205 & 0.2942 & -1.3337 & 0.2026\\
+4.3040 & -0.7164 & -1.0859 & 3.4294 & -23.8003 & 12.5859 & 7.3721\\
 \end{array}\right]
 \end{equation*}
 The biases of the second hidden layer $\overrightarrow{b_2}$ is a 7 components vector:
 \begin{equation*}
 \overrightarrow{b}_2 = \left[
 \begin{array}{r}
-0.7534\\ 
-0.9473\\ 
-0.6055\\ 
--0.7793\\ 
--1.0305\\ 
--1.5779\\ 
--0.1471\\ 
+0.7534\\
+0.9473\\
+0.6055\\
+-0.7793\\
+-1.0305\\
+-1.5779\\
+-0.1471\\
 \end{array}\right]
 \end{equation*}
 The weight vector for the output layer $\overrightarrow{w}$ is a 7 components vector:
 \begin{equation*}
 \overrightarrow{w} = \left[
 \begin{array}{r}
-0.1920\\ 
-0.3406\\ 
-0.3839\\ 
--0.2880\\ 
-1.2047\\ 
--1.4126\\ 
--0.2215\\ 
+0.1920\\
+0.3406\\
+0.3839\\
+-0.2880\\
+1.2047\\
+-1.4126\\
+-0.2215\\
 \end{array}\right]
 \end{equation*}
 The bias of the output layer $b$ is a scalar:
 \begin{equation*}
-b = 0.1178 
+b = 0.1178
 \end{equation*}
 
 \end{document}
