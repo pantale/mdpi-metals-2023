@@ -702,17 +702,17 @@ Figure \ref{fig:CompInt} shows a comparison, for strain rate $\mdot\varepsilon=1
 Table \ref{tab:IntVal} shows the $\AARE$ and $\RMSE$ deviations between the different models and the experimental data calculated either for the 6 strain rates (lines referred as: all) or only on the strain rate $\mdot\varepsilon=1~\ps$.
 \begin{table}[h!]
 \centering{}
-\caption{Accuracy coefficients of interpolation for all models $\mdot\varepsilon=1~\ps$}
+\caption{Accuracy coefficients of interpolation for all models with  $\mdot\varepsilon=1~\ps$}
 \begin{tabular}{llcccccc}
-\hline
-$\mdot\varepsilon$               & Coefficients        & JC      & MZA     & HS     & AR     & PTM    & ANN\\
-\hline
-\mr{2}{all}                      & $\AARE(\%)$         & $13.97$ & $21.49$ & $7.76$ & $3.54$ & $4.78$ & $0.78$\\
-                                 & $\RMSE(\text{MPa})$ & $11.86$ & $19.86$ & $3.84$ & $2.17$ & $4.45$ & $0.71$\\\hline
-\mr{2}{$\mdot\varepsilon=1~\ps$} & $\AARE(\%)$         & $14.87$ & $27.79$ & $3.74$ & $1.46$ & $3.16$ & $1.40$\\
-                                 & $\RMSE(\text{MPa})$ & $12.02$ & $23.67$ & $3.10$ & $1.46$ & $2.65$ & $1.52$\\
-\hline
-\label{tab:IntVal}
+	\hline
+	$\mdot\varepsilon$               & Coefficients        &   JC    &   MZA   &   HS   &   AR   &  PTM   &  ANN   \\ \hline
+	\mr{2}{id. $\mdot\varepsilon$}   & $\AARE(\%)$         & $13.79$ & $20.22$ & $8.57$ & $3.96$ & $5.10$ & $0.70$ \\
+	                                 & $\RMSE(\text{MPa})$ & $11.83$ & $19.00$ & $3.97$ & $2.29$ & $4.73$ & $0.38$ \\ \hline
+	\mr{2}{$\mdot\varepsilon=1~\ps$} & $\AARE(\%)$         & $14.87$ & $27.79$ & $3.74$ & $1.46$ & $3.16$ & $2.47$ \\
+	                                 & $\RMSE(\text{MPa})$ & $12.02$ & $23.67$ & $3.10$ & $1.46$ & $2.65$ & $2.77$ \\ \hline
+	\mr{2}{all $\mdot\varepsilon$}   & $\AARE(\%)$         & $14.42$ & $28.90$ & $7.55$ & $3.45$ & $4.90$ & $0.96$ \\
+	                                 & $\RMSE(\text{MPa})$ & $11.86$ & $19.86$ & $3.84$ & $2.17$ & $4.45$ & $1.18$ \\ \hline
+	\label{tab:IntVal}               &
 \end{tabular}
 \end{table}
 
@@ -721,8 +721,8 @@ Nevertheless, these values are higher than $10\%$ for the JC model and $20\%$ fo
 This finding is in agreement with the previous findings of Sections \ref{sec:JC} and \ref{sec:MZA} which showed the inability of these models to take into account the softening of the behavior visible at low strain rates and low temperatures.
 
 From a general appearance point of view, the other 4 models, HS, AR, PTM and ANN, give globally similar results with a higher fidelity for the AR and ANN models compared to the other two models.
-Table \ref{tab:IntVal} shows the quantitative comparison on all the deformation speeds and on $\mdot\varepsilon=1~\ps$ for these 4 models.
-It appears from this Table that if the two models AR and ANN give equivalent (and excellent) results concerning the values of $\AARE$ and $\RMSE$ for the strain rate $\mdot\varepsilon=1~\ps$, the ANN model gives globally a better result on the whole of the strain rates with values of $\AARE=0.78\%$ and $\RMSE=0.71~\text{MPa}$ respectively, that is to say values approximately 3 times lower for the ANN model compared to the AR model.
+Table \ref{tab:IntVal} shows the quantitative comparison on $\AARE$ and $\RMSE$ for three different cases: on the 5 identified strain rates, on only the strain rate $\mdot\varepsilon=1~\ps$ and on all 6 strain rates for these 6 models.
+It appears from this Table that if the two models AR and ANN give equivalent (and excellent) results concerning the values of $\AARE$ and $\RMSE$ for the strain rate $\mdot\varepsilon=1~\ps$, the ANN model gives globally a better result on the whole of the strain rates with values of $\AARE=0.96\%$ and $\RMSE=1.18~\text{MPa}$ respectively, that is to say values approximately 2 to 3 times lower for the ANN model compared to the AR model.
 
 This shows the superior fidelity of the ANN model compared to the 5 analytical models presented in this study both in the interpolation capability of the model and in the overall behavior.
 
@@ -741,24 +741,19 @@ In this new identification configuration, Figure \ref{fig:CompExt} shows a compa
 \label{fig:CompExt}
 \end{figure}
 Table \ref{tab:ExtVal} shows the $\AARE$ and $\RMSE$ deviations between the different models and the experimental data calculated either for the 6 strain rates (lines referred as: all) or only on the strain rate $\mdot\varepsilon=5~\ps$.
-%For the validation of the extrapolation, the chosen strain rate is $\mdot\varepsilon = 5.0~\ps$ and those used for identification (training for ANN) are $\mdot\varepsilon = 0.001~\ps$ , $\mdot\varepsilon = 0.01~\ps$ , $\mdot\varepsilon = 0.1~\ps$, $\mdot\varepsilon = 1.0~\ps$  and $\mdot\varepsilon = 2.0~\ps$.
-%Figure \ref{fig:CompExt} shows the comparison between the predictions  and the experimental.
-%Unlike interpolation, the predictions of the analytical models are not very good because the errors are between $3.2\%$ and $12.99\%$ while that of the ANN model is $1.74\%$.
-%Again, the ANN model shows its ability to extrapolate data.
-%This makes it possible to say that the ANN model remains the best tool to characterize the behavior of a material subjected to certain deformation conditions.
-%It can also be noted that the Arrhenius and the PTM models still have some ability to extrapolate because their $\AARE$ are respectively $ 3.2 \% $ and $ 3.8 \%$; which are acceptable.
 \begin{table}[h!]
 \centering{}
-\caption{Accuracy coefficients of extrapolation for all models $\mdot\varepsilon=5~\ps$}
+\caption{Accuracy coefficients of extrapolation for all models with  $\mdot\varepsilon=5~\ps$}
 \begin{tabular}{llcccccc}
 \hline
 $\mdot\varepsilon$               & Coefficients        & JC      & MZA     & HS     & AR     & PTM     & ANN\\
 \hline
-\mr{2}{all}                      & $\AARE(\%)$         & $15.12$ & $25.87$ & $7.37$ & $3.95$ & $5.53$  & $1.15$\\
+\mr{2}{id. $\mdot\varepsilon$}   & $\AARE(\%)$         & $13.09$ & $19.09$ & $7.30$ & $4.03$ & $4.34$  & $0.61$\\
+                                 & $\RMSE(\text{MPa})$ & $9.86$  & $16.26$ & $3.36$ & $2.32$ & $3.63$  & $0.32$\\\hline
+\mr{2}{$\mdot\varepsilon=5~\ps$} & $\AARE(\%)$         & $20.16$ & $24.27$ & $7.73$ & $3.53$ & $11.46$ & $3.87$\\
+                                 & $\RMSE(\text{MPa})$ & $20.73$ & $25.95$ & $7.83$ & $4.02$ & $12.91$ & $5.84$\\\hline
+\mr{2}{all $\mdot\varepsilon$}   & $\AARE(\%)$         & $15.12$ & $25.87$ & $7.12$ & $3.86$ & $5.34$  & $1.09$\\
                                  & $\RMSE(\text{MPa})$ & $12.36$ & $18.24$ & $4.43$ & $2.68$ & $6.23$  & $2.40$\\\hline
-\mr{2}{$\mdot\varepsilon=5~\ps$} & $\AARE(\%)$         & $20.16$ & $24.27$ & $7.37$ & $3.53$ & $11.46$ & $3.87$\\
-                                 & $\RMSE(\text{MPa})$ & $20.73$ & $25.95$ & $7.83$ & $4.02$ & $12.91$ & $5.84$\\
-\hline
 \label{tab:ExtVal}
 \end{tabular}
 \end{table}
@@ -766,10 +761,10 @@ $\mdot\varepsilon$               & Coefficients        & JC      & MZA     & HS 
 As presented in the previous section regarding the interpolation capability of the models, in Figure \ref{fig:CompExt} it can be seen that the first two models, JC and MZA, in this study again do not have the ability to correctly reproduce the material behavior for the strain rate $\mdot\varepsilon=5~\ps$. The JC model performs better than the MZA model for $\mdot\varepsilon=5~\ps$, which is reflected in Table \ref{tab:ExtVal} by a lower value of $\AARE$ and $\RMSE$ for JC than for MZA. Nevertheless, these values are too large for proper use. It is again the inability of these models to take into account the softening of the behavior at low strain rates and low temperatures that is at the origin of these values.
 
 The other 4 models, HS, AR, PTM and ANN, give better results with higher fidelity for the AR and ANN models compared to the other two models.
-Table \ref{tab:ExtVal} shows the comparison over all strain rates and over $\mdot\varepsilon=5~\ps$ for these 4 models.
+Table \ref{tab:ExtVal} shows the comparison over all strain rates and over $\mdot\varepsilon=5~\ps$ for these 6 models.
 The HS model performs worse on extrapolation than the AR and ANN models, while the PTM model is relegated to the last position in this ranking with values of $\AARE$ and $\RMSE$ superior to $10\%$ for the strain rate $\mdot\varepsilon=5~\ps$.
 The two models AR and ANN give the best results concerning the values of $\AARE$ and $\RMSE$ for the strain rate $\mdot\varepsilon=5~\ps$.
-The AR model is this time a little bit better on the $\mdot\varepsilon=5~\ps$ strain rate compared to the ANN model, but the latter gives globally a better result on the whole strain rates with values of  $\AARE=1.15\%$ and $\RMSE=2.40~\text{MPa}$ respectively.
+The AR model is this time a little bit better on the $\mdot\varepsilon=5~\ps$ strain rate compared to the ANN model, but the latter gives globally a better result on the whole strain rates with values of  $\AARE=1.09\%$ and $\RMSE=2.40~\text{MPa}$ respectively.
 
 We can therefore conclude from this part of the study that the AR model is the best performing of the 5 analytical models presented, which is in agreement with the fact that it is widely used for thermomechanical processing, but the ANN model approach has advantages over the AR model approach in that, overall, the ANN model is more faithful to the experimental data than the AR model for all strain rates.
 
