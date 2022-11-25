@@ -178,8 +178,8 @@ The material used in this study is the modified carbon alloy AISI P20 whose chem
 	\hline
 	Element &  C   &  Mn  &  Mo  &  Si  &  Ni  &  Cr  &  Cu  \\ \hline
 	Wt~\%   & 0.30 & 0.89 & 0.52 & 0.34 & 0.68 & 1.86 & 0.17 \\ \hline
-	\label{tab:Composition}
 \end{tabular}
+\label{tab:Composition}
 \end{table}
 Cylindrical samples were machined with an initial diameter of $d=10$~mm and a height of $h_0=15$~mm.
 A batch of 30 hot compression tests were performed on a Gleeble-3800 thermomechanical simulator (see Figure \ref{fig:Gleeble3800}), for the 5 temperature levels of $1050\celsius$, $1100\celsius$, $1150\celsius$, $1200\celsius$ and $1250\celsius$ with the 6 strain rates of $0.001~\ps$, $0.01~\ps$, $0.1~\ps$, $1~\ps$, $2.0~\ps$ and $5~\ps$.
@@ -304,11 +304,11 @@ All parameters of the Johnson-Cook model are reported in Table \ref{tab:JC}.
 \centering
 \caption{Parameters' values of the Johnson-Cook flow law for the P20 steel.}
 \begin{tabular}{ccccc}
-\hline
-$A~(\text{MPa})$ & $B~(\text{MPa})$ & $n$ & $C$ & $m$\\
-$13.5143$&$21.816$&$0.0746$&$0.3404$&$0.7057$\\\hline
-\label{tab:JC}
+	\hline
+	$A~(\text{MPa})$ & $B~(\text{MPa})$ &   $n$    &   $C$    &   $m$    \\
+	   $13.5143$     &     $21.816$     & $0.0746$ & $0.3404$ & $0.7057$ \\ \hline
 \end{tabular}
+\label{tab:JC}
 \end{table}
 
 The values predicted by the Johnson-Cook flow law (solid line) and the experimental values (dots) are compared in Figure \ref{fig:CompExp-JC-6}.
@@ -378,12 +378,11 @@ The parameters of MZA model are given in Table \ref{tab:MZA} while its predictio
 \centering{}
 \caption{Parameters' constants of Modified-Zerilli-Armstrong Model}
 \begin{tabular}{ccccccc}
-\hline
-$C_1$ & $C_2$ & $C_3$ & $C_4$ & $C_5$ & $C_6$ & $n$\\
-$13.5143$ & $21.2591$ & $4.7902\times 10^{-3}$ & $1.4895\times 10^{-4}$ & $0.1389$ & $1.495\times 10^{-4}$ & $0.0621$\\
-\hline
-\label{tab:MZA}
+	\hline
+	  $C_1$   &   $C_2$   &         $C_3$          &         $C_4$          &  $C_5$   &         $C_6$         &   $n$    \\
+	$13.5143$ & $21.2591$ & $4.7902\times 10^{-3}$ & $1.4895\times 10^{-4}$ & $0.1389$ & $1.495\times 10^{-4}$ & $0.0621$ \\ \hline
 \end{tabular}
+\label{tab:MZA}
 \end{table}
 \begin{figure}[!ht]
 \centering
@@ -418,13 +417,13 @@ From the experimental data obtained during the compression tests, an identificat
 \centering
 \caption{Parameters' values of the Hansel-Spittel flow law for the P20 steel.}
 \begin{tabular}{ccccc}
-\hline
-$A$ & $m_1$ & $m_2$ & $m_3$ & $m_4$\\
-$5.954\times 10^{3}$ & $-3.3576\times10^{-3}$ & $0.2641$ & $-0.0868$ & $2.2688\times10^{-4}$\\\hline
-& $m_5$ & $m_6$ & $m_7$ & $m_8$\\
-& $-4.2163\times10^{-4}$ & $-0.0561$ & $2.264\times10^{-4}$ & $0$\\\hline
-\label{tab:HS}
+	\hline
+	        $A$          &         $m_1$          &   $m_2$   &        $m_3$         &         $m_4$         \\
+	$5.954\times 10^{3}$ & $-3.3576\times10^{-3}$ & $0.2641$  &      $-0.0868$       & $2.2688\times10^{-4}$ \\ \hline
+	                     &         $m_5$          &   $m_6$   &        $m_7$         &         $m_8$         \\
+	                     & $-4.2163\times10^{-4}$ & $-0.0561$ & $2.264\times10^{-4}$ &          $0$          \\ \hline
 \end{tabular}
+\label{tab:HS}
 \end{table}
 
 The comparison of the values predicted by the HS model and the experimental values is presented in Figure \ref{fig:CompExp-HS-6} where the dots represent the experimental values and the solid lines are the values predicted by the Hansel-Spittel flow law.
@@ -496,22 +495,20 @@ Setting $m=9$ gives the best results and the corresponding parameters are report
 \centering
 \caption{Parameters' values of the Arrhenius flow law for the P20 steel.}
 \begin{tabular}{llll}
-\hline
-\multicolumn{1}{c}{$\alpha_i$} & \multicolumn{1}{c}{$Q_i~(\times 10^{-6})$} & \multicolumn{1}{c}{$\ln\!A_i$} & \multicolumn{1}{c}{$n_i$}\\
-\hline
-$\alpha_0=0.0407$ & $Q_0=0.467$ & $A_0=35.8092$ & $n_0=4.8217$\\
-$\alpha_1=-0.5167$ & $Q_1=-0.6517$ & $A_1=-58.822$ & $n_1=3.2814$\\
-$\alpha_2=6.3912$ & $Q_2=7.6084$ & $A_2=740.3303$ & $n_2=71.5963$\\
-$\alpha_3=-47.3364$ & $Q_3=-48.016$ & $A_3=-5.0493\times 10^{3}$ & $n_3=-1.9562\times 10^{3}$\\
-$\alpha_4=220.0014$ & $Q_4=66.795$ & $A_4=1.1305\times 10^{4}$ & $n_4=1.4461\times 10^{4}$\\
-$\alpha_5=-654.4553$ & $Q_5=468.8898$ & $A_5=2.022\times 10^{4}$ & $n_5=-5.431\times 10^{4}$\\
-$\alpha_6=1.2421\times 10^{3}$ & $Q_6=-2.3032\times 10^{3}$ & $A_6=-1.5387\times 10^{5}$ & $n_6=1.1761\times 10^{5}$\\
-$\alpha_7=-1.4523\times 10^{3}$ & $Q_7=4.3707\times 10^{3}$ & $A_7=3.1798\times 10^{5}$ & $n_7=-1.4882\times 10^{5}$\\
-$\alpha_8=952.0619$ & $Q_8=-3.9394\times 10^{3}$ & $A_8=-2.9725\times 10^{5}$ & $n_8=1.0239\times 10^{5}$\\
-$\alpha_9=-267.4994$ & $Q_9=1.397\times 10^{3}$ & $A_9=1.0759\times 10^{5}$ & $n_9=-2.9621\times 10^{4}$\\
-\hline
-\label{tab:AR}
+	\hline
+	\multicolumn{1}{c}{$\alpha_i$}  & \multicolumn{1}{c}{$Q_i~(\times 10^{-6})$} & \multicolumn{1}{c}{$\ln\!A_i$} & \multicolumn{1}{c}{$n_i$}  \\ \hline
+	$\alpha_0=0.0407$               & $Q_0=0.467$                                & $A_0=35.8092$                  & $n_0=4.8217$               \\
+	$\alpha_1=-0.5167$              & $Q_1=-0.6517$                              & $A_1=-58.822$                  & $n_1=3.2814$               \\
+	$\alpha_2=6.3912$               & $Q_2=7.6084$                               & $A_2=740.3303$                 & $n_2=71.5963$              \\
+	$\alpha_3=-47.3364$             & $Q_3=-48.016$                              & $A_3=-5.0493\times 10^{3}$     & $n_3=-1.9562\times 10^{3}$ \\
+	$\alpha_4=220.0014$             & $Q_4=66.795$                               & $A_4=1.1305\times 10^{4}$      & $n_4=1.4461\times 10^{4}$  \\
+	$\alpha_5=-654.4553$            & $Q_5=468.8898$                             & $A_5=2.022\times 10^{4}$       & $n_5=-5.431\times 10^{4}$  \\
+	$\alpha_6=1.2421\times 10^{3}$  & $Q_6=-2.3032\times 10^{3}$                 & $A_6=-1.5387\times 10^{5}$     & $n_6=1.1761\times 10^{5}$  \\
+	$\alpha_7=-1.4523\times 10^{3}$ & $Q_7=4.3707\times 10^{3}$                  & $A_7=3.1798\times 10^{5}$      & $n_7=-1.4882\times 10^{5}$ \\
+	$\alpha_8=952.0619$             & $Q_8=-3.9394\times 10^{3}$                 & $A_8=-2.9725\times 10^{5}$     & $n_8=1.0239\times 10^{5}$  \\
+	$\alpha_9=-267.4994$            & $Q_9=1.397\times 10^{3}$                   & $A_9=1.0759\times 10^{5}$      & $n_9=-2.9621\times 10^{4}$ \\ \hline
 \end{tabular}
+\label{tab:AR}
 \end{table}
 This modified form of the Arrhenius behavior law allows for accurate and reliable prediction over a wide range of temperatures and strain rates.
 Equation (\ref{eq:ArStress}) is finally used to compute the flow stress $\sigma^y$ from the strain $\varepsilon$, the strain rate $\mdot\varepsilon$ and the temperature $T$:
@@ -569,8 +566,8 @@ For the PTM model, $\AARE=4.79~\%$ and $\RMSE=4.59~\text{MPa}$ and this shows an
 	$A_3=4.836\times 10^{3}$   & $B_3=0.2218$                & $C_0^3=-13.1694$            & $C_1^3=-0.0222$               \\
 	$A_4=-5.5176\times 10^{3}$ & $B_4=-0.4988$               & $C_0^4=15.25$               & $C_1^4=0.0609$                \\
 	$A_5=2.4058\times 10^{3}$  & $B_5=0.3211$                & $C_0^5=-6.587$              & $C_1^5=-0.0413$               \\ \hline
-	\label{tab:PTM}
 \end{tabular}
+\label{tab:PTM}
 \end{table}
 
 \begin{figure}[!ht]
@@ -659,14 +656,12 @@ A summary of the coefficients for evaluating the high-temperature flow stress pr
 \centering
 \caption{Accuracy coefficients for all the analyzed models.}
 \begin{tabular}{lcccccc}
-\hline
-Coefficients & JC & MZA & HS & AR & PTM & ANN\\
-\hline
-$\AARE(\%)$ & $14.05$ & $21.20$ & $7.75$ & $3.56$ & $4.79$ & $0.62$\\
-$\RMSE(\text{MPa})$ & $12.00$ & $19.57$ & $3.80$ & $2.18$ & $4.59$ & $0.38$\\
-\hline
-\label{tab:Errors}
+	\hline
+	Coefficients        &   JC    &   MZA   &   HS   &   AR   &  PTM   &  ANN   \\ \hline
+	$\AARE(\%)$         & $14.05$ & $21.20$ & $7.75$ & $3.56$ & $4.79$ & $0.62$ \\
+	$\RMSE(\text{MPa})$ & $12.00$ & $19.57$ & $3.80$ & $2.18$ & $4.59$ & $0.38$ \\ \hline
 \end{tabular}
+\label{tab:Errors}
 \end{table}
 From this table, we can see that the ANN model has a much better predictive capacity than all the analytical models presented previously.The values of $\AARE$ and $\RMSE$ are globally 6 times lower than the best of the analytical models, \ie the Arrhenius model, quoted as reference in the context of hot forming of alloys \cite{Liang-2022}.
 
@@ -705,15 +700,15 @@ Table \ref{tab:IntVal} shows the $\AARE$ and $\RMSE$ deviations between the diff
 \caption{Accuracy coefficients of interpolation for all models with  $\mdot\varepsilon=1~\ps$}
 \begin{tabular}{llcccccc}
 	\hline
-	$\mdot\varepsilon$               & Coefficients        &   JC    &   MZA   &   HS   &   AR   &  PTM   &  ANN   \\ \hline
+	Strain rate                      & Coefficients        &   JC    &   MZA   &   HS   &   AR   &  PTM   &  ANN   \\ \hline
 	\mr{2}{id. $\mdot\varepsilon$}   & $\AARE(\%)$         & $13.79$ & $20.22$ & $8.57$ & $3.96$ & $5.10$ & $0.70$ \\
 	                                 & $\RMSE(\text{MPa})$ & $11.83$ & $19.00$ & $3.97$ & $2.29$ & $4.73$ & $0.38$ \\ \hline
 	\mr{2}{$\mdot\varepsilon=1~\ps$} & $\AARE(\%)$         & $14.87$ & $27.79$ & $3.74$ & $1.46$ & $3.16$ & $2.47$ \\
 	                                 & $\RMSE(\text{MPa})$ & $12.02$ & $23.67$ & $3.10$ & $1.46$ & $2.65$ & $2.77$ \\ \hline
 	\mr{2}{all $\mdot\varepsilon$}   & $\AARE(\%)$         & $14.42$ & $28.90$ & $7.55$ & $3.45$ & $4.90$ & $0.96$ \\
 	                                 & $\RMSE(\text{MPa})$ & $11.86$ & $19.86$ & $3.84$ & $2.17$ & $4.45$ & $1.18$ \\ \hline
-	\label{tab:IntVal}               &
 \end{tabular}
+\label{tab:IntVal}
 \end{table}
 
 In Figure \ref{fig:CompInt} it can be seen that the first two models (JC and MZA), presented in this study do not have the ability to reproduce the behavior of the material for the strain rate $\mdot\varepsilon=1~\ps$. Overall, the JC model gives better results than the MZA model for $\mdot\varepsilon=1~\ps$, which is reflected in Table \ref{tab:IntVal} by a lower value of $\AARE$ and $\RMSE$ for JC than for MZA.
@@ -721,7 +716,7 @@ Nevertheless, these values are higher than $10\%$ for the JC model and $20\%$ fo
 This finding is in agreement with the previous findings of Sections \ref{sec:JC} and \ref{sec:MZA} which showed the inability of these models to take into account the softening of the behavior visible at low strain rates and low temperatures.
 
 From a general appearance point of view, the other 4 models, HS, AR, PTM and ANN, give globally similar results with a higher fidelity for the AR and ANN models compared to the other two models.
-Table \ref{tab:IntVal} shows the quantitative comparison on $\AARE$ and $\RMSE$ for three different cases: on the 5 identified strain rates, on only the strain rate $\mdot\varepsilon=1~\ps$ and on all 6 strain rates for these 6 models.
+Table \ref{tab:IntVal} shows the quantitative comparison on $\AARE$ and $\RMSE$ for three different cases: on the 5 identified strain rates (named id. $\mdot\varepsilon$), on only the strain rate $\mdot\varepsilon=1~\ps$ and on all 6 strain rates for these 6 models.
 It appears from this Table that if the two models AR and ANN give equivalent (and excellent) results concerning the values of $\AARE$ and $\RMSE$ for the strain rate $\mdot\varepsilon=1~\ps$, the ANN model gives globally a better result on the whole of the strain rates with values of $\AARE=0.96\%$ and $\RMSE=1.18~\text{MPa}$ respectively, that is to say values approximately 2 to 3 times lower for the ANN model compared to the AR model.
 
 This shows the superior fidelity of the ANN model compared to the 5 analytical models presented in this study both in the interpolation capability of the model and in the overall behavior.
@@ -745,17 +740,16 @@ Table \ref{tab:ExtVal} shows the $\AARE$ and $\RMSE$ deviations between the diff
 \centering{}
 \caption{Accuracy coefficients of extrapolation for all models with  $\mdot\varepsilon=5~\ps$}
 \begin{tabular}{llcccccc}
-\hline
-$\mdot\varepsilon$               & Coefficients        & JC      & MZA     & HS     & AR     & PTM     & ANN\\
-\hline
-\mr{2}{id. $\mdot\varepsilon$}   & $\AARE(\%)$         & $13.09$ & $19.09$ & $7.30$ & $4.03$ & $4.34$  & $0.61$\\
-                                 & $\RMSE(\text{MPa})$ & $9.86$  & $16.26$ & $3.36$ & $2.32$ & $3.63$  & $0.32$\\\hline
-\mr{2}{$\mdot\varepsilon=5~\ps$} & $\AARE(\%)$         & $20.16$ & $24.27$ & $7.73$ & $3.53$ & $11.46$ & $3.87$\\
-                                 & $\RMSE(\text{MPa})$ & $20.73$ & $25.95$ & $7.83$ & $4.02$ & $12.91$ & $5.84$\\\hline
-\mr{2}{all $\mdot\varepsilon$}   & $\AARE(\%)$         & $15.12$ & $25.87$ & $7.12$ & $3.86$ & $5.34$  & $1.09$\\
-                                 & $\RMSE(\text{MPa})$ & $12.36$ & $18.24$ & $4.43$ & $2.68$ & $6.23$  & $2.40$\\\hline
-\label{tab:ExtVal}
+	\hline
+	Strain rate                      & Coefficients        &   JC    &   MZA   &   HS   &   AR   &   PTM   &  ANN   \\ \hline
+	\mr{2}{id. $\mdot\varepsilon$}   & $\AARE(\%)$         & $13.09$ & $19.09$ & $7.30$ & $4.03$ & $4.34$  & $0.61$ \\
+	                                 & $\RMSE(\text{MPa})$ & $9.86$  & $16.26$ & $3.36$ & $2.32$ & $3.63$  & $0.32$ \\ \hline
+	\mr{2}{$\mdot\varepsilon=5~\ps$} & $\AARE(\%)$         & $20.16$ & $24.27$ & $7.73$ & $3.53$ & $11.46$ & $3.87$ \\
+	                                 & $\RMSE(\text{MPa})$ & $20.73$ & $25.95$ & $7.83$ & $4.02$ & $12.91$ & $5.84$ \\ \hline
+	\mr{2}{all $\mdot\varepsilon$}   & $\AARE(\%)$         & $15.12$ & $25.87$ & $7.12$ & $3.86$ & $5.34$  & $1.09$ \\
+	                                 & $\RMSE(\text{MPa})$ & $12.36$ & $18.24$ & $4.43$ & $2.68$ & $6.23$  & $2.40$ \\ \hline
 \end{tabular}
+\label{tab:ExtVal}
 \end{table}
 
 As presented in the previous section regarding the interpolation capability of the models, in Figure \ref{fig:CompExt} it can be seen that the first two models, JC and MZA, in this study again do not have the ability to correctly reproduce the material behavior for the strain rate $\mdot\varepsilon=5~\ps$. The JC model performs better than the MZA model for $\mdot\varepsilon=5~\ps$, which is reflected in Table \ref{tab:ExtVal} by a lower value of $\AARE$ and $\RMSE$ for JC than for MZA. Nevertheless, these values are too large for proper use. It is again the inability of these models to take into account the softening of the behavior at low strain rates and low temperatures that is at the origin of these values.
