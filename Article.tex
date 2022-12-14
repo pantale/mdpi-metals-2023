@@ -64,7 +64,7 @@
 \begin{document}
 \begin{frontmatter}
 
-\title{Comparison of Analytical and Artificial Neural Network models in predicting hot deformation behavior of AISI P20}
+\title{\textcolor{red}{Interpolation and extrapolation based performance measurement of Analytical and Artificial Neural Network models in predicting hot deformation behavior of a medium carbon steel}}
 
 \author[LGP]{Pierre Tize Mha}
 \author[ETS]{Prashant Dhondapure}
@@ -80,18 +80,11 @@
 \address[ETS]{École de Technologie Supérieure, 1100 Rue Notre Dame O, Montréal, QC H3C 1K3, Canada}
 
 \begin{abstract}
-An analysis of the use of analytical models and Artificial Neural Networks (ANN) is proposed in this paper to study the high-temperature deformation behavior of AISI P20 alloy during hot compression tests, on a Gleeble thermomechanical simulator, over a wide range of strains ($0.0-0.7$), strain rates ($0.001~\ps-5~\ps$) and temperatures ($1050\celsius-1250\celsius$).
-From the experimental data (stress-strain curves), 5 analytical models such as Johnson-Cook (JC), Modified Zerilli-Armstrong (MZA), Hansel-Spittel (HS), Arrhenius (AR) and PTM on the one hand, and an ANN model with 3 inputs, 2 hidden layers of 15 and 7 neurons respectively and 1 output, on the other hand, have been identified to predict the flow stress $\sigma^y$ of this alloy.
-The comparison between the analytical models, the ANN model and the experimental results, carried out on the basis of the Mean Absolute Relative Error ($\AARE$) and the Root Mean Square Error ($\RMSE$), allowed us to qualify these models.
-We were able to show that the JC and MZA models are not suitable to predict the high temperature behavior of the AISI P20 alloy, while the HS, PTM and AR models can be used to predict the behavior of this alloy with an acceptable error.
-On the other hand, the ANN model results show excellent agreement between the predicted flow stresses $\sigma^y$ and experiment with very low error.
-To validate the performance of these models, their ability to interpolate and extrapolate the experimental data was also tested.
-The HS, PTM and AR analytical models have shown a good interpolation and extrapolation capacity with a notable superiority for the AR model compared to the other two.
-The ANN model is still superior to the AR model from the point of view of its global behavior and its performance.
+\textcolor{purple}{An analysis of the use of analytical models and Artificial Neural Networks is proposed in this paper to study the high-temperature deformation behavior of medium carbon steel alloy during hot compression tests, on a Gleeble thermomechanical simulator, over a wide range of strains ($0.0-0.7$), strain rates ($0.001~\ps-5~\ps$) and temperatures ($1050\celsius-1250\celsius$). From the experimental data (stress-true strain curves), 5 analytical models such as Johnson-Cook, Modified Zerilli-Armstrong, Hansel-Spittel, Arrhenius and PTM on the one hand, and an Artificial Neural Networks model with 3 inputs, 2 hidden layers of 15 and 7 neurons respectively and 1 output, on the other hand, have been identified to predict the flow stress $\sigma^y$ of this alloy. The comparison between the analytical models, the Artificial Neural Networks model and the experimental results, carried out on the basis of the Mean Absolute Relative Error ($\AARE$) and the Root Mean Square Error ($\RMSE$), were used to quantify these models. It is shown that the Johnson-Cook and  Modified Zerilli-Armstrong models are not suitable to predict the high temperature behavior of this medium carbon steel alloy, while the Hansel-Spittel, PTM and Arrhenius models can be used to predict the behavior of this alloy with an acceptable error. On the other hand, the Artificial Neural Networks model results show excellent agreement between the predicted flow stresses $\sigma^y$ and experiment with comparatively significantly lower error. To validate the performance of these models, their ability to interpolate and extrapolate the experimental data was also tested. The HS, PTM and AR analytical models have shown a good interpolation and extrapolation capacity with a notable superiority for the AR model compared to the other two. The Artificial Neural Networks model is still superior to the AR model from the point of view of its global behavior and its performance}. \textcolor{red}{An approach for a better usage of these models on unknown data is proposed where each constitutive law must be multiplied by a factor $\lambda$ only for models whose correlation with experience is acceptable}.
 \end{abstract}
 
 \begin{keyword}
-Johnson-Cook \sep Zerilli-Armstrong \sep Arrhenius \sep Hansel-Spittel \sep Artificial Neural Network
+Johnson-Cook \sep Zerilli-Armstrong \sep Arrhenius \sep Hansel-Spittel \sep Artificial Neural Network  \sep interpolation  \sep extrapolation 
 \end{keyword}
 
 \end{frontmatter}
@@ -100,63 +93,29 @@ Johnson-Cook \sep Zerilli-Armstrong \sep Arrhenius \sep Hansel-Spittel \sep Arti
 %----------------------------------------------------------------------------------
 \section{Introduction\label{sec:Introduction}}
 %----------------------------------------------------------------------------------
+\textcolor{purple}{Due to their excellent weldability, high machinability, good wear resistance, medium carbon steels nowadays are widely used in industrial fields. In addition, the hardening of these alloys through a heat treatment process and their high forgeability are very important characteristics that can be used for manufacturing large structures. As application, many automotive parts for steering, engines, suspensions and transmissions are made from these steels. Indeed, the medium carbon steels come to substitute quench-temper steels in different automative parts previously used as connecting rods produced by hot forging of low carbone steel alloys \cite{murugesan2019two, murugesan2019hybrid, tavakoli2019ferrite, ebrahimi2017flow}. Several metallurgical phenomena such as work hardening (WH) and dynamic softening (dynamic recovery (DRV) and recrystallization (DRX)), which very often occur during hot deformation, influence the microstructure evolution of materials during hot deformation. The processes involved in hot deformation are highly critical to the quality and workability of the final product \cite{Ashtiani-2012}. In order to estimate the influence of the different parameters involved in hot deformation before the experiment, numerical simulation like Finite Element Method (FEM) is widely used \cite{He-2013, Changizian-2012}. For example, FEM has been used to simulate and analyze hot forming processes of steel, such as forging, rolling, extrusion and casting, but the quality of the numerical solution provided by this method is highly dependent on the constitutive equation of the modeled material \cite{Mandal-2009, Qin-2010, Ji-2018}. To this end, a mathematical formulation is typically used to represent the flow stress $\sigma^y$ of a material from the strain $\varepsilon$, the strain rate $\mdot\varepsilon$ and the temperature $T$ in a form that can be used in FEM software \cite{Lin-2008-P, Wu-2012}}. 
 
-Continuous casting and rolling techniques are an integral part of material forming methods.
-Advantages of this method include increased process efficiency, energy savings, improved casting quality and easier mechanization and automation.
-Deformation, a complex process involving simultaneous elastic and plastic deformation, is accompanied by high temperatures, high strain rates, and complex and variable frictional conditions \cite{He-2013}, for which, analytical methods are not available for quantitative study and analysis of the deformation mechanism.
-On the other hand, conducting experimental tests is not only time-consuming but also requires a high financial investment \cite{Changizian-2012}.
-As an alternative approach to the previous two, the Finite Element Method (FEM) is widely used as a tool for analysis and optimization of process parameters in the processing of various materials.
-Finite element modeling effectively compensates for the shortcomings of analytical and experimental methods and is playing an increasingly important role in determining process parameters, improving product quality, and gaining in-depth knowledge of deformation mechanisms.
-For example, FEM has been widely used to simulate and analyze hot forming processes of steel, such as forging, rolling, extrusion and casting, but the quality of the numerical solution provided by this method is highly dependent on the constitutive equation of the modeled material \cite{Mandal-2009, Qin-2010, Ji-2018}.
-
-Hot forming processes are an essential step in the manufacture of mechanical components and directly affect the final quality of the products through their strong influence on the micro-structure and mechanical properties as reported by Ashtiani \eal \cite{Ashtiani-2012}.
-Several metallurgical phenomena such as work hardening and dynamic softening (dynamic recovery and recrystallization), which very often occur during hot working, influence the behavior and deformation of materials.
-The complexity of the thermomechanical behavior usually leads to the fact that it can only be taken into account accurately by using a numerical approach to obtain the response of the material under the specified loading conditions.
-To this end, a mathematical formulation is typically used to represent the flow stress $\sigma^y$ of a material from the strain $\varepsilon$, the strain rate $\mdot\varepsilon$ and the temperature $T$ in a form that can be used in finite element software \cite{Lin-2008-P, Wu-2012}.
-
-For several years, many researchers have developed methods to predict the thermomechanical behavior of materials under hot working conditions using constitutive models.
-Thus, various forms of constitutive equations have been proposed to describe the flow stress of materials, among which, phenomenological, semi-empirical, physical models or models based on Artificial Neural Networks (ANN) \cite{Rusinek-2010, Shin-2010, Lin-2011, Pantale-2021}.
-Among the large number of models available in the literature, the Johnson-Cook (JC) \cite{Johnson-1983} and Zerilli-Armstrong (ZA) \cite{Zerilli-1987} models are the best known and most widely available in FEM codes.
+\textcolor{purple}{Various forms of constitutive equations have been proposed to describe the flow stress of materials, among which, phenomenological, semi-empirical, physical models or models based on Artificial Neural Networks (ANN) \cite{Rusinek-2010, Shin-2010, Lin-2011, Pantale-2021}. Among the large number of models available in the literature, the Johnson-Cook (JC) \cite{Johnson-1983} and Zerilli-Armstrong (ZA) \cite{Zerilli-1987} models are the best known and most widely available in FEM codes.
 The Johnson-Cook model is the most widely used because it is simple to identify and use and has few parameters to determine \cite{NematNasser-2003, Khan-2004}.
 However, this model, in its original state, has some shortcomings related to nonlinear coupling phenomena not taken into account in the material behavior.
-We refer here to strain hardening, strain rate hardening and thermal effects that are taken into account in a non-coupled manner in the JC model as analyzed by Jia \eal \cite{Jia-2021}.
-To circumvent these shortcomings, several modified forms of the Johnson-Cook model have been developed in the past \cite{Rule-1998, Vural-2003, Lin-2010, Lin-2012, Li-2013, Zhang-2015, Zhou-2019}.
+We refer here to strain hardening, strain rate hardening and thermal effects that are taken into account in a non-coupled manner in the JC model as analyzed by Jia \eal \cite{Jia-2021}. To circumvent these shortcomings, several modified forms of the Johnson-Cook model have been developed in the past \cite{Rule-1998, Vural-2003, Lin-2010, Lin-2012, Li-2013, Zhang-2015, Zhou-2019}.
 Due to its more physics-based formulation, the ZA model is often preferred to the JC model because it allows the coupling of strain rate and temperature effects \cite{Johnson-1988, Voyiadjis-2005, Dey-2007}.
-However, this model has other drawbacks related to the limit value of the test temperature.
-Indeed, this model applies only to low strain rates and for temperatures limited to about 60~\% of $T_m$ (where $T_m$ is the melting temperature of the material) \cite{Chiou-2005, Lee-2005, Lee-2006, Chen-2007}.
+However, this model has other drawbacks related to the limit value of the test temperature. Indeed, this model applies only to low strain rates and for temperatures limited to about 60~\% of $T_m$ (where $T_m$ is the melting temperature of the material) \cite{Chiou-2005, Lee-2005, Lee-2006, Chen-2007}.
 Moreover, this model, in its original form, does not take into account the coupling between deformation and temperature effects \cite{Samantaray-2009}.
-In order to reduce these shortcomings (and to apply this model to a wider range of temperatures) of the ZA model, modified forms of Zerilli-Armstrong (MZA) have been proposed by several authors in recent years \cite{NematNasser-2004, Lennon-2004, Muralli-2017, Cheng-2021, Muralli-2021}.
-
-The Arrhenius-type hyperbolic sine constitutive model is one of the most widely used phenomenological models both for the prediction of the hot deformation behavior of materials and for the analysis of the micro-structure of the material under study because this model allows the estimation of the deformation energy of the material \cite{Jonas-1969, Mostafaei-2012, Zhang-2012}.
-Its original formulation has been revised several times to correctly describe the resulting experimental behavior.
-In order to increase the accuracy of the model, the effects of strain \cite{Slooff-2007, Li-2012, Xu-2013}, strain rate \cite{Lin-2008-C, Mandal-2009} have been considered by several authors.
-For example, Sloof \eal \cite{Slooff-2007} introduced a strain-dependent parameter into the initial formulation of the Arrhenius model so that his model could predict the high-temperature flow of a magnesium alloy.
-Lin \eal \cite{Lin-2008-C}, on the other hand, modified the model by introducing a strain rate compensation factor.
-
-Users of the Forge software make extensive use of the model developed by Hansel and Spittel \cite{Hensel-1978}, commonly referred to as the HS model, which is a thermo-visco-plastic model whose formulation is based on a product of functions dependent on $\varepsilon$, $\mdot\varepsilon$ and $T$.
-Unlike the JC model, this formulation is based on parameters that are determined simultaneously.
-This model is simple to use and has 8 parameters that are easy to determine.
-The limitation of this model is its loss of accuracy in some cases when the 8 parameters are defined.
-This is why many works often limit its identification to only 5, 6 or 7 parameters.
-This has been verified in our study where the smallest error of the model is obtained with only 7 parameters identified.
+In order to reduce these shortcomings (and to apply this model to a wider range of temperatures) of the ZA model, modified forms of Zerilli-Armstrong (MZA) have been proposed by several authors in recent years \cite{NematNasser-2004, Lennon-2004, Muralli-2017, Cheng-2021, Muralli-2021}. The Arrhenius-type hyperbolic sine constitutive model is one of the most widely used phenomenological models both for the prediction of the hot deformation behavior of materials and for the analysis of the micro-structure of the material under study because this model allows the estimation of the activation energy for deformation \cite{Jonas-1969, Mostafaei-2012, Zhang-2012}.
+Its original formulation has been revised several times for a more accurate description of the high temperature deformation behavior. In order to increase the accuracy of the model, the effects of strain \cite{Slooff-2007, Li-2012, Xu-2013}, strain rate \cite{Lin-2008-C, Mandal-2009} have been considered by several authors. For example, Sloof \eal \cite{Slooff-2007} introduced a strain-dependent parameter into the initial formulation of the Arrhenius model so that his model could predict the high-temperature flow of a magnesium alloy. Lin \eal \cite{Lin-2008-C}, on the other hand, modified the model by introducing a strain rate compensation factor. Another form of model developed by Hansel and Spittel \cite{Hensel-1978}, commonly named as the HS model, which is a thermo-visco-plastic model whose formulation is based on a product of functions dependent on $\varepsilon$, $\mdot\varepsilon$ and $T$. Unlike the JC model, this formulation is based on parameters that are determined simultaneously. This model is simple to use and has 8 parameters that are easy to determine. The limitation of this model is its loss of accuracy in some cases when the 8 parameters are defined.
+This is why many works often limit its identification to only 5, 6 or 7 parameters}.
 
 The fixed and limited number of parameters imposed by each analytical model as presented above has both advantages and disadvantages.
 These models have few parameters and are therefore easy to identify, but when these models have to be applied to a material different from the one for which they were initially developed they lose their performance as in the case of the HS model.
-To try to solve this problem, Tize Mha \eal \cite{TizeMha-2022} has proposed a formulation where the number of parameters is not known in advance.
-The idea is to make the formulation of an analytical model flexible so that it can be adapted to many materials.
-This formulation is based on the MZA model and polynomial functions of undefined order are used during the identification.
+To try to solve this problem, Tize Mha \eal \cite{TizeMha-2022} recently proposed a formulation where the number of parameters is not known in advance. The idea is to make the formulation of an analytical model flexible so that it can be adapted to many materials. This formulation is based on the MZA model and polynomial functions of undefined order are used during the identification but the problem with this model is the high order of the polynomial function that can affect its accuracy. Therefore a good choice of order of polynomial functions is important during its identification. Another identification technique is that based on artificial intelligence.
 
-Behavior modeling based on an Artificial Neural Network is an approach to predict the flow stress of materials without requiring a mathematical formulation of the flow law.
-It is therefore not necessary to postulate a mathematical expression to identify the parameters of the model.
-Since the behavior of materials is highly nonlinear at high temperatures, and depends on many factors that are also nonlinear, the evaluation of the flow stress by an analytical model whose parameters are identified by a classical regression method is limited.
-Faced with these limitations, ANN models are of major interest because they are particularly suited to deal with complex and nonlinear relationships.
-Consequently, ANNs have been successfully applied to predict the flow of materials under hot working conditions \cite{Lin-2008-ANN, Lu-2011-ANN, Ashtiani-2016-CSP, Stoffel-2019-NNB, Pantale-2021}.
-They provide a fundamentally different approach to statistical or numerical techniques for modeling materials.
+Artificial Neural Network (ANN) is an approach to predict the flow stress of materials without requiring a mathematical formulation of the flow law. It is therefore not necessary to postulate a mathematical expression to identify the parameters of the model. Since the behavior of materials is highly nonlinear at high temperatures, and depends on many factors that are also nonlinear, the evaluation of the flow stress by an analytical model whose parameters are identified by a classical regression method is limited. Faced with these limitations, ANN models are of major interest because they are particularly suited to deal with complex and nonlinear relationships. Consequently, ANNs have been successfully applied to predict the flow of materials under hot working conditions \cite{Lin-2008-ANN, Lu-2011-ANN, Ashtiani-2016-CSP, Stoffel-2019-NNB, Pantale-2021}. They provide a fundamentally different approach to statistical or numerical techniques for modeling materials.
 
-In this work, the high-temperature thermomechanical behavior of AISI P20 modified carbon steel subjected to compression tests in a Gleeble thermomechanical simulator was studied.
-From the experimental data obtained from the compression tests, five analytical models were identified in order to select the one that best describes the behavior of this alloy.
-A flow model based on an ANN was also developed and identified, and a comparative study between the 5 analytical models and the ANN model is proposed.
-A fundamental concern addressed in this work is the ability of a model to interpolate and extrapolate the results of the model with respect to the range of conditions covered by the experimental tests.
+\textcolor{red}{From all the work previously presented on both analytical and ANN models, a remark on the performance of these models emerges. Indeed, a model is considered appropriate to describe the behavior of a material when its predictions and experience correlate well. First an experiment is carried out, then the data from this experiment are used to determine the parameters of the model, and based on these parameters the predictions of this model and the initial data are displayed to see the correlation between predictions and experience. It is questionable whether a model that correctly describes the behavior of a material can be used to generate data for conditions different from those on which it was identified ? And in the event that we use it, how can we reassure ourselves of the relevance of what it predicts ? To answer these questions the interpolation and extrapolation techniques \cite{wahab2017interpolation,luo2019interpolation,stinis2019enforcing} widely used in several fields are extended to the constitutive laws in this work where the variable is the strain rate and this can be applied as well as to strain to the temperature. It is a question of choosing a strain rate different from those used during the identification of the model both inside and outside the range of known strain rates. An experiment is therefore carried out for this strain rate in order to validate the prediction of the models.}
+
+In this work, the high-temperature thermomechanical behavior of medium carbon steel alloy subjected to compression tests in a Gleeble thermomechanical simulator was studied. From the experimental data obtained from the compression tests, five analytical models were identified in order to select the one that best describes the behavior of this alloy. A flow model based on an ANN was also developed and identified, and a comparative study between the 5 analytical models and the ANN model is proposed.
+As presented previously a fundamental concern addressed in this work is the ability of a model to interpolate and extrapolate the results of the model with respect to the range of conditions covered by the experimental tests.
 
 The main parts of this work are as follows: Section \ref{sec:Materials} presents the hardware (Gleeble thermomechanical simulator), the experimental procedure, the material and the results of the compression tests performed for this study.
 Section \ref{sec:ConstLaws} is devoted to the presentation of the 5 analytical models, the ANN model, the identification of their parameters and the comparison of the performances of these models with regard to the experimental results.
@@ -171,10 +130,10 @@ Conclusions and future work are detailed in Section \ref{sec:Conclusion}.
 \subsection{Experimental procedure}
 %----------------------------------------------------------------------------------
 
-The material used in this study is the modified carbon alloy AISI P20 whose chemical composition is given in Table \ref{tab:Composition}.
+The material used in this study is a \textcolor{red}{medium carbon steel} whose chemical composition is given in Table \ref{tab:Composition}.
 \begin{table}[h!]
 \centering
-\caption{Chemical composition of AISI P20 steel, Fe = balance.}
+\caption{Chemical composition of medium carbon steel, Fe = balance.}
 \begin{tabular}{lccccccc}
 	\hline
 	Element &  C   &  Mn  &  Mo  &  Si  &  Ni  &  Cr  &  Cu  \\ \hline
@@ -183,19 +142,14 @@ The material used in this study is the modified carbon alloy AISI P20 whose chem
 \label{tab:Composition}
 \end{table}
 Cylindrical samples were machined with an initial diameter of $d=10$~mm and a height of $h_0=15$~mm.
-A batch of 30 hot compression tests were performed on a Gleeble-3800 thermomechanical simulator (see Figure \ref{fig:Gleeble3800}), for the 5 temperature levels of $1050\celsius$, $1100\celsius$, $1150\celsius$, $1200\celsius$ and $1250\celsius$ with the 6 strain rates of $0.001~\ps$, $0.01~\ps$, $0.1~\ps$, $1~\ps$, $2.0~\ps$ and $5~\ps$.
+\textcolor{red}{Hot compression} tests were performed on a Gleeble-3800 thermomechanical simulator (see Figure \ref{fig:Gleeble3800}), for the 5 temperature levels of $1050\celsius$, $1100\celsius$, $1150\celsius$, $1200\celsius$ and $1250\celsius$ with the 6 strain rates of $0.001~\ps$, $0.01~\ps$, $0.1~\ps$, $1~\ps$, $2.0~\ps$ and $5~\ps$.
 \begin{figure}[!ht]
 \centering
 \includegraphics[width=0.7\columnwidth]{Figures/Gleeble-3800}
 \caption{The Gleeble-3800 thermomechanical simulator system used for this study}
 \label{fig:Gleeble3800}
 \end{figure}
-Thin tantalum sheets were used as a lubricating material at the contact surface of the anvils and samples to minimize friction during testing.
-As shown in Figure \ref{fig:GleebleProcess}, the samples were heated to a temperature of $1260\celsius$ with a heating rate of $2$\celsius/s and held at this temperature for $5$~min to eliminate thermal gradients.
-They were then cooled down with a rate of $1$\celsius/s to the test temperature and then held at constant temperature for $1$~min before deformation.
-During the compression phase, the temperature of the specimen is kept constant by the thermal control system of the machine.
-After compression, the specimen is quickly quenched to freeze its microstructure for later analysis.
-Figure \ref{fig:GleebleProcess} also shows the aspects of the specimens before and after the compression test: $h_0$ and $r_0$ are the height and radius before compression and $h$, $r_m$ and $r_t$ are the height, large radius and small radius of the specimen after compression, respectively.
+Thin tantalum sheets were used as a lubricating material at the contact surface of the anvils and samples to minimize friction during testing. As shown in Figure \ref{fig:GleebleProcess}, the samples were heated to a temperature of $1260\celsius$ with a heating rate of $2$\celsius/s and held at this temperature for $5$~min to eliminate thermal gradients. They were then cooled down with a rate of $1$\celsius/s to the test temperature and then held at constant temperature for $1$~min before deformation. During the compression phase, the temperature of the specimen is kept constant by the thermal control system of the machine. After compression, the specimen is quickly quenched to freeze its microstructure for later analysis. Figure \ref{fig:GleebleProcess} also shows the aspects of the specimens before and after the compression test: $h_0$ and $r_0$ are the height and radius before compression and $h$, $r_m$ and $r_t$ are the height, large radius and small radius of the specimen after compression, respectively.
 \begin{figure}[!ht]
 \centering
 \includegraphics[width=0.8\columnwidth]{Figures/GleebleProcess}
@@ -203,10 +157,7 @@ Figure \ref{fig:GleebleProcess} also shows the aspects of the specimens before a
 \label{fig:GleebleProcess}
 \end{figure}
 
-The stress-strain curves are automatically exported from the Gleeble thermomechanical simulator system as true stress and true strain according to L-gauge where the formula to get those curves is given by $\sigma=F/A$ and $\varepsilon=\ln\left(h_0+\Delta h / h_0\right)$ or C-gauge whose formula are $\sigma = 4F/\pi(d+\Delta d)^2$ and $\varepsilon = 2\ln(d/(d+\Delta d))$ with $d = 2r_0$ and $F$ is the force as measured by Gleeble load cell.\OPP{those formulas seems incomplete.}
-As there are noises from raw data, filter method is applied to remove noise and have more smooth data.\OPP{what is the filtering method used ?}
-For further usage of data in numerical simulation elastic parts have been removed.
-\OPP{you must explain how.}
+The stress-strain curves are automatically exported from the Gleeble thermomechanical simulator system as true stress and true strain according to L-gauge where the formula to get those curves is given by $\sigma=F/A$ and $\varepsilon=\ln\left(h_0+\Delta h / h_0\right)$ or C-gauge whose formula are $\sigma = 4F/\pi(d+\Delta d)^2$ and $\varepsilon = 2\ln(d/(d+\Delta d))$ with $d = 2r_0$ and $F$ is the force as measured by Gleeble load cell. As there are noises from raw data, savgolfilter method from scipy library is used to remove noise and have more smooth data. For further usage of data in numerical simulation elastic parts have been removed.
 
 %----------------------------------------------------------------------------------
 \subsection{Compression tests results\label{sec:ComTestResults}}
@@ -216,7 +167,7 @@ The set of flow stress $\sigma^y$ versus strain $\varepsilon$ curves obtained fr
 \begin{figure}[!ht]
 \centering
 \includegraphics[width=\columnwidth]{Figures/rawData}
-\caption{Stress-strain curves of AISI P20 alloy extracted from the Gleeble device at various temperatures $T$ and strain rates $\mdot\varepsilon$.}
+\caption{Stress-strain curves of medium carbon alloy extracted from the Gleeble device at various temperatures $T$ and strain rates $\mdot\varepsilon$.}
 \label{fig:RawData}
 \end{figure}
 All data curve contains $700$ equidistant strain values up-to $\varepsilon=0.7$.
@@ -235,9 +186,8 @@ As the strain continues to increase, many dislocations are in motion, leading to
 This DRV mechanism contributes to the decrease in the number of dislocations due to their combination with another dislocation or due to their integration into a grain boundary.
 Some of these dislocations reorganize and then form sub-grains within the initial grains of the material.
 The combination of these dislocations moderates the increase in the number of dislocations related to work hardening and thus controls the amount of strain energy stored in the material, which influences the increase in flow stress.
-The dynamic recrystallization concerns the germination of new grains, at the borders or inside the initial grains.
-These two phenomena explain the different shapes of the flow stress curves observed for this alloy.
-As an example, Figure \ref{fig:Micrography} shows the microstructures of AISI P20 held during $5$~min at $1260\celsius$ before and after the compression phase.
+The DRX concerns the germination of new grains, at the borders or inside the initial grains. In addition to the softening phenomena hardening such as deformation induced precipitation and phase transformation that could take place and therefore affect the material behavior. All these phenomena explain the different flow stress curves observed for this alloy.
+As an example, Figure \ref{fig:Micrography} shows the microstructures of medium carbon held during $5$~min at $1260\celsius$ before and after the compression phase.
 \begin{figure}[!ht]
 \centering
 \begin{subfigure}[b]{0.45\columnwidth}
@@ -251,7 +201,7 @@ As an example, Figure \ref{fig:Micrography} shows the microstructures of AISI P2
 \includegraphics[width=\columnwidth]{Figures/AfterCompM}
 \caption{After hot compression}
 \end{subfigure}
-\caption{Optical micrographs of the AISI P20 steel before (a) and after (b) hot compression.}
+\caption{Optical micrographs of a medium carbon steel before (a) and after (b) hot compression.}
 \label{fig:Micrography}
 \end{figure}
 As observed on the flow curves reported in Figure \ref{fig:RawData}, it can be seen by comparing the two micrographs in Figure \ref{fig:Micrography} that recrystallization is almost complete for this temperature and strain rate within the sample held for 5 minutes at $1260^\circ$C and rapidly cooled to get autenized grain in one hand and in other hand held for $1$ minute at $1150^\circ$C before compression with strain rate $0.001~\text{s}^{-1}$.
@@ -260,23 +210,6 @@ From the results reported in Figure \ref{fig:RawData}, the identification of the
 %----------------------------------------------------------------------------------
 \section{Identification of constitutive flow laws parameters\label{sec:ConstLaws}}
 %----------------------------------------------------------------------------------
-
-The complete characterization of the thermomechanical behavior of a material through the identification of the parameters of its flow law is very important for an accurate modeling in numerical simulations.
-This characterization usually involves experimental tests that serve as a basis for the development of constitutive laws.
-As mentioned in the introduction, many constitutive laws exist today, and the selection of one of them on the basis of explicit criteria makes the development of computational models for new materials with new types of behavior challenging.
-Since the purpose of this work is to compare the ANN model to some analytical models, it is important to justify the choice of the analytical models selected for this study among the many that exist in the literature.
-Among the analytical models, the Johnson-Cook (JC) model \cite{Johnson-1983} is the most used because of its simplicity of implementation linked to the reduced number of its parameters and the ease to identify them.
-It should be noted that it is not the best model but the most integrated in the Finite Elements softwares such as Abaqus for example.
-This also explains the existence of several modified forms of this model.
-The Zerilli-Armstrong model, and in particular its modified forms (MZA) \cite{NematNasser-2004, Lennon-2004, Muralli-2017, Cheng-2021, Muralli-2021}, is also widely used because it attempts to provide solutions to the shortcomings of the JC model, particularly with regard to the coupling of physical parameters.
-It is therefore also part of this study.
-The Hansel-Spittel (HS) model \cite{Hensel-1978} is also one of the most widely used models in numerical simulation of casting and forging operations because it is integrated in the Forge software.
-Moreover, the method of identifying its parameters is very simple to perform since it is done in one step.
-It also has limitations as we will show in the following sections.
-The Arrhenius model was also chosen in this study because it is one of the models that not only provides a good prediction of the flow stress but also takes into account the physical parameter $Q$ (the deformation activation energy coefficient) which is of great importance in the microstructural analyses of materials.
-The PTM model \cite{TizeMha-2022} is also used in this study because it is a model whose formulation does not impose a given number of parameters and which proved its ability in our previous works \cite{TizeMha-2022}.
-We selected it to test it on this type of material because it is normally formulated to fit any type of material.
-
 %----------------------------------------------------------------------------------
 \subsection{The Johnson-Cook model\label{sec:JC}}
 %----------------------------------------------------------------------------------
@@ -320,7 +253,7 @@ The values predicted by the Johnson-Cook flow law (solid line) and the experimen
 \caption{Comparison between the experimental and predicted flow stresses by JC model.}
 \label{fig:CompExp-JC-6}
 \end{figure}
-The JC model is not able to describe the evolution of the flow stress of AISI P20 for all strain values, and the predicted stresses $\sigma^y$ show a monotonically decreasing trend for several values of the strain rates.
+The JC model is not able to describe the evolution of the flow stress of medium carbon for all strain values, and the predicted stresses $\sigma^y$ show a monotonically decreasing trend for several values of the strain rates.
 The discrepancy between the predicted and experimental values is large for low strains and sometimes acceptable for high strains.
 As expected, the mathematical formulation of the Johnson-Cook flow law is unable to represent the stress drop at low strain rates, the JC model being only monotonically increasing with strain.
 Since most of the parameters are identified at low strain rates ($A$, $B$ and $n$), this results in a very poor fit of the model to the experimental data.
@@ -351,31 +284,7 @@ But the original form of ZA model has some limitations due to the fact that it i
 \sigma^y = \left(C_{1}+C_{2}\varepsilon^{p^n}\right) \exp\left[-\left(C_{3}+C_{4}\varepsilon^p\right)\left(T-T_0\right) + \left(C_{5}+C_{6}\left(T-T_0\right)\right)\ln\left( \frac{\mdot\varepsilon}{\mdot{\varepsilon}_0}\right)\right],
 \end{equation}
 where the 7 coefficients $C_i$ and $n$ are the parameters of the model to be identified for a given material.
-The formulation of the model can be found in \cite{Samantaray-2009} and determination of its parameters is summarized as following.
-
-\OP{See again how to summarize this part, since this method is already published.}
-
-Considering the expression of the model given by Equation (\ref{eq:MZA-model}), parameter $C_1$ is deduced directly from $\sigma^y(0,T_0,\mdot{\varepsilon}_0)$.
-When the current strain rate $\mdot\varepsilon$ is identical to the reference strain rate $\mdot{\varepsilon}_0$, taking the logarithm of the Equation (\ref{eq:MZA-model}) leads to:
-\begin{equation}
-\ln\sigma^y = \ln\left(C_{1}+C_{2}\varepsilon^{p^n}\right)-\left(C_{3}+C_{4}\varepsilon^p\right)\left(T-T_0\right)
-\end{equation}
-
-By plotting the function $\ln\sigma^y\left(T-T_0\right)$ the y-intercept and the slope of this line can be deduced as $I_1=\ln\left(C_1+C_2\varepsilon^{p^n}\right)$ and $S_1=-\left(C_3+C_4\varepsilon^p\right)$.
-From the expression of $I_1$ we can write:
-\begin{equation}
-\ln\left(\exp(I_1)-C_1\right) = \ln C_2+n\ln\varepsilon^p
-\end{equation}
-
-By plotting the function $\ln\left(\exp(I_1)-C_1\right)$ versus $\ln\varepsilon^p$ we can deduce $n$ and $C_2$.
-The plot of $S_1$ versus $\varepsilon^p$ allows deducing $C_3$ and $C_4$ from the y-intercept and the slope, respectively.
-Once the first four terms of the model are calculated, we can now take the logarithm of the entire MZA model given by Equation (\ref{eq:MZA-model}).
-\begin{equation}
-\ln\sigma^y = \ln\left(C_{1}+C_{2}\varepsilon^{p^n}\right) - \left(C_{3}+C_{4}\varepsilon^p\right)\left(T-T_0\right) + S_2\ln\left( \frac{\mdot\varepsilon}{\mdot{\varepsilon}_0}\right),
-\end{equation}
-with $S_2=C_5+C_6\left(T-T_0\right)$.
-Finally, the graph $\ln\sigma^y$ versus $ \ln(\mdot\varepsilon/\mdot{\varepsilon}_0)$ allows deducing $C_5$ and $C_6$ from the slope $S_2$.
-The parameters of MZA model are given in Table \ref{tab:MZA} while its prediction are plotted in Figure \ref{fig:CompExp-MZA-6}.
+To get the parameters of the MZA model we apply the medod proposed by \cite{Samantaray-2009} and those parameters are summurizedin in Table \ref{tab:MZA} while its prediction are plotted in Figure \ref{fig:CompExp-MZA-6}.
 \begin{table}[h!]
 \centering{}
 \caption{Parameters' constants of Modified-Zerilli-Armstrong Model}
@@ -463,9 +372,7 @@ with:
 \begin{equation}
 Z = \mdot\varepsilon \exp{\left(\frac{Q}{RT}\right)}, \label{eq:ArZ}
 \end{equation}
-where $Z$ is the Zenner-Hollomon parameter \cite{Zener-1944}, $\mdot\varepsilon$ is the strain rate ($\ps$), $Q$ is the apparent activation energy ($\text{J~mol}^{-1}$), $R$ is the universal gas constant ($8.314~\text{J~mol}^{-1} \text{K}^{-1}$), $T$ is the absolute temperature (K), $\sigma^y$ is the flow stress (MPa) for a given strain, strain rate and temperature and $A_1$, $A_2$, $A_3$, $n_1$, $n_2$, $\alpha$ and $\beta=\alpha~n_1$ are dependent of the material.
-The corresponding values are independent of the temperature and are obtained from the stress-strain curves at different strain rates and temperature by regression method.
-Combination of Equations (\ref{eq:ArDef}) and (\ref{eq:ArZ}) allow expressing the flow stress $\sigma^y$ as a function of the $Z$ parameter:
+Where $Z$ is the Zenner-Hollomon parameter \cite{Zener-1944}, $\mdot\varepsilon$ is the strain rate ($\ps$), $Q$ is the apparent activation energy ($\text{J~mol}^{-1}$), $R$ is the universal gas constant ($8.314~\text{J~mol}^{-1} \text{K}^{-1}$), $T$ is the absolute temperature (K), $\sigma^y$ is the flow stress (MPa) for a given strain, strain rate and temperature and $A_1$, $A_2$, $A_3$, $n_1$, $n_2$, $\alpha$ and $\beta=\alpha~n_1$ are dependent of the material. The corresponding values are independent of the temperature and are obtained from the stress-strain curves at different strain rates and temperature by regression method. Combination of Equations (\ref{eq:ArDef}) and (\ref{eq:ArZ}) allow expressing the flow stress $\sigma^y$ as a function of the $Z$ parameter:
 \begin{equation}
 \sigma^y = \frac{1}{\alpha} \ln\left\{\left(\frac{Z}{A}\right)^{1/n} + \left[1 + \left(\frac{Z}{A}\right)^{2/n}\right]^{1/2}\right\}
 \end{equation}
@@ -552,7 +459,7 @@ The determination of the parameters of this model are calculated thanks to the L
 Thus, all the parameters of this model are calculated with $q=5$, $r=5$, $s=1$ and $t=5$.
 
 Comparison of predicted values of the PTM model and experimental values is shown in Figure \ref{fig:CompExp-PTM-6}.
-The PTM model is suitable to describe the flow behavior of AISI P20 steel, but for the two strain rates $\mdot\varepsilon=0.01~\ps$ and $\mdot\varepsilon=0.1~\ps$ the prediction is not quite good.
+The PTM model is suitable to describe the flow behavior of medium carbon steel, but for the two strain rates $\mdot\varepsilon=0.01~\ps$ and $\mdot\varepsilon=0.1~\ps$ the prediction is not quite good.
 The deviation between the predicted values and the experimental values for other strain rates is relatively good.
 For the PTM model, $\AARE=4.79~\%$ and $\RMSE=4.59~\MPa$ and this shows an overall worse performance than the AR model.
 
@@ -633,7 +540,7 @@ Figure \ref{fig:ANN-6-conv} show the evolution of the training error defined by 
 \end{figure}
 As we can see on this figure, after $5~000$ epoch, we can consider that we have reached a stationary state of the model learning and that it is useless to continue the learning phase.
 
-Once the learning phase is over, the trained model can be used to predict the behavior of the AISI P20 alloy as a function of the input data in the same way as is done with the analytical models.
+Once the learning phase is over, the trained model can be used to predict the behavior of the medium carbon alloy as a function of the input data in the same way as is done with the analytical models.
 One can either use the model directly by providing it with new input data, or retrieve the $180$ parameters identified during the training and inject them into a mathematical model based on Equations (\ref{eq:ANN1}) and (\ref{eq:ANN2}) which can be implemented in any language (\eg in FORTRAN for use on the Abaqus Explicit FEM code) as proposed in Pantalé \eal \cite{Pantale-2021}.
 For reasons of compactness, the parameters of the ANN model and the complete procedure to compute the flow stress $\sigma^y$ from the input data are provided in the Appendix.
 
@@ -653,7 +560,7 @@ This model can be used to simulate the hot deformation of this type of alloy wit
 \subsection{Comparison of analytical and ANN models\label{sec:Comparison}}
 %----------------------------------------------------------------------------------
 
-A summary of the coefficients for evaluating the high-temperature flow stress prediction capability of the AISI P20 alloy for all models presented in this work is reported in Table \ref{tab:Errors}.
+A summary of the coefficients for evaluating the high-temperature flow stress prediction capability of the medium carbon alloy for all models presented in this work is reported in Table \ref{tab:Errors}.
 \begin{table}[h!]
 \centering
 \caption{Accuracy coefficients for all the analyzed models.}
@@ -667,8 +574,8 @@ A summary of the coefficients for evaluating the high-temperature flow stress pr
 \end{table}
 From this table, we can see that the ANN model has a much better predictive capacity than all the analytical models presented previously.The values of $\AARE$ and $\RMSE$ are globally 6 times lower than the best of the analytical models, \ie the Arrhenius model, quoted as reference in the context of hot forming of alloys \cite{Liang-2022}.
 
-The ANN, Arrhenius and PTM models are the only models that take into account the softening with the deformation of AISI P20 at low strain rate, unlike the other three models that only present an increase of the flow stress with the strain, whatever the strain rate and temperature, hence their poor performance in predicting the behavior of this material and more particularly at low strain rates.
-The parameters reported in Table \ref{tab:Errors}, the correlations visible in Figures \ref{fig:CompExp-JC-6} to \ref{fig:CompExp-3-15-7-1-sigmoid} allow us to conclude here that the ANN model is the most efficient of all the models presented to describe the behavior of the AISI P20 alloy for high temperature deformation applications.
+The ANN, Arrhenius and PTM models are the only models that take into account the softening with the deformation of medium carbon at low strain rate, unlike the other three models that only present an increase of the flow stress with the strain, whatever the strain rate and temperature, hence their poor performance in predicting the behavior of this material and more particularly at low strain rates.
+The parameters reported in Table \ref{tab:Errors}, the correlations visible in Figures \ref{fig:CompExp-JC-6} to \ref{fig:CompExp-3-15-7-1-sigmoid} allow us to conclude here that the ANN model is the most efficient of all the models presented to describe the behavior of the medium carbon alloy for high temperature deformation applications.
 
 %----------------------------------------------------------------------------------
 \section{Interpolation and extrapolation capability of analytical and ANN models \label{sec:IntExt}}
@@ -770,10 +677,25 @@ The AR model is this time a little bit better on the $\mdot\varepsilon=5~\ps$ st
 We can therefore conclude from this part of the study that the AR model is the best performing of the 5 analytical models presented, which is in agreement with the fact that it is widely used for thermomechanical processing, but the ANN model approach has advantages over the AR model approach in that, overall, the ANN model is more faithful to the experimental data than the AR model for all strain rates.
 
 %----------------------------------------------------------------------------------
+\subsection{Proposed technique for better interpolation}
+%----------------------------------------------------------------------------------
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=\columnwidth]
+{Figures/Performance}
+\caption{Comparison between the experimental (dot) and predicted flow stresses $\sigma^y$ (lines) for $\mdot\varepsilon=5~\ps$}
+\label{fig:Performance}
+\end{figure}
+In this part a technique is proposed to have a better interpolation of data. Indeed, as mentioned in the introduction, it is important to know how to reassure oneself of the effectiveness of the model that well describes the behavior of a material for a good use on new data. It is therefore a question of choosing models that have a good correlation with experience and proposing a formula for a good use of their parameters on unknown data. The AR, HS, PTM and ANN models are therefore chosen and it emerges that each model must be multiplied by a lambda factor whose formula is given as follows.
+\begin{equation}
+ \lambda = \left(\frac{\dot{\varepsilon}_{max} - \dot{\varepsilon}_{p} }{\dot{\varepsilon}_{p} - \dot{\varepsilon}_{min}}\right)^{\frac{\dot{\varepsilon}_p}{m}}
+\end{equation}
+Where $\dot{\varepsilon}_{p}$ is the unkown strain rate and $m\in[50-300]$
+Applaying this formule the new figures are plotted in Figure \ref{fig:Performance}. From these results we can see clearly that the results are better that the initial ones. 
 \section{Conclusions and future work\label{sec:Conclusion}}
 %----------------------------------------------------------------------------------
 
-Experimental tests were performed on a Gleeble thermomechanical simulator for a modified AISI P20 carbon alloy to investigate the applicability and predictive accuracy of 5 analytical models and an Artificial Neural Network model over a range of strains ($0.0-0.7$), strain rates ($0.001~\ps-5~\ps$) and temperatures ($1050\celsius-1250\celsius$).
+Experimental tests were performed on a Gleeble thermomechanical simulator for a modified medium carbon carbon alloy to investigate the applicability and predictive accuracy of 5 analytical models and an Artificial Neural Network model over a range of strains ($0.0-0.7$), strain rates ($0.001~\ps-5~\ps$) and temperatures ($1050\celsius-1250\celsius$).
 The analytical models selected for this study are the Johnson-Cook (JC) model \cite{Johnson-1983}, the Modified Zerilli-Armstrong (MZA) model \cite{Samantaray-2009}, the Hansel-Spittle (HS) model \cite{Hensel-1978}, the Arrhenius (AR) model \cite{Sellars-1966} and the PTM model  \cite{TizeMha-2022}.
 Analysis of the data from the Gleeble trials, and comparison of the 6 models proposed in this study against the experiments, led to the following conclusions.
 
@@ -784,7 +706,7 @@ A study focused on an in-depth analysis of the microstructure of this steel allo
 
 Five analytical models have been identified for this alloy, as well as an Artificial Neural Network based model.
 Among the analytical models, the JC and MZA models proved to be inappropriate to reproduce the behavior of this material, while the HS, PTM and AR models showed their capabilities since they present an acceptable $\AARE$ error (from $3.5\%$ to $7.7\%$), with a superiority of the AR model ($3.56\%$) over the other two which confirms its use in thermomechanical processes.
-The ANN model, is largely more accurate than the analytical models in predicting the flow stress $\sigma^y$ of the AISI P20 with a value of $\AARE=0.62\%$.
+The ANN model, is largely more accurate than the analytical models in predicting the flow stress $\sigma^y$ of the medium carbon with a value of $\AARE=0.62\%$.
 
 To test the performance of each proposed model, a study was conducted to evaluate the interpolation and extrapolation capability of the developed models.
 In the case of interpolation, the HS, PTM and AR models have a good correlation with the experiment, but the ANN model shows superiority with an error factor 5 times lower than the AR model.
@@ -933,5 +855,3 @@ b = 0.1178
 \end{equation*}
 
 \end{document}
-
-
