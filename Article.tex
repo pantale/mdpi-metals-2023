@@ -27,7 +27,7 @@
 \newtheorem{thm}{\protect\theoremname}
 
 % specify here the journal
-\journal{International Journal of Mechanical Sciences}
+\journal{Materials \& Design}
 
 % use this if you need line numbers
 \usepackage{lineno}
@@ -111,19 +111,19 @@ In parallel, more stringent conditions related to chemical homogeneity, hardness
 Of the three manufacturing steps (casting, forging and heat treatment), forging is where the most important microstructural changes take place, and which greatly influences the final properties that can be achieved \cite{murugesan2019hybrid, chadha2020microstructure, sripada2022effect}.
 The open die forging process is fundamentally a hot compression process during which work strengthening effects, such as hardening (WH) and precipitation, take place concomitantly with softening phenomena such as recovery and recrystallization under static and/or dynamic thermomechanical loads \cite{tian2022deformation, tavakoli2019ferrite}.
 It has also been reported that phase transformation can occur during deformation.
-The extent and intensity of the above phenomena strongly depend on three macroscopic quantities, namely, the strain $\varepsilon$, the strain rate $\mdot\varepsilon$ and the temperature $T$ \cite{ebrahimi2017flow, Ashtiani-2012, He-2013, Changizian-2012}.
+The extent and intensity of the above phenomena strongly depend on three macroscopic quantities, namely, the strain $\varepsilon$, the strain rate $\mdot\varepsilon$ and the temperature $T$ \cite{ebrahimi2017flow, shi2022constitutive, zeng2022constitutive, rudra2019constitutive}.
 
 Considering the large size of blocks, a purely experimental approach, based on trial and error, can not be used by industry, and therefore, reliable predictive tools, such a Finite Element analysis (FEA) codes, have been developed, and are commercially available.
 However, the prediction reliability of such analyses is a function of the accuracy of the material constitutive model, which describes the mutual interactions between the strain, the strain rate, and the temperature during deformation.
 As mentioned above, precipitation and phase changes are considered negligible as deformation takes place in the austenite at temperatures above the dissolution temperature of most carbides.
 Hence, most constitutive models depend on macroscopic parameters which influence the hardening and softening of the material.
-A large number of phenomenological, semi-empirical, or physical models \cite{Rusinek-2010, Shin-2010, Lin-2011, Pantale-2021} have been developed.
-Among these, the Johnson-Cook (JC) \cite{Johnson-1983}, Hansel-Spittel (HS) \cite{chadha2018approach}, and Zerilli-Armstrong (ZA) \cite{Zerilli-1987} models are the best known and most widely available in FEA codes.
+A large number of phenomenological, semi-empirical, or physical models \cite{jia2022thermo, costa2016study, rudnytskyj2020constitutive, Pantale-2021} have been developed.
+Among these, the Johnson-Cook (JC) \cite{jia2021modified}, Hansel-Spittel (HS) \cite{chadha2018approach}, and Zerilli-Armstrong (ZA) \cite{sim2022modified} models are the best known and most widely available in FEA codes.
 Despite their simplicity, each of them suffers from certain shortcomings: as reported by Jia \eal \cite{Jia-2021}, the JC model suffers from a lack of non-coupling between the strain, the strain rate and the temperature, while the HS model is better adapted for higher strain rate conditions \cite{chadha2018approach}.
-To circumvent these shortcomings, several modified model forms have been developed \cite{chadha2018approach, Rule-1998, Vural-2003, Lin-2010, Lin-2012}.
+To circumvent these shortcomings, several modified model forms have been developed \cite{chadha2018approach, liu2021modified, jia2022thermo1, bai2022comparison, zhu2022constitutive}.
 However, as reported by many authors \cite{Li-2013, Zhang-2015, Zhou-2019}, even after adjusting the constants, the high temperature flow behavior, particularly when dynamic recrystallization takes place, cannot be accurately predicted, and none of the models is able to accurately predict the flow behavior outside the experimental testing interval that was used to determine the model constants.
-Due to its more physics-based formulation, the ZA model and its modified form, MZA \cite{NematNasser-2004, Lennon-2004, Muralli-2017, Cheng-2021, Muralli-2021}, and the Arrhenius-type hyperbolic sine constitutive models are preferred to the JC and HS models both for the prediction of the hot deformation behavior and microstructure analysis of the material \cite{Jonas-1969, Mostafaei-2012, Zhang-2012}.
-The Arrhenius formulation has been revised repeatedly to achieve a more accurate determination of the activation energy for high temperature deformation \cite{Slooff-2007, Lin-2008-C}.
+Due to its more physics-based formulation, the ZA model and its modified form, MZA \cite{ovesy2020explicit, niu2020constitutive, Muralli-2017, Cheng-2021, Muralli-2021}, and the Arrhenius-type hyperbolic sine constitutive models are preferred to the JC and HS models both for the prediction of the hot deformation behavior and microstructure analysis of the material \cite{derazkola2021review, wang2022deformation, miao2022deformation}.
+The Arrhenius formulation has been revised repeatedly to achieve a more accurate determination of the activation energy for high temperature deformation \cite{rudnytskyj2022investigating, ji2020optimization}.
 To overcome the strong dependency of the models on specific alloy types, Tize Mha \eal \cite{TizeMha-2022} recently proposed a constitutive model, PTM, whose formulation is independent of the alloy type.
 This formulation is based on the MZA model and the polynomial functions of undefined order that are used during the identification.
 However, in the PTM model, the high order of the polynomial function (up-to $10$ in some cases) can affect its accuracy.
@@ -132,7 +132,7 @@ The Artificial Neural Network (ANN) is an approach used to predict the flow stre
 It is therefore not necessary to postulate a mathematical expression to identify the parameters of the model.
 Since the behavior of materials is highly nonlinear at high temperatures, and depends on many factors which are also nonlinear, the evaluation of the flow stress behavior by an analytical model whose parameters are identified by a classical regression method is limited.
 Faced with these limitations, ANN models are of major interest because they are particularly suited to deal with complex and nonlinear relationships.
-Consequently, ANNs have been successfully applied to predict the flow stress behavior of materials under hot working conditions \cite{Lin-2008-ANN, Lu-2011-ANN, Ashtiani-2016-CSP, Stoffel-2019-NNB}.
+Consequently, ANNs have been successfully applied to predict the flow stress behavior of materials under hot working conditions \cite{wu2022experimental, stoffel2020deep, Ashtiani-2016-CSP, Stoffel-2019-NNB}.
 Although ANN models can predict well the material flow behavior, there is a problem with its implementation in finite element software, as reported by Pantalé \eal \cite{Pantale-2021, Pantale-2023}.
 In fact, the implementation of a constitutive model in an FEA code requires the derivatives of the model with respect to strain, strain rate and temperature.
 
@@ -207,7 +207,7 @@ The overall behavior of these curves shows that the flow stress $\sigma^y$ incre
 It should be noted that the strain also influences the flow stress.
 Indeed, for the lowest strain rates $\mdot\varepsilon$, the flow stress $\sigma^y$ increases with the strain $\varepsilon$ until a value of about $\varepsilon=0.2$ to $0.3$, and then decreases to maintain a more or less constant value until the end of the test.
 For the highest strain rates ($1~\ps$, $2~\ps$, and $5~\ps$), the flow stress increases throughout the test.
-The slight increase in stress at low strain rates, when the strain is large, has been reported to be due to friction between the sample and the anvil during the test \cite{buckley2001deformation}.
+The slight increase in stress at low strain rates, when the strain is large, has been reported to be due to friction between the sample and the anvil during the test \cite{galos2022review}.
 The frictional effect is also visible when testing at low strain rates, as the effect of lubrication decreases over time, and friction thus increases.
 The increase of stress observed at the beginning of the deformation and up-to $0.1$ is due to work hardening (WH).
 After $0.1$ and up-to $0.2$, the flow stress shows a continuous reduction with increasing stress until a peak or an inflection of the work-hardening rate.
@@ -249,7 +249,7 @@ The data presented in Figure \ref{fig:RawData} will be utilized in the following
 The JC model, as mentioned above, is one of the most widely used analytical models because it can be applied to many materials under different conditions of strain $\varepsilon$, strain rate $\mdot\varepsilon$, and temperature $T$.
 However, the formulation of this model does not take into account the simultaneous effect of strain, strain rate and temperature.
 Indeed, it is formulated by describing the effect of each physical parameter ($\varepsilon$, $\mdot\varepsilon$ and $T$) separately as a factor in the mathematical expression of the model, hence its inability to describe the phenomenon of softening induced by temperature.
-The equation that describes this model is given as follows \cite{Johnson-1983}:
+The equation that describes this model is given as follows \cite{jia2021modified}:
 \begin{equation}
 \sigma^y=\left(A+B\varepsilon^{p^{n}}\right) \left[1+C\ln\left(\frac{\mdot\varepsilon}{\mdot\varepsilon_0}\right)\right] \left[1-\left(\frac{T-T_0}{T_m-T_0}\right)^{m}\right],\label{eq:Johnson-Cook}
 \end{equation}
@@ -257,13 +257,13 @@ where $\sigma^y$ is the flow stress, $\varepsilon^p$ is the plastic strain, $A$ 
 The other values are reference values: $\mdot\varepsilon_0$ is the reference strain rate, $T_m$ and thus $T_0$ are the melting temperature ($1460\celsius$ in our case) and the reference temperature, respectively.
 For the determination of the parameters of the analytical models, the reference values for strain rate and temperature are $\mdot\varepsilon_0=0.001~\ps$ and $T_0=1050\celsius$, respectively.
 
-The procedure used to determine the parameters of the Johnson-Cook law is in accordance with the one proposed by He \eal \cite{He-2013}.
+The procedure used to determine the parameters of the Johnson-Cook law is in accordance with the one proposed by He \eal \cite{zeng2022constitutive}.
 This method allows sequentially obtaining the $5$ parameters in the order $A$, $B$, $n$, $C$ and $m$.
 Thus, according to the experimental data, the initial elastic limit of the material at the reference strain rate $\mdot\varepsilon_0$ and the reference temperature $T_0$ is $A=13.5143~\MPa$.
 For the determination of the constants $B$ and $n$, from the results of the compression test at $T_0$ and $\mdot\varepsilon_0$, these two constants can then be determined by considering only the first term $\left(A+B\varepsilon^{p^{n}}\right)$ in Equation (\ref{eq:Johnson-Cook}).
 Thus, here, $B=21.816~\MPa$ and $n=0.0746$.
 Once the parameters $A$, $B$ and $n$ are known, the determination of $C$, considering only all the curves at $T=T_0$ then gives $C=0.3404$.
-Finally, the last parameter $m$ is identified from the curves at $\mdot\varepsilon=\mdot\varepsilon_0$ and from knowledge of the previously identified parameters and gives $m=0.7057$.
+Finally, the last parameter $m$ is identified from the curves at $\mdot\varepsilon=\mdot\varepsilon_0$ and from knowledge of the parameters $A, B, C, n$ and gives $m=0.7057$.
 All parameters of the Johnson-Cook model are reported in Table \ref{tab:JC}.
 
 \begin{table}[h!]
@@ -299,8 +299,8 @@ and the Root Mean Square Error ($\RMSE$) defined by Equation (\ref{eq:RMSE}):
 \end{equation}
 where $\sigma_i^e$ is the experimental value, $\sigma_i^p$ is the value predicted using the given model of the flow stress $\sigma^y$ and $N$ is the total number of data points used to compute those coefficients (in our case $N=21~000$).
 For the JC model, $\MARE=14.05~\%$ and $\RMSE=12.00~\MPa$.
-As reported by Phaniraj \cite{Phaniraj-2003}, the correlation coefficient ($\R$) is generally not a good measure because it only shows the correlation of the model with respect to the data and not its accuracy, which is a determining factor in the qualification of a model.
-Therefore, as a good (high) value of $\R$ (close to $1$) does not necessarily mean a good prediction of the model, but simply establishes a good linearity correlation between the experiment and the prediction, we avoided its use in our analysis.
+As reported by Phaniraj \cite{Phaniraj-2003},  the correlation coefficient ($\R$) is not always an accurate measure to evaluate the reliability of the constitutive law espacially in the case of a highly non-linear functions because it only shows the correlation of the model with respect to the data and not its accuracy. Therefore, a good (high) value of $\R$ (close to $1$) does not necessarily mean a good prediction of the model, but simply establishes a good linearity correlation between the experiment and the prediction, we avoided its use in our analysis.
+
 
 %----------------------------------------------------------------------------------
 \subsection{The Modified Zerilli-Armstrong model\label{sec:MZA}}
@@ -308,7 +308,7 @@ Therefore, as a good (high) value of $\R$ (close to $1$) does not necessarily me
 
 The MZA model, which is the modified form of the ZA model, like the JC model presented earlier, is one of the most widely used models implemented in many FEM codes such as the Abaqus software.
 The difference between the MZA model and JC model is related to the consideration of the three physical parameters to describe the reality observed from experiments.
-In the JC model, the parameters are considered separately, while in MZA, they are considered simultaneously, and for that formulation, MZA is preferred to the JC model \cite{Hull-2011}.
+In the JC model, the parameters are considered separately, while in MZA, they are considered simultaneously, and for that formulation, MZA is preferred to the JC model \cite{zhu2022thermal}.
 However, the original form of the ZA model has some limitations due to the fact that it is considered as a two terms function (thermal and athermal functions), and to improve the formulation, Samantaray \eal \cite{Samantaray-2009} proposed a modified form given by the following equation:
 \begin{equation}
 \label{eq:MZA-model}
@@ -341,7 +341,7 @@ For the MZA model, $\MARE=21.20~\%$ and $\RMSE=19.57~\MPa$, showing an overall w
 \subsection{The Hansel-Spittel model\label{sec:HSmodel}}
 %----------------------------------------------------------------------------------
 
-The Hansel-Spittel model \cite{Hensel-1978} is one of the least known models in terms of integration in FEM codes, although its parameters can more easily be determined than those of the JC or MZA models.
+The Hansel-Spittel model \cite{savaedi2022review} is one of the least known models in terms of integration in FEM codes, although its parameters can more easily be determined than those of the JC or MZA models.
 Programming a simple identification script is sufficient to identify its parameters for a given material.
 The equation of the HS model is given by the following relation:
 \begin{equation}
@@ -387,7 +387,7 @@ The DRX phenomenon cannot be reproduced by this type of model.
 \subsection{The Arrhenius model\label{sec:ARmodel}}
 %----------------------------------------------------------------------------------
 
-The Arrhenius type model \cite{Sellars-1966} is one of the most used models in the framework of material forming, especially when it comes to studying the material microstructure.
+The Arrhenius type model \cite{zhou2022hot} is one of the most used models in the framework of material forming, especially when it comes to studying the material microstructure.
 The model takes into account the physical phenomena describing the behavior of the material in the formulation of the relationships between the stress $\sigma^y$, the strain $\varepsilon$, the strain rate $\mdot\varepsilon$ and the temperature $T$ expressed as power law, exponential law and hyperbolic sine.
 This makes it easier to describe the softening phenomenon observed in the material due to increasing temperature.
 The following equations describe the Arrhenius model:
@@ -404,7 +404,7 @@ with:
 \begin{equation}
 Z = \mdot\varepsilon \exp{\left(\frac{Q}{RT}\right)}, \label{eq:ArZ}
 \end{equation}
-where $Z$ is the Zenner-Hollomon parameter \cite{Zener-1944}, $\mdot\varepsilon$ is the strain rate ($\ps$), $Q$ is the apparent activation energy ($\text{J~mol}^{-1}$), $R$ is the universal gas constant ($8.314~\text{J~mol}^{-1} \text{K}^{-1}$), $T$ is the absolute temperature (K), $\sigma^y$ is the flow stress (MPa) for a given strain, strain rate and temperature and $A_1$, $A_2$, $A_3$, $n_1$, $n_2$, $\alpha$ and $\beta=\alpha~n_1$ are dependent on the material.
+where $Z$ is the Zenner-Hollomon parameter \cite{liu2019effect}, $\mdot\varepsilon$ is the strain rate ($\ps$), $Q$ is the apparent activation energy ($\text{J~mol}^{-1}$), $R$ is the universal gas constant ($8.314~\text{J~mol}^{-1} \text{K}^{-1}$), $T$ is the absolute temperature (K), $\sigma^y$ is the flow stress (MPa) for a given strain, strain rate and temperature and $A_1$, $A_2$, $A_3$, $n_1$, $n_2$, $\alpha$ and $\beta=\alpha~n_1$ are dependent on the material.
 The corresponding values are independent of the temperature and are obtained from the stress-strain curves at different strain rates and temperatures by the regression method.
 Combining Equations (\ref{eq:ArDef}) and (\ref{eq:ArZ}) allows to express the flow stress $\sigma^y$ as a function of the $Z$ parameter:
 \begin{equation}
@@ -525,11 +525,11 @@ For the PTM model, $\MARE=4.79~\%$ and $\RMSE=4.59~\MPa$, which is an overall wo
 %----------------------------------------------------------------------------------
 
 Because of their predictive capacity and adaptability, Artificial Neural Networks (ANNs) are increasingly widely used today in many scientific fields.
-Their operation is based on a learning process during which the principle of minimizing the error between the model's output and the training data allows the adjustment of the model's parameters, as in any machine learning process.
+Their operation is based on a training process during which the principle of minimizing the error between the model's output and the training data allows the adjustment of the model's parameters, as in any machine training process.
 
 Neural networks generally have two uses: classification and regression.
 The first is the ability to classify data into different groups, and for example, to distinguish between images of cats and dogs.
-The second corresponds to the universal approximation capacity of these neural networks, which is of interest to us herein, and thus, to the ability, after learning, to predict the flow stress $\sigma^y$ values according to the input data, akin to what is done by the previously identified analytical models.
+The second corresponds to the universal approximation capacity of these neural networks, which is of interest to us herein, and thus, to the ability, after training, to predict the flow stress $\sigma^y$ values according to the input data, akin to what is done by the above identified analytical models. 
 The main difference is that this approximation is not linked to a fixed mathematical formulation (as in JC, MZA, AR, HS and PTM analytical models), but is only dependent on the data used for training, the number of layers, the number of neurons per layer, and the activation functions associated with the neurons of the network.
 A feed-forward ANN, as used in our application, contains an input layer, an output layer and a number of hidden layers ($2$ in our case).
 Each layer of neurons is connected to the one before it and the one after it by weighted connections.
@@ -555,14 +555,14 @@ For the proposed model, we selected the Sigmoid activation function, so that, ea
 
 No activation function is used for the output neuron of the ANN as usually done in regression ANN.
 
-After some tests of different types of network architectures, and in accordance with previous works, a network structure with two hidden layers including $15$ neurons for the first hidden layer and $7$ neurons for the second layer give the best compromise between prediction, learning time and model compactness.
+After some tests of different types of network architectures, and in accordance with previous works, a network structure with two hidden layers including $15$ neurons for the first hidden layer and $7$ neurons for the second layer give the best compromise between prediction, training time and model compactness.
 From a global architecture point of view, the input layer is composed of $3$ neurons ($\varepsilon^p$, $\mdot\varepsilon$, $T$) and the output layer is composed of a single neuron corresponding to the $\sigma^y$ flow stress.
 This architecture leads to a global model with $180$ parameters to be identified ($60$ for the first layer, $112$ for the second layer and $8$ for the output layer).
 
 The Python program used for training the neural network was developed using the specialized Python library, Tensorflow \cite{Abadi-2016}.
 The Adaptive Moment Estimation (ADAM) optimizer \cite{Kingma-2015} was used for the training phase.
 The training data were those from the tests presented in Section \ref{sec:ComTestResults}, and were composed of $21,000$ quadruplets of ($\varepsilon^p$, $\mdot\varepsilon$, $T$, $\sigma^y$) values.
-The learning was performed on the basis of $5,000$ epochs of the experimental data set.
+The training was performed on the basis of $5,000$ epochs of the experimental data set.
 $40$ minutes of training on a Dell XPS-13 7390 laptop running Ubuntu 22.04 LTS 64 bits with 16 GB of Ram and an Intel 4-core i7-10510U processor allowed to obtain the converged parameters of the ANN model.
 Figure \ref{fig:ANN-6-conv} shows the evolution of the training error defined by the $\log_{10}$ of the $\RMSE$ during the training phase.
 \begin{figure}[!ht]
@@ -572,13 +572,13 @@ Figure \ref{fig:ANN-6-conv} shows the evolution of the training error defined by
 \caption{Convergence of the ANN model during the training phase}
 \label{fig:ANN-6-conv}
 \end{figure}
-As can be seen in this figure, after $5,000$ epochs, we can consider that we have reached a stationary state of the model learning, and that it is useless to continue with the learning phase.
+As can be seen in this figure, after $5,000$ epochs, we can consider that we have reached a stationary state of the model training, and that it is useless to continue with the training phase.
 
-Once the learning phase is over, the trained model can be used to predict the behavior of the medium carbon alloy as a function of the input data similarly to what is done with analytical models.
+Once the training phase is over, the trained model can be used to predict the behavior of the medium carbon alloy as a function of the input data similarly to what is done with analytical models.
 One can either use the model directly by providing it with new input data, or retrieve the $180$ parameters identified during the training and inject them into a mathematical model based on Equations (\ref{eq:ANN1}) and (\ref{eq:ANN2}), which can be implemented in any language (\eg in FORTRAN for use on the Abaqus Explicit FEM code), as proposed in Pantalé \eal \cite{Pantale-2021, Pantale-2023}.
 For compactness, the parameters of the ANN model and the complete procedure to compute the flow stress $\sigma^y$ from the input data are provided in the Appendix.
 
-As for the analytical models presented previously, Figure \ref{fig:CompExp-3-15-7-1-sigmoid} shows a comparison between the flow stresses predicted by the ANN model and the data measured during the hot compression test.
+As for the above considered analytical models, Figure \ref{fig:CompExp-3-15-7-1-sigmoid} shows a comparison between the flow stresses predicted by the ANN model and the data measured during the hot compression test.
 \begin{figure}[!ht]
 \centering
 \includegraphics[width=\columnwidth]
@@ -588,7 +588,7 @@ As for the analytical models presented previously, Figure \ref{fig:CompExp-3-15-
 \end{figure}
 The experimental data and the ANN prediction correlate very well over the entire range of data and the predicted data can track the hardening and softening regions of the hot deformed material well.
 For the ANN model, $\MARE=0.62~\%$ and $\RMSE=0.38~\MPa$ which is excellent.
-This model can be used to simulate the hot deformation of this type of alloy with much greater fidelity to the actual material behavior than the analytical models presented previously.
+This model can be used to simulate the hot deformation of this type of alloy with much greater reliability to the actual material behavior than the analytical models presented in the above sections.
 
 %----------------------------------------------------------------------------------
 \subsection{Comparison of analytical and ANN models\label{sec:Comparison}}
@@ -606,7 +606,7 @@ A summary of the coefficients for evaluating the high-temperature flow stress pr
 \end{tabular}
 \label{tab:Errors}
 \end{table}
-From this table, we can see that the ANN model has a much better predictive capacity than all the analytical models presented previously.
+From the Table \ref{tab:Errors}, we can see that the ANN model has a much better predictive capacity than all the analytical models presented in the above sections.
 Globally, the values of $\MARE$ and $\RMSE$ are $6$ times lower than with the best of the analytical models, \ie, the Arrhenius model, quoted as reference in the context of the hot forming of alloys \cite{Liang-2022}.
 
 The ANN, Arrhenius and PTM models are the only models that take into account softening with the deformation of medium carbon at low strain rate, unlike the other three models, which only present an increase in the flow stress with the strain, irrespective of the strain rate and temperature, hence their poor performance in predicting the behavior of this material, and more particularly, at low strain rates.
@@ -616,9 +616,9 @@ The parameters reported in Table \ref{tab:Errors} and the correlations that can 
 \section{Interpolation and Extrapolation Capability of Analytical and ANN Models \label{sec:IntExt}}
 %----------------------------------------------------------------------------------
 
-In order to better compare the performances of the models presented previously (the 5 analytical models and the ANN based model), in this section, we present the ability of each of these models to interpolate and extrapolate the results as a function of the strain rate $\mdot\varepsilon$.
-The identification of the previously presented models is based on a set of experimental data corresponding to 6 strain rates, 5 temperatures and strains ranging from $0$ to $0.7$.
-To test the learning capacity and fidelity of these models, we propose here to perform the training of the models on only 5 strain rates by voluntarily omitting the strain rate $\mdot\varepsilon=1~\ps$ or $\mdot\varepsilon=5~\ps$.
+In order to better compare the performances of the above analysed models (the 5 analytical models and the ANN based model), in this section, we present the ability of each of these models to interpolate and extrapolate the results as a function of the strain rate $\mdot\varepsilon$.
+The identification of the above analysed models is based on a set of experimental data corresponding to 6 strain rates, 5 temperatures and strains ranging from $0$ to $0.7$.
+To test the training capacity and reliability of these models, we propose here to perform the training of the models on only 5 strain rates by voluntarily omitting the strain rate $\mdot\varepsilon=1~\ps$ or $\mdot\varepsilon=5~\ps$.
 
 Thus, one of the omitted strain rates ($\mdot\varepsilon=1~\ps$) is within the range of strain rates for model identification ($0.001~\ps\text{ to }5~\ps$), and therefore, we can test the ability of the models to interpolate the results from the other 5 strain rates and be able to quantify any deviation from experimental values.
 On the other hand, since the omitted strain rate ($\mdot\varepsilon=5~\ps$) is outside the range of strain rates for the model identification ($0.001~\ps\text{ to }2~\ps$), we will test the ability of the models to extrapolate results and quantify deviations with the experimental values.
@@ -660,18 +660,18 @@ Overall, the JC model gives better results than the MZA model for $\mdot\varepsi
 Nevertheless, these values are higher than $10\%$ for the JC model and $20\%$ for the MZA model, which reflects the poor ability of these models to correctly model the behavior of this material.
 This finding is in agreement with the previous findings of Sections \ref{sec:JC} and \ref{sec:MZA}, which showed the inability of these models to take into account the softening of the behavior visible at low strain rates and low temperatures.
 
-From a general appearance point of view, the other 4 models, HS, AR, PTM and ANN, give globally similar results, with a higher fidelity for the AR and ANN models compared to the other two models.
+From a general appearance point of view, the other 4 models, HS, AR, PTM and ANN, give globally similar results, with a higher reliability for the AR and ANN models compared to the other two models.
 Table \ref{tab:IntVal} shows a quantitative comparison on $\MARE$ and $\RMSE$ for three different cases: on the 5 identified strain rates, on only the strain rate $\mdot\varepsilon=1~\ps$ and on all 6 strain rates for these 6 models.
 It appears from this table that while the two models, AR and ANN, give equivalent (and excellent) results concerning the values of $\MARE$ and $\RMSE$ for the strain rate $\mdot\varepsilon=1~\ps$, the ANN model gives a globally better result across the entire strain rate spectrum, with values of $\MARE=0.96\%$ and $\RMSE=1.18~\MPa$ respectively; that is to say, values that are approximately 2 to 3 times lower for the ANN model than for the AR model.
 
-This shows the superior fidelity of the ANN model over to the 5 analytical models presented in this study both in terms of the interpolation capability of the model and of the overall behavior.
+This shows the superior reliability of the ANN model over to the 5 analytical models presented in this study both in terms of the interpolation capability of the model and of the overall behavior.
 
 %----------------------------------------------------------------------------------
 \subsection{Extrapolation validation}
 %----------------------------------------------------------------------------------
 
 For validation of the models' ability to extrapolate, the omitted strain rate chosen is $\mdot\varepsilon=5~\ps$ and those used for identification are $\mdot\varepsilon=[0.001, 0.01, 0.1, 1, 2]~\ps$.
-The strain rate omitted in this analysis therefore has the highest value, which restricts the learning domain.
+The strain rate omitted in this analysis therefore has the highest value, which restricts the training domain.
 
 In this new identification configuration, Figure \ref{fig:CompExt} shows a comparison, for strain rate $\mdot\varepsilon=5~\ps$, of the flow stresses $\sigma^y$ computed by the models (as a line) and the experimental results (as dots) for the 5 analytical models and the neural network.
 \begin{figure}[!ht]
@@ -703,7 +703,7 @@ The JC model performs better than the MZA model for $\mdot\varepsilon=5~\ps$, wh
 Nevertheless, these values are too large for proper use.
 Once again, it is the inability of these models to take into account the softening of the behavior at low strain rates and low temperatures that is at the origin of these values.
 
-The other 4 models, HS, AR, PTM and ANN, give better results with higher fidelity for the AR and ANN models than for the other two models.
+The other 4 models, HS, AR, PTM and ANN, give better results with higher reliability for the AR and ANN models than for the other two models.
 Table \ref{tab:ExtVal} shows a comparison over all strain rates and over $\mdot\varepsilon=5~\ps$ for these 6 models.
 The HS model performs worse in extrapolation than the AR and ANN models, while the PTM model is relegated to the last position in this ranking with values of $\MARE$ and $\RMSE$ greater than $10\%$ for the strain rate $\mdot\varepsilon=5~\ps$.
 The two models, AR and ANN, give the best results for the values of $\MARE$ and $\RMSE$ for the strain rate $\mdot\varepsilon=5~\ps$.
@@ -716,7 +716,7 @@ We can therefore conclude from this part of the study that the AR model is the b
 %----------------------------------------------------------------------------------
 
 Experimental tests were performed on a Gleeble thermomechanical simulator for a modified medium carbon alloy to investigate the applicability and predictive accuracy of 5 analytical models and an Artificial Neural Network model over a range of strains ($0.0-0.7$), strain rates ($0.001~\ps-5~\ps$) and temperatures ($1050\celsius-1250\celsius$).
-The analytical models selected for this study were the Johnson-Cook (JC) model \cite{Johnson-1983}, the Modified Zerilli-Armstrong (MZA) model \cite{Samantaray-2009}, the Hansel-Spittle (HS) model \cite{Hensel-1978}, the Arrhenius (AR) model \cite{Sellars-1966} and the PTM model \cite{TizeMha-2022}.
+The analytical models selected for this study were the Johnson-Cook (JC) model \cite{jia2021modified}, the Modified Zerilli-Armstrong (MZA) model \cite{Samantaray-2009}, the Hansel-Spittle (HS) model \cite{savaedi2022review}, the Arrhenius (AR) model \cite{zhou2022hot} and the PTM model \cite{TizeMha-2022}.
 The ANN model selected is the one introduced by Pantalé \eal \cite{Pantale-2021}.
 An analysis of the data from the Gleeble trials and a comparison of the 6 models proposed in this study against the experiments led to the following conclusions.
 
@@ -735,11 +735,7 @@ In the case of interpolation, the HS, PTM and AR models correlated well with the
 For data extrapolation, the HS, PTM and AR models again correlated well with the experiment, but the ANN model once again performed better globally.
 
 Identifying the parameters of an ANN model from experimental data requires more time than identifying the parameters of analytical models (about 40 minutes on a working laptop), but as shown by Pantalé \eal \cite{Pantale-2021, Pantale-2023}, implementing an ANN model in a computational code is straightforward.
-Therefore, we recommend using the ANN model when conducting a study involving this alloy under the experimental conditions examined herein.
 
-For future work perspectives, we will develop another ANN model to characterize the microstructure in terms of DRX and the formation of phases such as ferrite, bainite and martensite, for example.
-This ANN model can then be compared to the most commonly used classical models such as the JMAK model.
-Then, these ANN models will be implemented in FEM software such as Abaqus or Forge in order to validate them.
 
 \bibliographystyle{elsarticle-num}
 \bibliography{Bibliography}
@@ -752,7 +748,7 @@ We report here after the computing process and the $180$ coefficients of the Art
 In order to use this model, we describe here after the details of the procedure to compute the flow stress $\sigma^y$ from the input variables $\varepsilon^p$, $\mdot\varepsilon$ and $T$.
 This process can be decomposed into 3 phases:
 \begin{itemize}
-\item We first have to normalize the input values of the ANN $x_i$ within the range $[0,1]$ to avoid an ill-conditioned system as presented by many other authors in the literature \cite{Lin-2008-ANN, Lu-2011-ANN}.
+\item We first have to normalize the input values of the ANN $x_i$ within the range $[0,1]$ to avoid an ill-conditioned system as presented by many other authors in the literature \cite{Lin-2008-ANN, stoffel2020deep}.
 Therefore, the three components of the input vector $\overrightarrow{x}$ are obtained from the plastic strain $\varepsilon^p$, the plastic strain rate $\mdot{\varepsilon}^p$ and the temperature $T$ using the following expressions:
 \begin{equation}
 \overrightarrow{x}=
