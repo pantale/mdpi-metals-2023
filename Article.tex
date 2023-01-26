@@ -1,5 +1,51 @@
 % !TeX encoding = UTF-8
-\documentclass[twoside,english,1p,final,sort&compress]{elsarticle}
+%% 
+%% Copyright 2007-2020 Elsevier Ltd
+%% 
+%% This file is part of the 'Elsarticle Bundle'.
+%% ---------------------------------------------
+%% 
+%% It may be distributed under the conditions of the LaTeX Project Public
+%% License, either version 1.2 of this license or (at your option) any
+%% later version.  The latest version of this license is in
+%%    http://www.latex-project.org/lppl.txt
+%% and version 1.2 or later is part of all distributions of LaTeX
+%% version 1999/12/01 or later.
+%% 
+%% The list of all files belonging to the 'Elsarticle Bundle' is
+%% given in the file `manifest.txt'.
+%% 
+
+%% Template article for Elsevier's document class `elsarticle'
+%% with numbered style bibliographic references
+%% SP 2008/03/01
+%%
+%% 
+%%
+%% $Id: elsarticle-template-num.tex 190 2020-11-23 11:12:32Z rishi $
+%%
+%%
+\documentclass[preprint,12pt,sort&compress]{elsarticle}
+%\documentclass[twoside,english,1p,final,sort&compress]{elsarticle}
+
+%% Use the option review to obtain double line spacing
+%% \documentclass[authoryear,preprint,review,12pt]{elsarticle}
+
+%% Use the options 1p,twocolumn; 3p; 3p,twocolumn; 5p; or 5p,twocolumn
+%% for a journal layout:
+%% \documentclass[final,1p,times]{elsarticle}
+%% \documentclass[final,1p,times,twocolumn]{elsarticle}
+%% \documentclass[final,3p,times]{elsarticle}
+%% \documentclass[final,3p,times,twocolumn]{elsarticle}
+%% \documentclass[final,5p,times]{elsarticle}
+%% \documentclass[final,5p,times,twocolumn]{elsarticle}
+
+%% For including figures, graphicx.sty has been loaded in
+%% elsarticle.cls. If you prefer to use the old commands
+%% please give \usepackage{epsfig}
+
+%% The amssymb package provides various useful mathematical symbols
+
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \pagestyle{headings}
@@ -32,6 +78,13 @@
 % use this if you need line numbers
 \usepackage{lineno}
 
+\newcommand\blfootnote[1]{%
+  \begingroup
+  \renewcommand\thefootnote{}\footnote{#1}%
+  \addtocounter{footnote}{-1}%
+  \endgroup
+}
+
 \makeatother
 
 \usepackage{babel}
@@ -56,15 +109,16 @@
 %
 % Will have to be removed from final version
 %
-\usepackage{soul}
-\usepackage{color}
-\definecolor{VWyellow}{RGB}{255,251,150}
-\sethlcolor{VWyellow}
-
-\DeclareRobustCommand{\OP}[1]{\begingroup\textcolor{red}{\hl{\textbf{O.P.:} #1}}\endgroup}
-\DeclareRobustCommand{\OPP}[1]{\begingroup\textcolor{red}{\hl{\textbf{O.P.:} In previous sentence #1}}\endgroup}
+%\usepackage{soul}
+%\usepackage{color}
+%\definecolor{VWyellow}{RGB}{255,251,150}
+%\sethlcolor{VWyellow}
+%
+%\DeclareRobustCommand{\OP}[1]{\begingroup\textcolor{red}{\hl{\textbf{O.P.:} #1}}\endgroup}
+%\DeclareRobustCommand{\OPP}[1]{\begingroup\textcolor{red}{\hl{\textbf{O.P.:} In previous sentence #1}}\endgroup}
 
 \begin{document}
+
 \begin{frontmatter}
 
 \title{Interpolation and extrapolation-based performance measurement of Analytical and Artificial Neural Network models in predicting hot deformation behavior of a medium carbon steel}
@@ -79,11 +133,23 @@
 
 \cortext[cor1]{Corresponding author}
 
-\address[LGP]{Laboratoire Génie de Production, INP/ENIT, Université de Toulouse, 47 Av d'Azereix, Tarbes, 65016, France}
-\address[ETS]{École de technologie supérieure, 1100 Notre Dame St. W., Montreal, QC H3C 1K3, Canada}
+\affiliation[LGP]{organization={Laboratoire Génie de Production, INP/ENIT, Université de Toulouse},
+             addressline={47 Av d'Azereix},
+             city={Tarbes},
+             postcode={65016},
+             state={},
+             country={France}}
+
+\affiliation[ETS]{organization={École de technologie supérieure},
+             addressline={1100 Notre Dame St. W.},
+             city={Montreal},
+             postcode={QC H3C 1K3},
+             state={},
+             country={Canada}}
 
 \begin{abstract}
-In the present work, a critical analysis of the most commonly used analytical models and of recently introduced Artificial Neural Network based models is conducted to evaluate their prediction accuracy within and outside the experimental interval used to generate them.
+\blfootnote{This article is an open access article distributed under the terms and
+conditions of the Creative Commons Attribution (CC BY) license (\href{http://creativecommons.org/licenses/by/4.0}{http://creativecommons.org/licenses/by/4.0}).} In the present work, a critical analysis of the most commonly used analytical models and of recently introduced Artificial Neural Network based models is conducted to evaluate their prediction accuracy within and outside the experimental interval used to generate them.
 To this end, the high-temperature deformation behavior of a medium carbon steel was studied over a wide range of strains ($0.0-0.7$), strain rates ($0.001~\ps-5~\ps$) and temperatures ($1050\celsius-1250\celsius$) using hot compression tests on a Gleeble-3800 thermomechanical simulator.
 The experimental flow curves were then modeled using Johnson-Cook, Modified Zerilli-Armstrong, Hansel-Spittel, Arrhenius models, the recently proposed PTM model, as well as an Artificial Neural Network model with $3$ inputs, $2$ hidden layers of $15$ and $7$ neurons, respectively, and 1 output.
 The Mean Absolute Relative Error ($\MARE$) and the Root Mean Square Error ($\RMSE$) values were used to quantify the predictive accuracy of the analyzed models.
@@ -93,6 +159,20 @@ To further validate the performance of the above models, their ability to interp
 The Hansel-Spittel, PTM and Arrhenius analytical models showed a good interpolation and extrapolation capability, with the notable superiority of the Arrhenius model over the other two.
 The Artificial Neural Networks model was, however, still the most performant among all the models.
 \end{abstract}
+
+%%Graphical abstract
+\begin{graphicalabstract}
+%\includegraphics{grabs}
+\end{graphicalabstract}
+
+%%Research highlights
+\begin{highlights}
+\item Analytical and ANN based flow laws are identified from hot compression of medium carbon steel alloy.
+\item Comparison of models is done using error measure with regard to the experiments.
+\item The efficiency of each model is evaluated using interpolation and extrapolation techniques.
+\item The Arrhenius model is the more accurate of all analytical models.
+\item The ANN based model is the most accurate of all proposed models.
+\end{highlights}
 
 \begin{keyword}
 Johnson-Cook \sep Zerilli-Armstrong \sep Arrhenius \sep Hansel-Spittel \sep Artificial Neural Network \sep interpolation \sep extrapolation
@@ -613,7 +693,7 @@ The ANN, Arrhenius and PTM models are the only models that take into account sof
 The parameters reported in Table \ref{tab:Errors} and the correlations that can be seen in Figures \ref{fig:CompExp-JC-6} to \ref{fig:CompExp-3-15-7-1-sigmoid} allow concluding that the ANN model is the most efficient of all the models presented when it comes to describing the behavior of the medium carbon alloy for high-temperature deformation applications.
 
 %----------------------------------------------------------------------------------
-\section{Interpolation and Extrapolation Capability of Analytical and ANN Models \label{sec:IntExt}}
+\section{Interpolation and Extrapolation Capability of Models\label{sec:IntExt}}
 %----------------------------------------------------------------------------------
 
 In order to better compare the performances of the above analysed models (the 5 analytical models and the ANN based model), in this section, we present the ability of each of these models to interpolate and extrapolate the results as a function of the strain rate $\mdot\varepsilon$.
@@ -712,7 +792,7 @@ This time, the AR model performs a little better on the $\mdot\varepsilon=5~\ps$
 We can therefore conclude from this part of the study that the AR model is the best performing of the 5 analytical models presented, which is in agreement with the fact that it is widely used for thermomechanical processing, but the ANN model approach has advantages over the AR model approach in that, overall, the ANN model is more faithful to experimental data than is the AR model, for all strain rates.
 
 %----------------------------------------------------------------------------------
-\section{Conclusions and future work\label{sec:Conclusion}}
+\section{Conclusions\label{sec:Conclusion}}
 %----------------------------------------------------------------------------------
 
 Experimental tests were performed on a Gleeble thermomechanical simulator for a modified medium carbon alloy to investigate the applicability and predictive accuracy of 5 analytical models and an Artificial Neural Network model over a range of strains ($0.0-0.7$), strain rates ($0.001~\ps-5~\ps$) and temperatures ($1050\celsius-1250\celsius$).
@@ -736,6 +816,41 @@ For data extrapolation, the HS, PTM and AR models again correlated well with the
 
 Identifying the parameters of an ANN model from experimental data requires more time than identifying the parameters of analytical models (about 40 minutes on a working laptop), but as shown by Pantalé \eal \cite{Pantale-2021, Pantale-2023}, implementing an ANN model in a computational code is straightforward.
 
+\section*{Data availability}
+The raw/processed data required to reproduce these findings cannot be shared at this time due to privacy and ethical concerns.
+
+\section*{Declaration of Competing Interest}
+The authors declare that they have no known competing financial interests or personal relationships that could have appeared to influence the work reported in this paper.
+
+\section*{Authors Contribution}
+\textbf{Pierre Tize Mha}: Conceptualization, Data Curation, Software, Writing - Original Draft;
+\textbf{Prashant Dhondapure}: Investigation, Data Curation;
+\textbf{Mohammad Jahazi}: Supervision, Project administration, Funding acquisition;
+\textbf{Amèvi Tongne}: Supervision;
+\textbf{Olivier Pantalé}: Conceptualization, Methodology, Validation, Formal analysis, Software, Supervision, Visualization, Writing - Review \& Editing.
+%Conceptualization
+%Methodology
+%Software
+%Validation
+%Formal analysis
+%Investigation
+%Resources
+%Data Curation
+%Writing - Original Draft
+%Writing - Review \& Editing
+%Visualization
+%Supervision
+%Project administration
+%Funding acquisition
+
+All authors have read and agreed to the published version of the manuscript.
+
+\section*{Acknowledgements}
+The authors acknowledge Finkl Steel-Sorel Co., École de Technologie Supérieure, and École Nationale d’ingénieurs de Tarbes, France, for providing technical data, materials, and  testing facilities.
+
+ 
+\section*{Fundings}
+This work was supported by the Natural Sciences and Engineering Research Council of Canada (NSERC) in the framework of a Collaborative Research and Development project (CRD) [Grant number 5364418]. 
 
 \bibliographystyle{elsarticle-num}
 \bibliography{Bibliography}
