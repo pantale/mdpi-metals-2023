@@ -1,95 +1,72 @@
-% !TeX encoding = UTF-8
-%% 
-%% Copyright 2007-2020 Elsevier Ltd
-%% 
-%% This file is part of the 'Elsarticle Bundle'.
-%% ---------------------------------------------
-%% 
-%% It may be distributed under the conditions of the LaTeX Project Public
-%% License, either version 1.2 of this license or (at your option) any
-%% later version.  The latest version of this license is in
-%%    http://www.latex-project.org/lppl.txt
-%% and version 1.2 or later is part of all distributions of LaTeX
-%% version 1999/12/01 or later.
-%% 
-%% The list of all files belonging to the 'Elsarticle Bundle' is
-%% given in the file `manifest.txt'.
-%% 
+%  LaTeX support: latex@mdpi.com 
+%  For support, please attach all files needed for compiling as well as the log file, and specify your operating system, LaTeX version, and LaTeX editor.
 
-%% Template article for Elsevier's document class `elsarticle'
-%% with numbered style bibliographic references
-%% SP 2008/03/01
-%%
-%% 
-%%
-%% $Id: elsarticle-template-num.tex 190 2020-11-23 11:12:32Z rishi $
-%%
-%%
-\documentclass[preprint,12pt,sort&compress]{elsarticle}
-%\documentclass[twoside,english,1p,final,sort&compress]{elsarticle}
+%=================================================================
+\documentclass[metals,article,submit,pdftex,moreauthors]{Definitions/mdpi} 
+% For posting an early version of this manuscript as a preprint, you may use "preprints" as the journal and change "submit" to "accept". The document class line would be, e.g., \documentclass[preprints,article,accept,moreauthors,pdftex]{mdpi}. This is especially recommended for submission to arXiv, where line numbers should be removed before posting. For preprints.org, the editorial staff will make this change immediately prior to posting.
 
-%% Use the option review to obtain double line spacing
-%% \documentclass[authoryear,preprint,review,12pt]{elsarticle}
+%--------------------
+% Class Options:
+%--------------------
+%----------
+% journal
+%----------
+% Choose between the following MDPI journals:
+% acoustics, actuators, addictions, admsci, adolescents, aerobiology, aerospace, agriculture, agriengineering, agrochemicals, agronomy, ai, air, algorithms, allergies, alloys, analytica, analytics, anatomia, animals, antibiotics, antibodies, antioxidants, applbiosci, appliedchem, appliedmath, applmech, applmicrobiol, applnano, applsci, aquacj, architecture, arm, arthropoda, arts, asc, asi, astronomy, atmosphere, atoms, audiolres, automation, axioms, bacteria, batteries, bdcc, behavsci, beverages, biochem, bioengineering, biologics, biology, biomass, biomechanics, biomed, biomedicines, biomedinformatics, biomimetics, biomolecules, biophysica, biosensors, biotech, birds, bloods, blsf, brainsci, breath, buildings, businesses, cancers, carbon, cardiogenetics, catalysts, cells, ceramics, challenges, chemengineering, chemistry, chemosensors, chemproc, children, chips, cimb, civileng, cleantechnol, climate, clinpract, clockssleep, cmd, coasts, coatings, colloids, colorants, commodities, compounds, computation, computers, condensedmatter, conservation, constrmater, cosmetics, covid, crops, cryptography, crystals, csmf, ctn, curroncol, cyber, dairy, data, ddc, dentistry, dermato, dermatopathology, designs, devices, diabetology, diagnostics, dietetics, digital, disabilities, diseases, diversity, dna, drones, dynamics, earth, ebj, ecologies, econometrics, economies, education, ejihpe, electricity, electrochem, electronicmat, electronics, encyclopedia, endocrines, energies, eng, engproc, entomology, entropy, environments, environsciproc, epidemiologia, epigenomes, est, fermentation, fibers, fintech, fire, fishes, fluids, foods, forecasting, forensicsci, forests, foundations, fractalfract, fuels, future, futureinternet, futurepharmacol, futurephys, futuretransp, galaxies, games, gases, gastroent, gastrointestdisord, gels, genealogy, genes, geographies, geohazards, geomatics, geosciences, geotechnics, geriatrics, grasses, gucdd, hazardousmatters, healthcare, hearts, hemato, hematolrep, heritage, higheredu, highthroughput, histories, horticulturae, hospitals, humanities, humans, hydrobiology, hydrogen, hydrology, hygiene, idr, ijerph, ijfs, ijgi, ijms, ijns, ijpb, ijtm, ijtpp, ime, immuno, informatics, information, infrastructures, inorganics, insects, instruments, inventions, iot, j, jal, jcdd, jcm, jcp, jcs, jcto, jdb, jeta, jfb, jfmk, jimaging, jintelligence, jlpea, jmmp, jmp, jmse, jne, jnt, jof, joitmc, jor, journalmedia, jox, jpm, jrfm, jsan, jtaer, jvd, jzbg, kidneydial, kinasesphosphatases, knowledge, land, languages, laws, life, liquids, literature, livers, logics, logistics, lubricants, lymphatics, machines, macromol, magnetism, magnetochemistry, make, marinedrugs, materials, materproc, mathematics, mca, measurements, medicina, medicines, medsci, membranes, merits, metabolites, metals, meteorology, methane, metrology, micro, microarrays, microbiolres, micromachines, microorganisms, microplastics, minerals, mining, modelling, molbank, molecules, mps, msf, mti, muscles, nanoenergyadv, nanomanufacturing,\gdef\@continuouspages{yes}} nanomaterials, ncrna, ndt, network, neuroglia, neurolint, neurosci, nitrogen, notspecified, %%nri, nursrep, nutraceuticals, nutrients, obesities, oceans, ohbm, onco, %oncopathology, optics, oral, organics, organoids, osteology, oxygen, parasites, parasitologia, particles, pathogens, pathophysiology, pediatrrep, pharmaceuticals, pharmaceutics, pharmacoepidemiology,\gdef\@ISSN{2813-0618}\gdef\@continuous pharmacy, philosophies, photochem, photonics, phycology, physchem, physics, physiologia, plants, plasma, platforms, pollutants, polymers, polysaccharides, poultry, powders, preprints, proceedings, processes, prosthesis, proteomes, psf, psych, psychiatryint, psychoactives, publications, quantumrep, quaternary, qubs, radiation, reactions, receptors, recycling, regeneration, religions, remotesensing, reports, reprodmed, resources, rheumato, risks, robotics, ruminants, safety, sci, scipharm, sclerosis, seeds, sensors, separations, sexes, signals, sinusitis, skins, smartcities, sna, societies, socsci, software, soilsystems, solar, solids, spectroscj, sports, standards, stats, std, stresses, surfaces, surgeries, suschem, sustainability, symmetry, synbio, systems, targets, taxonomy, technologies, telecom, test, textiles, thalassrep, thermo, tomography, tourismhosp, toxics, toxins, transplantology, transportation, traumacare, traumas, tropicalmed, universe, urbansci, uro, vaccines, vehicles, venereology, vetsci, vibration, virtualworlds, viruses, vision, waste, water, wem, wevj, wind, women, world, youth, zoonoticdis 
+% For posting an early version of this manuscript as a preprint, you may use "preprints" as the journal. Changing "submit" to "accept" before posting will remove line numbers.
 
-%% Use the options 1p,twocolumn; 3p; 3p,twocolumn; 5p; or 5p,twocolumn
-%% for a journal layout:
-%% \documentclass[final,1p,times]{elsarticle}
-%% \documentclass[final,1p,times,twocolumn]{elsarticle}
-%% \documentclass[final,3p,times]{elsarticle}
-%% \documentclass[final,3p,times,twocolumn]{elsarticle}
-%% \documentclass[final,5p,times]{elsarticle}
-%% \documentclass[final,5p,times,twocolumn]{elsarticle}
+%---------
+% article
+%---------
+% The default type of manuscript is "article", but can be replaced by: 
+% abstract, addendum, article, book, bookreview, briefreport, casereport, comment, commentary, communication, conferenceproceedings, correction, conferencereport, entry, expressionofconcern, extendedabstract, datadescriptor, editorial, essay, erratum, hypothesis, interestingimage, obituary, opinion, projectreport, reply, retraction, review, perspective, protocol, shortnote, studyprotocol, systematicreview, supfile, technicalnote, viewpoint, guidelines, registeredreport, tutorial
+% supfile = supplementary materials
 
-%% For including figures, graphicx.sty has been loaded in
-%% elsarticle.cls. If you prefer to use the old commands
-%% please give \usepackage{epsfig}
+%----------
+% submit
+%----------
+% The class option "submit" will be changed to "accept" by the Editorial Office when the paper is accepted. This will only make changes to the frontpage (e.g., the logo of the journal will get visible), the headings, and the copyright information. Also, line numbering will be removed. Journal info and pagination for accepted papers will also be assigned by the Editorial Office.
 
-%% The amssymb package provides various useful mathematical symbols
+%------------------
+% moreauthors
+%------------------
+% If there is only one author the class option oneauthor should be used. Otherwise use the class option moreauthors.
 
-\usepackage[T1]{fontenc}
-\usepackage[utf8]{inputenc}
-\pagestyle{headings}
-\usepackage{amsthm}
-\usepackage{gensymb}
-\usepackage{xspace}
-\usepackage{amsmath}
-\usepackage{accents}
-\usepackage{multirow}
-\usepackage{arydshln}
-\usepackage{xcolor}
-\usepackage{amssymb}
-\usepackage{subcaption}
-\usepackage{adjustbox}
-\usepackage{placeins}
-\usepackage{ulem}
-\usepackage[colorlinks = true]{hyperref}
+%---------
+% pdftex
+%---------
+% The option pdftex is for use with pdfLaTeX. Remove "pdftex" for (1) compiling with LaTeX & dvi2pdf (if eps figures are used) or for (2) compiling with XeLaTeX.
 
-% To have Times only in text not maths
-\renewcommand{\rmdefault}{ptm}
-
-\makeatletter
-
-\theoremstyle{plain}
-\newtheorem{thm}{\protect\theoremname}
-
-% specify here the journal
-\journal{Materials \& Design}
-
-% use this if you need line numbers
-\usepackage{lineno}
-
-\newcommand\blfootnote[1]{%
-  \begingroup
-  \renewcommand\thefootnote{}\footnote{#1}%
-  \addtocounter{footnote}{-1}%
-  \endgroup
-}
-
+%=================================================================
+% MDPI internal commands - do not modify
+\firstpage{1} 
+\makeatletter 
+\setcounter{page}{\@firstpage} 
 \makeatother
+\pubvolume{1}
+\issuenum{1}
+\articlenumber{0}
+\pubyear{2023}
+\copyrightyear{2023}
+%\externaleditor{Academic Editor: Firstname Lastname}
+\datereceived{ } 
+\daterevised{ } % Comment out if no revised date
+\dateaccepted{ } 
+\datepublished{ } 
+%\datecorrected{} % For corrected papers: "Corrected: XXX" date in the original paper.
+%\dateretracted{} % For corrected papers: "Retracted: XXX" date in the original paper.
+\hreflink{https://doi.org/} % If needed use \linebreak
+%\doinum{}
+%\pdfoutput=1 % Uncommented for upload to arXiv.org
 
-\usepackage{babel}
-\providecommand{\theoremname}{Theorem}
+%=================================================================
+% Add packages and commands here. The following packages are loaded in our class file: fontenc, inputenc, calc, indentfirst, fancyhdr, graphicx, epstopdf, lastpage, ifthen, float, amsmath, amssymb, lineno, setspace, enumitem, mathpazo, booktabs, titlesec, etoolbox, tabto, xcolor, colortbl, soul, multirow, microtype, tikz, totcount, changepage, attrib, upgreek, array, tabularx, pbox, ragged2e, tocloft, marginnote, marginfix, enotez, amsthm, natbib, hyperref, cleveref, scrextend, url, geometry, newfloat, caption, draftwatermark, seqsplit
+% cleveref: load \crefname definitions after \begin{document}
 
+\usepackage{gensymb}
+\usepackage{accents}
+\usepackage{xspace}
+\usepackage{subcaption}
 \DeclareRobustCommand{\w}{\mbox{\large\ensuremath{\mathsf{w}}}}
 \DeclareRobustCommand{\dotp}{\boldsymbol{\cdot}}
 \DeclareRobustCommand{\e}[1]{{\rm e}^{#1}}
@@ -105,61 +82,52 @@
 \DeclareRobustCommand{\mr}[2]{\multirow{#1}{*}{#2}}
 \DeclareRobustCommand{\MPa}{\text{MPa}}
 
-% This is used to add comments into the text
-%
-% Will have to be removed from final version
-%
-%\usepackage{soul}
-%\usepackage{color}
-%\definecolor{VWyellow}{RGB}{255,251,150}
-%\sethlcolor{VWyellow}
-%
-%\DeclareRobustCommand{\OP}[1]{\begingroup\textcolor{red}{\hl{\textbf{O.P.:} #1}}\endgroup}
-%\DeclareRobustCommand{\OPP}[1]{\begingroup\textcolor{red}{\hl{\textbf{O.P.:} In previous sentence #1}}\endgroup}
+%=================================================================
+% Please use the following mathematics environments: Theorem, Lemma, Corollary, Proposition, Characterization, Property, Problem, Example, ExamplesandDefinitions, Hypothesis, Remark, Definition, Notation, Assumption
+%% For proofs, please use the proof environment (the amsthm package is loaded by the MDPI class).
 
-\begin{document}
+%=================================================================
+% Full title of the paper (Capitalized)
+\Title{Interpolation and Extrapolation Performance Measurement of Analytical and ANN-Based Flow Laws for Hot Deformation Behavior of Medium Carbon Steel}
 
-\begin{frontmatter}
+% MDPI internal command: Title for citation in the left column
+\TitleCitation{Interpolation and Extrapolation Performance Measurement of Analytical and ANN-Based Flow Laws for Hot Deformation Behavior of Medium Carbon Steel}
 
-\title{Interpolation and Extrapolation Performance Measurement of Analytical and ANN-Based Flow Laws for Hot Deformation Behavior of Medium Carbon Steel}
+% Author Orchid ID: enter ID or remove command
+\newcommand{\orcidauthorA}{0000-0001-7367-5453} % Add \orcidA{} behind the author's name
+\newcommand{\orcidauthorB}{0000-0002-1522-2787} % Add \orcidB{} behind the author's name
 
-\author[LGP]{Pierre Tize Mha}
-\author[ETS]{Prashant Dhondapure}
-\author[ETS]{Mohammad Jahazi}
-\author[LGP]{Amèvi Tongne}
-\author[LGP]{Olivier Pantalé\corref{cor1}}
-\ead{Olivier.Pantale@enit.fr}
-\ead[url]{http://www.enit.fr}
+% Authors, for the paper (add full first names)
+\Author{Pierre Tize Mha$^{1}$, Prashant Dhondapure$^{2}$, Mohammad Jahazi$^{2}$\orcidB{}, Amèvi Tongne$^{1}$, Olivier Pantalé *$^{1}$\orcidA{}}
 
-\cortext[cor1]{Corresponding author}
+%\longauthorlist{yes}
 
-\affiliation[LGP]{organization={Laboratoire Génie de Production, INP/ENIT, Université de Toulouse},
-             addressline={47 Av d'Azereix},
-             city={Tarbes},
-             postcode={65016},
-             state={},
-             country={France}}
+% MDPI internal command: Authors, for metadata in PDF
+\AuthorNames{Pierre Tize Mha, Prashant Dhondapure, Mohammad Jahazi, Amèvi Tongne, Olivier Pantalé}
 
-\affiliation[ETS]{organization={École de technologie supérieure},
-             addressline={1100 Notre Dame St. W.},
-             city={Montreal},
-             postcode={QC H3C 1K3},
-             state={},
-             country={Canada}}
+% MDPI internal command: Authors, for citation in the left column
+\AuthorCitation{P. Tize Mha, P. Dhondapure, M. Jahazi, A. Tongne, O. Pantalé}
+% If this is a Chicago style journal: Lastname, Firstname, Firstname Lastname, and Firstname Lastname.
 
-\begin{abstract}
-\blfootnote{This article is an open access article distributed under the terms and
-conditions of the Creative Commons Attribution (CC BY) license (\href{http://creativecommons.org/licenses/by/4.0}{http://creativecommons.org/licenses/by/4.0}).} 
-%In the present work, a critical analysis of the most commonly used analytical models and of recently introduced Artificial Neural Network based models is conducted to evaluate their prediction accuracy within and outside the experimental interval used to generate them.
-%To this end, the high-temperature deformation behavior of a medium carbon steel was studied over a wide range of strains ($0.0-0.7$), strain rates ($0.001~\ps-5~\ps$) and temperatures ($1050\celsius-1250\celsius$) using hot compression tests on a Gleeble-3800 thermomechanical simulator.
-%The experimental flow curves were then modeled using Johnson-Cook, Modified Zerilli-Armstrong, Hansel-Spittel, Arrhenius models, the recently proposed PTM model, as well as an Artificial Neural Network model with $3$ inputs, $2$ hidden layers of $15$ and $7$ neurons, respectively, and 1 output.
-%The Mean Absolute Relative Error ($\MARE$) and the Root Mean Square Error ($\RMSE$) values were used to quantify the predictive accuracy of the analyzed models.
-%The results indicated that the Johnson-Cook and Modified Zerilli-Armstrong models presented a significant error, $\MARE$ of $21.20\%$, while the Hansel-Spittel, PTM and Arrhenius models could predict the behavior of this alloy with an error of about $3.56\%$ error.
-%The Artificial Neural Network model, on the other hand, showed excellent agreement, with less than a $0.62\%$ error, between the predicted and experimental flow curves.
-%To further validate the performance of the above models, their ability to interpolate and extrapolate the experimental data was also tested.
-%The Hansel-Spittel, PTM and Arrhenius analytical models showed a good interpolation and extrapolation capability, with the notable superiority of the Arrhenius model over the other two.
-%The Artificial Neural Networks model was, however, still the most performant among all the models.
-In the present work, a critical analysis of the most commonly used analytical models and recently introduced ANN-based models is performed to evaluate their predictive accuracy within and outside the experimental interval used to generate them.
+% Affiliations / Addresses (Add [1] after \address if there is only one affiliation.)
+\address{
+$^{1}$ \quad Laboratoire Génie de Production, INP/ENIT, Université de Toulouse, 47 Av d'Azereix, F-65016 Tarbes, France\\
+$^{2}$ \quad École de Technologie Supérieure, 1100 Notre Dame St. W., QC H3C 1K3, Montréal, Canada}
+
+% Contact information of the corresponding author
+\corres{Correspondence: Olivier.Pantale@enit.fr; Tel.: +33-562442933}
+
+% Current address and/or shared authorship
+%\firstnote{Current address: Affiliation 3.} 
+%\secondnote{These authors contributed equally to this work.}
+% The commands \thirdnote{} till \eighthnote{} are available for further notes
+
+%\simplesumm{} % Simple summary
+
+%\conference{} % An extended version of a conference paper
+
+% Abstract (Do not insert blank lines, i.e. \\) 
+\abstract{In the present work, a critical analysis of the most commonly used analytical models and recently introduced ANN-based models is performed to evaluate their predictive accuracy within and outside the experimental interval used to generate them.
 The high temperature deformation behavior of a medium carbon steel was studied over a wide range of strains, strain rates, and temperatures using hot compression tests on a Gleeble-3800.
 The experimental flow curves were modeled using Johnson-Cook, Modified-Zerilli-Armstrong, Hansel-Spittel, Arrhenius, and PTM models, as well as an ANN model.
 The mean absolute relative error and root mean square error values were used to quantify the predictive accuracy of the models analyzed.
@@ -167,29 +135,58 @@ The results indicated that the Johnson-Cook and Modified-Zerilli-Armstrong model
 The ANN model showed excellent agreement, with less than a 0.62\% error, between the predicted and experimental flow curves.
 To validate the performance, the ability to interpolate and extrapolate the experimental data was also tested.
 The Hansel-Spittel, PTM, and Arrhenius models showed good interpolation and extrapolation capabilities.
-However, the ANN model was the most powerful of all the models.
-\end{abstract}
+However, the ANN model was the most powerful of all the models.}
 
-%%%Graphical abstract
-%\begin{graphicalabstract}
-%\includegraphics[width=\columnwidth]{Figures/GraphicalAbstract}
-%\end{graphicalabstract}
-%
-%%%Research highlights
-%\begin{highlights}
-%\item Analytical and ANN based flow laws are identified from hot compression of medium carbon steel alloy.
-%\item Comparison of models is done using error measure with regard to the experiments.
-%\item The efficiency of each model is evaluated using interpolation and extrapolation techniques.
-%\item The Arrhenius model is the more accurate of all analytical models.
-%\item The ANN based model is the most accurate of all proposed models.
-%\end{highlights}
+% Keywords
+\keyword{Artificial Neural Network; Constitutive flow Law; Analytical flow law; Interpolation; Extrapolation; Gleeble} 
 
-\begin{keyword}
-Artificial Neural Network\sep Constitutive flow Law\sep Analytical flow law\sep Interpolation\sep Extrapolation\sep Gleeble
-\end{keyword}
+% The fields PACS, MSC, and JEL may be left empty or commented out if not applicable
+%\PACS{J0101}
+%\MSC{}
+%\JEL{}
 
-\end{frontmatter}
-\linenumbers
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Only for the journal Diversity
+%\LSID{\url{http://}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Only for the journal Applied Sciences
+%\featuredapplication{Authors are encouraged to provide a concise description of the specific application or a potential application of the work. This section is not mandatory.}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Only for the journal Data
+%\dataset{DOI number or link to the deposited data set if the data set is published separately. If the data set shall be published as a supplement to this paper, this field will be filled by the journal editors. In this case, please submit the data set as a supplement.}
+%\datasetlicense{License under which the data set is made available (CC0, CC-BY, CC-BY-SA, CC-BY-NC, etc.)}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Only for the journal Toxins
+%\keycontribution{The breakthroughs or highlights of the manuscript. Authors can write one or two sentences to describe the most important part of the paper.}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Only for the journal Encyclopedia
+%\encyclopediadef{For entry manuscripts only: please provide a brief overview of the entry title instead of an abstract.}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Only for the journal Advances in Respiratory Medicine
+%\addhighlights{yes}
+%\renewcommand{\addhighlights}{%
+
+%\noindent This is an obligatory section in “Advances in Respiratory Medicine”, whose goal is to increase the discoverability and readability of the article via search engines and other scholars. Highlights should not be a copy of the abstract, but a simple text allowing the reader to quickly and simplified find out what the article is about and what can be cited from it. Each of these parts should be devoted up to 2~bullet points.\vspace{3pt}\\
+%\textbf{What are the main findings?}
+% \begin{itemize}[labelsep=2.5mm,topsep=-3pt]
+% \item First bullet.
+% \item Second bullet.
+% \end{itemize}\vspace{3pt}
+%\textbf{What is the implication of the main finding?}
+% \begin{itemize}[labelsep=2.5mm,topsep=-3pt]
+% \item First bullet.
+% \item Second bullet.
+% \end{itemize}
+%}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
 
 %----------------------------------------------------------------------------------
 \section{Introduction\label{sec:Introduction}}
@@ -249,9 +246,9 @@ The material used in this study consists of a medium carbon steel whose chemical
 \centering
 \caption{Chemical composition of medium carbon steel, Fe = balance}
 \begin{tabular}{lccccccc}
-	\hline
-	Element &  C   &  Mn  &  Mo  &  Si  &  Ni  &  Cr  &  Cu  \\ \hline
-	Wt~\%   & 0.30 & 0.89 & 0.52 & 0.34 & 0.68 & 1.86 & 0.17 \\ \hline
+	\toprule
+	\textbf{Element} & \textbf{C} & \textbf{Mn} & \textbf{Mo} & \textbf{Si} & \textbf{Ni} & \textbf{Cr} & \textbf{Cu} \\ \midrule
+	\textbf{Wt~\%}   &   $0.30$   &   $0.89$    &   $0.52$    &   $0.34$    &   $0.68$    &   $1.86$    &   $0.17$    \\ \bottomrule
 \end{tabular}
 \label{tab:Composition}
 \end{table}
@@ -360,9 +357,9 @@ All parameters of the Johnson-Cook model are reported in Table \ref{tab:JC}.
 \centering
 \caption{Parameter values of the Johnson-Cook flow law for a medium carbon steel}
 \begin{tabular}{ccccc}
-	\hline
-	$A~(\MPa)$ & $B~(\MPa)$ &   $n$    &   $C$    &   $m$    \\
-	$13.5143$  &  $21.816$  & $0.0746$ & $0.3404$ & $0.7057$ \\ \hline
+	\toprule
+	\boldmath{$A~(\MPa)$} & \boldmath{$B~(\MPa)$} & \boldmath{$n$} & \boldmath{$C$} & \boldmath{$m$} \\ \midrule
+	      $13.5143$       &       $21.816$        &    $0.0746$    &    $0.3404$    &    $0.7057$    \\ \bottomrule
 \end{tabular}
 \label{tab:JC}
 \end{table}
@@ -396,7 +393,7 @@ A good (high) value of $\R$ (close to $1$) does not necessarily mean a good pred
 \subsection{The Modified Zerilli-Armstrong model\label{sec:MZA}}
 %----------------------------------------------------------------------------------
 
-The MZA model, which is the modified form of the ZA model, like the JC model presented earlier, is one of the most widely used models implemented in many FEM codes such as the Abaqus software.
+The MZA model, which is the modified form of the ZA model, like the JC model presented earlier, is one of the most widely used models implemented in many FEA codes such as the Abaqus software.
 The difference between the MZA model and JC model is related to the consideration of the three physical parameters to describe the reality observed from experiments.
 In the JC model, the parameters are considered separately, while in MZA, they are considered simultaneously, and for that formulation, MZA is preferred to the JC model \cite{zhu2022thermal}.
 However, the original form of the ZA model has some limitations due to the fact that it is considered as a two terms function (thermal and athermal functions), and to improve the formulation, Samantaray \eal \cite{Samantaray-2009} proposed a modified form given by the following equation:
@@ -410,9 +407,9 @@ To get the parameters of the MZA model, we apply the method proposed by \cite{Sa
 \centering{}
 \caption{Parameter constants of Modified Zerilli-Armstrong model}
 \begin{tabular}{ccccccc}
-	\hline
-	  $C_1$   &   $C_2$   &         $C_3$          &         $C_4$          &  $C_5$   &         $C_6$         &   $n$    \\
-	$13.5143$ & $21.2591$ & $4.7902\times 10^{-3}$ & $1.4895\times 10^{-4}$ & $0.1389$ & $1.495\times 10^{-4}$ & $0.0621$ \\ \hline
+	\toprule
+	\boldmath{$C_1$} & \boldmath{$C_2$} &    \boldmath{$C_3$}    &    \boldmath{$C_4$}    & \boldmath{$C_5$} &   \boldmath{$C_6$}    & \boldmath{$n$} \\ \midrule
+	   $13.5143$     &    $21.2591$     & $4.7902\times 10^{-3}$ & $1.4895\times 10^{-4}$ &     $0.1389$     & $1.495\times 10^{-4}$ &    $0.0621$    \\ \bottomrule
 \end{tabular}
 \label{tab:MZA}
 \end{table}
@@ -431,7 +428,7 @@ For the MZA model, $\MARE=21.20~\%$ and $\RMSE=19.57~\MPa$, showing an overall w
 \subsection{The Hansel-Spittel model\label{sec:HSmodel}}
 %----------------------------------------------------------------------------------
 
-The Hansel-Spittel model \cite{Hensel-1978} is one of the least known models in terms of integration in FEM codes, although its parameters can more easily be determined than those of the JC or MZA models.
+The Hansel-Spittel model \cite{Hensel-1978} is one of the least known models in terms of integration in FEA codes, although its parameters can more easily be determined than those of the JC or MZA models.
 Programming a simple identification script is sufficient to identify its parameters for a given material.
 The equation of the HS model is given by the following relation:
 \begin{equation}
@@ -450,11 +447,11 @@ From the experimental data obtained during the compression tests, an identificat
 \centering
 \caption{Parameter values of the Hansel-Spittel flow law for the medium carbon steel}
 \begin{tabular}{ccccc}
-	\hline
-	        $A$          &         $m_1$          &   $m_2$   &        $m_3$         &         $m_4$         \\
-	$5.954\times 10^{3}$ & $-3.3576\times10^{-3}$ & $0.2641$  &      $-0.0868$       & $2.2688\times10^{-4}$ \\ \hline
-	                     &         $m_5$          &   $m_6$   &        $m_7$         &         $m_8$         \\
-	                     & $-4.2163\times10^{-4}$ & $-0.0561$ & $2.264\times10^{-4}$ &          $0$          \\ \hline
+	\toprule
+	   \boldmath{$A$}    &    \boldmath{$m_1$}    & \boldmath{$m_2$} &   \boldmath{$m_3$}   &   \boldmath{$m_4$}    \\
+	$5.954\times 10^{3}$ & $-3.3576\times10^{-3}$ &     $0.2641$     &      $-0.0868$       & $2.2688\times10^{-4}$ \\ \midrule
+	                     &    \boldmath{$m_5$}    & \boldmath{$m_6$} &   \boldmath{$m_7$}   &   \boldmath{$m_8$}    \\
+	                     & $-4.2163\times10^{-4}$ &    $-0.0561$     & $2.264\times10^{-4}$ &          $0$          \\ \bottomrule
 \end{tabular}
 \label{tab:HS}
 \end{table}
@@ -528,8 +525,8 @@ Setting $m=9$ gives the best results, and the corresponding parameters are repor
 \centering
 \caption{Parameter values of the Arrhenius flow law for the medium carbon steel}
 \begin{tabular}{llll}
-	\hline
-	\multicolumn{1}{c}{$\alpha_i$}  & \multicolumn{1}{c}{$Q_i~(\times 10^{-6})$} & \multicolumn{1}{c}{$\ln\!A_i$} & \multicolumn{1}{c}{$n_i$}  \\ \hline
+	\toprule
+	\multicolumn{1}{c}{\boldmath{$\alpha_i$}}  & \multicolumn{1}{c}{\boldmath{$Q_i~(\times 10^{-6})$}} & \multicolumn{1}{c}{\boldmath{$\ln\!A_i$}} & \multicolumn{1}{c}{\boldmath{$n_i$}}  \\ \midrule
 	$\alpha_0=0.0407$               & $Q_0=0.467$                                & $A_0=35.8092$                  & $n_0=4.8217$               \\
 	$\alpha_1=-0.5167$              & $Q_1=-0.6517$                              & $A_1=-58.822$                  & $n_1=3.2814$               \\
 	$\alpha_2=6.3912$               & $Q_2=7.6084$                               & $A_2=740.3303$                 & $n_2=71.5963$              \\
@@ -539,7 +536,7 @@ Setting $m=9$ gives the best results, and the corresponding parameters are repor
 	$\alpha_6=1.2421\times 10^{3}$  & $Q_6=-2.3032\times 10^{3}$                 & $A_6=-1.5387\times 10^{5}$     & $n_6=1.1761\times 10^{5}$  \\
 	$\alpha_7=-1.4523\times 10^{3}$ & $Q_7=4.3707\times 10^{3}$                  & $A_7=3.1798\times 10^{5}$      & $n_7=-1.4882\times 10^{5}$ \\
 	$\alpha_8=952.0619$             & $Q_8=-3.9394\times 10^{3}$                 & $A_8=-2.9725\times 10^{5}$     & $n_8=1.0239\times 10^{5}$  \\
-	$\alpha_9=-267.4994$            & $Q_9=1.397\times 10^{3}$                   & $A_9=1.0759\times 10^{5}$      & $n_9=-2.9621\times 10^{4}$ \\ \hline
+	$\alpha_9=-267.4994$            & $Q_9=1.397\times 10^{3}$                   & $A_9=1.0759\times 10^{5}$      & $n_9=-2.9621\times 10^{4}$ \\ \bottomrule
 \end{tabular}
 \label{tab:AR}
 \end{table}
@@ -590,14 +587,14 @@ For the PTM model, $\MARE=4.79~\%$ and $\RMSE=4.59~\MPa$, which is an overall wo
 \centering
 \caption{Parameter values of the PTM flow law for the P20 steel}
 \begin{tabular}{llll}
-	\hline
-	\multicolumn{1}{c}{$A_i$} & \multicolumn{1}{c}{$B_i$} & \multicolumn{1}{c}{$C_0^i$} & \multicolumn{1}{c}{$C_1^i$} \\ \hline
+	\toprule
+	\multicolumn{1}{c}{\boldmath{$A_i$}} & \multicolumn{1}{c}{\boldmath{$B_i$}} & \multicolumn{1}{c}{\boldmath{$C_0^i$}} & \multicolumn{1}{c}{\boldmath{$C_1^i$}}  \\ \midrule
 	$A_0=16.8529$ & $B_0=-3.5418\times 10^{-3}$ & $C_0^0=0.1608$ & $C_1^0=-1.9037\times 10^{-5}$ \\
 	$A_1=340.6451$ & $B_1=-0.0132$ & $C_0^1=-0.6202$ & $C_1^1=2.67\times 10^{-3}$ \\
 	$A_2=-1.9594\times 10^{3}$ & $B_2=-4.4888\times 10^{-3}$ & $C_0^2=4.9516$ & $C_1^2=-3.5788\times 10^{-3}$ \\
 	$A_3=4.836\times 10^{3}$ & $B_3=0.2218$ & $C_0^3=-13.1694$ & $C_1^3=-0.0222$ \\
 	$A_4=-5.5176\times 10^{3}$ & $B_4=-0.4988$ & $C_0^4=15.25$ & $C_1^4=0.0609$ \\
-	$A_5=2.4058\times 10^{3}$ & $B_5=0.3211$ & $C_0^5=-6.587$ & $C_1^5=-0.0413$ \\ \hline
+	$A_5=2.4058\times 10^{3}$ & $B_5=0.3211$ & $C_0^5=-6.587$ & $C_1^5=-0.0413$ \\ \bottomrule
 \end{tabular}
 \label{tab:PTM}
 \end{table}
@@ -665,7 +662,7 @@ Figure \ref{fig:ANN-6-conv} shows the evolution of the training error defined by
 As can be seen in this figure, after $5,000$ epochs, we can consider that we have reached a stationary state of the model training, and that it is useless to continue with the training phase.
 
 Once the training phase is over, the trained model can be used to predict the behavior of the medium carbon alloy as a function of the input data similarly to what is done with analytical models.
-One can either use the model directly by providing it with new input data, or retrieve the $180$ parameters identified during the training and inject them into a mathematical model based on Equations (\ref{eq:ANN1}) and (\ref{eq:ANN2}), which can be implemented in any language (\eg in FORTRAN for use on the Abaqus Explicit FEM code), as proposed in Pantalé \eal \cite{Pantale-2021, Pantale-2023}.
+One can either use the model directly by providing it with new input data, or retrieve the $180$ parameters identified during the training and inject them into a mathematical model based on Equations (\ref{eq:ANN1}) and (\ref{eq:ANN2}), which can be implemented in any language (\eg in FORTRAN for use on the Abaqus Explicit FEA code), as proposed in Pantalé \eal \cite{Pantale-2021, Pantale-2023}.
 For compactness, the parameters of the ANN model and the complete procedure to compute the flow stress $\sigma^y$ from the input data are provided in the Appendix.
 
 As for the above considered analytical models, Figure \ref{fig:CompExp-3-15-7-1-sigmoid} shows a comparison between the flow stresses predicted by the ANN model and the data measured during the hot compression test.
@@ -689,10 +686,10 @@ A summary of the coefficients for evaluating the high-temperature flow stress pr
 \centering
 \caption{Accuracy coefficients for all the analyzed models}
 \begin{tabular}{lcccccc}
-	\hline
-	Coefficients  &   JC    &   MZA   &   HS   &   AR   &  PTM   &  ANN   \\ \hline
+	\toprule
+	\textbf{Coefficients}  &   \textbf{JC}    &   \textbf{MZA}   &   \textbf{HS}   &   \textbf{AR}   &  \textbf{PTM}   &  \textbf{ANN}   \\ \midrule
 	$\MARE(\%)$   & $14.05$ & $21.20$ & $7.75$ & $3.56$ & $4.79$ & $0.62$ \\
-	$\RMSE(\MPa)$ & $12.00$ & $19.57$ & $3.80$ & $2.18$ & $4.59$ & $0.38$ \\ \hline
+	$\RMSE(\MPa)$ & $12.00$ & $19.57$ & $3.80$ & $2.18$ & $4.59$ & $0.38$ \\ \bottomrule
 \end{tabular}
 \label{tab:Errors}
 \end{table}
@@ -733,14 +730,14 @@ Table \ref{tab:IntVal} shows the $\MARE$ and $\RMSE$ deviations between the diff
 \centering{}
 \caption{Accuracy coefficients of interpolation for all models with $\mdot\varepsilon=1~\ps$}
 \begin{tabular}{llcccccc}
-	\hline
-	Strain rate & Coefficients & JC & MZA & HS & AR & PTM & ANN \\ \hline
+	\toprule
+	\textbf{Strain rate} & \textbf{Coefficients} & \textbf{JC} & \textbf{MZA} & \textbf{HS} & \textbf{AR} & \textbf{PTM} & \textbf{ANN} \\ \midrule
 	\mr{2}{id. $\mdot\varepsilon$} & $\MARE(\%)$ & $13.79$ & $20.22$ & $8.57$ & $3.96$ & $5.10$ & $0.70$ \\
-	 & $\RMSE(\MPa)$ & $11.83$ & $19.00$ & $3.97$ & $2.29$ & $4.73$ & $0.38$ \\ \hline
+	 & $\RMSE(\MPa)$ & $11.83$ & $19.00$ & $3.97$ & $2.29$ & $4.73$ & $0.38$ \\ \midrule
 	\mr{2}{$\mdot\varepsilon=1~\ps$} & $\MARE(\%)$ & $14.87$ & $27.79$ & $3.74$ & $1.46$ & $3.16$ & $2.47$ \\
-	 & $\RMSE(\MPa)$ & $12.02$ & $23.67$ & $3.10$ & $1.46$ & $2.65$ & $2.77$ \\ \hline
+	 & $\RMSE(\MPa)$ & $12.02$ & $23.67$ & $3.10$ & $1.46$ & $2.65$ & $2.77$ \\ \midrule
 	\mr{2}{all $\mdot\varepsilon$} & $\MARE(\%)$ & $14.42$ & $28.90$ & $7.55$ & $3.45$ & $4.90$ & $0.96$ \\
-	 & $\RMSE(\MPa)$ & $11.86$ & $19.86$ & $3.84$ & $2.17$ & $4.45$ & $1.18$ \\ \hline
+	 & $\RMSE(\MPa)$ & $11.86$ & $19.86$ & $3.84$ & $2.17$ & $4.45$ & $1.18$ \\ \bottomrule
 \end{tabular}
 \label{tab:IntVal}
 \end{table}
@@ -776,14 +773,15 @@ Table \ref{tab:ExtVal} shows the $\MARE$ and $\RMSE$ deviations between the diff
 \centering{}
 \caption{Accuracy coefficients of extrapolation for all models with $\mdot\varepsilon=5~\ps$}
 \begin{tabular}{llcccccc}
-	\hline
-	Strain rate & Coefficients & JC & MZA & HS & AR & PTM & ANN \\ \hline
-	\mr{2}{id. $\mdot\varepsilon$} & $\MARE(\%)$ & $13.09$ & $19.09$ & $7.30$ & $4.03$ & $4.34$ & $0.61$ \\
-	 & $\RMSE(\MPa)$ & $9.86$ & $16.26$ & $3.36$ & $2.32$ & $3.63$ & $0.32$ \\ \hline
-	\mr{2}{$\mdot\varepsilon=5~\ps$} & $\MARE(\%)$ & $20.16$ & $24.27$ & $7.73$ & $3.53$ & $11.46$ & $3.87$ \\
-	 & $\RMSE(\MPa)$ & $20.73$ & $25.95$ & $7.83$ & $4.02$ & $12.91$ & $5.84$ \\ \hline
-	\mr{2}{all $\mdot\varepsilon$} & $\MARE(\%)$ & $15.12$ & $25.87$ & $7.12$ & $3.86$ & $5.34$ & $1.09$ \\
-	 & $\RMSE(\MPa)$ & $12.36$ & $18.24$ & $4.43$ & $2.68$ & $6.23$ & $2.40$ \\ \hline
+	\toprule
+	\textbf{Strain rate}             & \textbf{Coefficients} & \textbf{JC} & \textbf{MZA} & \textbf{HS} & \textbf{AR} & \textbf{PTM} & \textbf{ANN} \\ \midrule
+	\mr{2}{id. $\mdot\varepsilon$}   & $\MARE(\%)$           &   $13.09$   &   $19.09$    &   $7.30$    &   $4.03$    &    $4.34$    &    $0.61$    \\
+	                                 & $\RMSE(\MPa)$         &   $9.86$    &   $16.26$    &   $3.36$    &   $2.32$    &    $3.63$    &    $0.32$    \\ \midrule
+	\mr{2}{$\mdot\varepsilon=5~\ps$} & $\MARE(\%)$           &   $20.16$   &   $24.27$    &   $7.73$    &   $3.53$    &   $11.46$    &    $3.87$    \\
+	                                 & $\RMSE(\MPa)$         &   $20.73$   &   $25.95$    &   $7.83$    &   $4.02$    &   $12.91$    &    $5.84$    \\ \midrule
+	\mr{2}{all $\mdot\varepsilon$}   & $\MARE(\%)$           &   $15.12$   &   $25.87$    &   $7.12$    &   $3.86$    &    $5.34$    &    $1.09$    \\
+	                                 & $\RMSE(\MPa)$         &   $12.36$   &   $18.24$    &   $4.43$    &   $2.68$    &    $6.23$    &    $2.40$    \\ 
+	                                 \bottomrule
 \end{tabular}
 \label{tab:ExtVal}
 \end{table}
@@ -826,48 +824,81 @@ For data extrapolation, the HS, PTM and AR models again correlated well with the
 
 Identifying the parameters of an ANN model from experimental data requires more time than identifying the parameters of analytical models (about 40 minutes on a working laptop), but as shown by Pantalé \eal \cite{Pantale-2021, Pantale-2023}, implementing an ANN model in a computational code is straightforward.
 
-\section*{Data availability}
-The raw/processed data required to reproduce these findings cannot be shared at this time due to privacy and ethical concerns.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\vspace{6pt} 
 
-\section*{Declaration of Competing Interest}
-The authors declare that they have no known competing financial interests or personal relationships that could have appeared to influence the work reported in this paper.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% optional
+%\supplementary{The following supporting information can be downloaded at:  \linksupplementary{s1}, Figure S1: title; Table S1: title; Video S1: title.}
 
-\section*{Authors Contribution}
-\textbf{Pierre Tize Mha}: Conceptualization, Data Curation, Software, Writing - Original Draft;
-\textbf{Prashant Dhondapure}: Investigation, Data Curation;
-\textbf{Mohammad Jahazi}: Supervision, Project administration, Funding acquisition;
-\textbf{Amèvi Tongne}: Supervision;
-\textbf{Olivier Pantalé}: Conceptualization, Methodology, Validation, Formal analysis, Software, Supervision, Visualization, Writing - Review \& Editing.
-%Conceptualization
-%Methodology
-%Software
-%Validation
-%Formal analysis
-%Investigation
-%Resources
-%Data Curation
-%Writing - Original Draft
-%Writing - Review \& Editing
-%Visualization
-%Supervision
-%Project administration
-%Funding acquisition
+% Only for the journal Methods and Protocols:
+% If you wish to submit a video article, please do so with any other supplementary material.
+% \supplementary{The following supporting information can be downloaded at: \linksupplementary{s1}, Figure S1: title; Table S1: title; Video S1: title. A supporting video article is available at doi: link.}
 
-All authors have read and agreed to the published version of the manuscript.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\authorcontributions{
+Conceptualization, P.T.M. and O.P.;
+methodology, O.P.;
+software, P.T.M. and O.P.;
+validation, O.P.;
+formal analysis, O.P.;
+investigation, P.D.;
+resources, P.D. and M.J.;
+data curation, P.T.M. and P.D.;
+writing---original draft preparation, P.T.M.;
+writing---review and editing, O.P.;
+visualization, O.P.;
+supervision, M.J., A.T. and O.P.;
+project administration, M.J.;
+funding acquisition, M.J. 
+All authors have read and agreed to the published version of the manuscript.}
 
-\section*{Acknowledgements}
-The authors acknowledge Finkl Steel-Sorel Co., École de Technologie Supérieure, and École Nationale d’ingénieurs de Tarbes, France, for providing technical data, materials, and  testing facilities.
+\funding{This work was supported by the Natural Sciences and Engineering Research Council of Canada (NSERC) in the framework of a Collaborative Research and Development project (CRD) [Grant number 5364418].}
 
+%\institutionalreview{In this section, you should add the Institutional Review Board Statement and approval number, if relevant to your study. You might choose to exclude this statement if the study did not require ethical approval. Please note that the Editorial Office might ask you for further information. Please add “The study was conducted in accordance with the Declaration of Helsinki, and approved by the Institutional Review Board (or Ethics Committee) of NAME OF INSTITUTE (protocol code XXX and date of approval).” for studies involving humans. OR “The animal study protocol was approved by the Institutional Review Board (or Ethics Committee) of NAME OF INSTITUTE (protocol code XXX and date of approval).” for studies involving animals. OR “Ethical review and approval were waived for this study due to REASON (please provide a detailed justification).” OR “Not applicable” for studies not involving humans or animals.}
+
+%\informedconsent{Any research article describing a study involving humans should contain this statement. Please add ``Informed consent was obtained from all subjects involved in the study.'' OR ``Patient consent was waived due to REASON (please provide a detailed justification).'' OR ``Not applicable'' for studies not involving humans. You might also choose to exclude this statement if the study did not involve humans.
+%
+%Written informed consent for publication must be obtained from participating patients who can be identified (including by the patients themselves). Please state ``Written informed consent has been obtained from the patient(s) to publish this paper'' if applicable.}
+
+\dataavailability{The raw/processed data required to reproduce these findings cannot be shared at this time due to privacy and ethical concerns.} 
+
+\acknowledgments{The authors acknowledge Finkl Steel-Sorel Co., École de Technologie Supérieure, and École Nationale d’Ingénieurs de Tarbes, France, for providing technical data, materials, and testing facilities.}
+
+\conflictsofinterest{The authors declare no conflict of interest.} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Optional
+%\sampleavailability{Samples of the compounds ... are available from the authors.}
+
+%% Only for journal Encyclopedia
+%\entrylink{The Link to this entry published on the encyclopedia platform.}
+
+\abbreviations{Abbreviations}{
+The following abbreviations are used in this manuscript:\\
  
-\section*{Fundings}
-This work was supported by the Natural Sciences and Engineering Research Council of Canada (NSERC) in the framework of a Collaborative Research and Development project (CRD) [Grant number 5364418]. 
+\noindent
+\begin{tabular}{@{}ll}
+	ANN & Artificial Neural Network  \\
+	AR  & Arrhenius                  \\
+	CPU & Central Processing Unit    \\
+	DRV & Dynamic Recovery\\
+	DRX & Dynamic Recrystallization  \\
+	FEA & Finite Element Analysis    \\
+	HS  & Hansel-Spittel             \\
+	JC  & Johnson-Cook               \\
+	MZA & Modified Zerilli-Armstrong \\
+	WH  & Work Hardening             \\
+	ZA  & Zerilli-Armstrong         
+\end{tabular}
+}
 
-\bibliographystyle{elsarticle-num}
-\bibliography{Bibliography}
-
-%----------------------------------------------------------------------------------
-\section*{Appendix\label{sec:Appendix}}
-%----------------------------------------------------------------------------------
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Optional
+\appendixtitles{no} % Leave argument "no" if all appendix headings stay EMPTY (then no dot is printed after "Appendix A"). If the appendix sections contain a heading then change the argument to "yes".
+\appendixstart
+\appendix
+\section[\appendixname~\thesection]{}\label{sec:Appendix}
 
 We report here after the computing process and the $180$ coefficients of the Artificial Neural Network ANN-3-15-7-1-sigmoid model used in Section \ref{sec:ANNmodel}.
 In order to use this model, we describe here after the details of the procedure to compute the flow stress $\sigma^y$ from the input variables $\varepsilon^p$, $\mdot\varepsilon$ and $T$.
@@ -996,4 +1027,43 @@ The bias of the output layer $b$ is a scalar:
 b = 0.1178
 \end{equation*}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{adjustwidth}{-\extralength}{0cm}
+%\printendnotes[custom] % Un-comment to print a list of endnotes
+
+\reftitle{References}
+
+% Please provide either the correct journal abbreviation (e.g. according to the “List of Title Word Abbreviations” http://www.issn.org/services/online-services/access-to-the-ltwa/) or the full name of the journal.
+% Citations and References in Supplementary files are permitted provided that they also appear in the reference list here. 
+
+%=====================================
+% References, variant A: external bibliography
+%=====================================
+\bibliography{Bibliography}
+
+% If authors have biography, please use the format below
+%\section*{Short Biography of Authors}
+%\bio
+%{\raisebox{-0.35cm}{\includegraphics[width=3.5cm,height=5.3cm,clip,keepaspectratio]{Definitions/author1.pdf}}}
+%{\textbf{Firstname Lastname} Biography of first author}
+%
+%\bio
+%{\raisebox{-0.35cm}{\includegraphics[width=3.5cm,height=5.3cm,clip,keepaspectratio]{Definitions/author2.jpg}}}
+%{\textbf{Firstname Lastname} Biography of second author}
+
+% For the MDPI journals use author-date citation, please follow the formatting guidelines on http://www.mdpi.com/authors/references
+% To cite two works by the same author: \citeauthor{ref-journal-1a} (\citeyear{ref-journal-1a}, \citeyear{ref-journal-1b}). This produces: Whittaker (1967, 1975)
+% To cite two works by the same author with specific pages: \citeauthor{ref-journal-3a} (\citeyear{ref-journal-3a}, p. 328; \citeyear{ref-journal-3b}, p.475). This produces: Wong (1999, p. 328; 2000, p. 475)
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% for journal Sci
+%\reviewreports{\\
+%Reviewer 1 comments and authors’ response\\
+%Reviewer 2 comments and authors’ response\\
+%Reviewer 3 comments and authors’ response
+%}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\PublishersNote{}
+\end{adjustwidth}
 \end{document}
+
