@@ -130,9 +130,9 @@ $^{2}$ \quad École de Technologie Supérieure, 1100 Notre Dame St. W., QC H3C 1
 \abstract{In the present work, a critical analysis of the most commonly used analytical models and recently introduced ANN-based models is performed to evaluate their predictive accuracy within and outside the experimental interval used to generate them.
 The high temperature deformation behavior of a medium carbon steel was studied over a wide range of strains, strain rates, and temperatures using hot compression tests on a Gleeble-3800.
 The experimental flow curves were modeled using Johnson-Cook, Modified-Zerilli-Armstrong, Hansel-Spittel, Arrhenius, and PTM models, as well as an ANN model.
-The mean absolute relative error and root mean square error values were used to quantify the predictive accuracy of the models analyzed.
+The mean absolute relative error and root-mean-square error values were used to quantify the predictive accuracy of the models analyzed.
 The results indicated that the Johnson-Cook and Modified-Zerilli-Armstrong models had a significant error, while the Hansel-Spittel, PTM, and Arrhenius models were able to predict the behavior of this alloy.
-The ANN model showed excellent agreement, with less than a 0.62\% error, between the predicted and experimental flow curves.
+The ANN model showed excellent agreement between the predicted and experimental flow curves, with an error of less than 0.62\%.
 To validate the performance, the ability to interpolate and extrapolate the experimental data was also tested.
 The Hansel-Spittel, PTM, and Arrhenius models showed good interpolation and extrapolation capabilities.
 However, the ANN model was the most powerful of all the models.}
@@ -368,7 +368,7 @@ The values predicted by the Johnson-Cook flow law (solid line) and the experimen
 \begin{figure}[!ht]
 \centering
 \includegraphics[width=\columnwidth]{Figures/CompExp-JC-6}
-\caption{Comparison between the experimental flow stresses and those predicted by the JC model}
+\caption{Comparison between the experimental (dots) and predicted (lines) flow stresses $\sigma^y$ by the Johnson-Cook model}
 \label{fig:CompExp-JC-6}
 \end{figure}
 The JC model is unable to describe the evolution of the flow stress of medium carbon for all strain values, and the predicted stresses $\sigma^y$ show a monotonically decreasing trend for several strain rate values.
@@ -417,7 +417,7 @@ To get the parameters of the MZA model, we apply the method proposed by \cite{Sa
 \centering
 \includegraphics[width=\columnwidth]
 {Figures/CompExp-MZA-6}
-\caption{Comparison between the experimental flow stresses and those predicted by the MZA model}
+\caption{Comparison between the experimental (dots) and predicted (lines) flow stresses $\sigma^y$ by the Modified Zerilli-Armstrong model}
 \label{fig:CompExp-MZA-6}
 \end{figure}
 It can be seen from this figure that the MZA model as well as the JC model is not able to faithfully reproduce the experimental data at low strain rates, but is much better for high strain rates.
@@ -466,7 +466,7 @@ The DRX phenomenon cannot be reproduced by this type of model.
 \centering
 \includegraphics[width=\columnwidth]
 {Figures/CompExp-HS-6}
-\caption{Comparison between the experimental flow stresses and those predicted by the HS model}
+\caption{Comparison between the experimental (dots) and predicted (lines) flow stresses $\sigma^y$ by the Hansel-Spittel model}
 \label{fig:CompExp-HS-6}
 \end{figure}
 
@@ -555,7 +555,7 @@ For the AR model, $\MARE=3.56~\%$ and $\RMSE=2.18~\MPa$.
 \centering
 \includegraphics[width=\columnwidth]
 {Figures/CompExp-AR-6}
-\caption{Comparison between the experimental flow stresses and those predicted by the AR model}
+\caption{Comparison between the experimental (dots) and predicted (lines) flow stresses $\sigma^y$ by the Arrhenius model}
 \label{fig:CompExp-AR-6}
 \end{figure}
 
@@ -603,7 +603,7 @@ For the PTM model, $\MARE=4.79~\%$ and $\RMSE=4.59~\MPa$, which is an overall wo
 \centering
 \includegraphics[width=\columnwidth]
 {Figures/CompExp-PTM-6}
-\caption{Comparison between the experimental flow stresses and those predicted the PTM model}
+\caption{Comparison between the experimental (dots) and predicted (lines) flow stresses $\sigma^y$ by the PTM model}
 \label{fig:CompExp-PTM-6}
 \end{figure}
 
@@ -670,7 +670,7 @@ As for the above considered analytical models, Figure \ref{fig:CompExp-3-15-7-1-
 \centering
 \includegraphics[width=\columnwidth]
 {Figures/CompExp-3-15-7-1-sigmoid}
-\caption{Comparison between the experimental flow stresses and those predicted by the 3-15-7-1-sigmoid ANN model}
+\caption{Comparison between the experimental (dots) and predicted (lines) flow stresses $\sigma^y$ by the 3-15-7-1-sigmoid ANN model}
 \label{fig:CompExp-3-15-7-1-sigmoid}
 \end{figure}
 The experimental data and the ANN prediction correlate very well over the entire range of data and the predicted data can track the hardening and softening regions of the hot deformed material well.
@@ -722,7 +722,7 @@ Figure \ref{fig:CompInt} shows a comparison, for strain rate $\mdot\varepsilon=1
 \centering
 \includegraphics[width=\columnwidth]
 {Figures/CompInt}
-\caption{Comparison between the experimental (dot) and predicted flow stresses $\sigma^y$ (lines) for $\mdot\varepsilon=1~\ps$}
+\caption{Comparison between the experimental (dots) and predicted (lines) flow stresses $\sigma^y$ for $\mdot\varepsilon=1~\ps$}
 \label{fig:CompInt}
 \end{figure}
 Table \ref{tab:IntVal} shows the $\MARE$ and $\RMSE$ deviations between the different models and the experimental data calculated either for the $5$ identified strain rates (lines referred as id. $\mdot\varepsilon$), the $6$ strain rates (lines referred as all $\mdot\varepsilon$) or only on the strain rate $\mdot\varepsilon=1~\ps$.
@@ -765,7 +765,7 @@ In this new identification configuration, Figure \ref{fig:CompExt} shows a compa
 \centering
 \includegraphics[width=\columnwidth]
 {Figures/CompExt}
-\caption{Comparison between the experimental (dot) and predicted flow stresses $\sigma^y$ (lines) for $\mdot\varepsilon=5~\ps$}
+\caption{Comparison between the experimental (dots) and predicted (lines) flow stresses $\sigma^y$ for $\mdot\varepsilon=5~\ps$}
 \label{fig:CompExt}
 \end{figure}
 Table \ref{tab:ExtVal} shows the $\MARE$ and $\RMSE$ deviations between the different models and the experimental data calculated either for the $5$ identified strain rates (lines referred as id. $\mdot\varepsilon$), the $6$ strain rates (lines referred as all $\mdot\varepsilon$) or only on the strain rate $\mdot\varepsilon=5~\ps$.

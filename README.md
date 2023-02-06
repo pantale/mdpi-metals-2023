@@ -1,6 +1,12 @@
 # TITLE
 
-This repository contains...
+This repository contains the source files paper entitled :
+
+**Interpolation and Extrapolation Performance Measurement of Analytical and ANN-Based Flow Laws for Hot Deformation Behavior of Medium Carbon Steel**
+
+Pierre Tize Mha, Prashant Dhondapure, Mohammad Jahazi, Amèvi Tongne and Olivier Pantalé
+
+For publication in Metals 2023
 
 
 
