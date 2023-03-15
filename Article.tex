@@ -263,6 +263,14 @@ Hot compression tests were performed on a Gleeble-3800 thermomechanical simulato
 \label{fig:Gleeble3800}
 \end{figure}
 Thin tantalum sheets were used as lubricating material at the contact surface of the anvils and samples to minimize friction during testing.
+\textcolor{red}{Figure \ref{fig:Inside-Gleeble3800} shows the inside of the Gleeble thermomechanical simulator with the specimen in place. We used 3 thermocouples soldered to the specimen to record the temperature history during the test and to ensure that the specimen was at the correct temperature prior to testing.}
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=0.7\columnwidth]{Figures/Gleeble-1}
+\caption{The inside of the Gleeble-3800 thermomechanical simulator with the specimen in place}
+\label{fig:Inside-Gleeble3800}
+\end{figure}
+
 As shown in Figure \ref{fig:GleebleProcess}, the samples were heated to a temperature of $1260\celsius$ with a heating rate of $2$\celsius/s and held at this temperature for $5$~min to eliminate thermal gradients.
 They were then cooled down with a rate of $1$\celsius/s to the test temperature and then held at constant temperature for $1$~min before deformation.
 During the compression phase, the temperature of the specimen is kept constant by the thermal control system of the machine.
@@ -275,7 +283,7 @@ Figure \ref{fig:GleebleProcess} also shows the aspects of the specimens before a
 \label{fig:GleebleProcess}
 \end{figure}
 
-The stress-strain curves are automatically exported from the Gleeble thermomechanical simulator system as the true stress and true strain according to the L-gauge, where the formula to get the curves is given by $\sigma=F/A$ and $\varepsilon=\ln\left(h_0+\Delta h / h_0\right)$ or C-gauge, having the following formulas: $\sigma = 4F/\pi(d+\Delta d)^2$ and $\varepsilon = 2\ln\left(d/(d+\Delta d)\right)$ with $d = 2r_0$, and where $F$ is the force as measured by the Gleeble load cell.
+The stress-strain curves are automatically exported from the Gleeble thermomechanical simulator system as the true stress and true strain according to the L-gauge, where the formula to get the curves is given by $\sigma=F/A$ and \textcolor{red}{$\varepsilon=\ln\left(1+\Delta h / h_0\right)$} or C-gauge, having the following formulas: $\sigma = 4F/\pi(d+\Delta d)^2$ and $\varepsilon = 2\ln\left(d/(d+\Delta d)\right)$ with $d = 2r_0$, and where $F$ is the force as measured by the Gleeble load cell.
 As raw data contains noises, the savgol\_filter method from the scipy library is used to remove noise and provide smoother data.
 To allow further use of the data in numerical simulations, elastic parts are removed.
 
@@ -292,6 +300,7 @@ The set of flow stress $\sigma^y$ versus strain $\varepsilon$ curves obtained fr
 \end{figure}
 All data curves contain $700$ equidistant strain values up-to $\varepsilon=0.7$.
 Therefore, there are $6$ strain rates and $5$ temperatures, and the database consists of $21,000$ data points.
+\textcolor{red}{For the identification of the parameters of all the analytical models presented in this article, we restricted the database to 35 strain values between $0.02$ and $0.7$, with a step of $0.02$ (this is illustrated in Figure \ref{fig:RawData}, where the data used correspond to the dots on the graphs).}
 The overall behavior of these curves shows that the flow stress $\sigma^y$ increases with increasing strain rate $\mdot\varepsilon$, but decreases with increasing temperature $T$.
 It should be noted that the strain also influences the flow stress.
 Indeed, for the lowest strain rates $\mdot\varepsilon$, the flow stress $\sigma^y$ increases with the strain $\varepsilon$ until a value of about $\varepsilon=0.2$ to $0.3$, and then decreases to maintain a more or less constant value until the end of the test.
@@ -308,7 +317,9 @@ In contrast, at higher strain rates and lower temperatures, the higher work hard
 In fact, the drop observed in
 stress is because of DRX occurrence at all temperatures and strain rates of $0.001$–$5$ $\text{s}^{-1}$.
 
-As an example, Figure \ref{fig:Micrography} shows the medium carbon microstructures held for $5$~min at $1260\celsius$ before and after the compression phase.
+\textcolor{red}{Figure \ref{fig:Micrography}(a) shows the microstructure obtained when the sample is held at $1260\celsius$ for $5$ minutes and rapidly cooled to room temperature. From this image, large grains can be observed. On the other hand, Figure \ref{fig:Micrography}(b) shows the microstructure after compression at $1150\celsius$ with a $0.001~\text{s}^{-1}$ strain rate. To obtain this, the sample is heated up to $1260\celsius$, then held for $5$ minutes and cooled down to $1150\celsius$ to be held at this temperature for $1$ minute before compression. After compression, the sample is rapidly cooled to room temperature to preserve the microstructure. From this image, full recrystallization can be observed and is in correlation with Figure \ref{fig:RawData}, where after the peak, a steady stress is observed that describes the end of the recrystallization.}
+
+%As an example, Figure \ref{fig:Micrography} shows the medium carbon microstructures held for $5$~min at $1260\celsius$ before and after the compression phase.
 \begin{figure}[!ht]
 \centering
 \begin{subfigure}[b]{0.45\columnwidth}
@@ -322,10 +333,11 @@ As an example, Figure \ref{fig:Micrography} shows the medium carbon microstructu
 \includegraphics[width=\columnwidth]{Figures/AfterCompM}
 \caption{After hot compression}
 \end{subfigure}
-\caption{Optical micrographs of a medium carbon steel (a) before and (b) after hot compression}
+\caption{Optical micrographs of a medium carbon steel (a) before and (b) after hot compression at $1150\celsius$ with a $0.001~\text{s}^{-1}$ strain rate.}
 \label{fig:Micrography}
 \end{figure}
-As observed on the flow curves reported in Figure \ref{fig:RawData}, it can be seen by comparing the two micrographs in Figure \ref{fig:Micrography} that recrystallization is almost complete for this temperature and strain rate within the sample held for 5 minutes at $1260^\circ$C and rapidly cooled to get austenitized grain on the one hand, and on the other hand, held for $1$ minute at $1150^\circ$C before compression with a $0.001~\text{s}^{-1}$ strain rate.
+\textcolor{red}{The material is in the single phase austenite state at all of the test temperatures examined.}
+%As observed on the flow curves reported in Figure \ref{fig:RawData}, it can be seen by comparing the two micrographs in Figure \ref{fig:Micrography} that recrystallization is almost complete for this temperature and strain rate within the sample held for 5 minutes at $1260^\circ$C and rapidly cooled to get austenitized grain on the one hand, and on the other hand, held for $1$ minute at $1150^\circ$C before compression with a $0.001~\text{s}^{-1}$ strain rate.
 The data presented in Figure \ref{fig:RawData} will be utilized in the following section to determine the parameters of the $6$ flow laws proposed and to determine which model most closely aligns with experimental results.
 
 %----------------------------------------------------------------------------------
@@ -340,16 +352,17 @@ However, the formulation of this model does not take into account the simultaneo
 Indeed, it is formulated by describing the effect of each physical parameter ($\varepsilon$, $\mdot\varepsilon$ and $T$) separately as a factor in the mathematical expression of the model, hence its inability to describe the phenomenon of softening induced by temperature.
 The equation that describes this model is given as follows \cite{Johnson-1983}:
 \begin{equation}
-\sigma^y=\left(A+B\varepsilon^{p^{n}}\right) \left[1+C\ln\left(\frac{\mdot\varepsilon}{\mdot\varepsilon_0}\right)\right] \left[1-\left(\frac{T-T_0}{T_m-T_0}\right)^{m}\right],\label{eq:Johnson-Cook}
+\sigma^y=\left(A+B{\varepsilon^p}^{n}\right) \left[1+C\ln\left(\frac{\mdot\varepsilon}{\mdot\varepsilon_0}\right)\right] \left[1-\left(\frac{T-T_0}{T_m-T_0}\right)^{m}\right],\label{eq:Johnson-Cook}
 \end{equation}
 where $\sigma^y$ is the flow stress, $\varepsilon^p$ is the plastic strain, $A$ is the initial elastic limit of the material, $B$ is the strain hardening coefficient, $n$ is the strain hardening exponent, $C$ and $m$ are the material constants that describe the strain rate hardening coefficient and the thermal softening coefficient, respectively.
 The other values are reference values: $\mdot\varepsilon_0$ is the reference strain rate, $T_m$ and thus $T_0$ are the melting temperature ($1460\celsius$ in our case) and the reference temperature, respectively.
-For the determination of the parameters of the analytical models, the reference values for strain rate and temperature are $\mdot\varepsilon_0=0.001~\ps$ and $T_0=1050\celsius$, respectively.
+For the determination of the parameters of the analytical models, the reference values for strain rate and temperature are $\mdot\varepsilon_0=0.001~\ps$ and $T_0=1050\celsius$.
+\textcolor{red}{In our approach, the reference strain rate and reference temperature for identifying the JC model are the lowest values used during the test, however, sometimes these values do not always give the best results for the model.}
 
-The procedure used to determine the parameters of the Johnson-Cook law is in accordance with the one proposed by He \eal \cite{zeng2022constitutive}.
+The procedure used to determine the parameters of the Johnson-Cook law is in accordance with the one proposed by Zeng \eal \cite{zeng2022constitutive}.
 This method allows sequentially obtaining the $5$ parameters in the order $A$, $B$, $n$, $C$ and $m$.
 Thus, according to the experimental data, the initial elastic limit of the material at the reference strain rate $\mdot\varepsilon_0$ and the reference temperature $T_0$ is $A=13.5143~\MPa$.
-For the determination of the constants $B$ and $n$, from the results of the compression test at $T_0$ and $\mdot\varepsilon_0$, these two constants can then be determined by considering only the first term $\left(A+B\varepsilon^{p^{n}}\right)$ in Equation (\ref{eq:Johnson-Cook}).
+For the determination of the constants $B$ and $n$, from the results of the compression test at $T_0$ and $\mdot\varepsilon_0$, these two constants can then be determined by considering only the first term $\left(A+B{\varepsilon^p}^{n}\right)$ in Equation (\ref{eq:Johnson-Cook}).
 Thus, here, $B=21.816~\MPa$ and $n=0.0746$.
 Once the parameters $A$, $B$ and $n$ are known, the determination of $C$, considering only all the curves at $T=T_0$ then gives $C=0.3404$.
 Finally, the last parameter $m$ is identified from the curves at $\mdot\varepsilon=\mdot\varepsilon_0$ and from knowledge of the parameters $A, B, C, n$ and gives $m=0.7057$.
@@ -375,7 +388,8 @@ The values predicted by the Johnson-Cook flow law (solid line) and the experimen
 \caption{Comparison between the experimental (dots) and predicted (lines) flow stresses $\sigma^y$ by the Johnson-Cook model}
 \label{fig:CompExp-JC-6}
 \end{figure}
-The JC model is unable to describe the evolution of the flow stress of medium carbon for all strain values, and the predicted stresses $\sigma^y$ show a monotonically decreasing trend for several strain rate values.
+\textcolor{red}{The JC model is unable to describe the evolution of the average carbon flow stress for all strain and strain rate levels. The experimental flow stresses show a growth and then a decrease with strain, especially for low strain rates, while the JC model, by its formulation, only allows an increasing evolution of the flow stress $\sigma^y$ as a function of the strain whatever the strain rate.}
+%The JC model is unable to describe the evolution of the flow stress of medium carbon for all strain values, and the predicted stresses $\sigma^y$ show a monotonically decreasing trend for several strain rate values.
 The discrepancy between the predicted and experimental values is large for low strains and sometimes acceptable for high strains.
 As expected, the mathematical formulation of the Johnson-Cook flow law is unable to represent the stress drop at low strain rates, with the JC model increasing only monotonically with the strain.
 Since most of the parameters are identified at low strain rates ($A$, $B$ and $n$), this results in a very poor fit of the model to the experimental data.
@@ -403,7 +417,7 @@ In the JC model, the parameters are considered separately, while in MZA, they ar
 However, the original form of the ZA model has some limitations due to the fact that it is considered as a two terms function (thermal and athermal functions), and to improve the formulation, Samantaray \eal \cite{Samantaray-2009} proposed a modified form given by the following equation:
 \begin{equation}
 \label{eq:MZA-model}
-\sigma^y = \left(C_{1}+C_{2}\varepsilon^{p^n}\right) \exp\left[-\left(C_{3}+C_{4}\varepsilon^p\right)\left(T-T_0\right) + \left(C_{5}+C_{6}\left(T-T_0\right)\right)\ln\left( \frac{\mdot\varepsilon}{\mdot{\varepsilon}_0}\right)\right],
+\sigma^y = \left(C_{1}+C_{2}{\varepsilon^p}^{n}\right) \exp\left[-\left(C_{3}+C_{4}\varepsilon^p\right)\left(T-T_0\right) + \left(C_{5}+C_{6}\left(T-T_0\right)\right)\ln\left( \frac{\mdot\varepsilon}{\mdot{\varepsilon}_0}\right)\right],
 \end{equation}
 where the $7$ coefficients $C_i$ and $n$ are the parameters of the model to be identified for a given material.
 To get the parameters of the MZA model, we apply the method proposed by \cite{Samantaray-2009}, and the parameters are summarized in Table \ref{tab:MZA}, while their predictions are plotted in Figure \ref{fig:CompExp-MZA-6}.
@@ -412,7 +426,7 @@ To get the parameters of the MZA model, we apply the method proposed by \cite{Sa
 \caption{Parameter constants of Modified Zerilli-Armstrong model}
 \begin{tabular}{ccccccc}
 \toprule
-\boldmath{$C_1$} & \boldmath{$C_2$} & \boldmath{$C_3$} & \boldmath{$C_4$} & \boldmath{$C_5$} & \boldmath{$C_6$} & \boldmath{$n$} \\
+\boldmath{$C_1~(\MPa)$} & \boldmath{$C_2~(\MPa)$} & \boldmath{$C_3$} & \boldmath{$C_4$} & \boldmath{$C_5$} & \boldmath{$C_6$} & \boldmath{$n$} \\
 \midrule
 $13.5143$ & $21.2591$ & $4.7902\times 10^{-3}$ & $1.4895\times 10^{-4}$ & $0.1389$ & $1.495\times 10^{-4}$ & $0.0621$ \\ 
 \bottomrule
@@ -426,10 +440,11 @@ $13.5143$ & $21.2591$ & $4.7902\times 10^{-3}$ & $1.4895\times 10^{-4}$ & $0.138
 \caption{Comparison between the experimental (dots) and predicted (lines) flow stresses $\sigma^y$ by the Modified Zerilli-Armstrong model}
 \label{fig:CompExp-MZA-6}
 \end{figure}
-It can be seen from this figure that the MZA model as well as the JC model is not able to faithfully reproduce the experimental data at low strain rates, but is much better for high strain rates.
+\textcolor{red}{It can be seen from this figure that both the MZA and JC models are not able to faithfully reproduce the experimental data, especially at low strain rates, but they are slightly better at higher strain rates.}
+%It can be seen from this figure that the MZA model as well as the JC model is not able to faithfully reproduce the experimental data at low strain rates, but is much better for high strain rates.
 The deviation between the predicted values and the experimental values is large because this model has a problem correctly describing the softening in its formulation.
 For the MZA model, $\MARE=21.20~\%$ and $\RMSE=19.57~\MPa$, showing an overall worse performance than the JC model, as reported in \cite{TizeMha-2022}.
-
+\textcolor{red}{In addition, it can be observed that at high strain rates the MZA is not good either, even if there is no softening effect, and this can be explained by the fact that this model is formulated for quasi-static phenomena.}
 %----------------------------------------------------------------------------------
 \subsection{The Hansel-Spittel model\label{sec:HSmodel}}
 %----------------------------------------------------------------------------------
@@ -538,16 +553,16 @@ Setting $m=9$ gives the best results, and the corresponding parameters are repor
 \toprule
 \multicolumn{1}{c}{\boldmath{$\alpha_i$}} & \multicolumn{1}{c}{\boldmath{$Q_i~(\times 10^{-6})$}} & \multicolumn{1}{c}{\boldmath{$\ln\!A_i$}} & \multicolumn{1}{c}{\boldmath{$n_i$}} \\ 
 \midrule
-$\alpha_0=0.0407$ & $Q_0=0.467$ & $A_0=35.8092$ & $n_0=4.8217$ \\
-$\alpha_1=-0.5167$ & $Q_1=-0.6517$ & $A_1=-58.822$ & $n_1=3.2814$ \\
-$\alpha_2=6.3912$ & $Q_2=7.6084$ & $A_2=740.3303$ & $n_2=71.5963$ \\
-$\alpha_3=-47.3364$ & $Q_3=-48.016$ & $A_3=-5.0493\times 10^{3}$ & $n_3=-1.9562\times 10^{3}$ \\
-$\alpha_4=220.0014$ & $Q_4=66.795$ & $A_4=1.1305\times 10^{4}$ & $n_4=1.4461\times 10^{4}$ \\
-$\alpha_5=-654.4553$ & $Q_5=468.8898$ & $A_5=2.022\times 10^{4}$ & $n_5=-5.431\times 10^{4}$ \\
-$\alpha_6=1.2421\times 10^{3}$ & $Q_6=-2.3032\times 10^{3}$ & $A_6=-1.5387\times 10^{5}$ & $n_6=1.1761\times 10^{5}$ \\
-$\alpha_7=-1.4523\times 10^{3}$ & $Q_7=4.3707\times 10^{3}$ & $A_7=3.1798\times 10^{5}$ & $n_7=-1.4882\times 10^{5}$ \\
-$\alpha_8=952.0619$ & $Q_8=-3.9394\times 10^{3}$ & $A_8=-2.9725\times 10^{5}$ & $n_8=1.0239\times 10^{5}$ \\
-$\alpha_9=-267.4994$ & $Q_9=1.397\times 10^{3}$ & $A_9=1.0759\times 10^{5}$ & $n_9=-2.9621\times 10^{4}$ \\ 
+$\alpha_0=0.0407$ & $Q_0=0.467$ & \textcolor{red}{$\ln\!A_0=35.8092$} & $n_0=4.8217$ \\
+$\alpha_1=-0.5167$ & $Q_1=-0.6517$ & \textcolor{red}{$\ln\!A_1=-58.822$} & $n_1=3.2814$ \\
+$\alpha_2=6.3912$ & $Q_2=7.6084$ & \textcolor{red}{$\ln\!A_2=740.3303$} & $n_2=71.5963$ \\
+$\alpha_3=-47.3364$ & $Q_3=-48.016$ & \textcolor{red}{$\ln\!A_3=-5.0493\times 10^{3}$} & $n_3=-1.9562\times 10^{3}$ \\
+$\alpha_4=220.0014$ & $Q_4=66.795$ & \textcolor{red}{$\ln\!A_4=1.1305\times 10^{4}$} & $n_4=1.4461\times 10^{4}$ \\
+$\alpha_5=-654.4553$ & $Q_5=468.8898$ & \textcolor{red}{$\ln\!A_5=2.022\times 10^{4}$} & $n_5=-5.431\times 10^{4}$ \\
+$\alpha_6=1.2421\times 10^{3}$ & $Q_6=-2.3032\times 10^{3}$ & \textcolor{red}{$\ln\!A_6=-1.5387\times 10^{5}$} & $n_6=1.1761\times 10^{5}$ \\
+$\alpha_7=-1.4523\times 10^{3}$ & $Q_7=4.3707\times 10^{3}$ & \textcolor{red}{$\ln\!A_7=3.1798\times 10^{5}$} & $n_7=-1.4882\times 10^{5}$ \\
+$\alpha_8=952.0619$ & $Q_8=-3.9394\times 10^{3}$ & \textcolor{red}{$\ln\!A_8=-2.9725\times 10^{5}$} & $n_8=1.0239\times 10^{5}$ \\
+$\alpha_9=-267.4994$ & $Q_9=1.397\times 10^{3}$ & \textcolor{red}{$\ln\!A_9=1.0759\times 10^{5}$} & $n_9=-2.9621\times 10^{4}$ \\ 
 \bottomrule
 \end{tabular}
 \label{tab:AR}
@@ -582,7 +597,7 @@ Thus, the physical parameters' dependent intrinsic functions of the PTM model, a
 The equation describing the PTM model is therefore given by :
 \begin{equation}
 \label{eq:PTM-model}
-\sigma^y = \left(\sum_{i=0}^{q}{A_i\varepsilon^{p^i}}\right) \exp\left[\left(\sum_{j=0}^{r}{B_j\varepsilon^{p^j}}\right)\left(T-T_0\right) + \left(\sum_{k=0}^{s}\left(\sum_{l=0}^{t}{C_k^l\varepsilon^{p^l}} \right)\left(T-T_0\right)^k \right)\ln\left( \frac{\mdot\varepsilon}{\mdot{\varepsilon}_0}\right)\right]
+\sigma^y = \left(\sum_{i=0}^{q}{A_i{\varepsilon^p}^{i}}\right) \exp\left[\left(\sum_{j=0}^{r}{B_j{\varepsilon^p}^{j}}\right)\left(T-T_0\right) + \left(\sum_{k=0}^{s}\left(\sum_{l=0}^{t}{C_k^l{\varepsilon^p}^{l}} \right)\left(T-T_0\right)^k \right)\ln\left( \frac{\mdot\varepsilon}{\mdot{\varepsilon}_0}\right)\right]
 \end{equation}
 where $A_i, B_j, C_k^l$ are the parameters (Table \ref{tab:PTM}) of the model to be identified using the procedure proposed in \cite{TizeMha-2022}.
 Quantities $q$, $r$, $s$ and $t$ define the degree of the polynomials used to describe the behavior of the material.
