@@ -1,4 +1,4 @@
-SOURCE=Article
+SOURCE=Metals-2023
 
 all:
 	pdflatex $(SOURCE).tex
